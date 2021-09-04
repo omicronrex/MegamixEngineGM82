@@ -221,15 +221,6 @@ recordInputAppendFrame
 recordInputReadFrame
 recordInputFidelityMessage
 stringExecutePartial
-parseExpression
-stringPeekBlock
-setInstanceVariableArray
-getInstanceVariable
-getInstanceVariableArray
-stringPeekToken
-scriptExecuteNargs
-executeGMLFunction
-setInstanceVariable
 scrNoEffect
 eventExecute
 combineObjects
