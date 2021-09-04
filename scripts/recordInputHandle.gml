@@ -27,7 +27,7 @@ if (global.recordInputMode == 1)
         {
             global.recordInputBegin = false;
             global.recordInputFidelityMessageBuffer = "";
-            
+
             // set random seed (created in saveLoadRecordInput)
             random_set_seed(global.recordInputRandomSeed);
         }
@@ -38,7 +38,7 @@ if (global.recordInputMode == 1)
             exit;
         }
     }
-    
+
     // recording -- frame logic
     recordInputAppendFrame();
     global.recordInputFrame++;
@@ -58,11 +58,11 @@ if (global.recordInputMode == 2)
                 // skipping spawn -- we must warp directly to the recording start point and
                 // set up mega man's state correctly.
                 global.playerCount = global.recordPlayerCount;
-                
+
                 // we'll replace this with our own
                 with (objMegaman)
                     instance_destroy();
-                
+
                 // setup player values
                 for (var i = 0; i < global.playerCount; i++)
                 {
@@ -71,10 +71,10 @@ if (global.recordInputMode == 2)
                     {
                         global.ammo[i, j] = global.recordInputAmmo[i, j];
                     }
-                    
+
                     global.weapon[i] = global.recordInputWeapon[i];
                     global.respawnTimer[i] = global.recordInputRespawnTimer[i];
-                    
+
                     if (global.recordInputActive[i])
                     {
                         with (instance_create(0, 0, objMegaman))
@@ -91,14 +91,14 @@ if (global.recordInputMode == 2)
                         }
                     }
                 }
-                
+
                 setSection(objMegaman.x, objMegaman.y, true);
                 playerCamera(1);
                 reAndDeactivateObjects(1, 1);
             }
-            
+
             global.recordInputFidelityMessageBuffer = "";
-            
+
             // set random seed
             random_set_seed(global.recordInputRandomSeed);
         }
@@ -113,7 +113,7 @@ if (global.recordInputMode == 2)
             exit;
         }
     }
-    
+
     // playback -- frame logic
     var status = recordInputReadFrame();
     if (status == 1)

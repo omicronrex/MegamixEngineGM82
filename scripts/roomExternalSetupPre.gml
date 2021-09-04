@@ -18,7 +18,7 @@ for (var i = 1; i < grid_width; i++)
     {
         image_xscale = real(exgrid[# i, 2]);
         image_yscale = real(exgrid[# i, 3]);
-        
+
         // image_blend = real(exgrid[# i, 4]);
         image_angle = real(exgrid[# i, 5]);
     }

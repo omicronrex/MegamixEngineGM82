@@ -1,0 +1,7 @@
+sprite=sprShieldGuard
+visible=1
+solid=0
+persistent=0
+depth=0
+parent=objMM4ShieldAttacker
+mask=

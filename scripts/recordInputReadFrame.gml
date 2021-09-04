@@ -32,7 +32,7 @@ while (true)
         return 1;
     if (nextFrameMarker == 1)
         break;
-    
+
     // read key:
     var key;
     var colonIndex = stringIndexOf(global.recordInputSaveData, ":");
@@ -43,7 +43,7 @@ while (true)
     }
     else
         return -1;
-    
+
     // read value:
     var value;
     var newlineIndex = stringIndexOf(global.recordInputSaveData, "|");
@@ -54,7 +54,7 @@ while (true)
     }
     else
         return -1;
-    
+
     // execute command:
     if (key == "fi")
     {

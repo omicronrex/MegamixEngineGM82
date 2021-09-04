@@ -1,0 +1,7 @@
+sprite=sprDarspiderWeb
+visible=1
+solid=0
+persistent=0
+depth=666
+parent=prtAlwaysActive
+mask=

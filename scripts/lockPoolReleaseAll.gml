@@ -13,13 +13,13 @@ for (var lp = 0; lp < argument_count; lp++)
         printErr("Invoked lockPoolReleaseAll on a non-existent lock pool.");
         continue;
     }
-    
+
     // remove all locks on this lock pool
     for (var i = 0; i < global.lockPoolLockCount[lockPoolID]; i++)
     {
         global.lockPoolLockTable[lockPoolID, i] = false;
     }
-    
+
     global.lockPoolLockCount[lockPoolID] = 0;
     if (global.lockPoolTombstone[lockPoolID])
     {

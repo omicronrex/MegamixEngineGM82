@@ -25,17 +25,17 @@ var _sr = room_width;
 for (_i = 0; _i < _size; _i++)
 {
     _str = ds_list_find_value(global.borderlist, _i);
-    
+
     _s = string_pos("s", _str) + 1;
     _e = string_pos("e", _str) + 1;
-    
+
     if (string_count("h", _str)) // Horizontal
     {
         if (_y > real(string_copy(_str, _s, (_e - 1) - _s))
             && _y < real(string_copy(_str, _e, (string_length(_str) + 1) - _e)))
         {
             _str = real(string_copy(_str, 2, _s - 3));
-            
+
             if (_x < _str)
             {
                 _sr = min(_str, _sr);
@@ -52,7 +52,7 @@ for (_i = 0; _i < _size; _i++)
             && _x < real(string_copy(_str, _e, (string_length(_str) + 1) - _e)))
         {
             _str = real(string_copy(_str, 2, _s - 3));
-            
+
             if (_y < _str)
             {
                 _sb = min(_str, _sb);
@@ -72,7 +72,7 @@ if (_global)
     global.borderLockRight = room_width;
     global.borderLockTop = 0;
     global.borderLockBottom = room_height;
-    
+
     global.sectionLeft = _sl;
     global.sectionRight = _sr;
     global.sectionTop = _st;

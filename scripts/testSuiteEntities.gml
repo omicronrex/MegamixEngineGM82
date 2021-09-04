@@ -9,7 +9,7 @@ if (unitCase("Basic entity safety"))
     {
         // load external room
         rmUnitTestRecordBasic = roomExternalLoad("UnitTests/Rooms/lvlRecordingTest");
-        
+
         // makes sure room loaded
         unitRequire(rmUnitTestRecordBasic >= 0);
         if (unitValid()) // ensure require did not fail
@@ -18,7 +18,7 @@ if (unitCase("Basic entity safety"))
             room_goto(rmUnitTestRecordBasic);
         }
     }
-    
+
     if (unitTick())
     {
         // destroy mega man
@@ -29,9 +29,9 @@ if (unitCase("Basic entity safety"))
                 instance_destroy();
             }
         }
-        
+
         var RAND_MAX = 100000;
-        
+
         if (global.roomTimer == 6)
         {
             randomize();
@@ -40,7 +40,7 @@ if (unitCase("Basic entity safety"))
             global.unitTestSeedCmp = irandom(RAND_MAX);
             global.unitTestTestInstance = noone;
         }
-        
+
         if (global.roomTimer > 6 && global.roomTimer mod 3 == 0)
         {
             var objectIndex = global.roomTimer - 7;
@@ -51,7 +51,7 @@ if (unitCase("Basic entity safety"))
             if (object_exists(objectIndex))
             {
                 print("Creating " + object_get_name(objectIndex));
-                
+
                 // TODO: remove the && !object_is_ancestor(objectIndex, prtEnemyProjectile), they should be tested too but they were too buggy...
                 if (object_is_ancestor(objectIndex, prtEntity) && objectIndex!=objElectricGabyoall&& !object_is_ancestor(objectIndex, prtEnemyProjectile))
                 {
@@ -72,7 +72,7 @@ if (unitCase("Basic entity safety"))
             }
         }
     }
-    
+
     // clean-up
     if (unitCleanUp())
     {

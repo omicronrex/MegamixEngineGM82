@@ -8,7 +8,7 @@ var message = "";
 if (argument_count > 2)
 {
     message = argument[2] + "
-    
+
     ";
 }
 
@@ -30,7 +30,7 @@ if (is_array(a) && is_array(b))
             {
                 cond = false;
             }
-            else 
+            else
             {
                 for (var j = 0; j < array_length_2d(a, i); j++)
                 {

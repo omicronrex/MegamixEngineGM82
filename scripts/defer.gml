@@ -15,15 +15,15 @@ with (instance_create(0, 0, objDefer))
 {
     event = argument[0];
     subEvent = argument[1];
-    
+
     if (event == ev_destroy)
     {
         caller = other.id;
     }
-    
+
     depth = argument[2];
     script = argument[3];
-    
+
     if (argument_count <= 4)
     {
         argCount = 0;
@@ -33,7 +33,7 @@ with (instance_create(0, 0, objDefer))
         args = argument[4];
         argCount = array_length_1d(args);
     }
-    
+
     if (argument_count <= 5)
     {
         timer = 0;
@@ -42,6 +42,6 @@ with (instance_create(0, 0, objDefer))
     {
         timer = argument[5];
     }
-    
+
     return id;
 }

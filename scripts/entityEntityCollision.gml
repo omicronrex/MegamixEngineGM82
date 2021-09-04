@@ -66,7 +66,7 @@ switch (guardCancel)
 {
     case 0:
         break;
-    case 1: // Regular reflecting 
+    case 1: // Regular reflecting
         if (penetrate == 0) // Reflected by shield
         {
             event_user(EV_REFLECTED);
@@ -82,20 +82,20 @@ switch (guardCancel)
             playSFX(sfxReflect);
             exit;
         }
-        
+
         // Set penetrate to 3 to completely bypass shields
         break;
-    case 2: // Ignore collision 
+    case 2: // Ignore collision
         exit;
         break;
-    case 3: // Reflect non-piercing entities / Ignore piercing entities 
+    case 3: // Reflect non-piercing entities / Ignore piercing entities
         if (penetrate == 0)
         {
             event_user(EV_REFLECTED);
         }
         exit;
         break;
-    case 4: // Reflect regardless of the "penetrate" variable 
+    case 4: // Reflect regardless of the "penetrate" variable
         event_user(EV_REFLECTED);
         exit;
         break;
@@ -120,9 +120,9 @@ if (global.damage != 0)
                 }
             }
         }
-        
+
         healthpoints -= global.damage;
-        
+
         hitterID = other.id;
         event_user(EV_HURT);
         hitTimer = 0;
@@ -149,7 +149,7 @@ if (global.damage != 0)
                 {
                     parent = prtPlayerProjectile;
                 }
-                
+
                 event_perform_object(parent, ev_other, ev_user10);
                 itemDrop = -1;
             }
@@ -158,7 +158,7 @@ if (global.damage != 0)
                 event_user(EV_DEATH);
             }
         }
-        
+
         if (global.damagePopup) // Damagepopup
         {
             instance_create(bboxGetXCenter(), bbox_top + 4, objDamagePopup);

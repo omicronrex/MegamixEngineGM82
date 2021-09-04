@@ -15,18 +15,18 @@ var full = 0;
 var s = max(1, min(ns, display_get_height() / ysize, display_get_width() / xsize));
 
 full = ns > s;
-    
+
 window_set_fullscreen(full);
 
 if (!full)
 {
     s = ceil(s);
-    
+
     xsize *= s;
     ysize *= s;
-    
+
     window_set_size(xsize, ysize);
-    
+
     if (shift)
     {
         window_set_position(

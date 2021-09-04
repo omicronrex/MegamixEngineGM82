@@ -1,0 +1,7 @@
+sprite=sprWindDown
+visible=0
+solid=0
+persistent=0
+depth=0
+parent=objWindRight
+mask=

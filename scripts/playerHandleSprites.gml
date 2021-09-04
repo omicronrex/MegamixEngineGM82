@@ -22,7 +22,7 @@ spriteY = 0;
 // do animations
 switch (AnimID)
 {
-    case "Normal": // Regular animation stuff 
+    case "Normal": // Regular animation stuff
         animNameID = 0; // Standing
         if (isHit || isFrozen) // Hurt
         {
@@ -58,7 +58,7 @@ switch (AnimID)
         {
             animNameID = 3;
         }
-        
+
         if (animNameID == 0) // Stand
         {
             blinkTimer += 1;
@@ -71,16 +71,16 @@ switch (AnimID)
             blinkImage = 0;
         }
         spriteY = isShoot;
-        
+
         switch (animNameID)
         {
-            case 0: // Stand 
+            case 0: // Stand
                 spriteX = blinkImage;
                 break;
-            case 1: // Pixel Step 
+            case 1: // Pixel Step
                 spriteX = 2;
                 break;
-            case 2: // Walking 
+            case 2: // Walking
                 spriteLoopStart = 0;
                 spriteLoopEnd = 3;
                 spriteIDX[0] = 3;
@@ -92,7 +92,7 @@ switch (AnimID)
                 spriteX = spriteIDX[floor(spriteLoopID)];
                 animate = 1;
                 break;
-            case 3: // Jumping 
+            case 3: // Jumping
                 spriteLoopStart = 0;
                 spriteLoopEnd = 3;
                 spriteLoopPoint = 2;
@@ -114,7 +114,7 @@ switch (AnimID)
                 spriteX = spriteIDX[floor(spriteLoopID)];
                 animate = 1;
                 break;
-            case 4: // Climbing 
+            case 4: // Climbing
                 spriteX = 15;
                 if (instance_exists(objSectionSwitcher))
                 {
@@ -126,10 +126,10 @@ switch (AnimID)
                     }
                 }
                 break;
-            case 5: // Hit 
+            case 5: // Hit
                 spriteX = 13 + (!isHit) - isFrozen;
                 break;
-            case 6: // Sliding 
+            case 6: // Sliding
                 spriteLoopStart = 0;
                 spriteLoopEnd = 1;
                 spriteLoopPoint = 0;
@@ -138,23 +138,23 @@ switch (AnimID)
                 spriteX = spriteIDX[floor(spriteLoopID)];
                 animate = 1;
                 break;
-            case 7: // Climbing top 
+            case 7: // Climbing top
                 spriteX = 17;
                 break;
-            case 8: // Stun 
+            case 8: // Stun
                 spriteX = 14;
                 break;
         }
         break;
-    
+
     // - E X T R A    A N I M A T I O N    S T U F F - //
-    
+
     // Weapons
     case "Slash":
         spriteY = 9;
-        
+
         var initxoffset;
-        
+
         if (climbing)
         {
             initxoffset = 8;
@@ -167,7 +167,7 @@ switch (AnimID)
         {
             initxoffset = 4;
         }
-        
+
         if (instance_exists(objSlashClaw))
         {
             var sprx;
@@ -191,7 +191,7 @@ switch (AnimID)
         if (!climbing)
         {
             spriteY = 7;
-            
+
             if (instance_exists(objWireAdapter))
             {
                 if (ground || other.phase == 1)
@@ -219,9 +219,9 @@ switch (AnimID)
         break;
     case "Tengu1":
         spriteY = 10;
-        
+
         var initxoffset;
-        
+
         if (climbing)
         {
             initxoffset = 8;
@@ -234,7 +234,7 @@ switch (AnimID)
         {
             initxoffset = 4;
         }
-        
+
         if (instance_exists(objTenguBlade))
         {
             var sprx;
@@ -253,9 +253,9 @@ switch (AnimID)
     case "Guts":
         spriteY = 6;
         break;
-    
+
     // Other
-    
+
     case "Talk":
         break;
     case "Teleport":
@@ -264,7 +264,7 @@ switch (AnimID)
         break;
     case "Spin":
         animSpinOffset += 0.125 * sign(other.image_xscale);
-        
+
         // loop the animation
         if (animSpinOffset > 9)
         {
@@ -274,7 +274,7 @@ switch (AnimID)
         {
             animSpinOffset = 9;
         }
-        
+
         spriteX = animSpinOffset;
         spriteY = 11;
         break;

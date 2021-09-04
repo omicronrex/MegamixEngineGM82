@@ -15,12 +15,12 @@ for (var lockPoolID = 0; lockPoolID < global.lockPoolN; lockPoolID++)
 {
     if (!lockPoolExists(lockPoolID))
         continue;
-    
+
     // determine whether this lock pool has the given lock checked out
     var poolHasLock = lv < global.lockPoolLockCount[lockPoolID];
     if (poolHasLock)
         poolHasLock = global.lockPoolLockTable[lockPoolID, lv];
-    
+
     // strict error-checking
     if (strict)
     {
@@ -41,13 +41,13 @@ for (var lockPoolID = 0; lockPoolID < global.lockPoolN; lockPoolID++)
             return -1;
         }
     }
-    
+
     // release lock
     if (poolHasLock)
     {
         global.lockPoolLockTable[lockPoolID, lv] = false;
         anyRelease = true;
-        
+
         // If this is the rightmost lock in this lock pool, recalculate number of locks
         if (lv == global.lockPoolLockCount[lockPoolID] - 1)
         {
@@ -65,7 +65,7 @@ for (var lockPoolID = 0; lockPoolID < global.lockPoolN; lockPoolID++)
             }
         }
     }
-    
+
     // clear tombstoned pool
     if (global.lockPoolLockCount[lockPoolID] == 0 && global.lockPoolTombstone[lockPoolID])
     {

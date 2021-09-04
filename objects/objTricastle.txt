@@ -1,0 +1,7 @@
+sprite=sprTricastle
+visible=1
+solid=0
+persistent=0
+depth=17
+parent=prtMiniBoss
+mask=

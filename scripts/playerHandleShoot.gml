@@ -17,7 +17,7 @@ if (isShoot) // While shooting
             shootStandStillLock = lockPoolRelease(shootStandStillLock);
         }
     }
-    
+
     shootTimer += 1;
     if (shootTimer >= 16) // 20 looks better, but 16 is more accurate
     {

@@ -11,7 +11,7 @@ if (!argument[0])
         printErr(ERROR_MESSAGE);
         printErr("FATAL ASSERTION FAILURE");
     }
-    
+
     // intentionally invoke crash:
     var a = 0; // ASSERTION FAILED -- SEE CONSOLE
     a = 1 / a; // ASSERTION FAILED -- SEE CONSOLE

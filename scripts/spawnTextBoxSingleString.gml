@@ -37,7 +37,7 @@ while (string_length(mytext) > 0)
     // run through each word and see which word ends up going over the line length
     s = string_pos(' ', subtext); // get position of next space
     space += s; // count how far across we are into the line
-    
+
     // newline character
     newLinePos = string_pos("#", subtext);
     if (newLinePos > 0 && (s <= 0 || newLinePos < s))
@@ -45,22 +45,22 @@ while (string_length(mytext) > 0)
         space = linelength * 2;
         prespace += newLinePos;
     }
-    
+
     // identify text effects and figure out how much space they take up
-    
+
     /* e = string_copy(subtext, 1, s);
     newLinePos = string_pos("#", e);
-    
+
     if (newLinePos > 0)
     {
         space = linelength * 2; //trigger new line
         prespace -= string_length(e) - newLinePos; //set the end position of what to put into the line at the line break
     }*/
-    
+
     // color effects
     e = string_copy(subtext, 1, s);
     ep = string_pos("/C", e);
-    
+
     if (ep > 0 && (newLinePos <= 0
         || ep < newLinePos)) // only count effects if before new line break
     {
@@ -69,19 +69,19 @@ while (string_length(mytext) > 0)
         {
             ep = string_pos("/C",
                 e); // it always gives the position of the first instance
-            
+
             // no more possible commands
             if (ep <= 0)
             {
                 break;
             }
-            
+
             c = string_copy(e, ep + 2, 1);
             if (c == "0" || c == "1" || c == "2")
             {
                 txtEffectCol = string_copy(e, ep, 3);
                 effectSpace += 3;
-                
+
                 e = string_delete(e, ep, 3);
             }
             else
@@ -91,11 +91,11 @@ while (string_length(mytext) > 0)
             }
         }
     }
-    
+
     // movement effects
     e = string_copy(subtext, 1, s);
     ep = string_pos("/", e);
-    
+
     if (ep > 0 && (newLinePos <= 0
         || ep < newLinePos)) // only count effects if before new line break
     {
@@ -104,19 +104,19 @@ while (string_length(mytext) > 0)
         {
             ep = string_pos("/",
                 e); // it always gives the position of the first instance
-            
+
             // no more possible commands
             if (ep <= 0)
             {
                 break;
             }
-            
+
             c = string_copy(e, ep + 1, 1);
             if (c == "0" || c == "1" || c == "2")
             {
                 txtEffectMove = string_copy(e, ep, 2);
                 effectSpace += 2;
-                
+
                 e = string_delete(e, ep, 2);
             }
             else
@@ -126,12 +126,12 @@ while (string_length(mytext) > 0)
             }
         }
     }
-    
-    
-    
+
+
+
     subtext = string_delete(subtext, 1,
         s); // remove the word form the text to check
-    
+
     // checking newLinePos because if there is a line break command and this is also true, it'll overwrite the line break task
     if (newLinePos <= 0 && string_length(mytext) - effectSpace - 1
         <= linelength) // if the remaining text fits into a single line
@@ -141,28 +141,28 @@ while (string_length(mytext) > 0)
         prespace = string_length(
             mytext); // set the end of the line to save as the end of the entire text
     }
-    
-    
-    
+
+
+
     // if the line is finished, add to the array of lines for the current page
     if (space - effectSpace - 1
         > linelength) //- 1 so we don't count the space or line break as part of the word
     {
         t[z] = string_copy(mytext, 1 - 1,
             prespace - 1); // cut off the space / line break
-        
+
         // if (space - effectSpace - 1 != linelength) //if maxed out the line, then don't do this because it'll wrap anyway
         //{
         t[z] += "#"; // add the line break for the next line
-        
+
         //}
-        
+
         // fill the remaining, unfilled space in the line with spaces so
         /* while (string_length(t[z]) < linelength)
         {
             t[z] += ' ';
         }*/
-        
+
         mytext = string_delete(mytext, 1,
             prespace); // delete the line that was just saved from the remaining text
         subtext = mytext;
@@ -170,7 +170,7 @@ while (string_length(mytext) > 0)
         effectSpace = 0;
         prespace = 0;
         z += 1; // count up a line
-        
+
         // add lines of the current page to the array to be put into the textbox
         if (z == 5 || string_length(mytext) <= 0)
         {
@@ -182,24 +182,24 @@ while (string_length(mytext) > 0)
             {
                 txt[i] = t[0] + t[1] + t[2] + t[3] + t[4];
             }
-            
-            
+
+
             if (i == 12)
             {
                 break;
             } // if reached max textbox pages, then don't do any more pages
-            
+
             i += 1;
-            
+
             // clear the current lines array
             for (z = 0; z < 5; z += 1)
             {
                 t[z] = '';
             }
-            
+
             // reset line counter
             z = 0;
-            
+
             // carry over previous text effect if there's another page
             if (string_length(mytext) > 0)
             {
@@ -207,7 +207,7 @@ while (string_length(mytext) > 0)
                 {
                     txt[i] = txtEffectMove;
                 }
-                
+
                 if (txtEffectCol != "" && txtEffectCol != "/C0")
                 {
                     if (is_string(txt[i]))
@@ -222,9 +222,9 @@ while (string_length(mytext) > 0)
             }
         }
     }
-    
+
     prespace = space; // save the position of the end of the last word
-    
+
     timeOut += 1;
     if (timeOut >= 1000)
     {
@@ -237,7 +237,7 @@ while (string_length(mytext) > 0)
             + newline + "i: " + string(i) + newline + "z: " + string(z)
             + newline + "t[i]: " + string(t[i]) + newline + "txt[i]: "
             + string(txt[i]) + newline + "s: " + string(s), false);
-        
+
         break;
     }
 }

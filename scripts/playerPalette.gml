@@ -20,43 +20,43 @@ switch (global.playerSprite[costumeID])
             rockPrimaryCol = make_color_rgb(0, 120, 248);
             rockSecondaryCol = make_color_rgb(0, 232, 216);
         }
-        
+
         rushPrimaryCol = make_color_rgb(216, 40, 0);
         rushSecondaryCol = make_color_rgb(255, 255, 255);
-        
+
         sakugarnePrimaryCol = rockPrimaryCol; // make_color_rgb(0, 184, 0);
         sakugarneSecondaryCol = rockSecondaryCol; // make_color_rgb(184, 248, 120);
-        
+
         break;
     case sprProtoman:
         rockPrimaryCol = make_color_rgb(220, 40, 0);
         rockSecondaryCol = make_color_rgb(188, 188, 188);
-        
+
         rushPrimaryCol = make_color_rgb(216, 40, 0);
         rushSecondaryCol = make_color_rgb(255, 255, 255);
-        
+
         sakugarnePrimaryCol = rockPrimaryCol; // make_color_rgb(0, 184, 0);
         sakugarneSecondaryCol = rockSecondaryCol; // make_color_rgb(184, 248, 120);
-        
+
         break;
     case sprBass:
         rockPrimaryCol = make_color_rgb(112, 112, 112);
         rockSecondaryCol = make_color_rgb(248, 152, 56);
-        
+
         rushPrimaryCol = make_color_rgb(112, 112, 112);
         rushSecondaryCol = make_color_rgb(128, 0, 240);
-        
+
         sakugarnePrimaryCol = rockPrimaryCol; // make_color_rgb(0, 184, 0);
         sakugarneSecondaryCol = rockSecondaryCol; // make_color_rgb(184, 248, 120);
-        
+
         break;
     case sprRoll:
         rockPrimaryCol = make_color_rgb(248, 56, 0);
         rockSecondaryCol = make_color_rgb(0, 168, 0);
-        
+
         rushPrimaryCol = make_color_rgb(0, 160, 0);
         rushSecondaryCol = make_color_rgb(168, 224, 248);
-        
+
         sakugarnePrimaryCol = rockPrimaryCol; // make_color_rgb(0, 184, 0);
         sakugarneSecondaryCol = rockSecondaryCol; // make_color_rgb(184, 248, 120);
         break;

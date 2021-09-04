@@ -7,7 +7,7 @@ if (inWater != -1) // If inWater is set to -1 then there can be no interaction w
     var _yc = bboxGetYCenter();
     var preWater = inWater;
     var overlapping = instance_place(x, y - 2 * sign(grav), objWater);
-    
+
     if (xw != 0)
     {
         xw = 0;
@@ -32,7 +32,7 @@ if (inWater != -1) // If inWater is set to -1 then there can be no interaction w
             yw = -(bbox_bottom - bbox_top);
         }
     }
-    
+
     if (_yc - 4 >= view_yview && _yc + 4 <= view_yview + view_hview) // Don't change state if offscreen
     {
         if (inWater)
@@ -53,7 +53,7 @@ if (inWater != -1) // If inWater is set to -1 then there can be no interaction w
                         instance_create(bboxGetXCenter(), bboxGetYCenter(), objAirBubble);
                     }
                 }
-                
+
                 /* if (xw != 0)
                 {
                     xw = 0;
@@ -92,12 +92,12 @@ if (inWater != -1) // If inWater is set to -1 then there can be no interaction w
             }
         }
     }
-    
+
     if (!overlapping)
     {
         overlapping = instance_place(xprevious - xspeed - hspeed, yprevious - yspeed - vspeed, objWater);
     }
-    
+
     if (preWater != inWater && overlapping != noone) // Has water state changed?
     {
         with (overlapping) // Make splashes

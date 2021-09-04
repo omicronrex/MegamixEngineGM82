@@ -8,7 +8,7 @@ if (unitCase("Boss doors"))
         global.recordInputScriptOverride = testSuiteBossDoorsHelperMockInput;
         global.recordInputReturnRoom = rmUnitTest;
     }
-    
+
     if (unitTick())
     {
         // exit test if recording finishes
@@ -17,13 +17,13 @@ if (unitCase("Boss doors"))
             unitEnd();
             exit;
         }
-        
+
         // death is an error
         unitRequire(instance_exists(objMegaman) || global.recordInputFrame < 150, "Mega man despawned");
-        
+
         // TLE
         unitRequire(global.recordInputFrame <= 20000, "Time Limit expired");
-        
+
         with (objMegaman)
         {
             if (place_meeting(x, y, objLadder))
@@ -35,7 +35,7 @@ if (unitCase("Boss doors"))
             }
         }
     }
-    
+
     if (unitCleanUp())
     {
         global.recordInputMode = 0;

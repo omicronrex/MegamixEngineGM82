@@ -1,0 +1,1 @@
+shakeDir = -1;

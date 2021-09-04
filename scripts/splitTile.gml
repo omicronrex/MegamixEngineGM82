@@ -62,7 +62,7 @@ for (_x = floor(tx / _w) * _w; _x < ceil((tx + tw) / _w) * _w; _x += _w)
         _miny = max(_y, ty);
         _maxx = min(_x + _w, tx + tw);
         _maxy = min(_y + _h, ty + th);
-        
+
         tile_add(tsrc, _minx - tx + tl, _miny - ty + tT, _maxx - _minx,
             _maxy - _miny, _minx, _miny, td);
     }

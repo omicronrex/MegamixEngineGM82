@@ -7,11 +7,11 @@ yDir = -sign(global.keyUp[playerID]) + sign(global.keyDown[playerID]);
 if (!playerIsLocked(PL_LOCK_PHYSICS))
 {
     playLandSound += 1;
-    
+
     checkGround();
-    
+
     playerHandleMovement();
-    
+
     if (instance_exists(statusObject))
     {
         if (statusObject.statusCanJump)
@@ -28,9 +28,9 @@ if (!playerIsLocked(PL_LOCK_PHYSICS))
         playerHandleJumping();
         playerHandleClimbing();
     }
-    
+
     playerHandleSliding();
-    
+
     if (!showReady)
     {
         playerHandleOil();

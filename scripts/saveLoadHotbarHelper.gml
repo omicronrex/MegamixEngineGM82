@@ -5,7 +5,7 @@ for (var i = 1; i <= global.totalWeapons; i++)
     var weapon_name = object_get_name(global.weaponObject[global.weaponHotbar[i]]);
     weapon_name = sl(weapon_name, "HOTBAR_" + string(i));
     var asset_index = asset_get_index(weapon_name);
-    
+
     // validate input
     if (object_exists(asset_index))
     {
@@ -15,7 +15,7 @@ for (var i = 1; i <= global.totalWeapons; i++)
             continue;
         }
     }
-    
+
     global.weaponHotbar[i] = -1;
 }
 
@@ -27,11 +27,11 @@ for (var i = 1; i <= global.totalWeapons; i++)
     // replace undefined values with a proper missing entry
     if (is_undefined(global.weaponHotbar[i]))
         global.weaponHotbar[i] = -1;
-    
+
     // skip missing values for now:
     if (global.weaponHotbar[i] == -1)
         continue;
-    
+
     // check if this is first appearance:
     if (indexOf(global.weaponHotbar, global.weaponHotbar[i]) != i)
     {

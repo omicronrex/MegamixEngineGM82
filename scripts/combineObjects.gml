@@ -31,10 +31,10 @@ if (horizontal)
         // if objects are overlapping, assume error and halt.
         if (place_meeting(x, y, combineObject))
             continue;
-        
+
         if (object_index != combineObject)
             continue;
-        
+
         // greedily absorb next object
         while (true)
         {
@@ -49,7 +49,7 @@ if (horizontal)
                 break;
             if (next.bbox_top + 16 * next.image_yscale != bbox_top + 16 * image_yscale)
                 break;
-            
+
             // absorb
             image_xscale += next.image_xscale;
             with (next)
@@ -67,16 +67,16 @@ if (vertical)
     with (combineObject)
     {
         // if objects are overlapping, assume error and halt.
-        
+
         if (place_meeting(x, y, combineObject))
             continue;
-        
+
         if (object_index != combineObject)
             continue;
-        
+
         if (!instance_exists(id))
             continue;
-        
+
         // greedily absorb next object
         while (true)
         {
@@ -91,7 +91,7 @@ if (vertical)
                 break;
             if (next.bbox_left + 16 * next.image_xscale != bbox_left + 16 * image_xscale)
                 break;
-            
+
             // absorb
             image_yscale += next.image_yscale;
             with (next)

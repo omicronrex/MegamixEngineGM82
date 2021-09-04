@@ -87,7 +87,7 @@ else if (expr == "(")
 else if (stringStartsWith(str, "("))
 {
     var fn_str = expr;
-    
+
     // gml function
     if (asset_get_type(fn_str) == asset_unknown)
     {
@@ -96,7 +96,7 @@ else if (stringStartsWith(str, "("))
         var arg_n = 1;
         var arg;
         arg[0] = fn_str;
-        
+
         // read arguments
         while (true)
         {
@@ -137,7 +137,7 @@ else if (stringStartsWith(str, "("))
             str = stringSubstring(str, 2);
             exprlen += 1;
         }
-        
+
         scriptExecuteNargs(executeGMLFunction, arg);
         if (global.execute_gml_function_ERR)
         {
@@ -152,16 +152,16 @@ else if (stringStartsWith(str, "("))
 }
 else
 {
-    
+
     // direct value or variable
     global.retval_exprlen += string_length(expr) + whitespaceDropped;
-    
+
     // read array
     if (stringStartsWith(str, "["))
     {
         global.retval_exprlen += 1;
         str = stringSubstring(str, 2);
-        
+
         // read value of first index:
         global.retval = 0;
         var stackRetValExprlen = global.retval_exprlen;
@@ -219,7 +219,7 @@ else
     {
         // parse expression:
         var expr_value = 0;
-        
+
         // string expression:
         if (expr == '"' || expr == "'")
         {

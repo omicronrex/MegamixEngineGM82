@@ -1,0 +1,26 @@
+|rmInit
+|lvlCopyThisRoom
+|lvlShowcaseHUB
++Engine
+	|rmDisclaimer
+	|rmTitleScreen
+	|rmCharacterSelect
+	|rmRoomSelect
+	|rmFileSelect
+	|rmNewFile
+	|rmStageSelect
+	|rmOptions
+	|rmGameOver
+	|rmCredits
+	|rmWeaponGet
+	|rmUnitTest
+	|rmShop
+	|rmCastleIntro
++Test Rooms
+	|lvlTestHallTemp
+	|lvlTestHall
+	|lvlTestHall2
+	|lvlTestHall3
+	|lvlTestHall4
+	|lvlTestHall5
+	|lvlTestHallBoss

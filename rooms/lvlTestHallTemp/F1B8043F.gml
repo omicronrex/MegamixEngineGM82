@@ -1,0 +1,10 @@
+animBackgrounds[0]=bgBasic;
+animLengths[0] = 2;
+animSpeeds[0] = 0.08;
+animDelays[0] = 0;
+regionLeft[0] = 80;
+regionTop[0] = 32;
+regionWidth[0]=16;
+regionHeight[0]=16;
+animType[0]=0;
+animLayer=1000000;

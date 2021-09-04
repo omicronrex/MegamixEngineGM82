@@ -1,0 +1,7 @@
+sprite=sprWilyCastleSkull
+visible=1
+solid=0
+persistent=1
+depth=0
+parent=prtAlwaysActive
+mask=

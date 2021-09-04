@@ -19,7 +19,7 @@ for (var i = 0; i < argument_count; i++)
                 || (isLocked(global.playerLock[PL_LOCK_MOVE])))
                 return true;
             break;
-        default: // most locks check if either the local or global version of the pool is locked. 
+        default: // most locks check if either the local or global version of the pool is locked.
             if (isLocked(localPlayerLock[lock], global.playerLock[lock]))
                 return true;
     }

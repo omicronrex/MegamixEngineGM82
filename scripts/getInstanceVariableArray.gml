@@ -6,7 +6,7 @@ var _____i_____ = argument1;
 var _____j_____ = argument2;
 
 /// THIS SCRIPT WAS GENERATED AUTOMATICALLY
-/// VIA strexec_varsearch.py. 
+/// VIA strexec_varsearch.py.
 /// DO NOT EDIT BY HAND!
 
 /// Stats:
@@ -4815,4 +4815,3 @@ else if (stringStartsWith(_____vs_____, '_'))
 return true;
 
 //@noformat
-

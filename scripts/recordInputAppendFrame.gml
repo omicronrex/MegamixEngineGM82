@@ -49,7 +49,7 @@ for (var i = 0; i < global.playerCount; i++)
         global.keyPausePressed[i] = false;
         global.keyPause[i] = false;
     }
-    
+
     global.recordInputSaveData += string(i) + ":" + flags + "|";
 }
 

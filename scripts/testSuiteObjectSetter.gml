@@ -11,14 +11,14 @@ for (var i = 0; i < array_length_1d(objectCheck); i++)
     if (unitCase("Object setter can place " + objectName))
     {
         unitCritical();
-        
+
         // single-execution
         if (unitBegin())
         {
             recordInputPlayback("UnitTests/Recordings/RecordingObjectSet.mrc");
             global.recordInputReturnRoom = rmUnitTest;
         }
-        
+
         if (unitTick())
         {
             // exit test if recording finishes
@@ -27,12 +27,12 @@ for (var i = 0; i < array_length_1d(objectCheck); i++)
                 unitEnd();
                 exit;
             }
-            
+
             if (global.recordInputFrame == 3)
             {
                 instance_activate_all();
             }
-            
+
             if (global.recordInputFrame == 4)
             {
                 var placed = false;
@@ -43,16 +43,16 @@ for (var i = 0; i < array_length_1d(objectCheck); i++)
                         placed = true;
                     }
                 }
-                
+
                 unitRequire(placed, "objObjectSetter failed to place " + objectName);
-                
+
                 unitEnd();
                 exit;
             }
-            
+
             unitRequire(global.recordInputFrame <= 4, "Was supposed to exit recording on frame 4.");
         }
-        
+
         if (unitCleanUp())
         {
             global.recordInputMode = 0;

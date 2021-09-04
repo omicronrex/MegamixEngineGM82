@@ -14,7 +14,7 @@ slow and still has all the same security risks, but at least it's there.
 This is very straightforward. `stringExecutePartial(str)` will execute the code in the string `str`.
 
 Many gimmicks, such as [custom spawners](../objects/objCustomSpawner), have a creation-code variable for such a string. In the case
-of custom spawners, the variable is called `code`. 
+of custom spawners, the variable is called `code`.
 
 ## Limitations
 
@@ -44,7 +44,7 @@ while (string_length(str) > 0)
         str = stringSubstring(str, 2);
         continue;
     }
-    
+
     // skip comments -- single-line
     if (stringStartsWith(str, "//"))
     {
@@ -54,7 +54,7 @@ while (string_length(str) > 0)
         str = stringSubstring(str, nextline + 1);
         continue;
     }
-    
+
     // skip comments -- multi-line
     if (stringStartsWith(str, "/*"))
     {
@@ -64,7 +64,7 @@ while (string_length(str) > 0)
         str = stringSubstring(str, nextline + 2);
         continue;
     }
-    
+
     // keywords
     var token = stringPeekToken(str);
     if (token == "while" || token == "var" || token == "do" || token == "until" || token == "switch" || token == "case")
@@ -72,7 +72,7 @@ while (string_length(str) > 0)
         printErr("ERROR executing string. Cannot handle token " + token + " in: " + full_code);
         break;
     }
-    
+
     // if statement
     if (token == "if")
     {
@@ -90,7 +90,7 @@ while (string_length(str) > 0)
         {
             break;
         }
-        
+
         str = stringSubstring(str, string_length(block_string) + 2);
         if (expr)
         {
@@ -98,7 +98,7 @@ while (string_length(str) > 0)
         }
         if (global.retval_error)
             break;
-            
+
         // else
         str = stringTrim(str);
         tokElse = stringPeekToken(str);
@@ -117,7 +117,7 @@ while (string_length(str) > 0)
             printErr("... in: " + full_code);
                 break;
             }
-            
+
             str = stringSubstring(str, string_length(block_string) + 1);
             if (!expr)
             {
@@ -131,7 +131,7 @@ while (string_length(str) > 0)
         }
         continue;
     }
-    
+
     // with statement
     if (token == "with")
     {
@@ -154,10 +154,10 @@ while (string_length(str) > 0)
             break;
         continue;
     }
-    
+
     if (token == "exit")
         break;
-    
+
     // function
     if (string_char_at(str, string_length(token) + 1) == "(")
     {
@@ -167,7 +167,7 @@ while (string_length(str) > 0)
         var arg_n = 0;
         var arg;
         global.retval_error = false;
-        
+
         // read arguments
         while (true)
         {
@@ -231,7 +231,7 @@ while (string_length(str) > 0)
             break;
         }
     }
-    
+
     // assignment -- read expression
     var assign_var = token;
     var indices = 0;
@@ -277,16 +277,16 @@ while (string_length(str) > 0)
     }
     str = stringSubstring(str, string_pos("=", str) + 1);
     str = stringTrim(str);
-    
+
     parseExpression(str);
     str = stringSubstring(str, global.retval_exprlen + 1);
-    
+
     if (global.retval_error)
     {
         printErr("ERROR parsing expression while executing string:" + str + " in: " + full_code);
         break;
     }
-    
+
     // apply assignment
     switch (indices)
     {
@@ -300,13 +300,13 @@ while (string_length(str) > 0)
             var success = setInstanceVariableArray(assign_var, global.retval_exprval, indexA, indexB);
             break;
     }
-    
+
     if (!success)
     {
         printErr("ERROR unkown variable name in execute string: " + assign_var);
         printErr("(Consider adding this variable to the script setInstanceVariable)");
         break;
     }
-    
+
     continue;
 }

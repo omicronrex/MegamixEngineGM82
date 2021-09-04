@@ -8,7 +8,7 @@ if (instance_exists(argument1))
     angle = point_direction(spriteGetXCenter(), spriteGetYCenter(),
         spriteGetXCenterObject(argument1),
         spriteGetYCenterObject(argument1));
-    
+
     xspeed = cos(degtorad(angle)) * argument0;
     yspeed = -sin(degtorad(angle)) * argument0;
 }

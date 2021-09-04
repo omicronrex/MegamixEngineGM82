@@ -43,17 +43,17 @@ if (_ySpd != 0 && _accel != 0)
 {
     // figure out how far up we can go
     var airTime = (0 - _ySpd) / _accel;
-    
+
     if (airTime < 0)
     {
         airTime = 0;
     }
-    
+
     var maxYDelta = _ySpd * airTime + 0.5 * _accel * power(airTime, 2);
-    
+
     // figure out how high we need to go
     var yDelta = _targetY - _originY;
-    
+
     // check to see if the object's y is too high to hit
     if ((maxYDelta < 0 && yDelta < maxYDelta)
         || (maxYDelta > 0 && yDelta > maxYDelta))
@@ -68,24 +68,24 @@ if (_ySpd != 0 && _accel != 0)
             yDelta = maxYDelta - 1;
         }
     }
-    
+
     var radical = power(_ySpd, 2) - 4 * (_accel / 2) * (-yDelta);
-    
+
     if (radical <= 0)
     {
         // if nonsense somehow, than quit
         show_debug_message("nonsense radical in xSpeedAim script");
         return 0;
     }
-    
+
     // figure out time it'll take for the projetile's y to reach the same as the target
     airTime = (-_ySpd + sqrt(radical)) / _accel;
-    
+
     // if the answer given is nonsense, then try subtracting the quadratic instead of adding
     if (airTime <= 0)
     {
         airTime = (-_ySpd - sqrt(radical)) / _accel;
-        
+
         // if still nonsense somehow, then quit
         if (airTime <= 0)
         {
@@ -93,11 +93,11 @@ if (_ySpd != 0 && _accel != 0)
             return 0;
         }
     }
-    
+
     // calculate speed needed to reach target in the given time with the given distance
     var xDelta = _targetX - _originX;
     var newXSpeed = xDelta / airTime;
-    
+
     // enforce speed limit
     if (_speedLimit != -1 && (newXSpeed > _speedLimit || newXSpeed < -_speedLimit))
     {
@@ -110,7 +110,7 @@ if (_ySpd != 0 && _accel != 0)
             newXSpeed = -_speedLimit;
         }
     }
-    
+
     return newXSpeed;
 }
 else

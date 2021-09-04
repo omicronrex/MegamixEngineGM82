@@ -16,11 +16,11 @@ if (!global.lockBuster)
             i.xspeed = image_xscale * 5; // zoom
         }
     }
-    
+
     //////////////
     // Charging //
     //////////////
-    
+
     if (global.enableCharge)
     {
         if ((global.keyShoot[playerID] || (isSlide && chargeTimer > 0))
@@ -29,26 +29,26 @@ if (!global.lockBuster)
             if (!isShoot)
             {
                 isCharge = true;
-                
+
                 if (!isSlide)
                 {
                     initChargeTimer += 1;
                 }
-                
+
                 if (initChargeTimer >= initChargeTime)
                 {
                     if (!chargeTimer)
                     {
                         playSFX(sfxProtoCharging);
                     }
-                    
+
                     chargeTimer++;
-                    
+
                     if (chargeTimer < chargeTime)
                     {
                         var chargeTimeDiv, chargeCol;
                         chargeTimeDiv = round(chargeTime / 3);
-                        
+
                         if (chargeTimer < chargeTimeDiv)
                         {
                             chargeCol = make_color_rgb(168, 0, 32); // Dark red
@@ -61,7 +61,7 @@ if (!global.lockBuster)
                         {
                             chargeCol = make_color_rgb(248, 88, 152); // Light red (pink)
                         }
-                        
+
                         if (chargeTimer mod 6 >= 0 && chargeTimer mod 6 < 3)
                         {
                             global.outlineCol[playerID] = chargeCol;
@@ -81,17 +81,17 @@ if (!global.lockBuster)
                         {
                             switch (floor(chargeTimer / 3 mod 3))
                             {
-                                case 0: // Light blue helmet, black shirt, blue outline 
+                                case 0: // Light blue helmet, black shirt, blue outline
                                     global.primaryCol[playerID] = rockSecondaryCol;
                                     global.secondaryCol[playerID] = c_black;
                                     global.outlineCol[playerID] = rockPrimaryCol;
                                     break;
-                                case 1: // Black helmet, blue shirt, light blue outline 
+                                case 1: // Black helmet, blue shirt, light blue outline
                                     global.primaryCol[playerID] = c_black;
                                     global.secondaryCol[playerID] = rockPrimaryCol;
                                     global.outlineCol[playerID] = rockSecondaryCol;
                                     break;
-                                case 2: // Blue helmet, light blue shirt, blue outline 
+                                case 2: // Blue helmet, light blue shirt, blue outline
                                     global.primaryCol[playerID] = rockPrimaryCol;
                                     global.secondaryCol[playerID] = rockSecondaryCol;
                                     global.outlineCol[playerID] = c_black;
@@ -109,7 +109,7 @@ if (!global.lockBuster)
                 /////////////////////
                 // ACTUAL SHOOTING //
                 /////////////////////
-                
+
                 if (chargeTimer < chargeTime) // Half charge
                 {
                     i = fireWeapon(12, 0, objBusterShotHalfChargedProto, bulletLimit, weaponCost, action, willStop);
@@ -126,7 +126,7 @@ if (!global.lockBuster)
                         i.xspeed = image_xscale * 5.5;
                     }
                 }
-                
+
                 // Reset all charging stuff
                 chargeTimer = 0;
                 initChargeTimer = 0;

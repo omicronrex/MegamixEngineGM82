@@ -31,7 +31,7 @@ if (fname == "make_color_rgb" || fname == "make_colour_rgb")
 else if (fname == "make_color_hsv" || fname == "make_colour_hsv")
     global.gml_fn_retval = make_colour_hsv(a0, a1, a2);
 else if (fname == "abs")
-    global.gml_fn_retval = abs(a0);  
+    global.gml_fn_retval = abs(a0);
 else if (fname == "sign")
     global.gml_fn_retval = sign(a0);
 else if (fname == "point_distance")
@@ -125,7 +125,7 @@ else if (fname == "action_draw_background")
 else if (fname == "action_draw_ellipse")
     global.gml_fn_retval = action_draw_ellipse(a0, a1, a2, a3, a4);
 else if (fname == "action_draw_ellipse_gradient")
-    global.gml_fn_retval = action_draw_ellipse_gradient(a0, a1, a2, a3, a4, a5);   
+    global.gml_fn_retval = action_draw_ellipse_gradient(a0, a1, a2, a3, a4, a5);
 else if (fname == "action_draw_gradient_hor")
     global.gml_fn_retval = action_draw_gradient_hor(a0, a1, a2, a3, a4, a5);
 else if (fname == "action_draw_gradient_vert")
@@ -133,7 +133,7 @@ else if (fname == "action_draw_gradient_vert")
 else if (fname == "action_draw_health")
     global.gml_fn_retval = action_draw_health(a0, a1, a2, a3, a4, a5);
 else if (fname == "action_draw_life")
-    global.gml_fn_retval = action_draw_life(a0, a1, a2);   
+    global.gml_fn_retval = action_draw_life(a0, a1, a2);
 else if (fname == "action_draw_life_images")
     global.gml_fn_retval = action_draw_life_images(a0, a1, a2);
 else if (fname == "action_draw_line")
@@ -155,7 +155,7 @@ else if (fname == "choose") //need to do this so it accepts varying argument cou
     else if (argument_count == 5)
     {
         global.gml_fn_retval = choose(a0, a1, a2, a3);
-    }  
+    }
     else if (argument_count == 6)
     {
         global.gml_fn_retval = choose(a0, a1, a2, a3, a4);
@@ -163,7 +163,7 @@ else if (fname == "choose") //need to do this so it accepts varying argument cou
     else if (argument_count == 7)
     {
         global.gml_fn_retval = choose(a0, a1, a2, a3, a4, a5);
-    } 
+    }
     else if (argument_count == 8)
     {
         global.gml_fn_retval = choose(a0, a1, a2, a3, a4, a5, a6);
@@ -172,7 +172,7 @@ else if (fname == "choose") //need to do this so it accepts varying argument cou
     {
         global.gml_fn_retval = choose(a0, a1, a2, a3, a4, a5, a6, a7);
     }
-}    
+}
 else
     global.execute_gml_function_ERR = true;
 return 0;

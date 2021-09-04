@@ -6,7 +6,7 @@ if (isFrozen)
     freezeTimer -= 1;
     xspeed = 0;
     yspeed = 0;
-    
+
     if (!icedLock)
     {
         icedLock = lockPoolLock(localPlayerLock[PL_LOCK_MOVE],
@@ -19,7 +19,7 @@ if (isFrozen)
             localPlayerLock[PL_LOCK_JUMP],
             localPlayerLock[PL_LOCK_CHARGE]);
     }
-    
+
     if (!freezeTimer || isHit)
     {
         isFrozen = 0;

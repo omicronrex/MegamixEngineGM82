@@ -61,7 +61,7 @@ else
                     }
                 }
             }
-            
+
             printErr("Unexpected value when searching for array in " + global.sl_filename + ": " + string(key) + " (using default.)");
             return defaultValue;
         }
@@ -71,7 +71,7 @@ else
             return lookup;
         }
     }
-    
+
     // not found in file -- return default, throw no error (!)
     print("Key not found in " + global.sl_filename + ": " + string(key) + " (using default.)", WL_VERBOSE);
     return defaultValue;

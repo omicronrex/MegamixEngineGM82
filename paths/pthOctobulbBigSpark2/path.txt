@@ -1,0 +1,6 @@
+connection=0
+closed=0
+precision=4
+background=rmWeaponGet
+snap_x=8
+snap_y=8

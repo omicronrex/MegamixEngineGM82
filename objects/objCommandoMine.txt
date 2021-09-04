@@ -1,0 +1,7 @@
+sprite=sprCommandoMine
+visible=1
+solid=0
+persistent=0
+depth=-6000000
+parent=prtEntity
+mask=

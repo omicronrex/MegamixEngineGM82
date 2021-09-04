@@ -7,7 +7,7 @@ if (iceTimer > 0)
     iceTimer -= 1;
     doesTransition = false;
     image_speed = 0;
-    
+
     // special physics while iced:
     if (icePhysics)
     {
@@ -28,11 +28,11 @@ if (iceTimer > 0)
         grav = 0;
         blockCollision = false;
     }
-    
+
     // become solid if required (except if in air or player intersecting)
     if (!isSolid && !place_meeting(x, y, objMegaman) && ground)
         isSolid = iceSolid;
-    
+
     // ice effect ends -- reset variables
     if (iceTimer == 0)
     {

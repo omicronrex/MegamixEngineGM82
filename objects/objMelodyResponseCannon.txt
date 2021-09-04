@@ -1,0 +1,7 @@
+sprite=sprMelodyResponseCannon
+visible=1
+solid=0
+persistent=0
+depth=-2
+parent=prtMiniBoss
+mask=

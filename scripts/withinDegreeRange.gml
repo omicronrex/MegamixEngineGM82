@@ -11,7 +11,7 @@ _angle = loopDegrees(argument[4]);
 if (_rangeEnd < _rangeStart)
 {
     _rangeEnd += 360;
-    
+
     if (_angle < _rangeEnd && _angle < _rangeStart)
     {
         _angle += 360;

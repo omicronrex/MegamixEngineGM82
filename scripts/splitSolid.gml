@@ -19,7 +19,7 @@ with (instance)
 {
     var imwidth = sprite_get_width(sprite_index);
     var imheight = sprite_get_height(sprite_index);
-    
+
     for (var _x = 0; _x < image_xscale * imwidth / width; _x++)
     {
         for (var _y = 0; _y < image_yscale * imheight / height; _y++)
@@ -32,6 +32,6 @@ with (instance)
             }
         }
     }
-    
+
     instance_destroy();
 }

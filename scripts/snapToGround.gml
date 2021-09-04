@@ -120,7 +120,7 @@ if (_prevCollision == 1 && !onGround) // if not on the ground rotate and snap to
     var colYPoint = 0;
     x = xprevious; // restore position to check for the last solid we were on
     y = yprevious;
-    
+
     switch (_groundDir) // figure out which corner of the bbox is closest to the previous solid
     {
         case 0:

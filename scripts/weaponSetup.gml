@@ -33,7 +33,7 @@ than the base damage from the weapon. See that script for more info.
 know, shooting the weapon. Charging is also done here. Check objBusterShot for an example of how
 exactly this works. Stuff like looking up for Wire Adaptor is also done here.
 
-Only events 12-14 are used by only player projectiles, but 7, 8 and 15 are all relevant to making weapons 
+Only events 12-14 are used by only player projectiles, but 7, 8 and 15 are all relevant to making weapons
 despite them being global to all entities.
 
 User Defined Events 0-6 are all left for the users to use with their own weapons.
@@ -50,14 +50,14 @@ if (argument_count <= 0) // Setup of the weapon system
 {
     // Initial Setup for weapons
     lr = 4000; // there's no object_last or object_total or anything, so uh. hmph
-    
+
     global.totalWeapons = -1; // Set this to -1 for now. Mega Buster auto-becomes ID 0
-    
+
     // You can override the weapon order if you want, but this can all just be set to go automatically.
     // See any event user 0 of the default weapons for more info.
-    
+
     global.weaponID = ds_map_create();
-    
+
     // Get weapon objects
     for (obj = 0; obj < lr; obj += 1)
     {
@@ -66,7 +66,7 @@ if (argument_count <= 0) // Setup of the weapon system
             event_perform_object(obj, ev_other, ev_user12); // EV_WEAPON_SETUP
         }
     }
-    
+
     // Only do this on startup, so sorting the weapons doesn't restore or drain your energy
     if (room == rmInit || room == rmDisclaimer)
     {
@@ -80,23 +80,23 @@ if (argument_count <= 0) // Setup of the weapon system
             global.weaponLocked[j] = false;
         }
     }
-    
+
     global.lockBuster = false;
     global.playerProjectileCreator = objMegaman;
 }
 else // Setup of each of the weapons
 {
     global.totalWeapons += 1;
-    
+
     // Name
     global.weaponName[global.totalWeapons] = argument[0];
-    
+
     // Color / -1 will make it use default colors.
     global.weaponPrimaryColor[global.totalWeapons] = argument[1];
     global.weaponSecondaryColor[global.totalWeapons] = argument[2];
-    
+
     global.weaponIcon[global.totalWeapons] = argument[3];
-    
+
     global.weaponID[? obj] = global.totalWeapons;
     global.weaponObject[global.totalWeapons] = obj;
     global.weaponHotbar[global.totalWeapons] = global.totalWeapons;

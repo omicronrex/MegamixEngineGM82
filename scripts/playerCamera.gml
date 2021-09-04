@@ -22,7 +22,7 @@ with (objMegaman)
     {
         vx += x;
         xsp += abs(xspeed);
-        
+
         // Focus instantaneously
         if (argument0)
         {
@@ -54,7 +54,7 @@ if (vn != 0)
     if (vx != 0)
     {
         vx = (vx / vn) - view_wview * 0.5;
-        
+
         if (inx)
         {
             view_xview = vx;
@@ -67,7 +67,7 @@ if (vn != 0)
     if (vy != 0)
     {
         vy = (vy / vn) - view_hview * 0.5;
-        
+
         if (iny)
         {
             view_yview = vy;

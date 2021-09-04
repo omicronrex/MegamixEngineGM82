@@ -13,14 +13,14 @@ with (target) // Do this to set "other" to the target's ID
     with (aggressor)
     {
         global.damage = contactDamage;
-        
+
         event_user(EV_WEAPON_SETDAMAGE);
-        
+
         with (other)
         {
             event_user(EV_GUARD);
         }
-        
+
         return (global.damage);
     }
 }

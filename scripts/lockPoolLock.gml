@@ -45,7 +45,7 @@ for (var lv = 0; true; lv++)
     }
     if (!commonAvailability)
         continue;
-    
+
     // add lock to all pools:
     for (var lp = 0; lp < argument_count; lp++)
     {

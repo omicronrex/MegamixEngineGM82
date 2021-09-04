@@ -17,12 +17,12 @@ if (global.playerHealth[playerID] <= 0)
     {
         deathTimer -= 1;
     }
-    
+
     if (!deathTimer)
     {
         tpk = instance_number(objMegaman) <= 1;
         recordInputFidelityMessage("Death " + string(playerID));
-        
+
         // stop audio and play death sound
         if ((tpk && !audio_is_playing(deathSFX) && deathTimer == 0)
             || (deathByPit && deathTimer == -1))
@@ -37,14 +37,14 @@ if (global.playerHealth[playerID] <= 0)
             }
             stopMusic();
             playSFX(deathSFX);
-            
+
             // for pit
             if (deathTimer == -1)
             {
                 deathTimer = -2;
             }
         }
-        
+
         if (!deathByPit)
         {
             if (deathTimer == -1)
@@ -55,7 +55,7 @@ if (global.playerHealth[playerID] <= 0)
                 playerPalette();
                 yspeed = 0;
                 xspeed = 0;
-                
+
                 // stop cUTTING OFF THE DEATH SOUND AAAAA
                 for (i = 0; i <= 4000; i += 1)
                 {
@@ -65,10 +65,10 @@ if (global.playerHealth[playerID] <= 0)
                     }
                 }
                 stopMusic();
-                
+
                 exit;
             }
-            
+
             for (i = 0; i < 16; i += 1)
             {
                 explosionID = instance_create(x, y, objMegamanExplosion);
@@ -87,7 +87,7 @@ if (global.playerHealth[playerID] <= 0)
                 }
             }
         }
-        
+
         if (tpk)
         {
             global.decrementLivesOnRoomEnd = true;
@@ -101,7 +101,7 @@ if (global.playerHealth[playerID] <= 0)
             global.respawnTimer[playerID] = global.respawnTime * max(1,
                 instance_exists(prtBoss) * global.respawnTimeBoss);
         }
-        
+
         instance_destroy();
         global.frozen = false;
     }

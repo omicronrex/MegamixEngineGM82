@@ -95,7 +95,7 @@ if (instance_exists(i))
     i.parent = id;
     i.image_xscale *= image_xscale;
     i.image_yscale *= image_yscale;
-    
+
     return (i);
 }
 

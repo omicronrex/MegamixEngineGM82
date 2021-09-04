@@ -43,10 +43,10 @@ global.levelVolume = volume;
 if (global.levelSongType == "OGG")
 {
     global.tempSongData = FMODSoundAdd(mus, false, true);
-    
+
     // set loop points before playing
     FMODSoundSetLoopPoints(global.tempSongData, global.levelLoopStart, global.levelLoopEnd);
-    
+
     // now play it
     if (global.levelLoop) // Loop
     {
@@ -56,7 +56,7 @@ if (global.levelSongType == "OGG")
     {
         global.songMemory = FMODSoundPlay(global.tempSongData, false);
     }
-    
+
     // NOW set volume
     FMODInstanceSetVolume(global.songMemory, global.levelVolume * (global.musicvolume * 0.01));
 }
@@ -71,15 +71,15 @@ else if (global.levelSongType == "VGM")
             song_tracks = GME_NumTracks();
             song_voices = GME_NumVoices();
             GME_StartTrack(global.levelTrackNumber);
-            
+
             forceReset = true;
-            
+
             // don't play the song before the force reset
             for (v = 0; v <= song_voices; v++)
             {
                 GME_MuteVoice(v, true);
             }
-            
+
             GME_Play();
         }
     }

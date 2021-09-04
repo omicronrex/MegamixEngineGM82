@@ -1,0 +1,7 @@
+sprite=sprAstroWall
+visible=1
+solid=0
+persistent=0
+depth=60000
+parent=prtEntity
+mask=

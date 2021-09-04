@@ -1,0 +1,7 @@
+sprite=sprAutoscroller
+visible=0
+solid=0
+persistent=0
+depth=500
+parent=prtEntity
+mask=

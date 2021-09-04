@@ -13,12 +13,12 @@ if yDir == -1 && xDir == 0
     yOffset = -11;
 }
 else if yDir == -1 && xDir != 0
-{ 
+{
     action = 4;
     xOffset = 13;
     yOffset = -6;
 }
-else if yDir 
+else if yDir
 {
     action = 5;
     xOffset = 14;
@@ -44,12 +44,12 @@ if (!global.lockBuster)
         {
             i.sprite_index = sprEnemyBullet;
             i.dir = 0;
-        
+
             if (image_xscale < 0)
             {
                 i.dir += 180;
             }
-        
+
             if (yDir != 0)
             {
                 i.dir -= (yDir * 90) * image_xscale;

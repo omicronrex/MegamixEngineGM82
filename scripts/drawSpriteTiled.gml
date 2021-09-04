@@ -20,12 +20,12 @@ if (image_xscale > 1)
     for (i = 1; i < image_xscale; i += 1)
     {
         // Make sure only on screen tiles are drawn.
-        
+
         //
         {
             draw_sprite_ext(argument2, -1, x + (argument0 * i), y, 1, 1, 0,
                 image_blend, image_alpha);
-            
+
             // DRAW ALL Y ROW TILES EXCEPT THE FIRST
             ////////////////////////////////////////
             if (image_yscale > 1)
@@ -46,7 +46,7 @@ if (image_xscale > 1)
                                 image_alpha);
                     }
                 }
-            
+
             ////////////////////////////////////////
         }
     }

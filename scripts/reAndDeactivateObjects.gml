@@ -14,7 +14,7 @@ if (deac)
     {
         show_debug_message("Instance deactivation");
     }
-    
+
     with (prtEffect)
     {
         if (despawn)
@@ -22,20 +22,20 @@ if (deac)
             instance_destroy();
         }
     }
-    
+
     var specialObjects = makeArray(objQuickSand, prtRail); // these objects behave differently, but we still want to deactivate them after a transition
     var n = array_length_1d(specialObjects);
-    
+
     with (all)
     {
         if (object_index == prtEntity || object_is_ancestor(object_index, prtEntity))
         {
             var reset = 1;
-            
+
             if (shiftVisible)
             {
                 reset = ((!sw &&(!collision_rectangle(global.sectionLeft, global.sectionTop, global.sectionRight, global.sectionBottom, id, true, false))));
-                
+
                 if (!reset)
                 {
                     if (faction != 1 && faction != 2)
@@ -55,7 +55,7 @@ if (deac)
                     }
                 }
             }
-            
+
             if (reset)
             {
                 if (deac < 2)
@@ -71,10 +71,10 @@ if (deac)
                             dead = true;
                             beenOutsideView = false;
                             spawned = false;
-                            
+
                             event_user(EV_SPAWN); // despawn event
                             event_perform(ev_step, ev_step_normal);
-                            
+
                             beenOutsideView = true;
                         }
                     }
@@ -84,12 +84,12 @@ if (deac)
                     instance_deactivate_object(id);
                 }
             }
-            
+
         }
         else if (object_index != prtAlwaysActive && !object_is_ancestor(object_index, prtAlwaysActive))
         {
             var stay = 0;
-            
+
             for (var i = 0; i < n; i++)
             {
                 if (object_index == specialObjects[i] || object_is_ancestor(object_index, specialObjects[i]))
@@ -98,7 +98,7 @@ if (deac)
                     break;
                 }
             }
-            
+
             if (!stay)
             {
                 instance_deactivate_object(id);
@@ -112,7 +112,7 @@ if (reac)
     instance_activate_region(global.sectionLeft, global.sectionTop,
         abs(global.sectionRight - global.sectionLeft) - 1,
         abs(global.sectionBottom - global.sectionTop) - 1, true);
-    
+
     if (DEBUG_SPAWN)
     {
         show_debug_message("Instance activation");

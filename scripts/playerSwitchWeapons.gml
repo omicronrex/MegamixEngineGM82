@@ -16,16 +16,16 @@ if (dir != 0)
             exit;
         }
     }
-    
+
     quickWeaponScrollTimer--;
-    
+
     if (!quickWeaponScrollTimer)
     {
         while (true)
         {
             var wpn = indexOf(global.weaponHotbar, global.weapon[playerID]);
             wpn = (wpn + global.totalWeapons + dir + 1) % (global.totalWeapons + 1);
-            
+
             global.weapon[playerID] = global.weaponHotbar[wpn];
             if (!global.weaponLocked[global.weapon[playerID]])
             {
@@ -51,18 +51,18 @@ if (global.weapon[playerID] != oldWeapon)
 {
     // slight pause between scrolls
     quickWeaponScrollTimer = 8 + (10 * (quickWeaponScrollTimer < 0));
-    
+
     chargeTimer = 0;
-    
+
     // For the dashing effect of Tengu Blade to not activate mid-slide.
     notDashing = false;
-    
+
     // error-checking for recording/playback
     recordInputFidelityMessage(string(playerID) + ":" + object_get_name(global.weaponObject[global.weapon[playerID]]));
-    
+
     drawWeaponIcon = 32;
     playerPalette();
-    
+
     with (prtPlayerProjectile)
     {
         if (playerID == other.playerID)
@@ -70,9 +70,9 @@ if (global.weapon[playerID] != oldWeapon)
             instance_destroy();
         }
     }
-    
+
     playSFX(sfxWeaponSwitch);
-    
+
     audio_stop_sound(sfxCharging);
     audio_stop_sound(sfxCharged);
     audio_stop_sound(sfxWheelCutter1);

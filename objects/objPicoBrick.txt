@@ -1,0 +1,7 @@
+sprite=sprPicoBrick
+visible=1
+solid=0
+persistent=0
+depth=10000
+parent=prtEntity
+mask=

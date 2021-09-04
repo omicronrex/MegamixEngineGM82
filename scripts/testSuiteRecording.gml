@@ -4,14 +4,14 @@
 if (unitCase("basic recording can be loaded and played"))
 {
     unitCritical();
-    
+
     // single-execution
     if (unitBegin())
     {
         recordInputPlayback("UnitTests/Recordings/recTestA.mrc");
         global.recordInputReturnRoom = rmUnitTest;
     }
-    
+
     if (unitTick())
     {
         // exit test if recording finishes
@@ -20,14 +20,14 @@ if (unitCase("basic recording can be loaded and played"))
             unitEnd();
             exit;
         }
-        
+
         if (global.recordInputFrame > 300)
         {
             unitRequire(false, "Playback did not terminate.");
             unitEnd();
         }
     }
-    
+
     if (unitCleanUp())
     {
         global.recordInputMode = 0;
@@ -38,13 +38,13 @@ if (unitCase("basic recording can be loaded and played"))
 if (unitCase("non-reset 'here' recordings"))
 {
     unitCritical();
-    
+
     if (unitBegin())
     {
         recordInputPlayback("UnitTests/Recordings/RecordingTestHere.mrc");
         global.recordInputReturnRoom = rmUnitTest;
     }
-    
+
     if (unitTick())
     {
         // exit test if recording finishes
@@ -53,7 +53,7 @@ if (unitCase("non-reset 'here' recordings"))
             unitEnd();
             exit;
         }
-        
+
         if (global.recordInputFrame < 30)
         {
             unitRequire(global.recordInputFidelity == 0, "Non-reset recordings do not play accurately. (Has spawning logic changed?)");
@@ -63,7 +63,7 @@ if (unitCase("non-reset 'here' recordings"))
             unitRequire(global.recordInputFidelity == 0, "Physics failed after spawning. (Has spawning logic changed?)");
         }
     }
-    
+
     if (unitCleanUp())
     {
         global.recordInputMode = 0;
@@ -74,13 +74,13 @@ if (unitCase("non-reset 'here' recordings"))
 if (unitCase("reset 'beam-in' recordingg"))
 {
     unitCritical();
-    
+
     if (unitBegin())
     {
         recordInputPlayback("UnitTests/Recordings/RecordingTestReset.mrc");
         global.recordInputReturnRoom = rmUnitTest;
     }
-    
+
     if (unitTick())
     {
         // exit test if recording finishes
@@ -89,7 +89,7 @@ if (unitCase("reset 'beam-in' recordingg"))
             unitEnd();
             exit;
         }
-        
+
         if (global.recordInputFrame < 90)
         {
             unitRequire(global.recordInputFidelity == 0, "Reset recordings do not play accurately. (Has spawning logic changed?)");
@@ -99,7 +99,7 @@ if (unitCase("reset 'beam-in' recordingg"))
             unitRequire(global.recordInputFidelity == 0, "Physics failed after spawning.  (Has spawning logic changed?)");
         }
     }
-    
+
     if (unitCleanUp())
     {
         global.recordInputMode = 0;

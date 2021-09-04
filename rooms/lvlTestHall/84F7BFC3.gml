@@ -1,0 +1,1 @@
+objectToStop = objShieldGuard;

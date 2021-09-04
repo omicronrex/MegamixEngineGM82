@@ -47,7 +47,7 @@ for (i = 0; i < 4; i += 1)
     global.pauseKey[i] = vk_space;
     global.weaponSwitchLeftKey[i] = ord('A');
     global.weaponSwitchRightKey[i] = ord('S');
-    
+
     global.joystick_jumpKey[i] = gp_face1;
     global.joystick_shootKey[i] = gp_face3;
     global.joystick_slideKey[i] = gp_face4;

@@ -38,7 +38,7 @@ for (var i = 0; i < 4; i += 1)
     global.pauseKey[i] = sl(global.pauseKey[i], "key-pause" + string(i));
     global.weaponSwitchLeftKey[i]  = sl(global.weaponSwitchLeftKey[i],  "key-swl" + string(i));
     global.weaponSwitchRightKey[i] = sl(global.weaponSwitchRightKey[i], "key-swr" + string(i));
-    
+
     // joystick
     global.joystick_jumpKey[i]  = sl(global.joystick_jumpKey[i],  "joy-j" + string(i));
     global.joystick_shootKey[i] = sl(global.joystick_shootKey[i], "joy-x" + string(i));

@@ -29,7 +29,7 @@ if(usePositionCollision)
 else
 {
     //Slope code has to be made, so I'll keep it simple for now
-    
+
     xspeed = argument[0];
     generalCollision(1);
     checkGround(1);

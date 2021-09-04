@@ -1,0 +1,7 @@
+sprite=sprFireWaveGoRight
+visible=0
+solid=0
+persistent=0
+depth=0
+parent=objFireWaveGoDirector
+mask=

@@ -60,7 +60,7 @@ while (!file_text_eof(file))
 {
     var text = file_text_readln(file);
     text = stringSubstring(text, string_pos("<", text));
-    
+
     // room properties
     if (stringStartsWith(text, "<width>"))
         prop_width = real(string_digits(text));
@@ -79,21 +79,21 @@ while (!file_text_eof(file))
         }
         continue;
     }
-    
+
     // backgrounds
     if (stringStartsWith(text, "<background "))
     {
         prop_background[prop_bg_n++] = xmlParseTag(text);
     }
-    
+
     // views [not implemented]
-    
+
     // instances
     if (stringStartsWith(text, "<instance "))
     {
         prop_inst[prop_inst_n++] = xmlParseTag(text);
     }
-    
+
     // tiles
     if (stringStartsWith(text, "<tile "))
     {
@@ -166,16 +166,16 @@ for (var i = 0; i < prop_inst_n; i++)
     var _x = map[? "x"];
     var _y = map[? "y"];
     var inst_id = room_instance_add(exrm, real(_x), real(_y), objId);
-    
+
     // copy over additional attributes to the room loader map:
     exgrid[# i + 1, 0] = inst_id;
     for (var j = 0; j < prop_copy_n; ++j)
     {
         exgrid[# i + 1, j + 1] = map[? prop_copy[j]];
-        
+
     }
-    
-    
+
+
     ds_map_destroy(map);
 }
 

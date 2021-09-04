@@ -9,9 +9,9 @@ with (objMusicControl)
     endReached = false;
     playing = false;
     buffer_index = 0;
-    
+
     track_number = _tracknumber;
-    
+
     // Clear buffers used for the audio queue
     for (var i = 0; i < buffer_count; i++)
         buffer_fill(buf[i], 0, buffer_u8, 0, buffer_size);

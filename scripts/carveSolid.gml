@@ -26,7 +26,7 @@ while (true)
         {
             var w = image_xscale * sprite_get_width(sprite_index);
             var h = image_yscale * sprite_get_height(sprite_index);
-            
+
             if (rectangleIntersectionType(x1, y1, x2, y2, x, y, x + w, y + h) >= 3)
             {
                 any = true;
@@ -36,13 +36,13 @@ while (true)
                 grid_x[2] = min(x + w, x2);
                 grid_x[3] = x + w;
                 quickSort(grid_x);
-                
+
                 grid_y[0] = max(y, y1);
                 grid_y[1] = y;
                 grid_y[2] = min(y + h, y2);
                 grid_y[3] = y + h;
                 quickSort(grid_y);
-                
+
                 for (var i = 0; i < 3; i++)
                 {
                     for (var j = 0; j < 3; j++)
@@ -68,7 +68,7 @@ while (true)
                         }
                     }
                 }
-                
+
                 instance_destroy();
                 break;
             }

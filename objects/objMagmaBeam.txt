@@ -1,0 +1,7 @@
+sprite=sprMagmaBeam
+visible=1
+solid=0
+persistent=0
+depth=200000
+parent=prtEntity
+mask=

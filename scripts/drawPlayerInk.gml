@@ -34,7 +34,7 @@ if (global.inkSurface[0])
     draw_set_blend_mode(bm_subtract);
     drawCostume(global.playerSprite[pid], sheetX, sheetY, 24, 20, 1, 1,
         c_white, c_black, c_black, c_black, 0, 0, 0, 0);
-    
+
     // saturate RGB values greater the 0xfc, set all others to 0.
     draw_set_alpha(0);
     draw_set_blend_mode(bm_add);
@@ -47,7 +47,7 @@ if (global.inkSurface[0])
         surface_set_target(global.inkSurface[v]);
         draw_surface(global.inkSurface[1 - v], 0, 0);
     }
-    
+
     surface_reset_target();
     draw_set_alpha(1);
     surface_set_target(global.inkSurface[0]);

@@ -47,7 +47,7 @@ if (dieToSpikes)
             solid = spSolid;
         }
     }
-} 
+}
 
 // jumpthrough objects
 with (objTopSolid)

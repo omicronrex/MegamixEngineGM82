@@ -1,0 +1,2 @@
+useEndStageBehavior = false;
+itemDrop = objYashichi;

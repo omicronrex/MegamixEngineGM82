@@ -33,9 +33,9 @@ while (true)
         if (placeCollision(_x, _y))
             return nsteps;
     }
-    
+
     nsteps++;
-    
+
     _x += xstep;
     _y += ystep;
     if (_x > maxX || _x < minX || _y < minY || _y > maxY || (xstep == 0 && ystep == 0))

@@ -38,13 +38,13 @@ if (unitCase("stringSplit"))
     {
         var a = stringSplit("aleph, beta , gimmel, hey", ",", true);
         unitRequireEquals(a, makeArray("aleph", "beta", "gimmel", "hey"));
-        
+
         var b = stringSplit(",aleph, beta  , gimmel, hey,", ",");
         unitRequireEquals(b, makeArray("", "aleph", " beta  ", " gimmel", " hey", ""));
-        
+
         var c = stringSplit("aleph, beta  , gimmel,hey", ", ");
         unitRequireEquals(c, makeArray("aleph", "beta  ", "gimmel,hey"));
-        
+
         var d = stringSplit("test", "");
         unitRequireEquals(d, makeArray("t", "e", "s", "t"));
     }

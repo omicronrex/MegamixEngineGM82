@@ -1,0 +1,7 @@
+sprite=sprMegaman8SledSpeedTrigger
+visible=0
+solid=0
+persistent=0
+depth=9999
+parent=
+mask=

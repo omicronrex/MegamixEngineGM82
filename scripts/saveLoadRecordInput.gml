@@ -59,7 +59,7 @@ for (var i = 0; i < global.recordPlayerCount; i++)
         global.recordInputAmmo[i, j] = sl(global.ammo[i, j], "ammo_" + string(i) + "_" + object_get_name(global.weaponObject[j]));
     }
     global.recordInputWeapon[i] = max(0, indexOf(global.weaponObject, asset_get_index(sl(object_get_name(global.weaponObject[global.weapon[i]]), "weapon" + string(i)))));
-    
+
     global.recordInputPlayerX[i] = 0;
     global.recordInputPlayerY[i] = 0;
     global.recordInputXScale[i] = 0;
@@ -67,7 +67,7 @@ for (var i = 0; i < global.recordPlayerCount; i++)
     global.recordInputGravFactor[i] = 0;
     global.recordInputGravDir[i] = 0;
     global.recordInputActive[i] = false;
-    
+
     // load local player values
     if (!global.sl_save)
     {

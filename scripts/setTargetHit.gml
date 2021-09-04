@@ -5,13 +5,13 @@ var projectile = argument0;
 switch (behaviourType)
 {
     case 0:
-    case 1: // Target agressor 
+    case 1: // Target agressor
         if (instance_exists(projectile.parent))
         {
             target = projectile.parent;
         }
     case 2: // Consider targetting aggressor
-    // Don't target new aggressor if very near an existing mega man, unless aggressor is also near: 
+    // Don't target new aggressor if very near an existing mega man, unless aggressor is also near:
         if (!target)
         {
             if (instance_exists(projectile.parent))
@@ -33,6 +33,6 @@ switch (behaviourType)
             }
         }
         break;
-    case 3: // Sorry - Nothing 
+    case 3: // Sorry - Nothing
         break;
 }

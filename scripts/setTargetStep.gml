@@ -22,7 +22,7 @@ var select = 0;
 
 switch (behaviourType)
 {
-    case 0: // Generic 'smart' / non-obvious AI 
+    case 0: // Generic 'smart' / non-obvious AI
         if (target) // If mega man is very far, and hasn't shot lately, retarget with very low probability
         {
             if (!irandom(500) && hitTimer > 100)
@@ -39,18 +39,18 @@ switch (behaviourType)
             select = 1;
         }
         break;
-    case 1: // Pick nearest entity at every step 
+    case 1: // Pick nearest entity at every step
         select = 1;
         break;
-    case 2: // Switch entity every couple seconds 
+    case 2: // Switch entity every couple seconds
         if (hitTimer mod 140 == 90 || !target)
         {
             select = 2;
         }
         break;
-    case 3: // Do nothing 
+    case 3: // Do nothing
         break;
-    case 4: // Pick once, never switch 
+    case 4: // Pick once, never switch
         if (!target)
         {
             select = 2;
@@ -81,7 +81,7 @@ if (select) // Select a new target
                         {
                             pick = point_distance(x, y, other.x, other.y) < dist;
                         }
-                        
+
                         if (pick)
                         {
                             other.target = id;

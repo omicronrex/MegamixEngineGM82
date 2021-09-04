@@ -1,0 +1,7 @@
+sprite=sprPooker
+visible=1
+solid=0
+persistent=0
+depth=-11
+parent=prtEntity
+mask=
