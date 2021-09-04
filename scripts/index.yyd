@@ -257,7 +257,6 @@ testSuiteBossDoors
 scrNoEffect
 eventExecute
 combineObjects
-cleanMem
 gmeCreate
 gmeLoad
 gmeClose

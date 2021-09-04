@@ -669,10 +669,6 @@ applies_to=self
 // Save game
 saveLoadOptions(true);
 saveLoadGame(true);
-
-// End cleanMem
-cleanMem('clear');
-cleanMem('free');
 #define Other_4
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -953,8 +949,6 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-cleanMem('clean');
-
 setfrozen = 0;
 
 if (global.endStageOnRoomEnd)
