@@ -139,39 +139,22 @@
 	|playMusic
 	|stopMusic
 	|resumeMusic
-	+FMOD
-		|LoadFMOD
-		|UnloadFMOD
-		|FMODUpdate
-		|FMODInit
-		|FMODFree
-		|FMODSoundAdd
-		|FMODSoundFree
-		|FMODSoundPlay
-		|FMODSoundLoop
-		|FMODInstanceStop
-		|FMODAllStop
-		|FMODInstanceSetVolume
-		|FMODInstanceGetVolume
-		|FMODSoundSetLoopPoints
-	+GME
-		|GME_LoadSong
-		|GME_MuteVoice
-		|GME_MuteVoices
-		|GME_Pause
-		|GME_Play
-		|GME_Stop
-		|GME_SetTempo
-		|GME_StartTrack
-		|GME_NumVoices
-		|GME_NumTracks
-		|GME_GetPosition
-		|GME_SetPosition
-		|GME_GetTrackLength
-		|GME_GetName
-		|GME_GetAuthor
-		|GME_GetComment
-		|GME_GetCopyright
+	+GMGME1.2_scripts
+		|gmeCreate
+		|gmeLoad
+		|gmeClose
+		|gmePlay
+		|gmeStop
+		|gmePause
+		|gmeGetTracks
+		|gmeSetTrack
+		|gmeNextTrack
+		|gmeSetVolume
+		|gmeGetSample
+		|gmeSetStereoDepth
+		|gmeSetTempo
+		|gmeIsStopped
+		|gmeIsPlaying
 +Helpful Functions
 	+Math
 		|arcCalcXspeed
