@@ -42,7 +42,7 @@ if (entityCanStep())
     {
         // Idle
         case 0:
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer <= 0)
             {
                 phase = 1;
@@ -52,7 +52,7 @@ if (entityCanStep())
         case 1:
             if (pullTimer < pullDuration)
             {
-                pullTimer++;
+                pullTimer+=1;
                 pullDir = 1;
 
                 imgIndex += imgSpd;
@@ -71,7 +71,7 @@ if (entityCanStep())
         case 2:
             if (pullTimer != 0)
             {
-                pullTimer--;
+                pullTimer-=1;
                 pullDir = -1;
 
                 if (animBack == true)

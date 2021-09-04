@@ -2,7 +2,7 @@
 // Call it like this: with objMegaman playerGetShocked();
 // Makes the player get shocked
 
-var _IgnoreGround = argument0;
+var _IgnoreGround; _IgnoreGround = argument0;
 
 if (!isHit && (_IgnoreGround || ground))
 {

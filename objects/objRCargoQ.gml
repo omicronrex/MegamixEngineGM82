@@ -45,7 +45,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var ball = instance_create(x - image_xscale * 5, bbox_top + 6, objCargoQBall);
+var ball; ball = instance_create(x - image_xscale * 5, bbox_top + 6, objCargoQBall);
 ball.type = self.ballImage;
 ball.dead = false;
 ball.visible = true;

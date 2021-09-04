@@ -27,14 +27,14 @@ if (entityCanStep())
             // If I am a ground explosion...
             if ((sprite_index == sprCommandoExplosionHor) && (!positionCollision(x + 9 * image_xscale, y)))
             {
-                var i = instance_create(x + 9 * image_xscale, y, objCommandoBombExplosion);
+                var i; i = instance_create(x + 9 * image_xscale, y, objCommandoBombExplosion);
                 i.image_xscale = image_xscale;
                 i.sprite_index = sprCommandoExplosionHor;
                 i.shotsLeft = shotsLeft - 1;
             } // If I'm on a wall...
             else if ((sprite_index == sprCommandoExplosionVer) && (!positionCollision(x - (image_xscale == 1) * 2, y + 9 * image_yscale)))
             {
-                var i = instance_create(x, y + 9 * image_yscale, objCommandoBombExplosion);
+                var i; i = instance_create(x, y + 9 * image_yscale, objCommandoBombExplosion);
                 i.image_xscale = image_xscale;
                 i.image_yscale = image_yscale;
                 i.shotsLeft = shotsLeft - 1;

@@ -114,7 +114,7 @@ if (entityCanStep())
     // push forwards graphic handelling
     if (animTimer >= 0)
     {
-        animTimer--;
+        animTimer-=1;
 
         if (animTimer == 0)
         {
@@ -123,7 +123,7 @@ if (entityCanStep())
     }
 
     // this one increments because i love consistency
-    tailTimer++;
+    tailTimer+=1;
 
     if (tailTimer == 8)
     {
@@ -143,7 +143,7 @@ if (entityCanStep())
     mask_index = sprDot;
     if (place_meeting(xprevious, yprevious, objWater) && !place_meeting(x, y, objWater))
     {
-        var i = instance_place(xprevious, yprevious, objWater);
+        var i; i = instance_place(xprevious, yprevious, objWater);
         if (i != noone)
         {
             if (y <= i.bbox_top)

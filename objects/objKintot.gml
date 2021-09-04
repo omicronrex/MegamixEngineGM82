@@ -50,7 +50,7 @@ if (entityCanStep())
         yspeed = (sin(sinCounter));
 
         // fish tail animation
-        animTimer++;
+        animTimer+=1;
 
         if (animTimer mod 8 == 0)
         {
@@ -62,7 +62,7 @@ if (entityCanStep())
         }
 
         // blinking
-        blinkTimer++;
+        blinkTimer+=1;
 
         if (blinkTimer == 110)
         {
@@ -98,7 +98,7 @@ if (entityCanStep())
         }
 
         // flop anim
-        animTimer++;
+        animTimer+=1;
 
         if (animTimer mod 6 == 0)
         {
@@ -113,7 +113,7 @@ if (entityCanStep())
         }
 
         // it dies if its outside water for too long
-        outtaWaterTimer++;
+        outtaWaterTimer+=1;
 
         if (outtaWaterTimer >= 360)
         {

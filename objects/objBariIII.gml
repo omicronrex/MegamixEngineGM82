@@ -55,9 +55,9 @@ if (entityCanStep())
 {
     if(facePlayer)
         calibrateDirection(objMegaman);
-    var phw = hasWeight;
+    var phw; phw = hasWeight;
     hasWeight = false;
-    var ID = id;
+    var ID; ID = id;
     with (prtEntity)
     {
         if (!blockCollision || !ground || id == other.id || (faction != 3 && object_index != objMegaman))
@@ -80,8 +80,8 @@ if (entityCanStep())
         if (timer > 64 && size > 0)
         {
             // pop
-            var i = noone;
-            var maxIndex = -99999;
+            var i; i = noone;
+            var maxIndex; maxIndex = -99999;
             with (objBariIIIBody)
             {
                 if (owner == other.id && index > maxIndex)
@@ -122,10 +122,10 @@ if (entityCanStep())
 
                 // Push
                 playSFX(sfxBariIIIRegen);
-                var i = instance_create(x, bbox_bottom + 12 * size, objBariIIIBody);
+                var i; i = instance_create(x, bbox_bottom + 12 * size, objBariIIIBody);
                 i.owner = id;
                 i.col = col;
-                var maxIndex = -99999;
+                var maxIndex; maxIndex = -99999;
                 with (objBariIIIBody)
                 {
                     if (owner == other.id && index > maxIndex)
@@ -139,7 +139,7 @@ if (entityCanStep())
         if (ground)
         {
             shootTimer += 1;
-            var shT = 160;
+            var shT; shT = 160;
             if (shootTimer >= shT - 10 && shootTimer <= shT)
             {
                 // Shoot
@@ -170,9 +170,9 @@ action_id=603
 applies_to=self
 */
 /// Shoot
-for (var i = -1; i < 2; i += 2)
+var i; for ( i = -1; i < 2; i += 2)
 {
-    var sw = instance_create(x + (14) * image_xscale, y-4, objBariIIISoundWave);
+    var sw; sw = instance_create(x + (14) * image_xscale, y-4, objBariIIISoundWave);
     sw.i = i;
     with (sw)
         event_user(0);
@@ -213,7 +213,7 @@ if (spawned)
         spawnSize = maxSize;
     shootTimer = 0;
     timer = 0;
-    var sz = min(maxSize, spawnSize);
+    var sz; sz = min(maxSize, spawnSize);
     y -= sz * 12;
     if (instance_exists(objBariIIIBody))
     {
@@ -226,9 +226,9 @@ if (spawned)
         }
     }
     size = 0;
-    for (size = 0; size < sz; size++)
+    for (size = 0; size < sz; size+=1)
     {
-        var i = instance_create(x, bbox_bottom + 1 + 12 + 12 * size, objBariIIIBody);
+        var i; i = instance_create(x, bbox_bottom + 1 + 12 + 12 * size, objBariIIIBody);
         i.owner = id;
         i.animFrame = 2;
         i.image_index = 2 + imgOffset;

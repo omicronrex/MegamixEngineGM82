@@ -74,7 +74,7 @@ if (!global.frozen && !dead && !global.timeStopped)
                         playSFX(sfxEnemyHit);
                     }
                 }
-                for (var i = 0; i < array_length_1d(spinesToKill); i++)
+                var i; for ( i = 0; i < array_length_1d(spinesToKill); i+=1)
                 {
                     with (spinesToKill[i])
                     {

@@ -45,8 +45,8 @@ applies_to=self
 if(init)
 {
     print("Animating");
-    var tiles = tile_get_ids_at_depth(animationLayer);
-    var total = array_length_1d(tiles);
+    var tiles; tiles = tile_get_ids_at_depth(animationLayer);
+    var total; total = array_length_1d(tiles);
     if(total<=0)
     {
         init=0;
@@ -54,13 +54,13 @@ if(init)
         exit;
     }
 
-    for (var i = 0; i < total; i+=1)
+    var i; for (i = 0; i < total; i+=1)
     {
-        var tile = tiles[i];
-        var bg=tile_get_background(tile);
-        var skip=true;
-        var k=0;
-        for(var j=0; j<animLength;j+=1;)
+        var tile; tile = tiles[i];
+        var bg; bg =tile_get_background(tile);
+        var skip; skip =true;
+        var k; k =0;
+        var j; for(j =0; j<animLength;j+=1;)
         {
             if(bg==animID[j])
             {
@@ -75,20 +75,20 @@ if(init)
         {
             k=0;
         }
-        for(var j=1;j<animLength;j++)
+        var j; for(j =1;j<animLength;j+=1)
         {
             tile_add(animID[k], tile_get_left(tile),
                 tile_get_top(tile), 16,
                 16, tile_get_x(tile), tile_get_y(tile),
                 animationLayer + j);
-            ++k;
+            k+=1;
             if(k>=animLength)
             {
                 k=0;
             }
         }
     }
-    for(var i =1;i<animLength;i++)
+    var i; for(i =1;i<animLength;i+=1)
         tile_layer_hide(animationLayer+i);
     init=false;
     exit;

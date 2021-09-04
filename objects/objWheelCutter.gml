@@ -154,7 +154,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var detach = !global.keyShoot[playerID];
+var detach; detach = !global.keyShoot[playerID];
 if (global.playerHealth[playerID] <= 0)
 {
     detach = 1;

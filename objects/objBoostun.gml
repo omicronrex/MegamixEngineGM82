@@ -69,7 +69,7 @@ if (entityCanStep())
             break;
         // Fly into the air
         case 1: // Initial movement
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer > 0)
             {
                 yspeed = -1;
@@ -82,7 +82,7 @@ if (entityCanStep())
                 // Shoot
                 if (instance_exists(target))
                 {
-                    shootTimer--;
+                    shootTimer-=1;
 
                     // Get target
                     megaDir = point_direction(x, y, target.x, target.y + 5);
@@ -174,7 +174,7 @@ if (entityCanStep())
                     {
                         if (!instance_exists(missile))
                         {
-                            var i = instance_create(x + 4 * image_xscale, y - 9, objBoostunMissile);
+                            var i; i = instance_create(x + 4 * image_xscale, y - 9, objBoostunMissile);
                             missile = i.id;
                             i.parent = id;
                             i.dir = angle;
@@ -246,7 +246,7 @@ if (entityCanStep())
                         }
                         else
                         {
-                            flyTimer--;
+                            flyTimer-=1;
                             if (flyTimer <= 0)
                             {
                                 moveTowardPoint(target.x, target.y, 1);

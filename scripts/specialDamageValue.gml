@@ -5,8 +5,8 @@
 // type: either an object index or a string category (see below)
 // damage: how much damage to do.
 
-var type = argument0;
-var newDamage = argument1;
+var type; type = argument0;
+var newDamage; newDamage = argument1;
 
 // Basic, by-object
 if (!is_string(type))

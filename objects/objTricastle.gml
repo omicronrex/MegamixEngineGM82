@@ -101,7 +101,7 @@ if (entityCanStep())
             // Door animations
             if (instance_exists(center))
             {
-                var prevAnimFrame = floor(animFrame);
+                var prevAnimFrame; prevAnimFrame = floor(animFrame);
                 if (masterTimer > 10 && masterTimer < 40)
                 {
                     center.image_index = 8;
@@ -156,7 +156,7 @@ if (entityCanStep())
         }
         if (timer > 60)
             timer = -1;
-        var p = noone;
+        var p; p = noone;
         if (timer == 1)
         {
             if (platHeight == 0)
@@ -179,7 +179,7 @@ if (entityCanStep())
             }
             else
             {
-                var p = instance_create(x + 64, bbox_bottom - 16, objTricastlePlatform);
+                var p; p = instance_create(x + 64, bbox_bottom - 16, objTricastlePlatform);
                 p.spd = 2.25;
             }
         }
@@ -285,7 +285,7 @@ applies_to=self
 */
 if (phase == 1 || phase == 2)
 {
-    var yo = 27;
+    var yo; yo = 27;
     switch (image_index)
     {
         case 0:

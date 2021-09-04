@@ -41,7 +41,7 @@ if (entityCanStep())
 
     if (ground)
     {
-        var rn = irandom(1);
+        var rn; rn = irandom(1);
         calibrateDirection();
         if (image_xscale != myDir)
         {
@@ -100,7 +100,7 @@ if (entityCanStep())
                 if (shootAmount < shootTotal)
                 {
                     shootTimer = 0;
-                    var i = instance_create(x + (12 * image_xscale), y - 8, objEnemyBullet);
+                    var i; i = instance_create(x + (12 * image_xscale), y - 8, objEnemyBullet);
                     i.xspeed = image_xscale * 4;
                     i.sprite_index = sprCrazyRazyBullet;
                     playSFX(sfxEnemyShootClassic); // shoooot

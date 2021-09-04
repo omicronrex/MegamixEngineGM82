@@ -129,7 +129,7 @@ if (entityCanStep())
                 // Fire
                 if (shootTimer == 0)
                 {
-                    var i = instance_create(x + 8 * image_xscale, y - 5, objMM2MetBullet);
+                    var i; i = instance_create(x + 8 * image_xscale, y - 5, objMM2MetBullet);
                     i.dir = angle;
                     i.image_xscale = image_xscale;
                     playSFX(sfxEnemyShootClassic);
@@ -154,7 +154,7 @@ if (entityCanStep())
             {
                 if (chargeDelay != 0)
                 {
-                    animTimer--;
+                    animTimer-=1;
                     if (animTimer == 0)
                     {
                         image_index = 6;
@@ -186,7 +186,7 @@ if (entityCanStep())
                                 image_xscale = -1;
                             }
                         }
-                        moves++;
+                        moves+=1;
                     }
 
                     // Animation
@@ -212,7 +212,7 @@ if (entityCanStep())
             }
             else // Go back under cannon after moving twice
             {
-                animTimer--;
+                animTimer-=1;
                 if ((animTimer == 0) && (image_index > 4))
                 {
                     image_index = 4;

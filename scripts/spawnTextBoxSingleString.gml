@@ -4,7 +4,7 @@ _name = argument0;
 _name_col = argument1;
 _text = argument2;
 
-var newline = "
+var newline; newline = "
 ";
 
 // initialize variables

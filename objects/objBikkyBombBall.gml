@@ -33,7 +33,7 @@ if (entityCanStep())
     {
         if (bounces < 2)
         {
-            bounces++;
+            bounces+=1;
             yspeed = -4;
         }
         else
@@ -43,7 +43,7 @@ if (entityCanStep())
         }
     }
 
-    countdown--;
+    countdown-=1;
     if (countdown == 0)
     {
         event_user(EV_DEATH);

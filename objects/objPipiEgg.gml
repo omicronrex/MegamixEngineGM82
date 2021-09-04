@@ -30,7 +30,7 @@ if (entityCanStep())
         instance_destroy();
         repeat (8)
         {
-            var ID = instance_create(x, y, objCopipi);
+            var ID; ID = instance_create(x, y, objCopipi);
             ID.col = col;
         }
     }

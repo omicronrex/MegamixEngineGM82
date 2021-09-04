@@ -32,9 +32,9 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var tmpTimer = timer;
+var tmpTimer; tmpTimer = timer;
 var i;
-for (i = 0; i < array_length_1d(shakeTime); i++)
+for (i = 0; i < array_length_1d(shakeTime); i+=1)
 {
     tmpTimer -= shakeTime[i];
     if (tmpTimer <= 0)
@@ -51,7 +51,7 @@ for (i = 0; i < array_length_1d(shakeTime); i++)
 
 if (!global.frozen && !global.timeStopped)
 {
-    timer++;
+    timer+=1;
     if (i == array_length_1d(shakeTime))
     {
         timer = 0;

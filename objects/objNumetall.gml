@@ -49,7 +49,7 @@ if (entityCanStep())
             {
                 if (instance_exists(target))
                 {
-                    var isGonnaHurt = false;
+                    var isGonnaHurt; isGonnaHurt = false;
                     if ((abs(target.x - x) < 32) || target.image_xscale == sign(x - target.x) && global.keyShootPressed[target.playerID])
                     {
                         phase = 1;
@@ -143,10 +143,10 @@ if (entityCanStep())
                 calibrateDirection();
                 playSFX(sfxNumetallShoot);
                 animFrame = 5;
-                var i = -45;
+                var i; i = -45;
                 repeat (3)
                 {
-                    var b = instance_create(x + 8 * image_xscale, y - 8 * image_yscale, objNumetallGlob);
+                    var b; b = instance_create(x + 8 * image_xscale, y - 8 * image_yscale, objNumetallGlob);
                     b.angle = i;
                     i += 45;
                     b.image_xscale = image_xscale;

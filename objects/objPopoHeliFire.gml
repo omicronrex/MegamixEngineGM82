@@ -23,7 +23,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    moveTimer--;
+    moveTimer-=1;
     image_index += imgSpeed;
     if (!instance_exists(parent) || (instance_exists(parent) && parent.dead))
     {

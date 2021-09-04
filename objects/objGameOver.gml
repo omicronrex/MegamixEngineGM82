@@ -24,11 +24,11 @@ applies_to=self
 */
 if (!controlsLocked)
 {
-    var selectionCount = 2;
+    var selectionCount; selectionCount = 2;
 
     // switch selection
-    var yDir = 0;
-    for (var i = 0; i < global.playerCount; i++)
+    var yDir; yDir = 0;
+    var i; for ( i = 0; i < global.playerCount; i+=1)
     {
         yDir += global.keyDownPressed[i] - global.keyUpPressed[i];
     }
@@ -39,8 +39,8 @@ if (!controlsLocked)
     if (yDir != 0)
         playSFX(sfxMenuMove);
 
-    var selected = false;
-    for (var i = 0; i < global.playerCount; i++)
+    var selected; selected = false;
+    var i; for ( i = 0; i < global.playerCount; i+=1)
     {
         selected = selected || global.keyPausePressed[i];
     }
@@ -73,9 +73,9 @@ draw_set_color(c_white);
 draw_set_alpha(1);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
-for (var i = 0; i < 2; i++)
+var i; for ( i = 0; i < 2; i+=1)
 {
-    var draw_y = 48 + i * 12;
+    var draw_y; draw_y = 48 + i * 12;
 
     // draw cursor
     if (i == selection)

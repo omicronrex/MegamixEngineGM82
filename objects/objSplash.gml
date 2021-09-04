@@ -33,7 +33,7 @@ if (!global.frozen || active)
         }
     }
 
-    timer--;
+    timer-=1;
     if (place_meeting(x, y, objSolid) && blockCollision || !timer)
     {
         instance_destroy();
@@ -65,8 +65,8 @@ else
         solid = 1;
     }
 
-    var xs = 0;
-    var ys = 0;
+    var xs; xs = 0;
+    var ys; ys = 0;
 
     if (image_angle == 0 || image_angle == 180)
     {

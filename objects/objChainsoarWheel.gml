@@ -49,7 +49,7 @@ if (entityCanStep())
             {
                 yspeed = 0;
             }
-            bounceTimes++;
+            bounceTimes+=1;
         }
         if (bounceTimes == 3)
         {
@@ -71,10 +71,10 @@ if (entityCanStep())
     }
 
     // Countdown to destruction
-    moveTimer--;
+    moveTimer-=1;
     if (moveTimer == 0)
     {
-        canLive--;
+        canLive-=1;
         moveTimer = 60;
         if (canLive == 0)
         {

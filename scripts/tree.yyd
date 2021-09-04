@@ -211,7 +211,6 @@
 		|stringIndexOf
 		|stringReverse
 		|getTimeStamp
-		|zeroPad
 		+XML
 			|xmlParseTag
 			|xmlStringUnescape
@@ -253,14 +252,6 @@
 			|globalLockInit
 			|globalLockReset
 			|playerLockLocalInit
-	+External Room Loading
-		|roomExternalSetupPre
-		|roomExternalSetupPost
-		|roomExternalLoad
-		|roomExternalClear
-		|roomExternalGetName
-		|md5FileContents
-		|getRoom
 	+Action Replays
 		|recordInputToFile
 		|recordInputPlayback
@@ -271,9 +262,12 @@
 		|recordInputFidelityMessage
 	+Reflection
 		|stringExecutePartial
+	|getRoom
 	|scrNoEffect
 	|eventExecute
 	|combineObjects
+	|roomExternalGetName
+	|asset_get_type
 +Studio Compatibility
 	|audio_stop_sound
 	|audio_is_playing
@@ -289,3 +283,6 @@
 	|array_length_2d
 	|array_height_2d
 	|draw_rectangle_colour
+	|tile_get_ids_at_depth
+	|tile_get_ids
+	|is_array

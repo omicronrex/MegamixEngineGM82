@@ -33,7 +33,7 @@ global.energySaver = 0;
 
 global.gameTimer = 0;
 
-for (var j = 0; j <= global.totalWeapons; j++)
+var j; for (j = 0; j <= global.totalWeapons; j+=1)
 {
     global.weaponLocked[j] = false;
     global.weaponHotbar[j] = j;

@@ -19,7 +19,7 @@ else
 // recording
 if (global.recordInputMode == 1)
 {
-    // recording -- begin
+    // recording -=1 begin
     if (global.recordInputBegin)
     {
         // go to correct room for recording input
@@ -39,15 +39,15 @@ if (global.recordInputMode == 1)
         }
     }
 
-    // recording -- frame logic
+    // recording -=1 frame logic
     recordInputAppendFrame();
-    global.recordInputFrame++;
+    global.recordInputFrame+=1;
 }
 
 // playback
 if (global.recordInputMode == 2)
 {
-    // playback -- begin
+    // playback -=1 begin
     if (global.recordInputBegin)
     {
         if (room == global.recordInputRoom)
@@ -55,7 +55,7 @@ if (global.recordInputMode == 2)
             global.recordInputBegin = false;
             if (global.recordInputSkipSpawn)
             {
-                // skipping spawn -- we must warp directly to the recording start point and
+                // skipping spawn -=1 we must warp directly to the recording start point and
                 // set up mega man's state correctly.
                 global.playerCount = global.recordPlayerCount;
 
@@ -64,10 +64,10 @@ if (global.recordInputMode == 2)
                     instance_destroy();
 
                 // setup player values
-                for (var i = 0; i < global.playerCount; i++)
+                var i; for (i = 0; i < global.playerCount; i+=1)
                 {
                     global.playerHealth[i] = global.recordInputPlayerHealth[i];
-                    for (var j = 0; j <= global.totalWeapons; j++)
+                    var j; for (j = 0; j <= global.totalWeapons; j+=1)
                     {
                         global.ammo[i, j] = global.recordInputAmmo[i, j];
                     }
@@ -114,8 +114,8 @@ if (global.recordInputMode == 2)
         }
     }
 
-    // playback -- frame logic
-    var status = recordInputReadFrame();
+    // playback -=1 frame logic
+    var status; status = recordInputReadFrame();
     if (status == 1)
     {
         global.recordInputEnd = false;
@@ -134,5 +134,5 @@ if (global.recordInputMode == 2)
         global.roomReturn = global.recordInputReturnRoom;
         returnFromLevel(false);
     }
-    global.recordInputFrame++;
+    global.recordInputFrame+=1;
 }

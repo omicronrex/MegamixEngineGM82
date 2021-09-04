@@ -37,7 +37,7 @@ if (!global.frozen)
 
     if (animTimer > 0 && animTimer < 48)
     {
-        animTimer++;
+        animTimer+=1;
         image_index = ((animTimer / 2) mod 3) + 1;
     }
 
@@ -50,12 +50,12 @@ if (!global.frozen)
         }
         if (destroyTimer > 0)
         {
-            destroyTimer--;
+            destroyTimer-=1;
         }
         if (destroyTimer == 0 && image_yscale > 1)
         {
             playSFX(sfxDoor);
-            image_yscale--;
+            image_yscale-=1;
             destroyTimer = 8;
         }
         else if (destroyTimer == 0)
@@ -92,7 +92,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-for (var i = 0; i < image_yscale; i++)
+var i; for ( i = 0; i < image_yscale; i+=1)
 {
     draw_sprite(sprite_index, image_index, x, y + (16 * i));
 }

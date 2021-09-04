@@ -97,7 +97,7 @@ if (entityCanStep())
                         phase = 3;
                         timer = 0;
                     }
-                    var onLimit = sign(x - (prevX + maxDist * image_xscale)) == image_xscale;
+                    var onLimit; onLimit = sign(x - (prevX + maxDist * image_xscale)) == image_xscale;
                     if (checkFall(32*sign(image_xscale)) || onLimit)
                     {
                         if (onLimit)
@@ -171,7 +171,7 @@ if (entityCanStep())
                     {
                         if (instance_exists(objMegaman))
                         {
-                            var collided = collision_rectangle(x, y, x + 48 * image_xscale, y - 30, objMegaman, false, true);
+                            var collided; collided = collision_rectangle(x, y, x + 48 * image_xscale, y - 30, objMegaman, false, true);
                             if (collided != noone)
                             {
                                 with (collided)
@@ -209,7 +209,7 @@ if (entityCanStep())
                         if (timer == 30)
                         {
                             animFrame = 13;
-                            var i = instance_create(x, y, objEnemyBullet);
+                            var i; i = instance_create(x, y, objEnemyBullet);
                             i.contactDamage = 3;
                             i.sprite_index = sprKakinbatankBullet;
                             i.image_speed = 0;

@@ -52,7 +52,7 @@ if (entityCanStep())
 {
     xspeed = xs;
 
-    canCollide--;
+    canCollide-=1;
 
     if (canCollide > 0 && checkSolid(x, y))
     {
@@ -76,7 +76,7 @@ if (entityCanStep())
             image_index = 3;
         }
         else
-            image_index++;
+            image_index+=1;
     }
     else
     {

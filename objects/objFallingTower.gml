@@ -129,7 +129,7 @@ if (entityCanStep() && insideSection(x + 8, y))
     }
 
     // Check for any objects that should stop the darkman towers from falling
-    for (var o = 0; o < array_length_1d(blockObject); o += 1)
+    var o; for (o = 0; o < array_length_1d(blockObject); o += 1)
     {
         for (i = 0; i <= image_xscale; i += 1)
         {

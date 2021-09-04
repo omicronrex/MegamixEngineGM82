@@ -225,8 +225,8 @@ if (!spike) // don't need to shunt if it's a spike, since mega man gunna die
         {
             with (other)
             {
-                var xx = 0;
-                var yy = -other.gravDir;
+                var xx; xx = 0;
+                var yy; yy = -other.gravDir;
 
                 size = (other.bbox_bottom - other.bbox_top) * yy;
 

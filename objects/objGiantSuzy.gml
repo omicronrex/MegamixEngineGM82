@@ -128,7 +128,7 @@ if (!init)
             healthBarPrimaryColor[1] = 28;
             healthBarSecondaryColor[1] = 42;
     }
-    init++;
+    init+=1;
 }
 
 // all of giant suzy's events trigger when the game isn't frozen.

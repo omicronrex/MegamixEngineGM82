@@ -50,10 +50,10 @@ if (entityCanStep())
         timer = 0;
         if (angle != newAngle)
         {
-            var rotDir = 1;
-            var pdist = 0;
-            var delta = 360 - angle;
-            var nangl = (newAngle + delta) % 360;
+            var rotDir; rotDir = 1;
+            var pdist; pdist = 0;
+            var delta; delta = 360 - angle;
+            var nangl; nangl = (newAngle + delta) mod 360;
             if (nangl >= 180)
                 rotDir = -1;
             angle = wrapAngle(angle + 45 * rotDir);

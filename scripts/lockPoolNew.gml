@@ -1,7 +1,7 @@
 /// lockPoolNew()
 // creates a new lock pool, returning its ID
 
-for (var i = 0; i < global.lockPoolN; i++)
+var i; for (i = 0; i < global.lockPoolN; i+=1)
 {
     if (global.lockPoolAvailable[i])
     {
@@ -17,4 +17,6 @@ global.lockPoolAvailable[global.lockPoolN] = false;
 global.lockPoolLockCount[global.lockPoolN] = 0;
 global.lockPoolTombstone[global.lockPoolN] = false;
 
-return global.lockPoolN++;
+var ret;ret=global.lockPoolN
+global.lockPoolN+=1
+return ret;

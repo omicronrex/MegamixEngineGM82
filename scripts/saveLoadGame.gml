@@ -1,6 +1,6 @@
 /// saveload_game(save?);
 // saves / loads game progress
-// save? -- true: save; false: load
+// save? -=1 true: save; false: load
 // returns non-zero error code if an error occurred.
 
 // exits if save file not set
@@ -28,7 +28,7 @@ global.energySaver = sl(global.energySaver, "energy-saver");
 global.gameTimer = sl(global.gameTimer);
 
 // save weapon unlock
-for (var j = 1; j <= global.totalWeapons; j++)
+var j; for (j = 1; j <= global.totalWeapons; j+=1)
 {
     global.weaponLocked[j] = sl(global.weaponLocked[j], "LOCKED_" + object_get_name(global.weaponObject[j]), false, 2);
 }

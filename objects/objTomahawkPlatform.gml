@@ -42,7 +42,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    ++timeri;
+    timeri+=1;
     if (timeri >= 3)
     {
         if(drawDir!=0)

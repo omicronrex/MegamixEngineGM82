@@ -20,18 +20,18 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var _xsp = xspeed;
-var _ysp = yspeed;
+var _xsp; _xsp = xspeed;
+var _ysp; _ysp = yspeed;
 event_inherited();
 
 if (entityCanStep())
 {
-    var collided = false;
+    var collided; collided = false;
     if (canCollide)
     {
         if (!collided)
         {
-            var ts = instance_place(x, y + yspeed, objTopSolid);
+            var ts; ts = instance_place(x, y + yspeed, objTopSolid);
             if (place_meeting(x, y + yspeed, objSolid) || (yspeed > 0 && ts != noone && bbox_bottom - 1 > ts.bbox_top))
             {
                 yspeed *= -1;

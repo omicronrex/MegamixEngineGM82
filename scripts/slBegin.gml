@@ -23,13 +23,13 @@ if (global.sl_save)
 else
 {
     print("Loading from " + global.sl_filename, WL_VERBOSE);
-    var file = file_text_open_read(global.sl_filename);
+    var file; file = file_text_open_read(global.sl_filename);
     if (file == -1)
     {
         global.sl_error = 1;
         exit;
     }
-    var file_contents = "";
+    var file_contents; file_contents = "";
     while (!file_text_eof(file))
         file_contents += file_text_readln(file) + chr(10);
     file_text_close(file);

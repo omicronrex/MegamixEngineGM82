@@ -31,15 +31,15 @@ if (!dead)
 {
     if (!global.frozen)
     {
-        timer++;
+        timer+=1;
     }
 
     if ((flashTimer mod 4) < 2)
     {
         if (object_index == objLife)
         {
-            var _costume = 0;
-            var _pid = floor((timer / 48) mod global.playerCount);
+            var _costume; _costume = 0;
+            var _pid; _pid = floor((timer / 48) mod global.playerCount);
             with (objMegaman)
             {
                 if (playerID == _pid)

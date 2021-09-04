@@ -1,9 +1,9 @@
 /// isLocked(ids[...])
 /// returns true if any of the given lock pools are locked:
 
-for (var lp = 0; lp < argument_count; lp++)
+var lp; for (lp = 0; lp < argument_count; lp+=1)
 {
-    var lockPoolID = argument[lp];
+    var lockPoolID; lockPoolID = argument[lp];
 
     // error-checking
     if (!lockPoolExists(lp))

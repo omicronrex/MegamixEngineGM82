@@ -33,7 +33,7 @@ if (entityCanStep())
     {
         if (instance_exists(i))
         {
-            i.image_yscale++;
+            i.image_yscale+=1;
         }
         yDist = 0;
     }

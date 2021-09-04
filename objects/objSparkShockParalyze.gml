@@ -40,7 +40,7 @@ if (!global.frozen)
                 }
             }
         }
-        countdownToDestruction--;
+        countdownToDestruction-=1;
         if (countdownToDestruction > 0)
         {
             with (plzTarget)

@@ -51,7 +51,7 @@ if (!global.frozen)
         }
 
         // Ice weapons trigger snowy weather
-        for (i = 0; i < array_length_1d(weakToRain); i++)
+        for (i = 0; i < array_length_1d(weakToRain); i+=1)
         {
             if (instance_exists(weakToRain[i]))
             {
@@ -88,7 +88,7 @@ action_id=603
 applies_to=self
 */
 // Rain/snow drawing + animation
-animTimer++;
+animTimer+=1;
 
 switch (global.telTelWeather)
 {
@@ -119,12 +119,12 @@ switch (global.telTelWeather)
                 weatherImg = 0;
             }
         }
-        var tr = instance_exists(objToadRain);
-        var dox = view_xview mod 16;
-        var doy = view_yview mod 16;
-        for (var i = view_xview - 16; i <= view_xview + view_wview + 16; i += 16)
+        var tr; tr = instance_exists(objToadRain);
+        var dox; dox = view_xview mod 16;
+        var doy; doy = view_yview mod 16;
+        var i; for ( i = view_xview - 16; i <= view_xview + view_wview + 16; i += 16)
         {
-            for (var e = view_yview - 16; e <= view_yview + view_hview + 16; e += 16)
+            var e; for (e = view_yview - 16; e <= view_yview + view_hview + 16; e += 16)
             {
                 if (!tr || (tr && !place_meeting(i - dox, e - doy, objToadRain)))
                 {
@@ -144,11 +144,11 @@ switch (global.telTelWeather)
                 weatherImg = 0;
             }
         }
-        var dox = view_xview mod 16;
-        var doy = view_yview mod 16;
-        for (var i = view_xview - 16; i <= view_xview + view_wview + 16; i += 16)
+        var dox; dox = view_xview mod 16;
+        var doy; doy = view_yview mod 16;
+        var i; for ( i = view_xview - 16; i <= view_xview + view_wview + 16; i += 16)
         {
-            for (var e = view_yview - 16; e <= view_yview + view_hview + 16; e += 16)
+            var e; for (e = view_yview - 16; e <= view_yview + view_hview + 16; e += 16)
             {
                 draw_sprite_ext(sprTelTelSnow, weatherImg, i - dox, e - doy, 1, 1, 0, c_white, 1);
             }

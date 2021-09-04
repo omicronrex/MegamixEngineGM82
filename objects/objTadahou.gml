@@ -44,8 +44,8 @@ if (entityCanStep())
     if (shootTimer == shootWait)
     {
         shot = instance_create(x + sprite_width * 0.4, y - 4, objEnemyBullet);
-        shot.xspeed = 1.4 * image_xscale; // <-- bullet speed here
-        shot.contactDamage = 3; // <-- bullet damage here
+        shot.xspeed = 1.4 * image_xscale; // <-=1 bullet speed here
+        shot.contactDamage = 3; // <-=1 bullet damage here
 
         switch (col)
         {

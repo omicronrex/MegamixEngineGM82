@@ -44,7 +44,7 @@ applies_to=self
 */
 event_inherited();
 
-var i = instance_create(x + 16, y, objBombPottonExplosion);
+var i; i = instance_create(x + 16, y, objBombPottonExplosion);
 i.image_xscale = 1;
 if (image_index == 1)
 {

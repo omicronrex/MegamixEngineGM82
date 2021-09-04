@@ -39,7 +39,7 @@ event_inherited();
 
 if (!dead && !global.frozen && !global.timeStopped)
 {
-    var hasSwitch = false;
+    var hasSwitch; hasSwitch = false;
     if (!is_undefined(global.flagParent[myFlag]) && instance_exists(global.flagParent[myFlag]))
     {
         hasSwitch = true;

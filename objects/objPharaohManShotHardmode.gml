@@ -35,7 +35,7 @@ if (entityCanStep())
     }
 
     // Attack routine
-    attackTimer++;
+    attackTimer+=1;
 
     // track player
     if (attackTimer < 120 && instance_exists(target))

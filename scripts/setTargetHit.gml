@@ -1,6 +1,6 @@
 // setTargetHit(projectile id)
 
-var projectile = argument0;
+var projectile; projectile = argument0;
 
 switch (behaviourType)
 {

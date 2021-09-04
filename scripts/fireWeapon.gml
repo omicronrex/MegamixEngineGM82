@@ -38,7 +38,7 @@ if (limit > 0) // Checks bullet limit
 // Checks if enough weapon energy
 if (cost > 0)
 {
-    var current = global.weapon[playerID];
+    var current; current = global.weapon[playerID];
     if (global.ammo[playerID, current] <= 0)
     {
         return noone;

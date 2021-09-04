@@ -4,10 +4,10 @@
 // if not doing a point check, if range will be used as a margin
 // This script only works for view 0.
 
-var _x = x;
-var _y = y;
-var _pch = false;
-var _rr = 0;
+var _x; _x = x;
+var _y; _y = y;
+var _pch; _pch = false;
+var _rr; _rr = 0;
 
 if(argument_count>0)
 {
@@ -33,11 +33,11 @@ if (_pch)
 }
 else
 {
-    var __x = x;
-    var __y = y;
+    var __x; __x = x;
+    var __y; __y = y;
     x = _x;
     y = _y;
-    var result = (bbox_right + _rr >= view_xview[0] && bbox_left - _rr  <= view_xview[0] + view_wview[0] && bbox_bottom + _rr  >= view_yview[0] && bbox_top - _rr <= view_yview[0] + view_hview[0]);
+    var result; result = (bbox_right + _rr >= view_xview[0] && bbox_left - _rr  <= view_xview[0] + view_wview[0] && bbox_bottom + _rr  >= view_yview[0] && bbox_top - _rr <= view_yview[0] + view_hview[0]);
     x = __x;
     y = __y;
     return result;

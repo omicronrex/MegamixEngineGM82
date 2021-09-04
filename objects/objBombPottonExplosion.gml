@@ -14,7 +14,7 @@ blockCollision = 0;
 remaining = 2;
 onlyDamageMines = true;
 
-var j = 0;
+var j; j = 0;
 shiftObject(0, 2, true);
 checkGround();
 if (ground)
@@ -48,7 +48,7 @@ if (entityCanStep())
     {
         if (remaining > 0)
         {
-            var i = instance_create(x + 8 * image_xscale, y, objBombPottonExplosion);
+            var i; i = instance_create(x + 8 * image_xscale, y, objBombPottonExplosion);
             i.remaining = remaining - 1;
             i.image_xscale = image_xscale;
             remaining = 0;

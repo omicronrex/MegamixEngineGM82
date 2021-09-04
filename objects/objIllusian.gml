@@ -42,32 +42,32 @@ if (entityCanStep())
             x = view_xview[0] + view_wview[0] - 4;
 
         // split tiles to 16x16:
-        var tile_list = tile_get_ids_at_depth(tile_layer);
-        for (var i = 0; i < array_length_1d(tile_list); i++)
+        var tile_list; tile_list = tile_get_ids_at_depth(tile_layer);
+        var i; for ( i = 0; i < array_length_1d(tile_list); i+=1)
         {
-            var tile = tile_list[i];
+            var tile; tile = tile_list[i];
             splitTile(tile);
         }
 
         // gather tiles on route:
         route_tile_n = 0;
-        var tile_list = tile_get_ids_at_depth(tile_layer);
-        for (var i = 0; i < array_length_1d(tile_list); i++)
+        var tile_list; tile_list = tile_get_ids_at_depth(tile_layer);
+        var i; for ( i = 0; i < array_length_1d(tile_list); i+=1)
         {
-            var tile = tile_list[i];
+            var tile; tile = tile_list[i];
             if (tile_get_y(tile) == y)
             {
-                route_tile[route_tile_n++] = tile;
+                route_tile[route_tile_n] = tile; route_tile_n+=1
             }
         }
 
         // bubble sort x values
         swapped = false;
-        for (var i = 0; i < route_tile_n - 1; i++)
+        var i; for ( i = 0; i < route_tile_n - 1; i+=1)
         {
             if (tile_get_x(route_tile[i + 1]) * dir < tile_get_x(route_tile[i]) * dir)
             {
-                var tmp = route_tile[i];
+                var tmp; tmp = route_tile[i];
                 route_tile[i] = route_tile[i + 1];
                 route_tile[i + 1] = tmp;
                 swapped = true;
@@ -83,12 +83,12 @@ if (entityCanStep())
         {
             // route_combined: place two tiles at once in route
             route_combined[route_tile_n - 1] = false;
-            for (var i = 0; i < route_tile_n - 1; i++)
+            var i; for ( i = 0; i < route_tile_n - 1; i+=1)
             {
                 if (tile_get_x(route_tile[i]) == tile_get_x(route_tile[i + 1]) - 16 * dir)
                 {
                     route_combined[i] = true;
-                    i++;
+                    i+=1;
                 }
             }
         }
@@ -105,14 +105,14 @@ if (entityCanStep())
         // stop if passed next block on route:
         if (route_progress < route_tile_n)
         {
-            var dst_x = tile_get_x(route_tile[route_progress]) + 8 + 8 * route_combined[route_progress] * dir;
+            var dst_x; dst_x = tile_get_x(route_tile[route_progress]) + 8 + 8 * route_combined[route_progress] * dir;
             if (x * dir >= dst_x * dir && y == y_route)
             {
                 x = dst_x;
                 lay_timer = lay_time;
-                for (var i = 0; i <= route_combined[route_progress]; i++)
+                var i; for ( i = 0; i <= route_combined[route_progress]; i+=1)
                 {
-                    var tile = route_tile[route_progress + i];
+                    var tile; tile = route_tile[route_progress + i];
                     with (instance_create(tile_get_x(tile), y_route, objIllusianBlock))
                     {
                         tile_bg = tile_get_background(tile);

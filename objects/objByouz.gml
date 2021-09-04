@@ -81,7 +81,7 @@ if (entityCanStep())
                 }
             }
 
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer <= 0)
             {
                 if (instance_exists(target))
@@ -99,7 +99,7 @@ if (entityCanStep())
             break;
             // Jump
         case 1:
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer == 5)
             {
                 image_index = 3;

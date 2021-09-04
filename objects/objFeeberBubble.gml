@@ -48,7 +48,7 @@ if (entityCanStep())
                 || (global.keySlidePressed[target.playerID]) && (target.ground) && (!damage))
             {
                 event_user(EV_HURT);
-                healthpoints--;
+                healthpoints-=1;
                 damage = true;
             }
             else

@@ -37,7 +37,7 @@ if (entityCanStep())
     {
         // Prepare Bubble
         case 0:
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer > 0)
             {
                 image_index += imgSpd;
@@ -57,7 +57,7 @@ if (entityCanStep())
             }
             break;
         case 1:
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer == 30)
             {
                 if (!instance_exists(bubble))
@@ -79,7 +79,7 @@ if (entityCanStep())
                 else // if (image_index == 1)
                 {
                     image_index = 0;
-                    animTimer--;
+                    animTimer-=1;
                     if (animTimer == 0)
                     {
                         calibrateDirection();
@@ -93,7 +93,7 @@ if (entityCanStep())
             }
             break;
         case 2:
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer > 0)
             {
                 if (animBack == false)

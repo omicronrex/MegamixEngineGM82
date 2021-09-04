@@ -26,7 +26,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    shootTimer--;
+    shootTimer-=1;
     if (shootTimer <= 0)
     {
         i = instance_create(x + 30 * image_xscale, y - 27, objTyhornBall);//35

@@ -3,7 +3,7 @@
 // if already at globl.roomReturn, return to title screen
 // fadeOut (default: true): screen should fade out? (if false, room switch is immediate.)
 
-var fadeOut = true;
+var fadeOut; fadeOut = true;
 if (argument_count > 0)
 {
     fadeOut = argument[0];
@@ -19,7 +19,7 @@ global.endStageOnRoomEnd = global.inGame;
 
 global.checkpoint = false;
 
-var rm = global.roomReturn;
+var rm; rm = global.roomReturn;
 
 // weapon get!
 if (array_length_1d(global.levelReward) > 1)

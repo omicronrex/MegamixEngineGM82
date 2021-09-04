@@ -2,7 +2,7 @@
 // returns a blank struct object
 // persistence defaults to the creator's persistence
 
-var p = persistent;
+var p; p = persistent;
 if (argument_count > 0)
     p = argument[0];
 

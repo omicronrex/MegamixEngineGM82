@@ -43,7 +43,7 @@ if (!global.frozen && (insideView() || active))
         init = 0;
         if (!place_meeting(x, y, object_index)) // co-op: spawn additional
         {
-            for (var i = 1; i < global.playerCount; i += 1)
+            var i; for ( i = 1; i < global.playerCount; i += 1)
             {
                 with (instance_create(x + 4 * i * dir, y, object_index))
                 {
@@ -104,7 +104,7 @@ if (!global.frozen && (insideView() || active))
     {
         if (!dead)
         {
-            var accel = 0.05;
+            var accel; accel = 0.05;
 
             // change speeds
             if (abs(xspeed) < maxSpeed)

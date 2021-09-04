@@ -83,7 +83,7 @@ if (entityCanStep() && !killed && !stop)
             event_user(EV_DEATH);
         }
 
-        attackTimer++;
+        attackTimer+=1;
         if (attackTimer >= 90) // Gives the signal to launch a dolphin.
         {
             attackTimer = 0;

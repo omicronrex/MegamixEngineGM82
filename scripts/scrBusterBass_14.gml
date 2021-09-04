@@ -1,9 +1,9 @@
-var bulletLimit = 4;
-var weaponCost = 0;
-var action = 1; // 0 - no frame; 1 - shoot; 2 - throw; 3 - upwards aim; 4 - upwards diagonal aim; 5 - downwards diagonal aim;
-var xOffset = 16;
-var yOffset = 0;
-var willStop = 1; // If this is 1, the player will halt on shooting ala Metal Blade.
+var bulletLimit; bulletLimit = 4;
+var weaponCost; weaponCost = 0;
+var action; action = 1; // 0 - no frame; 1 - shoot; 2 - throw; 3 - upwards aim; 4 - upwards diagonal aim; 5 - downwards diagonal aim;
+var xOffset; xOffset = 16;
+var yOffset; yOffset = 0;
+var willStop; willStop = 1; // If this is 1, the player will halt on shooting ala Metal Blade.
 
 //setting the actual action here
 if yDir == -1 && xDir == 0
@@ -30,7 +30,7 @@ if (!global.lockBuster)
     {
         if shootTimer < 8
         {
-            shootTimer++
+            shootTimer+=1
             exit;
         }
         i = fireWeapon(xOffset, yOffset, objBusterShot, bulletLimit, weaponCost, action, willStop);

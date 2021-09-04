@@ -23,7 +23,7 @@ saveLoadRecordInput();
 // replace file:
 global.recordInputFile = argument[0];
 global.recordInputSaveData = slPlaintextEnd() + "END HEADER";
-var ft = file_text_open_write(global.recordInputFile)
+var ft; ft = file_text_open_write(global.recordInputFile)
     ;
 if (ft > 0)
 {

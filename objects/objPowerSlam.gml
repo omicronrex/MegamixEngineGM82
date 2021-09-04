@@ -37,7 +37,7 @@ if (entityCanStep())
     {
         // wait until jetting up
         case 0:
-            waitTime = 71; // <-- wait time until jetting up
+            waitTime = 71; // <-=1 wait time until jetting up
             grav = gravAccel;
             if (timer < waitTime - 30)
             {

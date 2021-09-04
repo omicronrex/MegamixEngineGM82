@@ -27,7 +27,7 @@ if (sfx != noone)
     // positive interval: play periodically
     if (!global.frozen && interval > 0)
     {
-        timer++;
+        timer+=1;
         if (timer >= interval && play)
         {
             playSFX(sfx);
@@ -67,7 +67,7 @@ if (sfx != noone)
         else
         {
             // don't stop if another emitter is playing it
-            var skipStop = false;
+            var skipStop; skipStop = false;
             with (object_index)
             {
                 if (play && id != other.id && sfx == other.sfx)

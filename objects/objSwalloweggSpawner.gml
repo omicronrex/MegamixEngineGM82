@@ -29,10 +29,10 @@ if (entityCanStep())
     // if there's no Swalloweggs, create a Swallowegg after a delay
     if (!instance_exists(obj))
     {
-        timer++;
+        timer+=1;
         if (timer >= delay)
         {
-            var spawnX = view_xview;
+            var spawnX; spawnX = view_xview;
             if (instance_exists(target))
             {
                 if (target.image_xscale == 1)
@@ -45,7 +45,7 @@ if (entityCanStep())
                 }
             }
 
-            var birb = instance_create(spawnX, y, obj);
+            var birb; birb = instance_create(spawnX, y, obj);
             birb.respawn = 0;
             birb.col = col;
             birb.target = target;

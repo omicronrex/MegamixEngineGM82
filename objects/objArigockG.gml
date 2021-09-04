@@ -114,7 +114,7 @@ if (entityCanStep())
         }
     }
 
-    animTimer++;
+    animTimer+=1;
 }
 else if (dead)
 {

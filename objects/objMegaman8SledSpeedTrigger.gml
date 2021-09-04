@@ -28,7 +28,7 @@ if (!global.frozen && instance_exists(objMegaman))
         {
             // check all players
             var i;
-            for (i = 0; i < ds_list_size(players); i++)
+            for (i = 0; i < ds_list_size(players); i+=1)
             {
                 // if one is on a sled
                 playerRef = ds_list_find_value(players, i);
@@ -46,7 +46,7 @@ if (!global.frozen && instance_exists(objMegaman))
                         {
                             // go through each sled
                             var j;
-                            for (j = 0; j < ds_list_size(sleds); j++)
+                            for (j = 0; j < ds_list_size(sleds); j+=1)
                             {
                                 sledRef = ds_list_find_value(sleds, j);
                                 if (instance_exists(sledRef))

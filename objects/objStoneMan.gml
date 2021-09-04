@@ -178,7 +178,7 @@ if (entityCanStep())
     // special super arm interaction
     if (superArmHoldOwner != noone)
     {
-        superArmSquirmTimer++;
+        superArmSquirmTimer+=1;
         image_index = 12 + (superArmSquirmTimer div 8 mod 2);
         contactDamage = 0;
         exit;
@@ -285,14 +285,14 @@ if (entityCanStep())
                     {
                         for (i = 120; i <= 360; i += 120)
                         {
-                            var sd = instance_create(x, y, objStoneManPowerStone);
+                            var sd; sd = instance_create(x, y, objStoneManPowerStone);
                             sd.cAngle = i;
                         }
                     }
                     else
                     {
                         instance_create(x, y, objStoneManPowerStone);
-                        var sd = instance_create(x, y, objStoneManPowerStone);
+                        var sd; sd = instance_create(x, y, objStoneManPowerStone);
                         sd.cAngle = 180;
                     }
                 }

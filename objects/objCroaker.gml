@@ -36,7 +36,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    var children = 0;
+    var children; children = 0;
     with (objPetitCroaker)
     {
         if (parent == other.id)

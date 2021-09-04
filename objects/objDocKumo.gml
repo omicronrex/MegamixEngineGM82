@@ -95,18 +95,18 @@ if (entityCanStep()
         attackTimer = 0; // stop Doc Kumo dead in the air.
         grav = 0;
         yspeed = 0;
-        var rAng = irandom(180) * image_yscale; // all 3 bullets of Doc Kumo are randomly determined in direction.
+        var rAng; rAng = irandom(180) * image_yscale; // all 3 bullets of Doc Kumo are randomly determined in direction.
         bullet[0] = instance_create(x, y, objBeeBladerProjectile);
         bullet[0].xspeed = cos(degtorad(rAng)) * 0.5;
         bullet[0].yspeed = -sin(degtorad(rAng)) * 0.5;
         bullet[0].sprite_index = sprDocKumoBone;
-        var rAng = irandom(180) * image_yscale;
+        var rAng; rAng = irandom(180) * image_yscale;
         bullet[1] = instance_create(x, y, objBeeBladerProjectile);
         bullet[1].xspeed = cos(degtorad(rAng)) * 0.5;
         bullet[1].yspeed = -sin(degtorad(rAng)) * 0.5;
         bullet[1].sprite_index = sprDocKumoBone;
         bullet[2] = instance_create(x, y, objBeeBladerProjectile);
-        var rAng = irandom(180) * image_yscale;
+        var rAng; rAng = irandom(180) * image_yscale;
         bullet[2].xspeed = cos(degtorad(rAng)) * 0.5;
         bullet[2].yspeed = -sin(degtorad(rAng)) * 0.5;
         bullet[2].sprite_index = sprDocKumoBone;
@@ -183,7 +183,7 @@ else
     {
         if ((ceil(iFrames / 2) mod 2) || (iceTimer > 0))
         {
-            var flashcol = c_white;
+            var flashcol; flashcol = c_white;
             if (iceTimer > 0)
             {
                 flashcol = make_color_rgb(0, 120, 255);

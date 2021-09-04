@@ -49,7 +49,7 @@ if (entityCanStep())
 {
     if (delayDisplay > 0)
     {
-        delayDisplay--;
+        delayDisplay-=1;
     }
     dir = image_xscale; // since mini bosses have weird direction code, force the direction here.
     image_index += 0.25;
@@ -71,14 +71,14 @@ if (entityCanStep())
     switch (phase)
     {
         case -1: // initalization
-            for (var i = 0; i < view_hview; i++) // find the nearest floor or cieling
+            var i; for ( i = 0; i < view_hview; i+=1) // find the nearest floor or cieling
             {
                 y += sign(image_yscale);
                 delayDisplay = 2;
                 if (collision_rectangle(x - 16, y - 16, x + 16, y + 16, objSolid, false, true))
                 {
                     y += 32 * image_yscale; // embed self into floor or cieling.
-                    var cover = instance_create(x - 16, y - 16, objGundrillCover); // create coverup - this coverup uses the graphics from the tiles beneath it.
+                    var cover; cover = instance_create(x - 16, y - 16, objGundrillCover); // create coverup - this coverup uses the graphics from the tiles beneath it.
                     cover.parent = id;
                     child = cover.id;
                     attackTimer = 0;
@@ -108,7 +108,7 @@ if (entityCanStep())
                     upDown = 32;
                 }
             }
-            attackTimer++;
+            attackTimer+=1;
             if (place_meeting(x, y, child) && attackTimer mod 4 == 0 && (shotsFired < 2)) // create tell
             {
                 instance_create(x - 3 + irandom(6), child.y + (upDown) - (3 + irandom(3)), objExplosion);
@@ -116,11 +116,11 @@ if (entityCanStep())
             if (attackTimer mod 32 == 31 && (shotsFired < 2)) // create debry
             {
                 playSFX(sfxCompactor);
-                for (var i = 0; i < 5; i++)
+                var i; for ( i = 0; i < 5; i+=1)
                 {
                     if (i != 2) // gundrill does not create a "middle" projectile
                     {
-                        var inst = instance_create(x, child.y + upDown, objGundrillRock);
+                        var inst; inst = instance_create(x, child.y + upDown, objGundrillRock);
                         inst.xspeed = -1.5 + i * 0.75;
                         if (child.ceilOrFloor == 1) // if creating from the cieling, there should be no initial vertical momentum
                         {
@@ -128,7 +128,7 @@ if (entityCanStep())
                         }
                     }
                 }
-                shotsFired++;
+                shotsFired+=1;
             }
             if (shotsFired == 2)
             {
@@ -169,7 +169,7 @@ if (entityCanStep())
                     prepareCollision = 2;
                     shotsFired = 0; // reset shots fired so gundrill can create more projectiles after its crossed the screen.
 
-                    var cover = instance_create(x - 16, y - 16 + (-32 * image_yscale), objGundrillCover);
+                    var cover; cover = instance_create(x - 16, y - 16 + (-32 * image_yscale), objGundrillCover);
                     cover.parent = id;
                     child = cover.id;
                     if (image_yscale == 1)
@@ -194,13 +194,13 @@ if (entityCanStep())
             delayDisplay = 99999; // renders gundrill invisible and invincible during this entire time
             canHit = false;
             contactDamage = 0;
-            var oldMask = mask_index;
+            var oldMask; oldMask = mask_index;
             mask_index = mskGunDrillBox; // since gundrill's actual mask is smaller than the collisiion block, temporarily change it.
 
             // we find how far away the left side of the screen is, and how far away the right side of the screen is.
-            var left = 0;
-            var right = 0;
-            for (var i = 0; i < view_wview / 16; i++)
+            var left; left = 0;
+            var right; right = 0;
+            var i; for ( i = 0; i < view_wview / 16; i+=1)
             {
                 y = setY + 40 * image_yscale;
                 x = realX - i * 16;
@@ -210,7 +210,7 @@ if (entityCanStep())
                     break;
                 }
             }
-            for (var i = 0; i < view_wview / 16; i++)
+            var i; for ( i = 0; i < view_wview / 16; i+=1)
             {
                 y = setY + 40 * image_yscale;
                 x = realX + i * 16;
@@ -224,8 +224,8 @@ if (entityCanStep())
             y = setY;
 
             // randomise location
-            var nextPos = 0;
-            for (var i = 0; i < 256; i++) // we do a for loop rather than a while loop as a sort of idiot proofing.
+            var nextPos; nextPos = 0;
+            var i; for ( i = 0; i < 256; i+=1) // we do a for loop rather than a while loop as a sort of idiot proofing.
             {
                 if (nextPos == 0) // make sure gundrill has actually moved
                 {
@@ -250,7 +250,7 @@ if (entityCanStep())
             {
                 instance_destroy();
             }
-            var cover = instance_create(x - 16, y - 16, objGundrillCover);
+            var cover; cover = instance_create(x - 16, y - 16, objGundrillCover);
             cover.parent = id;
             child = cover.id;
             if (image_yscale == -1)
@@ -264,7 +264,7 @@ if (entityCanStep())
             break;
         case 3: // wait before moving
             facePlayer = true;
-            attackTimer++;
+            attackTimer+=1;
             if (attackTimer >= 0) // reset variables and continue fight!
             {
                 canHit = true;

@@ -98,7 +98,7 @@ if (entityCanStep())
         jetTimer += 1;
         if (jetTimer >= 3)
         {
-            // <-- jet animation speed here
+            // <-=1 jet animation speed here
             if (sprite_index == sprSquidonMissleJet1)
             {
                 sprite_index = sprSquidonMissleJet2;

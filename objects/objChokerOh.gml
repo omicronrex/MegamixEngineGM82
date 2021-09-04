@@ -68,7 +68,7 @@ if (entityCanStep())
                                         shootTimer = 0;
                                         imgIndex = 2;
                                         xspeed = 2 * image_xscale;
-                                        yspeed = -3.2; // <-- jump speed here
+                                        yspeed = -3.2; // <-=1 jump speed here
                                         break;
                                     }
                                 }
@@ -115,19 +115,19 @@ if (entityCanStep())
                 imgIndex = 0;
                 shots += 1;
 
-                var projectileX = x + sprite_width * 0.3;
-                var projectileY = y - 14;
-                var projectileDirection = point_direction(projectileX, projectileY, target.x, target.y);
+                var projectileX; projectileX = x + sprite_width * 0.3;
+                var projectileY; projectileY = y - 14;
+                var projectileDirection; projectileDirection = point_direction(projectileX, projectileY, target.x, target.y);
 
-                var directionMax = 75; // <-- projectile angle limits here
+                var directionMax; directionMax = 75; // <-=1 projectile angle limits here
 
                 if (abs(((image_xscale < 0) * 180) - abs(projectileDirection - (projectileDirection > 180) * 360)) <= directionMax)
                 {
-                    var projectile = instance_create(projectileX, projectileY, objEnemyBullet);
+                    var projectile; projectile = instance_create(projectileX, projectileY, objEnemyBullet);
                     projectile.xspeed = 0;
                     projectile.yspeed = 0;
 
-                    projectile.spd = 2; // <-- speed here
+                    projectile.spd = 2; // <-=1 speed here
                     projectile.dir = projectileDirection;
 
                     projectile.sprite_index = sprEnemyBulletMM6;

@@ -71,18 +71,18 @@ if (entityCanStep())
 
     if (!place_meeting(x, y, objHanabiranSpawnLocation) && phase == -1)
     {
-        var inst = instance_create(x, y, objHanabiranSpawnLocation);
+        var inst; inst = instance_create(x, y, objHanabiranSpawnLocation);
         oldLocation = inst;
         phase = 1;
     }
     switch (phase)
     {
         case 0: // find location
-            var inst = oldLocation;
+            var inst; inst = oldLocation;
             cLocation = oldLocation;
 
             // hanabiran cannot put itself where it used to be, or where mega man is
-            for (var i = 0; i < 256; i++) // this will eventually give up if it can't find a situable place - basically idiot proofing
+            var i; for ( i = 0; i < 256; i+=1) // this will eventually give up if it can't find a situable place - basically idiot proofing
             {
                 if (cLocation == oldLocation || place_meeting(inst.x, inst.y, objMegaman) || place_meeting(inst.x, inst.y, objHanabiran))
                 {
@@ -116,9 +116,9 @@ if (entityCanStep())
                 image_index = min(animTimer, 7);
                 if (shotsFired == -1 && image_index >= 5) // create flower petals
                 {
-                    for (var i = 0; i < 4; i++)
+                    var i; for ( i = 0; i < 4; i+=1)
                     {
-                        var inst = instance_create((x + headX[0]) + cos((i * degtorad(90)) * cDistance), (y) + sin((i * degtorad(90)) * cDistance), objHanabiranFlower);
+                        var inst; inst = instance_create((x + headX[0]) + cos((i * degtorad(90)) * cDistance), (y) + sin((i * degtorad(90)) * cDistance), objHanabiranFlower);
                         inst.image_index = 2 * i;
                         inst.cAngle = 90 * i;
                         inst.parent = id;
@@ -140,7 +140,7 @@ if (entityCanStep())
                         hasFired = true;
                     }
                 }
-                shotsFired++;
+                shotsFired+=1;
                 attackTimer = 0;
             }
             else if (attackTimer == 48) // change phase

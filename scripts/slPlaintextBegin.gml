@@ -5,7 +5,7 @@
 // after this call, use value = sl(value) to save/load values,
 // and use slPlaintextEnd() to return the string
 
-// [string] -- if provided, loads from the given string.
+// [string] -=1 if provided, loads from the given string.
 
 global.sl_save = argument_count == 0;
 global.sl_filename = "(plaintext)";

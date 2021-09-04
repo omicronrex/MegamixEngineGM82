@@ -52,7 +52,7 @@ if (!instance_exists(self))
 }
 if (mask != noone && mask_index == mask)
 {
-    var delete = true;
+    var delete; delete = true;
     with (objFireTotem)
     {
         if (id != other && mask == other.mask)
@@ -184,7 +184,7 @@ if (entityCanStep())
             else
             {
                 calibrateDirection();
-                var timerEnd = 30 * 4;
+                var timerEnd; timerEnd = 30 * 4;
                 timer += 1;
                 if (timer == 1)
                     shotIndex = irandom(3);
@@ -204,7 +204,7 @@ if (entityCanStep())
                 }
                 if (timer > 180)
                     timer = 0;
-                var shooting = 0;
+                var shooting; shooting = 0;
                 if (shootCooldown > 0)
                 {
                     shootCooldown -= 1;
@@ -290,7 +290,7 @@ action_id=603
 applies_to=self
 */
 /// Shoot
-var i = instance_create(x, bbox_top + 4, objEnemyBullet);
+var i; i = instance_create(x, bbox_top + 4, objEnemyBullet);
 i.blockCollision = 0;
 i.yspeed = -3;
 i.grav = 0.16;
@@ -330,8 +330,8 @@ applies_to=self
 /// EV_DEATH: death
 
 dead = 1;
-var dropY = (y -12 - 6) - sz*8;
-var _ex = instance_create(bboxGetXCenter(), dropY, objExplosion);
+var dropY; dropY = (y -12 - 6) - sz*8;
+var _ex; _ex = instance_create(bboxGetXCenter(), dropY, objExplosion);
 
 if (itemDrop == objKey)
 {
@@ -392,10 +392,10 @@ applies_to=self
 
 if (!dead)
 {
-    var i = 1;
-    var color = image_blend;
-    var yo = 0;
-    var img = image_index;
+    var i; i = 1;
+    var color; color = image_blend;
+    var yo; yo = 0;
+    var img; img = image_index;
     if (floor(animFrameHead) > 7 || animFrameHead == 0)
     {
         yo = 1;
@@ -413,7 +413,7 @@ if (!dead)
             color = make_color_rgb(0, 120, 255);
         d3d_set_fog(true, color, 0, 0);
     }
-    for (i = 0; i < sz; i++)
+    for (i = 0; i < sz; i+=1)
         draw_sprite_ext(middleSprite, floor(animFrameMiddle), x, y - 12 + yo - i * 8, image_xscale, image_yscale, 0, color, image_alpha);
 
     if (image_index >= 6)
@@ -422,7 +422,7 @@ if (!dead)
     if (iceTimer > 0 && iceGraphicStyle==0)
     {
         draw_set_blend_mode(bm_add);
-        for (i = 0; i < sz; i++)
+        for (i = 0; i < sz; i+=1)
             draw_sprite_ext(middleSprite, floor(animFrameMiddle), x, y - 12 + yo - i * 8, image_xscale, image_yscale, 0, c_white, image_alpha);
 
         if (image_index >= 6)

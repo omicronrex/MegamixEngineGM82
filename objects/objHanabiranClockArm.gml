@@ -47,9 +47,9 @@ if (entityCanStep())
 {
     if (length > 0 && !hasSpawned)
     {
-        for (var i = 1; i < length; i++)
+        var i; for ( i = 1; i < length; i+=1)
         {
-            var inst = instance_create(x, y, object_index);
+            var inst; inst = instance_create(x, y, object_index);
             inst.length = 0;
             inst.cDistance = pieceGap * i;
             inst.cAngle = cAngle;
@@ -68,11 +68,11 @@ if (entityCanStep())
     x = xstart + round(cos(degtorad(cAngle)) * cDistance);
     y = ystart + round(sin(degtorad(cAngle)) * cDistance);
 
-    attackTimer++;
+    attackTimer+=1;
 
     if (triggerDestroy > 0)
     {
-        triggerDestroy--;
+        triggerDestroy-=1;
     }
 
     if (attackTimer == attackTimerMax)
@@ -83,7 +83,7 @@ if (entityCanStep())
 
     if (destroyTimer < -1 && triggerDestroy == 0)
     {
-        destroyTimer++;
+        destroyTimer+=1;
         attackTimerMax = 9999;
     }
     if (destroyTimer == -1)

@@ -26,7 +26,7 @@ if (!global.frozen)
     y += yspeed;
     yspeed += grav;
 
-    timer++;
+    timer+=1;
     if (timer >= 40)
     {
         instance_destroy();

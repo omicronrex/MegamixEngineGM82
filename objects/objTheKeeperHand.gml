@@ -197,7 +197,7 @@ if (entityCanStep())
 
     // Prevent crushing the player
 
-    var crushedPlayer = false;
+    var crushedPlayer; crushedPlayer = false;
 
     if (!instance_exists(target) && instance_exists(objMegaman))
     {
@@ -206,11 +206,11 @@ if (entityCanStep())
     }
     if (instance_exists(target) && yspeed > 0)
     {
-        var ysp = 3;
+        var ysp; ysp = 3;
 
 
         ysp += abs(target.yspeed);
-        var targetHasGround = false;
+        var targetHasGround; targetHasGround = false;
         with (target)
         {
             if (checkSolid(0, 3 + abs(yspeed)))
@@ -241,15 +241,15 @@ if (entityCanStep())
     {
         if (instance_exists(target))
         {
-            var xsp = sign(xspeed);
+            var xsp; xsp = sign(xspeed);
             if (target.xspeed != 0 && sign(target.xspeed) * xsp == 1)
                 xsp += target.xspeed;
-            var nearSolid = false;
+            var nearSolid; nearSolid = false;
 
             with (target)
             {
-                var lhand = collision_rectangle(bbox_left - 8, bbox_top, x - 4, bbox_bottom, objTheKeeperHand, false, false);
-                var rhand = collision_rectangle(x + 8, bbox_top, bbox_right + 4, bbox_bottom, objTheKeeperHand, false, false);
+                var lhand; lhand = collision_rectangle(bbox_left - 8, bbox_top, x - 4, bbox_bottom, objTheKeeperHand, false, false);
+                var rhand; rhand = collision_rectangle(x + 8, bbox_top, bbox_right + 4, bbox_bottom, objTheKeeperHand, false, false);
                 if (collision_rectangle(bbox_left - 4 - abs(xsp), bbox_top, bbox_right + 4 + abs(xsp), bbox_bottom, objSolid, false, false) || ((lhand != noone && lhand != other) || (rhand != noone && rhand != other)))
                 {
                     nearSolid = true;
@@ -302,9 +302,9 @@ action_id=603
 applies_to=self
 */
 /// Make Shockwaves
-var sw = instance_create(x + (abs(bbox_left - bbox_right) * 0.5), bbox_bottom, objTheKeeperShockwave);
+var sw; sw = instance_create(x + (abs(bbox_left - bbox_right) * 0.5), bbox_bottom, objTheKeeperShockwave);
 sw.xspeed = 2;
-var sw = instance_create(x - (abs(bbox_left - bbox_right) * 0.5), bbox_bottom, objTheKeeperShockwave);
+var sw; sw = instance_create(x - (abs(bbox_left - bbox_right) * 0.5), bbox_bottom, objTheKeeperShockwave);
 sw.xspeed = -2;
 screenShake(40, 1, 1);
 with (objMegaman)

@@ -113,7 +113,7 @@ action_id=603
 applies_to=self
 */
 /// Shoot
-var i = instance_create(x, y, objEnemyBullet);
+var i; i = instance_create(x, y, objEnemyBullet);
 with (i)
 {
     sprite_index = sprSola0Beam;

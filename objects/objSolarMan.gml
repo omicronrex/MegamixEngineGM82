@@ -148,7 +148,7 @@ if (!global.frozen)
             hasTriggeredFall = true;
             y = ystart;
 
-            attackTimer++;
+            attackTimer+=1;
             if (attackTimer < 20) && (attackTimer > 0)
                 image_index = 0;
             if (attackTimer == 20)
@@ -166,13 +166,13 @@ if (!global.frozen)
                 {
                     if (y > other.y - 13)
                     {
-                        y--;
+                        y-=1;
                     }
                     else
                     {
                         if ((image_index == 1.8) && (curSunLevel != sunLevel))
                         {
-                            curSunLevel++;
+                            curSunLevel+=1;
                         }
                     }
                 }
@@ -195,9 +195,9 @@ if (entityCanStep())
 {
     if (isFight)
     {
-        attackTimer++;
+        attackTimer+=1;
 
-        var halfScreen = view_xview + view_wview / 2;
+        var halfScreen; halfScreen = view_xview + view_wview / 2;
         switch (phase)
         {
             // Jump up
@@ -217,7 +217,7 @@ if (entityCanStep())
                     image_index = 5;
                     if (ceiling == -1)
                     {
-                        for (var i = 0; i < 224; i += 1) // this for loop finds the cieling
+                        var i; for ( i = 0; i < 224; i += 1) // this for loop finds the cieling
                         {
                             if (collision_rectangle(view_xview + 64, y - i, view_xview + view_wview - 64, y - i + 2, objSolid, false, true))
                             {
@@ -238,11 +238,11 @@ if (entityCanStep())
                     jumpDist = choose(1, 2, 3);
 
                     // detect terrain
-                    for (var i = 0; i < view_wview / 2; i += 8)
+                    var i; for ( i = 0; i < view_wview / 2; i += 8)
                     {
                         if (checkSolid(i * image_xscale, 0)) // if solar man detects a wall, travel up until he finds the top of a ledge
                         {
-                            for (var j = 0; j < view_hview; j += 8)
+                            var j; for ( j = 0; j < view_hview; j += 8)
                             {
                                 if (!checkSolid(i * image_xscale, -j)) // if he finds the top of a ledge, shift xcross to just over it.
                                 {
@@ -254,7 +254,7 @@ if (entityCanStep())
                         }
                         if (!checkSolid(i * image_xscale, 2)) // if he detects no wall, find the nearest gap in the floor, and set his distance to jump to there.
                         {
-                            for (var j = 0; j < view_hview; j++)
+                            var j; for ( j = 0; j < view_hview; j+=1)
                             {
                                 if (checkSolid(i * image_xscale, j))
                                 {
@@ -271,7 +271,7 @@ if (entityCanStep())
                     }
 
                     // store the calculated jump distance
-                    var distanceMod = x + (jumpDist * xCross) * image_xscale;
+                    var distanceMod; distanceMod = x + (jumpDist * xCross) * image_xscale;
 
                     // if solar man is near the edge of the arena, set his position to the edge of the arena
                     if (distanceMod < view_xview + 32)
@@ -283,7 +283,7 @@ if (entityCanStep())
                         distanceMod = view_xview + view_wview - 32;
                     }
 
-                    for (var i = 32; i < view_hview; i++) // find the location of the floor to jump to.
+                    var i; for ( i = 32; i < view_hview; i+=1) // find the location of the floor to jump to.
                     {
                         if (placeCollision(distanceMod, ceiling + i))
                         {
@@ -331,13 +331,13 @@ if (entityCanStep())
                                     image_speed = 0.2;
 
                                     // Fire Solar Blaze
-                                    var i = instance_create(x, y, objSolarManBlaze);
+                                    var i; i = instance_create(x, y, objSolarManBlaze);
                                     i.size = objSolarSun.curSunLevel;
 
                                     // Reduce size if larger than sunLevel
                                     if (objSolarSun.curSunLevel > sunLevel)
                                     {
-                                        objSolarSun.curSunLevel--;
+                                        objSolarSun.curSunLevel-=1;
                                         objSolarSun.weakSun = true;
                                     }
 
@@ -354,7 +354,7 @@ if (entityCanStep())
                                             playSFX(sfxSolarBlazeLarge);
                                             break;
                                     }
-                                    shots++;
+                                    shots+=1;
                                     hasFired = true;
                                 }
                             }
@@ -372,13 +372,13 @@ if (entityCanStep())
                                     image_speed = 0.2;
 
                                     // Fire Solar Blaze
-                                    var i = instance_create(x, y, objSolarManBlaze);
+                                    var i; i = instance_create(x, y, objSolarManBlaze);
                                     i.size = objSolarSun.curSunLevel;
 
                                     // Reduce size if larger than sunLevel
                                     if (objSolarSun.curSunLevel > sunLevel)
                                     {
-                                        objSolarSun.curSunLevel--;
+                                        objSolarSun.curSunLevel-=1;
                                         objSolarSun.weakSun = true;
                                     }
 
@@ -395,7 +395,7 @@ if (entityCanStep())
                                             playSFX(sfxSolarBlazeLarge);
                                             break;
                                     }
-                                    shots++;
+                                    shots+=1;
                                     hasFired = !hasFired;
                                 }
                             }
@@ -470,7 +470,7 @@ if (entityCanStep())
                             weakSun = false;
                             if (curSunLevel != sunLevel)
                             {
-                                curSunLevel++;
+                                curSunLevel+=1;
                             }
                             else
                             {
@@ -500,13 +500,13 @@ if (entityCanStep())
                                 with (objSolarSun)
                                 {
                                     // Fire Solar Blaze
-                                    var i = instance_create(x, y, objSolarManBlaze);
+                                    var i; i = instance_create(x, y, objSolarManBlaze);
                                     i.size = curSunLevel;
                                     i.isFlying = true;
 
                                     // Reduce size if larger than sunLevel
                                     if (curSunLevel > objSolarMan.sunLevel)
-                                        curSunLevel--;
+                                        curSunLevel-=1;
 
                                     // Play sound effects
                                     switch (i.size)
@@ -554,11 +554,11 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-for (var i = 0; i < view_wview / 2; i += 8)
+var i; for ( i = 0; i < view_wview / 2; i += 8)
 {
     if (checkSolid(i * image_xscale, 0))
     {
-        for (var j = 0; j < view_hview; j += 8)
+        var j; for ( j = 0; j < view_hview; j += 8)
         {
             if (!checkSolid(i * image_xscale, -j))
             {
@@ -570,7 +570,7 @@ for (var i = 0; i < view_wview / 2; i += 8)
     }
     if (!checkSolid(i * image_xscale, 2))
     {
-        for (var j = 0; j < view_hview; j++)
+        var j; for ( j = 0; j < view_hview; j+=1)
         {
             if (checkSolid(i * image_xscale, j))
             {

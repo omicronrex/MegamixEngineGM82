@@ -84,7 +84,7 @@ if (entityCanStep())
                         phase = 0;
                         imgIndex = 0;
                         animBack = false;
-                        cooldownTimer = 30; // <-- cooldown time here
+                        cooldownTimer = 30; // <-=1 cooldown time here
                     }
                 }
 

@@ -94,7 +94,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var xscl = image_xscale;
+var xscl; xscl = image_xscale;
 image_xscale=1;
 event_inherited();
 image_xscale=xscl;
@@ -121,7 +121,7 @@ if (entityCanStep())
             // Since bosses do not have gravity during intros, we need to reuse this here.
             hasTriggeredFall = true;
             y = ystart;
-            attackTimer++;
+            attackTimer+=1;
             if (attackTimer < 8)
                 image_index = 1;
             if (attackTimer == 8)
@@ -143,7 +143,7 @@ if (entityCanStep())
     {
         sprite_index = sprHeatman;
 
-        var prevPhase = phase;
+        var prevPhase; prevPhase = phase;
 
         if (!ground && phase != 2)
             image_index = 13;
@@ -170,13 +170,13 @@ if (entityCanStep())
                         offset[2] = -20;
                         if (!instance_exists(target))
                             break;
-                        for (var i = 0; i < 3; i++)
+                        var i; for ( i = 0; i < 3; i+=1)
                         {
                             with (instance_create(x + 8 * image_xscale, y, objHeatManFire))
                             {
-                                var offs = other.image_xscale * (other.target.x - x) + offset[i];
-                                var destX = x + offs * other.image_xscale;
-                                var time = 50;
+                                var offs; offs = other.image_xscale * (other.target.x - x) + offset[i];
+                                var destX; destX = x + offs * other.image_xscale;
+                                var time; time = 50;
                                 xspeed = (destX - x) / time;
                                 yspeed = -(grav * time) / 2;
                             }
@@ -229,11 +229,11 @@ if (entityCanStep())
                         }
 
                         // no available space; pick target at random.
-                        var i = 32;
+                        var i; i = 32;
                         while (checkSolid(targetX - x, 0) && i > 0)
                         {
                             targetX = view_xview[0] + random(view_wview[0]);
-                            i--;
+                            i-=1;
                         }
                         image_xscale = 1;
                         if (targetX < x)
@@ -282,7 +282,7 @@ if (entityCanStep())
                     if (ground)
                     {
 
-                        attackTimer++;
+                        attackTimer+=1;
                         if (attackTimer == 4)
                         {
                             image_index = 1;
@@ -308,9 +308,9 @@ if (entityCanStep())
                     break;
             }
 
-        phaseTimer++;
+        phaseTimer+=1;
 
-        // new phase -- reset timer
+        // new phase -=1 reset timer
         if (prevPhase != phase)
         {
             phaseTimer = 0;

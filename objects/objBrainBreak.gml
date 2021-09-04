@@ -94,7 +94,7 @@ if (entityCanStep())
 
             // Give off smoke
             smokeTimer += 1;
-            if (smokeTimer >= 8) // <-- Smoke spawn time here
+            if (smokeTimer >= 8) // <-=1 Smoke spawn time here
             {
                 smokeTimer = 0;
                 instance_create(x - sprite_width * 0.4, bbox_top + 8, objBrainBreakSmoke);
@@ -133,7 +133,7 @@ if (entityCanStep())
 
             // Explode
             explodeTimer += 1;
-            if (explodeTimer >= 800) // <-- time until exploding here
+            if (explodeTimer >= 800) // <-=1 time until exploding here
             {
                 dead = true;
                 instance_create(bboxGetXCenter(), bboxGetYCenter(), objHarmfulExplosion);

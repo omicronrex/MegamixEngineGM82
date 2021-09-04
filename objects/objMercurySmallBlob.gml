@@ -29,7 +29,7 @@ if (entityCanStep())
     {
         if (objMercury.xspeed == 0)
         {
-            attackTimer++;
+            attackTimer+=1;
             if (attackTimer >= 60)
             {
                 xspeed = 2 * image_xscale;

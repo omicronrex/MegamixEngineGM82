@@ -110,7 +110,7 @@ willStop = 0; // If this is 1, the player will halt on shooting ala Metal Blade.
 
 if (global.keyShootPressed[playerID] && !playerIsLocked(PL_LOCK_SHOOT))
 {
-    var i = fireWeapon(xOffset, yOffset, bulletObject, bulletLimit, weaponCost, action, willStop);
+    var i; i = fireWeapon(xOffset, yOffset, bulletObject, bulletLimit, weaponCost, action, willStop);
     if (instance_exists(i))
     {
         i.xspeed = image_xscale * 4.25; // zoom

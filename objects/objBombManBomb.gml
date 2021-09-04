@@ -37,7 +37,7 @@ if (entityCanStep())
     if (ground)
     {
         playSFX(sfxClassicExplosion);
-        for (var i = 0; i < 8; i += 1)
+        var i; for ( i = 0; i < 8; i += 1)
         {
             with (instance_create(x, y, objBombManBlast))
             {

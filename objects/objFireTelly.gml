@@ -70,7 +70,7 @@ if (entityCanStep())
 
             chain += 1;
 
-            xspeed = 1 * image_xscale; // <-- speed here
+            xspeed = 1 * image_xscale; // <-=1 speed here
             yspeed = keptYSpeed;
 
             phase = 2;

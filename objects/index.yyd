@@ -1314,7 +1314,7 @@ objGlobalControl
 objMusicControl
 objDebugControl
 objMobileControl
-objExternalRoomSetup
+
 objDefer
 objStruct
 objDisclaimer

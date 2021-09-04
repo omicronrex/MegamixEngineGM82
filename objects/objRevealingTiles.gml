@@ -43,12 +43,12 @@ if(instance_exists(objTelTelWeatherControl))
     {
         tiles = tile_get_ids_at_depth(layer);
         tile_layer_show(layer);
-        for(var i=array_length_1d(tiles)-1;i>=0;--i)
+        var i; for(i =array_length_1d(tiles)-1;i>=0;i-=1)
         {
-            var tile = tiles[i];
-            var tx = tile_get_x(tile);
-            var ty = tile_get_y(tile);
-            var st = instance_create(tx,ty,objTelTelSnowTile);
+            var tile; tile = tiles[i];
+            var tx; tx = tile_get_x(tile);
+            var ty; ty = tile_get_y(tile);
+            var st; st = instance_create(tx,ty,objTelTelSnowTile);
             st.tileTop = tile_get_top(tile);
             st.tileLeft = tile_get_left(tile);
             st.tileBG = tile_get_background(tile);
@@ -84,9 +84,9 @@ if (!scanned)
     depth = layer;
     setSection(x + 8, y + 8, false);
 
-    for (var i = 0; i < array_length_1d(tiles); i++)
+    var i; for ( i = 0; i < array_length_1d(tiles); i+=1)
     {
-        var tile = tiles[i];
+        var tile; tile = tiles[i];
         if (tile_get_x(tile) > sectionRight)
         {
             tiles[i] = -1;
@@ -105,14 +105,14 @@ if (!scanned)
         }
     }
 
-    var oldTiles = tiles;
+    var oldTiles; oldTiles = tiles;
     tiles = makeArray();
-    var j = 0;
-    for (var i = 0; i < array_length_1d(oldTiles); i++)
+    var j; j = 0;
+    var i; for ( i = 0; i < array_length_1d(oldTiles); i+=1)
     {
         if (oldTiles[i] != -1)
         {
-            tiles[j++] = oldTiles[i];
+            tiles[j] = oldTiles[i]; j+=1
         }
     }
 
@@ -149,9 +149,9 @@ if(skipDraw)
     exit;
 surface_set_target(sectionSurface);
 draw_clear_alpha(c_white, 0);
-for (var i = 0; i < array_length_1d(tiles); i++)
+var i; for ( i = 0; i < array_length_1d(tiles); i+=1)
 {
-    var tile = tiles[i]
+    var tile; tile = tiles[i]
         ;
     draw_background_part(
         tile_get_background(tile),
@@ -171,7 +171,7 @@ draw_clear_alpha(c_white, 0);
 draw_set_color(c_white);
 draw_set_alpha(1);
 draw_set_circle_precision(64);
-for (var i = 0; i < revealersN; i++)
+var i; for ( i = 0; i < revealersN; i+=1)
 {
     with (revealers[i])
     {

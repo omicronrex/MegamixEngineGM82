@@ -38,7 +38,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    attackTimer++;
+    attackTimer+=1;
 
     if (attackTimer >= 8)
     {

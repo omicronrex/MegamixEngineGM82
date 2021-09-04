@@ -96,7 +96,7 @@ if (!global.frozen)
             break;
         case 1: // stop momentarilly
         // move tail
-            if (sqrt(power(x - launchX, 2) + power(y - launchY, 2)) > moveSpeed) // <-- isn't short enough to disappear in one more frame (it's a rounding thing)
+            if (sqrt(power(x - launchX, 2) + power(y - launchY, 2)) > moveSpeed) // <-=1 isn't short enough to disappear in one more frame (it's a rounding thing)
             {
                 launchX += moveSpeed * cos(degtorad(direction));
                 launchY += moveSpeed * sin(degtorad(direction));
@@ -272,7 +272,7 @@ if (direction mod 90 == 0)
 {
     // straight
     var i;
-    for (i = 0; (i <= point_distance(x, y, launchX, launchY) && i < tail0Length); i++)
+    for (i = 0; (i <= point_distance(x, y, launchX, launchY) && i < tail0Length); i+=1)
     {
         draw_sprite_ext(sprite_index, 2 + (spriteAlt == true), x + i * cos(degtorad(direction + 180)), y + i * sin(degtorad(direction)), 1, 1, direction, c_white, 1);
         spriteAlt = !spriteAlt;
@@ -293,7 +293,7 @@ else if (direction mod 45 == 0)
     }
 
     var i;
-    for (i = 0; (i * 1.4142 <= point_distance(x, y, launchX, launchY) && i < tail45Length); i++)
+    for (i = 0; (i * 1.4142 <= point_distance(x, y, launchX, launchY) && i < tail45Length); i+=1)
     {
         draw_sprite_ext(sprite_index, 6 + (spriteAlt == true), x - i * xFlip, y + i * yFlip, 1, 1, direction - 45, c_white, 1);
         spriteAlt = !spriteAlt;
@@ -309,7 +309,7 @@ else
     {
         // before the 45
         var i;
-        for (i = 0; (i * 1.2361 <= point_distance(x, y, launchX, launchY) && i < tail30Length); i++)
+        for (i = 0; (i * 1.2361 <= point_distance(x, y, launchX, launchY) && i < tail30Length); i+=1)
         {
             // lol forget trying to figure out an elegant, math-y way to do this anymore, hard coding the angles will be much faster here
             switch ((direction div 90) * 90)
@@ -340,7 +340,7 @@ else
     {
         // after the 45
         var i;
-        for (i = 0; (i * 1.2361 <= point_distance(x, y, launchX, launchY) && i < tail30Length); i++)
+        for (i = 0; (i * 1.2361 <= point_distance(x, y, launchX, launchY) && i < tail30Length); i+=1)
         {
             // lol forget trying to figure out an elegant, math-y way to do this anymore, hard coding the angles will be much faster here
             switch ((direction div 90) * 90)

@@ -107,7 +107,7 @@ if (entityCanStep())
             {
                 phase = 3;
                 xspeed = jumpSpd * image_xscale;
-                yspeed = -6; // <-- jump speed
+                yspeed = -6; // <-=1 jump speed
                 ground = 0;
                 pole = instance_create(x + sprite_width * 0.6, y, objBubukanPole); // sprite_width becomes negative if xscale is negative
                 pole.image_xscale = image_xscale;

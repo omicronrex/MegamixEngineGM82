@@ -59,7 +59,7 @@ if (entityCanStep())
         }
         else
         {
-            waitTimer--;
+            waitTimer-=1;
         }
 
         if (instance_exists(target) && distance_to_point(target.x, target.y) < 24)
@@ -84,7 +84,7 @@ if (entityCanStep())
         if (deathTimer > deathTime)
         {
             dead = true;
-            var i = instance_create(x, y, objHarmfulExplosion);
+            var i; i = instance_create(x, y, objHarmfulExplosion);
             i.damageEnemies = harmEnemies;
             playSFX(sfxMM9Explosion);
         }
@@ -98,9 +98,9 @@ if (entityCanStep())
                     animOffset = 0;
             }
         }
-        var tx = 0;
-        var ty = 0;
-        var rest = false;
+        var tx; tx = 0;
+        var ty; ty = 0;
+        var rest; rest = false;
         if (instance_exists(target))
         {
             tx = target.x;
@@ -136,7 +136,7 @@ if (entityCanStep())
         }
         if (!rest)
         {
-            var angle = wrapAngle(point_direction(x, y, tx, ty));
+            var angle; angle = wrapAngle(point_direction(x, y, tx, ty));
 
             // Accelerate towards target limited to 8 directions
             if (x != tx)
@@ -149,10 +149,10 @@ if (entityCanStep())
             }
 
             // Limit its overall speed
-            var lenSQ = (xspeed * xspeed) + (yspeed * yspeed);
+            var lenSQ; lenSQ = (xspeed * xspeed) + (yspeed * yspeed);
             if (lenSQ > speedLimit * speedLimit)
             {
-                var len = sqrt(lenSQ);
+                var len; len = sqrt(lenSQ);
                 xspeed /= len;
                 yspeed /= len;
                 xspeed *= speedLimit;
@@ -164,7 +164,7 @@ if (entityCanStep())
         mask_index = sprDot;
         if (place_meeting(xprevious, yprevious, objWater) && !place_meeting(x, y, objWater))
         {
-            var i = instance_place(xprevious, yprevious, objWater);
+            var i; i = instance_place(xprevious, yprevious, objWater);
             if (i != noone)
             {
                 if (y <= i.bbox_top)

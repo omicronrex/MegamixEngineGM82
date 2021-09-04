@@ -3,12 +3,12 @@
 // are guaranteed not to be overlapped by any solid.
 // returns true if any solids were found in the given region.
 
-var x1 = argument[0];
-var y1 = argument[1];
-var x2 = argument[2];
-var y2 = argument[3];
+var x1; x1 = argument[0];
+var y1; y1 = argument[1];
+var x2; x2 = argument[2];
+var y2; y2 = argument[3];
 
-var any = false;
+var any; any = false;
 
 // negative dimensions are invalid
 if (x2 <= x1 || y2 <= y1)
@@ -19,13 +19,13 @@ if (x2 <= x1 || y2 <= y1)
 // repeatedly attempt to split until no attempt succeeds
 while (true)
 {
-    var split = false;
+    var split; split = false;
     with (objSolid)
     {
         if (instance_exists(id))
         {
-            var w = image_xscale * sprite_get_width(sprite_index);
-            var h = image_yscale * sprite_get_height(sprite_index);
+            var w; w = image_xscale * sprite_get_width(sprite_index);
+            var h; h = image_yscale * sprite_get_height(sprite_index);
 
             if (rectangleIntersectionType(x1, y1, x2, y2, x, y, x + w, y + h) >= 3)
             {
@@ -43,14 +43,14 @@ while (true)
                 grid_y[3] = y + h;
                 quickSort(grid_y);
 
-                for (var i = 0; i < 3; i++)
+                var i; for (i = 0; i < 3; i+=1)
                 {
-                    for (var j = 0; j < 3; j++)
+                    var j; for (j = 0; j < 3; j+=1)
                     {
-                        var lx = grid_x[i];
-                        var ly = grid_y[j];
-                        var rx = grid_x[i + 1];
-                        var ry = grid_y[j + 1];
+                        var lx; lx = grid_x[i];
+                        var ly; ly = grid_y[j];
+                        var rx; rx = grid_x[i + 1];
+                        var ry; ry = grid_y[j + 1];
                         if ((rx - lx) > 0 && (ry - ly) > 0)
                         {
                             if (lx != x || ly != y || rx != x + w || ry != y + h)

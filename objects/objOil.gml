@@ -80,7 +80,7 @@ if (!dead && !global.frozen && !global.timeStopped)
         }
 
         // ITS LIT FAM :joy:
-        for (i = 0; i < array_length_1d(fireSource); i++)
+        for (i = 0; i < array_length_1d(fireSource); i+=1)
         {
             if (place_meeting(x, y, fireSource[i]))
             {

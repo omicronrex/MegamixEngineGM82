@@ -67,7 +67,7 @@ if (entityCanStep())
         }
     }
 
-    var shoot = 0;
+    var shoot; shoot = 0;
 
     if (!canShoot)
     {

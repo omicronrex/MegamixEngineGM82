@@ -51,7 +51,7 @@ if (entityCanStep())
 {
     if (ground)
     {
-        timer++;
+        timer+=1;
     }
     if (timer >= 30)
     {

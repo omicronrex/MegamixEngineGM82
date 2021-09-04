@@ -16,16 +16,16 @@ offsetTimer = -1;
 
 // get currently visible weapons
 weaponVisibleN = 0;
-for (var i = 0; i <= global.totalWeapons; i++)
+var i; for ( i = 0; i <= global.totalWeapons; i+=1)
 {
     if (global.weaponLocked[global.weaponHotbar[i]] < 2)
     {
-        weaponVisible[weaponVisibleN++] = i;
+        weaponVisible[weaponVisibleN] = i; weaponVisibleN+=1
     }
 }
 visibleWeapons = min(10, weaponVisibleN); // up to 10 visible
 
-for (var i = 0; i < weaponVisibleN; i++)
+var i; for ( i = 0; i < weaponVisibleN; i+=1)
 {
     if (global.weapon[0] == global.weaponHotbar[weaponVisible[i]])
     {
@@ -189,7 +189,7 @@ switch (phase)
             {
                 if (global.mTanks > 0) // Check if health or weapon energy actually needs filling
                 {
-                    var proceed = false;
+                    var proceed; proceed = false;
                     for (i = 0; i < weaponVisibleN; i += 1)
                     {
                         if (ceil(global.ammo[playerID, global.weaponHotbar[weaponVisible[i]]]) < 28)
@@ -436,9 +436,9 @@ applies_to=self
 */
 hotBarArrangeMode = (global.keyShoot[playerID]) * (hotBarArrangeMode + 1);
 
-var xDir = (global.keyRightPressed[playerID] - global.keyLeftPressed[playerID]);
+var xDir; xDir = (global.keyRightPressed[playerID] - global.keyLeftPressed[playerID]);
 
-var yDir = ((global.keyDownPressed[playerID] || (global.keyDown[playerID] && quickScrollTimer <= 0))
+var yDir; yDir = ((global.keyDownPressed[playerID] || (global.keyDown[playerID] && quickScrollTimer <= 0))
     - (global.keyUpPressed[playerID] || (global.keyUp[playerID] && quickScrollTimer <= 0)));
 
 if (yDir != 0)
@@ -510,14 +510,14 @@ if ((global.keyDown[playerID] && option < weaponVisibleN - 1)
 {
     if (quickScrollTimer <= 0) // slight pause between scrolls
     {
-        quickScrollTimer = 6; // <-- time until quick scroll here
+        quickScrollTimer = 6; // <-=1 time until quick scroll here
     }
 
-    quickScrollTimer--;
+    quickScrollTimer-=1;
 }
 else
 {
-    quickScrollTimer = 24; // <-- time until quick scroll here
+    quickScrollTimer = 24; // <-=1 time until quick scroll here
 }
 
 // L + R resets weapon order
@@ -529,7 +529,7 @@ else
 if ((global.keyWeaponSwitchLeft[playerID] && global.keyWeaponSwitchRightPressed[playerID])
     || (global.keyWeaponSwitchLeftPressed[playerID] && global.keyWeaponSwitchRight[playerID]))
 {
-    for (var i = 0; i <= global.totalWeapons; i++)
+    var i; for ( i = 0; i <= global.totalWeapons; i+=1)
     {
         if global.weaponHotbar[i] != i
         {
@@ -539,11 +539,11 @@ if ((global.keyWeaponSwitchLeft[playerID] && global.keyWeaponSwitchRightPressed[
     }
 
     weaponVisibleN = 0;
-    for (var i = 0; i <= global.totalWeapons; i++)
+    var i; for ( i = 0; i <= global.totalWeapons; i+=1)
     {
         if (global.weaponLocked[global.weaponHotbar[i]] < 2)
         {
-            weaponVisible[weaponVisibleN++] = i;
+            weaponVisible[weaponVisibleN] = i; weaponVisibleN+=1
         }
     }
     visibleWeapons = min(10, weaponVisibleN); // up to 10 visible
@@ -613,18 +613,18 @@ if (phase != 0)
     drawSelf();
 
     // Icons, ammo bars and names
-    var wSep = 18; // Seperation between icons
-    var yOff = -round((offsetTimer mod 1) * wSep);
+    var wSep; wSep = 18; // Seperation between icons
+    var yOff; yOff = -round((offsetTimer mod 1) * wSep);
 
-    var surface = surface_create(112, (visibleWeapons + 1) * wSep);
+    var surface; surface = surface_create(112, (visibleWeapons + 1) * wSep);
     surface_set_target(surface);
     draw_clear_alpha(c_white, 0);
 
     draw_set_halign(fa_left);
-    for (i = max(0, floor(offsetTimer)); i <= min(ceil(offsetTimer) + visibleWeapons, weaponVisibleN - 1); i++)
+    for (i = max(0, floor(offsetTimer)); i <= min(ceil(offsetTimer) + visibleWeapons, weaponVisibleN - 1); i+=1)
     {
-        var w = global.weaponHotbar[weaponVisible[i]];
-        var cl = (option == i);
+        var w; w = global.weaponHotbar[weaponVisible[i]];
+        var cl; cl = (option == i);
 
         // Icon
         draw_sprite_ext(global.weaponIcon[w], 0, 0, yOff, 1, 1, 0, col[!cl, 2], 1);
@@ -673,7 +673,7 @@ if (phase != 0)
     draw_surface(surface, x + 22, y + 14);
     surface_free(surface);
 
-    arrowTimer++;
+    arrowTimer+=1;
 
     draw_set_halign(fa_center);
 
@@ -713,36 +713,36 @@ if (phase != 0)
     draw_sprite_ext(sprETank, 2, x + etankPositionX, y + etankPositionY, 1, 1, 0, col[0, option == weaponVisibleN + 1], 1);
     draw_sprite_ext(sprETank, 4, x + etankPositionX, y + etankPositionY, 1, 1, 0, col[1, option == weaponVisibleN + 1], 1);
 
-    draw_text(x + etankPositionX + 8, y + etankPositionY + 18, zeroPad(global.eTanks, 2));
+    draw_text(x + etankPositionX + 8, y + etankPositionY + 18, string_pad(global.eTanks, 2));
 
     // W-Tank
     draw_sprite_ext(sprWTank, 2, x + wtankPositionX, y + wtankPositionY, 1, 1, 0, col[0, option == weaponVisibleN + 2], 1);
     draw_sprite_ext(sprWTank, 4, x + wtankPositionX, y + wtankPositionY, 1, 1, 0, col[1, option == weaponVisibleN + 2], 1);
 
-    draw_text(x + wtankPositionX + 8, y + wtankPositionY + 18, zeroPad(global.wTanks, 2));
+    draw_text(x + wtankPositionX + 8, y + wtankPositionY + 18, string_pad(global.wTanks, 2));
 
     // M-Tank
     draw_sprite_ext(sprMTank, 2, x + mtankPositionX, y + mtankPositionY, 1, 1, 0, col[0, option == weaponVisibleN + 3], 1);
     draw_sprite_ext(sprMTank, 4, x + mtankPositionX, y + mtankPositionY, 1, 1, 0, col[1, option == weaponVisibleN + 3], 1);
 
-    draw_text(x + mtankPositionX + 8, y + mtankPositionY + 18, zeroPad(global.mTanks, 2));
+    draw_text(x + mtankPositionX + 8, y + mtankPositionY + 18, string_pad(global.mTanks, 2));
 
     // Bolts
     draw_sprite_ext(sprBoltBig, 0, x + 210, y + 54, 1, 1, 0, c_white, 1);
     draw_sprite_ext(sprBoltBig, 1, x + 210, y + 54, 1, 1, 0, col[0, 1], 1);
     draw_sprite_ext(sprBoltBig, 2, x + 210, y + 54, 1, 1, 0, col[1, 1], 1);
 
-    draw_text(x + 210 + 8, y + 54 + 18, zeroPad(global.bolts, 4));
+    draw_text(x + 210 + 8, y + 54 + 18, string_pad(global.bolts, 4));
 
     // Energy Elements
     draw_sprite_ext(sprEnergyElement, 0, x + 148, y + 92, 1, 1, 0, c_white, 1);
 
-    draw_text(x + 148 + 8, y + 92 + 18, zeroPad(global.energyElements, 3));
+    draw_text(x + 148 + 8, y + 92 + 18, string_pad(global.energyElements, 3));
 
     // Side Collectible
     draw_sprite_ext(sprKey, 0, x + 178, y + 92, 1, 1, 0, c_white, 1);
 
-    draw_text(x + 178 + 8, y + 92 + 18, zeroPad(0, 3));
+    draw_text(x + 178 + 8, y + 92 + 18, string_pad(0, 3));
 
     with (objMegaman)
     {
@@ -753,10 +753,10 @@ if (phase != 0)
     }
 
     // lives remaining
-    var livesText = zeroPad(global.livesRemaining, 2);
+    var livesText; livesText = string_pad(global.livesRemaining, 2);
     if (!global.livesEnabled)
     {
-        livesText = "--";
+        livesText = "-=1";
     }
 
     draw_text(x + 216, y + 92 + 18, livesText);

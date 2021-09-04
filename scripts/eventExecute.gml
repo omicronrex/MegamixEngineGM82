@@ -5,10 +5,10 @@
 // if the eventArgs argument is supplied, sets global.eventArgs to the given value.
 // this is useful for passing additional information to the given custom event call.
 
-var event = argument[0];
-var subEvent = argument[1];
-var target = argument[2];
-var asObject = false;
+var event; event = argument[0];
+var subEvent; subEvent = argument[1];
+var target; target = argument[2];
+var asObject; asObject = false;
 if (argument_count > 3)
 {
     asObject = argument[3];

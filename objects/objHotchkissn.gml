@@ -45,7 +45,7 @@ if (entityCanStep())
             // face mega man and change speed
             case 0:
                 calibrateDirection();
-                xspeed = 1 * image_xscale; // <-- speed here
+                xspeed = 1 * image_xscale; // <-=1 speed here
                 phase = 1;
 
                 break;
@@ -95,7 +95,7 @@ if (entityCanStep())
                         phase = 0;
                         imgIndex = 0;
                         animBack = false;
-                        cooldownTimer = 80; // <-- cooldown timer here
+                        cooldownTimer = 80; // <-=1 cooldown timer here
                     }
                 }
                 break;

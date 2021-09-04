@@ -55,7 +55,7 @@ if (entityCanStep())
     if (cooldownTimer == cooldownMax)
     {
         cooldownTimer = 0;
-        for (var i = 0; i < 8; i += 1)
+        var i; for ( i = 0; i < 8; i += 1)
         {
             var inst;
             inst = instance_create(x, y, objMM1MetBullet);
@@ -131,7 +131,7 @@ if (!dead)
 }
 if ((iFrames == 1 || iFrames == 3) || (iceTimer > 0))
 {
-    var flashcol = c_white;
+    var flashcol; flashcol = c_white;
     if (iceTimer > 0)
         flashcol = make_color_rgb(0, 120, 255);
     d3d_set_fog(true, flashcol, 0, 0);

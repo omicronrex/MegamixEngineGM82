@@ -34,7 +34,7 @@ if (entityCanStep())
     if (moveTimer > 0)
     {
         x += 2 * image_xscale;
-        moveTimer--;
+        moveTimer-=1;
     }
 
     xspeed = 0.5 * image_xscale;

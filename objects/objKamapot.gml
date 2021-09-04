@@ -33,10 +33,10 @@ if (entityCanStep())
 {
     if (delayDisplay > 0)
     {
-        delayDisplay--;
+        delayDisplay-=1;
     }
 
-    moveTimer--;
+    moveTimer-=1;
 
     if (moveTimer > 0)
     {
@@ -46,7 +46,7 @@ if (entityCanStep())
             {
                 y -= 1;
             }
-            jitterTime--;
+            jitterTime-=1;
 
             if (jitterTime == 0)
             {
@@ -60,7 +60,7 @@ if (entityCanStep())
             {
                 y += 1;
             }
-            jitterTime--;
+            jitterTime-=1;
 
             if (jitterTime == 0)
             {
@@ -110,7 +110,7 @@ applies_to=self
 if (collision_rectangle(x - (16 * image_yscale == -1), y - (26 * image_yscale == -1),
 x + (16 * image_yscale == 1), y + 26 * (image_yscale == 1), objSolid, false, true))
 {
-    var cover = instance_create(x, y, objGundrillCover); // Use this to hide underground parts
+    var cover; cover = instance_create(x, y, objGundrillCover); // Use this to hide underground parts
     cover.parent = id;
     child = cover.id;
     cover.image_yscale = image_yscale;

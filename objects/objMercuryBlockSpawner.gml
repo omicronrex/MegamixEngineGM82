@@ -24,7 +24,7 @@ event_inherited();
 
 if ((!global.frozen) && (!dead) && (!global.timeStopped))
 {
-    timer++;
+    timer+=1;
     if (timer >= waitTime)
     {
         with (instance_create(x, y, objMercuryBlock))

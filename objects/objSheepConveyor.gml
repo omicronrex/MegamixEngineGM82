@@ -39,7 +39,7 @@ event_inherited();
 if (!global.frozen && !dead && !global.timeStopped)
 {
     // getPlayer's used to get the ID of any player that are above or below the conveyor depending on gravity
-    var getPlayer = instance_place(x, y - 1, objMegaman)
+    var getPlayer; getPlayer = instance_place(x, y - 1, objMegaman)
     // check that a player exists on the conveyor
     ;
     if (instance_exists(getPlayer))
@@ -92,9 +92,9 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var getWidth = sprite_get_width(sprite) / 3;
+var getWidth; getWidth = sprite_get_width(sprite) / 3;
 
-for (i = 0; i < image_xscale; i++)
+for (i = 0; i < image_xscale; i+=1)
 {
     draw_sprite_part(sprite, img mod sprite_get_number(sprite), getWidth * (sign(i) + (i == image_xscale - 1)), 0, getWidth, sprite_height, x + i * getWidth, y);
 }

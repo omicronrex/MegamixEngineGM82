@@ -35,7 +35,7 @@ if (entityCanStep())
     if (moveTimer > 0)
     {
         x += 2 * image_xscale;
-        moveTimer--;
+        moveTimer-=1;
     }
 
     xspeed = 0.5 * image_xscale;
@@ -68,13 +68,13 @@ event_inherited();
 
 if ((other.object_index != objTornadoBlow) && (other.object_index != objBlackHoleBomb))
 {
-    var i = instance_create(x + 1, y, objBabyFliesSmall);
+    var i; i = instance_create(x + 1, y, objBabyFliesSmall);
     i.image_xscale = 1;
     i.moveTimer = 4;
     i.facePlayerOnSpawn = false;
     i.respawn = false;
 
-    var i = instance_create(x - 1, y, objBabyFliesSmall);
+    var i; i = instance_create(x - 1, y, objBabyFliesSmall);
     i.image_xscale = -1;
     i.moveTimer = 4;
     i.facePlayerOnSpawn = false;

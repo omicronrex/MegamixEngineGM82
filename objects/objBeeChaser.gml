@@ -54,7 +54,7 @@ if (entityCanStep())
                 {
                     timer = 0;
                     xspeed = 0;
-                    phase++;
+                    phase+=1;
                 }
             }
             break;
@@ -65,7 +65,7 @@ if (entityCanStep())
             if (timer >= 28)
             {
                 timer = 0;
-                phase++;
+                phase+=1;
 
                 if (instance_exists(target))
                 {
@@ -89,8 +89,8 @@ if (entityCanStep())
             {
                 timer = 0;
                 speed = 0;
-                counter++;
-                phase--;
+                counter+=1;
+                phase-=1;
             }
             break;
     }

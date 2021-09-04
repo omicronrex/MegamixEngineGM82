@@ -125,7 +125,7 @@ if (entityCanStep())
                 {
                     timer = -2; // travel up a bit farther before shooting bees
                     imgIndex = 10;
-                    phase++;
+                    phase+=1;
                 }
                 break;
             // fly up and shoot bees
@@ -165,14 +165,14 @@ if (entityCanStep())
                     bee.image_xscale = image_xscale;
                     bee.timer += (26 - counter * 13); // make sure they all start moving at the same time
                     playSFX(sfxHornetChaser);
-                    counter++;
+                    counter+=1;
                     if (counter >= 3 + (global.difficulty == DIFF_HARD))
                     {
                         timer = 0 - ((global.difficulty == DIFF_HARD) * 15);
                         counter = 0;
                         yspeed = 0;
                         imgIndex2 = 0;
-                        phase++;
+                        phase+=1;
                     }
                 }
                 break;
@@ -210,7 +210,7 @@ if (entityCanStep())
                             {
                                 // jump if the player is in front of her
                                 imgIndex = 8;
-                                phase++;
+                                phase+=1;
                             }
                             else
                             {
@@ -247,7 +247,7 @@ if (entityCanStep())
                             xspeed = 0;
                         }
                         xspeedSave = xspeed;
-                        timer++;
+                        timer+=1;
                     }
                     else
                     {
@@ -257,13 +257,13 @@ if (entityCanStep())
                             timer = 0;
                             imgIndex = 4;
                             xspeed = 1.7 * image_xscale;
-                            phase++;
+                            phase+=1;
                         }
                     }
                 }
                 else
                 {
-                    timer++;
+                    timer+=1;
                 }
                 break;
             // walk to the other side of the screen
@@ -327,7 +327,7 @@ if (entityCanStep())
                             else
                             {
                                 imgIndex = 18;
-                                phase++;
+                                phase+=1;
                             }
                             dropHoney = !dropHoney;
                         }
@@ -339,7 +339,7 @@ if (entityCanStep())
                                 {
                                     // jump if the player is in front of her
                                     imgIndex = 8;
-                                    phase--;
+                                    phase-=1;
                                 }
                             }
                         }
@@ -352,14 +352,14 @@ if (entityCanStep())
                 break;
             // drop honey
             case 5:
-                if (timer >= 10) // <-- time until swiping arm
+                if (timer >= 10) // <-=1 time until swiping arm
                 {
-                    if (imgIndex == 28) // <-- play sfx once
+                    if (imgIndex == 28) // <-=1 play sfx once
                     {
                         playSFX(sfxSlashClaw);
                     }
                     imgIndex += poseImgSpeed;
-                    if (imgIndex >= 20) // <-- done swiping arm
+                    if (imgIndex >= 20) // <-=1 done swiping arm
                     {
                         imgIndex = 20;
                         if (timer == 10 || (timer == 25 && global.difficulty == DIFF_HARD)) // Only summon bee once, unless on hard mode
@@ -369,7 +369,7 @@ if (entityCanStep())
                             bee.respawn = false;
                             bee.itemDrop = -1;
                         }
-                        timer++;
+                        timer+=1;
                         if (timer >= 50)
                         {
                             timer = 0;
@@ -380,7 +380,7 @@ if (entityCanStep())
                 }
                 else
                 {
-                    timer++;
+                    timer+=1;
                 }
                 break;
         }

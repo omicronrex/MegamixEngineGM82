@@ -71,7 +71,7 @@ if (entityCanStep()
     {
         yspeed = -6;
         grav = 0.325;
-        for (var i = 32; i < 256; i += 1)
+        var i; for ( i = 32; i < 256; i += 1)
         {
             if (checkSolid(i*image_xscale, -8) || x + i >= view_xview + view_wview - 16 && image_xscale == 1 || x - i <= view_xview + 16 && image_xscale == -1  )
             {

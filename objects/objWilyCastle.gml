@@ -148,15 +148,15 @@ if (setup)
 {
     repeat (1)
     {
-        var prexs = xs;
-        var preys = ys;
+        var prexs; prexs = xs;
+        var preys; preys = ys;
 
         // Move
         xm += xs * 8;
         ym += ys * 8;
 
         // Decide what direction
-        var i = collision_rectangle(xm + 1, ym + 1, xm + 6, ym + 6, objWilyCastleArrow, false, false);
+        var i; i = collision_rectangle(xm + 1, ym + 1, xm + 6, ym + 6, objWilyCastleArrow, false, false);
         if (i)
         {
             direction = i.image_angle;
@@ -167,7 +167,7 @@ if (setup)
 
         linem[path] = 0;
 
-        var i = collision_rectangle(xm + 1, ym + 1, xm + 6, ym + 6, objWilyCastleDot, false, false);
+        var i; i = collision_rectangle(xm + 1, ym + 1, xm + 6, ym + 6, objWilyCastleDot, false, false);
         if (!i)
         {
             if (xs != 0)
@@ -195,7 +195,7 @@ if (setup)
         }
         else
         {
-            dots++;
+            dots+=1;
 
             // sets start of path
             if (dots == global.castleStagesBeaten)
@@ -217,7 +217,7 @@ if (setup)
             liney[path] = ym;
         }
 
-        path++;
+        path+=1;
 
         if (!setup)
         {
@@ -262,7 +262,7 @@ drawSelf();
 
 if (drawspath)
 {
-    for (var i = 1; i < counter; i++)
+    var i; for ( i = 1; i < counter; i+=1)
     {
         if (linem[i])
         {

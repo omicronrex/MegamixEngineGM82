@@ -6,7 +6,7 @@ applies_to=self
 */
 image_speed = 0;
 
-var height = image_yscale * sprite_get_height(sprite_index);
+var height; height = image_yscale * sprite_get_height(sprite_index);
 
 if (object_index == objRightScrolling || object_index == objRightScrollingNES || object_index == objHorizontalScrolling || object_index == objHorizontalScrollingNES)
 {

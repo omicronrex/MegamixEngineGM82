@@ -8,8 +8,8 @@
     - Table values assume a conversion to radians. So cosTable(15) is the equivalant
         of cos(degtorad(15 ))*/
 
-var _angleInDegrees = argument[0];
-var _interpolate = false;
+var _angleInDegrees; _angleInDegrees = argument[0];
+var _interpolate; _interpolate = false;
 
 if (argument_count > 1)
 {

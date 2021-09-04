@@ -45,7 +45,7 @@ if (entityCanStep())
     {
         // Make sure that in total, there are never more than three spawners spawning Tellies,
         // as well as there only being up to 3 tellies onscreen.
-        var tel = instance_number(objTellySpawner);
+        var tel; tel = instance_number(objTellySpawner);
         if (tel < maxTellies)
         {
             tel = maxTellies;

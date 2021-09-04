@@ -59,7 +59,7 @@ if (!global.frozen && !dead && !global.timeStopped)
     }
     for (i = 0; i < 7; i += 1)
     {
-        var meg = collision_rectangle(xs + i * 16 * -dir, view_yview + i * 32,
+        var meg; meg = collision_rectangle(xs + i * 16 * -dir, view_yview + i * 32,
             xs + i * 16 * -dir + (size * 16), view_yview + i * 32 + 32,
             objMegaman, false, false);
         if (meg != noone)

@@ -50,7 +50,7 @@ if (entityCanStep())
 
                 if (sign(yspeed) != ySpePrev)
                 {
-                    dives--;
+                    dives-=1;
                 }
             }
             else
@@ -58,7 +58,7 @@ if (entityCanStep())
                 cosCounter += .135;
                 yspeed = -(cos(cosCounter) * 0.5);
 
-                moveTimer--;
+                moveTimer-=1;
                 if (moveTimer <= 0)
                 {
                     xspeed += accel * image_xscale;
@@ -111,24 +111,24 @@ if (entityCanStep())
             break;
     }
 
-    shootTimer--;
+    shootTimer-=1;
     if (shootTimer == 0)
     {
-        var i = instance_create(x + 10 * image_xscale, y + 10, objEnemyBullet);
+        var i; i = instance_create(x + 10 * image_xscale, y + 10, objEnemyBullet);
         i.xspeed = 2 * image_xscale;
         i.yspeed = 2;
         playSFX(sfxEnemyShootClassic);
     }
     if (shootTimer == -10)
     {
-        var i = instance_create(x + 10 * image_xscale, y + 10, objEnemyBullet);
+        var i; i = instance_create(x + 10 * image_xscale, y + 10, objEnemyBullet);
         i.xspeed = 2 * image_xscale;
         i.yspeed = 2;
         playSFX(sfxEnemyShootClassic);
     }
     if (shootTimer == -20)
     {
-        var i = instance_create(x + 10 * image_xscale, y + 10, objEnemyBullet);
+        var i; i = instance_create(x + 10 * image_xscale, y + 10, objEnemyBullet);
         i.xspeed = 2 * image_xscale;
         i.yspeed = 2;
         playSFX(sfxEnemyShootClassic);
@@ -138,7 +138,7 @@ if (entityCanStep())
     {
         if (!instance_exists(missile)) && (instance_exists(target))
         {
-            var i = instance_create(x + 10 * image_xscale, y + 10, objHyoeyMissile);
+            var i; i = instance_create(x + 10 * image_xscale, y + 10, objHyoeyMissile);
             if (image_index == -1)
             {
                 i.image_index = 5;

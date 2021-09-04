@@ -70,7 +70,7 @@ if (!global.frozen)
     }
 
     // Animation
-    animTimer++;
+    animTimer+=1;
 
     if (image_index < 2)
     {

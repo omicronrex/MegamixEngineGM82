@@ -47,7 +47,7 @@ if (entityCanStep())
             }
             if (canMove == true)
             {
-                moveTimer--;
+                moveTimer-=1;
             }
             if (moveTimer == 0)
             {

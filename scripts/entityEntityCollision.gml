@@ -132,7 +132,7 @@ if (global.damage != 0)
             // (for stuff like tornado blow)
             if (other.killOverride && killOverride)
             {
-                var parent = prtEntity;
+                var parent; parent = prtEntity;
                 if (object_is_ancestor(object_index, prtEnemyProjectile))
                 {
                     parent = prtEnemyProjectile;

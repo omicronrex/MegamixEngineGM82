@@ -155,7 +155,7 @@ if (entityCanStep())
             image_speed = 0;
             attackTimer += 1;
             if (attackTimer mod 8 == 7 && hatFrame < 6)
-                hatFrame++;
+                hatFrame+=1;
             if (attackTimer == 50)
             {
                 myHat = instance_create(x, y + hatOffset, objMetallDaddyHelmet);
@@ -185,7 +185,7 @@ if (entityCanStep())
         // eye shake animation
         if (eyeTimer > 0)
         {
-            eyeTimer--;
+            eyeTimer-=1;
         }
 
         switch (eyeTimer)
@@ -225,7 +225,7 @@ if (entityCanStep())
                 break;
         }
 
-        attackTimer++;
+        attackTimer+=1;
         switch (phase)
         {
             case 0: // prepare phase!
@@ -237,7 +237,7 @@ if (entityCanStep())
                 }
                 if (attackTimer == 80 - ((global.difficulty == DIFF_HARD) * 40))
                 {
-                    var inst = instance_create(x, y + 32, objExplosion);
+                    var inst; inst = instance_create(x, y + 32, objExplosion);
                     inst.sprite_index = sprMetallDaddyJump;
                     yspeed = -3.5 - choose(0, 1, 1.5);
                     if (instance_exists(target))
@@ -287,12 +287,12 @@ if (entityCanStep())
                 }
                 if (attackTimer == 72)
                 {
-                    for (var i = 0; i < 4; i++)
+                    var i; for ( i = 0; i < 4; i+=1)
                     {
-                        var offsetMet = 0;
-                        var xDirt = -1;
-                        var rnd = choose(0, 1, 2);
-                        var storeMetVal = 0;
+                        var offsetMet; offsetMet = 0;
+                        var xDirt; xDirt = -1;
+                        var rnd; rnd = choose(0, 1, 2);
+                        var storeMetVal; storeMetVal = 0;
                         switch (i)
                         {
                             case 0:
@@ -312,7 +312,7 @@ if (entityCanStep())
                                 xDirt = 1;
                                 break;
                         }
-                        var inst = instance_create(view_xview + storeMetVal, view_yview - 16 + offsetMet, objMetallDaddyChild);
+                        var inst; inst = instance_create(view_xview + storeMetVal, view_yview - 16 + offsetMet, objMetallDaddyChild);
                         inst.parent = id;
                         child[i] = inst.id;
                         inst.image_xscale = xDirt;

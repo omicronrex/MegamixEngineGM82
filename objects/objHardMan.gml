@@ -163,7 +163,7 @@ if (entityCanStep())
         }
 
         image_speed = 0;
-        attackTimer++;
+        attackTimer+=1;
         switch (phase)
         {
             case 0: // prepare phase!
@@ -241,7 +241,7 @@ if (entityCanStep())
                 if (attackTimer == 8 && image_index < 11)
                 {
                     attackTimer = 0;
-                    image_index++;
+                    image_index+=1;
                 }
                 else if (image_index == 11)
                 {
@@ -289,7 +289,7 @@ if (entityCanStep())
                 if (attackTimer == 8 && image_index > 8)
                 {
                     attackTimer = 0;
-                    image_index--;
+                    image_index-=1;
                 }
                 if (ground)
                 {

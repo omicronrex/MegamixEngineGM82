@@ -47,7 +47,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    attackTimer++;
+    attackTimer+=1;
 
     if (instance_exists(target))
     {
@@ -62,7 +62,7 @@ if (entityCanStep())
         {
             phase = 3;
         }
-        for (var i = 0; i < view_wview * 4; i++)
+        var i; for ( i = 0; i < view_wview * 4; i+=1)
         {
             if (!checkSolid(-(48 + i), -32 * image_yscale) || checkSolid(-i, 0))
             {
@@ -77,7 +77,7 @@ if (entityCanStep())
     }
     if (xMax == -9999)
     {
-        for (var i = 0; i < view_wview * 4; i++)
+        var i; for ( i = 0; i < view_wview * 4; i+=1)
         {
             if (!checkSolid(48 + i, -32 * image_yscale) || checkSolid(i, 0))
             {

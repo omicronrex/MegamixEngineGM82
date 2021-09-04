@@ -36,7 +36,7 @@ event_inherited();
 
 if (!global.frozen && !global.timeStopped)
 {
-    alarmHitSolid--;
+    alarmHitSolid-=1;
 
     if (alarmDie >= 0)
     {
@@ -70,7 +70,7 @@ applies_to=self
 */
 grav = 0;
 yspeed = 0;
-var inst = instance_create(x, y, child);
+var inst; inst = instance_create(x, y, child);
 with (inst)
 {
     parent = other.parent;
@@ -105,14 +105,14 @@ if (alarmHitSolid mod 3 == 0)
 }
 else if (alarmHitSolid mod 3 == 1)
 {
-    var flashcol = c_white;
+    var flashcol; flashcol = c_white;
     d3d_set_fog(true, flashcol, 0, 0);
     drawSelf();
     d3d_set_fog(false, 0, 0, 0);
 }
 else
 {
-    var flashcol = make_colour_rgb(255, 123, 255);
+    var flashcol; flashcol = make_colour_rgb(255, 123, 255);
     d3d_set_fog(true, flashcol, 0, 0);
     drawSelf();
     d3d_set_fog(false, 0, 0, 0);

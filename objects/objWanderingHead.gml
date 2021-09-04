@@ -63,7 +63,7 @@ if (entityCanStep())
     {
         xspeed = 0;
         yspeed = 0;
-        animTimer--;
+        animTimer-=1;
         if (animTimer == 0)
         {
             yspeed = -yPrev;
@@ -83,7 +83,7 @@ if (entityCanStep())
     {
         xspeed = 0;
         yspeed = 0;
-        animTimer--;
+        animTimer-=1;
         if (animTimer == 0)
         {
             xspeed = -xPrev;
@@ -103,7 +103,7 @@ if (entityCanStep())
 
     if ((image_index == 3) || (image_index == 4))
     {
-        animTimer--;
+        animTimer-=1;
         if (animTimer == 0)
         {
             image_index = 0;

@@ -317,7 +317,7 @@ if (!global.frozen)
                 // we delay the jump by a single frame in order for xSpeedAim to work properly.
                 if (attackTimer == 66)
                 {
-                    for (var i = 32; i < 256; i += 1)
+                    var i; for ( i = 32; i < 256; i += 1)
                     {
                         if (place_meeting(x + i * image_xscale, y, objSolid))
                             break;
@@ -356,10 +356,10 @@ if (!global.frozen)
                     phase = 5;
                 break;
             case 5: // falling rocks
-                var inst = instance_create(x + (7 * 16) * image_xscale, y, objUranusFallingRocks);
+                var inst; inst = instance_create(x + (7 * 16) * image_xscale, y, objUranusFallingRocks);
                 with (inst) // this for loop sets the falling rocks to the opposite side of the screen
                 {
-                    for (var i = 0; i < 256; i += 1)
+                    var i; for ( i = 0; i < 256; i += 1)
                     {
                         if (place_meeting(x, y, objSolid))
                         {
@@ -369,7 +369,7 @@ if (!global.frozen)
                         }
                         x += 1 * other.image_xscale;
                     }
-                    for (var i = 0; i < 224; i += 1) // this for loop sets the falling rocks to be at the top of the screen.
+                    var i; for ( i = 0; i < 224; i += 1) // this for loop sets the falling rocks to be at the top of the screen.
                     {
                         if (place_meeting(x, y, objSolid))
                         {

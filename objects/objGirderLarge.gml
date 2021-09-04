@@ -40,17 +40,17 @@ if ((!global.frozen) && (!dead) && (!global.timeStopped))
                     with (other)
                     {
                         phase = 1;
-                        x--;
+                        x-=1;
                         shakeDir = 'left';
                     }
                 }
             }
             break;
         case 1:
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer > 0)
             {
-                shakeTimer--;
+                shakeTimer-=1;
                 if (shakeTimer == 0)
                 {
                     if (shakeDir == 'left')

@@ -40,7 +40,7 @@ if ((!global.frozen && !frozen) && instance_exists(objMegaman))
     // change walkspeed of mega man
     if (statusChangedWalk == false)
     {
-        for (var i = 0; i < instance_number(objMegaman); i += 1)
+        var i; for (i = 0; i < instance_number(objMegaman); i += 1)
         {
             with (objMegaman)
             {
@@ -53,7 +53,7 @@ if ((!global.frozen && !frozen) && instance_exists(objMegaman))
     }
     else
     {
-        for (var i = 0; i < instance_number(objMegaman); i += 1)
+        var i; for (i = 0; i < instance_number(objMegaman); i += 1)
         {
             with (objMegaman)
             {
@@ -68,7 +68,7 @@ if ((!global.frozen && !frozen) && instance_exists(objMegaman))
     // change jump speed of mega man
     if (statusChangedJump == false)
     {
-        for (var i = 0; i < instance_number(objMegaman); i += 1)
+        var i; for (i = 0; i < instance_number(objMegaman); i += 1)
         {
             with (objMegaman)
             {
@@ -81,7 +81,7 @@ if ((!global.frozen && !frozen) && instance_exists(objMegaman))
     }
     else
     {
-        for (var i = 0; i < instance_number(objMegaman); i += 1)
+        var i; for (i = 0; i < instance_number(objMegaman); i += 1)
         {
             with (objMegaman)
             {

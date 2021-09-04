@@ -169,7 +169,7 @@ stringIsNumber
 stringIndexOf
 stringReverse
 getTimeStamp
-zeroPad
+
 xmlParseTag
 xmlStringUnescape
 print
@@ -206,12 +206,12 @@ playerIsLocked
 globalLockInit
 globalLockReset
 playerLockLocalInit
-roomExternalSetupPre
-roomExternalSetupPost
-roomExternalLoad
-roomExternalClear
-roomExternalGetName
-md5FileContents
+
+
+
+
+
+
 getRoom
 recordInputToFile
 recordInputPlayback
@@ -255,3 +255,8 @@ array_length_2d
 make_colour_hsv
 array_height_2d
 draw_rectangle_colour
+tile_get_ids_at_depth
+tile_get_ids
+is_array
+roomExternalGetName
+asset_get_type

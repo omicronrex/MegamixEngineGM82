@@ -46,20 +46,20 @@ if (sprite_index == sprJewelPlatformPlace)
 
 if (!global.frozen)
 {
-    var sinY = abs((y - hingeY) / radius);
-    var cosX = abs((x - hingeX) / radius);
+    var sinY; sinY = abs((y - hingeY) / radius);
+    var cosX; cosX = abs((x - hingeX) / radius);
     isSolid = true;
     if (dead)
         beenOutsideView = true;
 
     // mega man gives boost:
-    var accel = false
+    var accel; accel = false
         ;
     with (objMegaman)
     {
         if (ground && place_meeting(x, y + 2*gravDir, other))
         {
-            var xDir = global.keyRight[playerID] - global.keyLeft[playerID];
+            var xDir; xDir = global.keyRight[playerID] - global.keyLeft[playerID];
             if ((stepTimer >= stepFrames && !playerIsLocked(PL_LOCK_MOVE) && ground && (xDir == image_xscale)) || isSlide)
             {
                 // walking
@@ -100,18 +100,18 @@ if (!global.frozen)
     // circular motion logic
     yspeed += trueGrav;
 
-    var dotx = (x - hingeX);
-    var doty = (y - hingeY);
-    var dotrad = max(1, point_distance(0, 0, dotx, doty));
+    var dotx; dotx = (x - hingeX);
+    var doty; doty = (y - hingeY);
+    var dotrad; dotrad = max(1, point_distance(0, 0, dotx, doty));
     dotx /= dotrad;
     doty /= dotrad;
-    var tanspeed = dot_product(xspeed, yspeed, doty, -dotx);
+    var tanspeed; tanspeed = dot_product(xspeed, yspeed, doty, -dotx);
 
     xspeed = doty * tanspeed;
     yspeed = -dotx * tanspeed;
-    var nextX = x + xspeed;
-    var nextY = y + yspeed;
-    var _rad_actual = point_distance(hingeX, hingeY, nextX, nextY);
+    var nextX; nextX = x + xspeed;
+    var nextY; nextY = y + yspeed;
+    var _rad_actual; _rad_actual = point_distance(hingeX, hingeY, nextX, nextY);
     nextX = hingeX + (nextX - hingeX) * radius / _rad_actual;
     nextY = hingeY + (nextY - hingeY) * radius / _rad_actual;
 
@@ -133,10 +133,10 @@ if (hingeX + 16 < view_xview[0] || hingeX - 16 > view_xview[0] + view_wview[0])
 }
 
 // tether
-for (var i = 0; i < (radius - 9) / tetherSpacing; i++)
+var i; for ( i = 0; i < (radius - 9) / tetherSpacing; i+=1)
 {
-    var p = i * tetherSpacing / radius;
-    var imgIndex = 0;
+    var p; p = i * tetherSpacing / radius;
+    var imgIndex; imgIndex = 0;
 
     // special frame for top hinge:
     if (positionCollision(hingeX - x, (hingeY - 2) - y) && i == 0)

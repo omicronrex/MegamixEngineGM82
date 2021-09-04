@@ -180,7 +180,7 @@ if (!global.frozen && !lock)
 }
 else
 {
-    for (var i = 0; i < global.playerCount; i += 1)
+    var i; for ( i = 0; i < global.playerCount; i += 1)
     {
         playerMet[i] = true;
     }

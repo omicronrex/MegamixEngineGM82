@@ -68,7 +68,7 @@ if (entityCanStep() && isMaster)
     {
         // calculate number of enemies according to section size
         setSection(x, y, false);
-        var sectionArea = (sectionRight - sectionLeft) * (sectionBottom - sectionTop);
+        var sectionArea; sectionArea = (sectionRight - sectionLeft) * (sectionBottom - sectionTop);
         entityN = max(1, ceil(sectionArea * spawnDensity / 16 / 16));
         entityObject = allocateArray(entityN, noone);
         with (object_index)
@@ -79,7 +79,7 @@ if (entityCanStep() && isMaster)
     }
 
     timer += 1;
-    var popEntity = false;
+    var popEntity; popEntity = false;
     if (timer > dropInterval)
     {
         timer = 0;
@@ -89,20 +89,20 @@ if (entityCanStep() && isMaster)
     }
 
     // update entities
-    for (var i = 0; i < entityN; i++)
+    var i; for ( i = 0; i < entityN; i+=1)
     {
         if (entityObject[i] != noone)
         {
             // existing entity
             entityX[i] += entityXSpeed;
             entityY[i] += entityYSpeed;
-            var popX = entityX[i] + entityWidth[i] / 2;
-            var popY = entityY[i] + entityHeight[i] / 2;
+            var popX; popX = entityX[i] + entityWidth[i] / 2;
+            var popY; popY = entityY[i] + entityHeight[i] / 2;
 
             // pop out of wall candidate
             if (popEntity && insideView(popX, popY) && position_meeting(popX, popY, object_index))
             {
-                popList[popN++] = i;
+                popList[popN] = i; popN+=1
             }
 
             // leaving section?
@@ -134,8 +134,8 @@ if (entityCanStep() && isMaster)
                 entityXScale[i] = sign(entityXSpeed);
             }
 
-            var minDistReject = minDist;
-            var success = false;
+            var minDistReject; minDistReject = minDist;
+            var success; success = false;
             repeat (64)
             {
                 // place randomly
@@ -156,12 +156,12 @@ if (entityCanStep() && isMaster)
                 }
 
                 // rejection sample: shouldn't be too near other silhouettes
-                var redo = false;
-                for (var j = 0; j < entityN; j++)
+                var redo; redo = false;
+                var j; for ( j = 0; j < entityN; j+=1)
                 {
                     if (i != j && entityObject[j] != noone)
                     {
-                        var dist = point_distance(entityX[i], entityY[i], entityX[j], entityY[j]);
+                        var dist; dist = point_distance(entityX[i], entityY[i], entityX[j], entityY[j]);
                         if (dist < minDistReject)
                         {
                             redo = true;
@@ -179,7 +179,7 @@ if (entityCanStep() && isMaster)
                 minDistReject = max(minDist / 2, 0.985 * minDistReject);
             }
 
-            // last resort -- remove object completely
+            // last resort -=1 remove object completely
             if (!success)
             {
                 entityObject[i] = noone;
@@ -190,7 +190,7 @@ if (entityCanStep() && isMaster)
     // randomly select a valid candidate to pop out of wall
     if (popEntity && popN > 0)
     {
-        var popIndex = chooseFromArray(popList);
+        var popIndex; popIndex = chooseFromArray(popList);
         entityPop[popIndex] = true;
         with (instance_create(entityX[popIndex] + sprite_get_xoffset(entitySprite[popIndex]),
             entityY[popIndex] + sprite_get_yoffset(entitySprite[popIndex]),
@@ -204,19 +204,19 @@ if (entityCanStep() && isMaster)
             other.rippleX[other.rippleN] = x;
             other.rippleY[other.rippleN] = y;
             other.rippleXScale[other.rippleN] = image_xscale;
-            other.rippleN++;
+            other.rippleN+=1;
         }
         entityObject[i] = noone;
         playSFX(sfxAstroWallBwoop);
     }
 
     // ripple timer
-    for (var i = 0; i < rippleN; i++)
+    var i; for ( i = 0; i < rippleN; i+=1)
     {
-        rippleTime[i]++;
+        rippleTime[i]+=1;
         if (rippleTime[i] >= rippleAnimationInterval * sprite_get_number(rippleAnimationSprite))
         {
-            swap(rippleTime, i--, --rippleN);
+            rippleN-=1 swap(rippleTime, i, rippleN); i-=1
         }
     }
 
@@ -282,7 +282,7 @@ if (master == noone)
 }
 
 // silhouettes
-for (var i = 0; i < master.entityN; i++)
+var i; for (i = 0; i < master.entityN; i+=1)
 {
     drawSpriteCropped(master.entitySprite[i], 0,
         master.entityX[i] - sprite_get_xoffset(master.entitySprite[i]),
@@ -296,7 +296,7 @@ for (var i = 0; i < master.entityN; i++)
 }
 
 // ripples
-for (var i = 0; i < master.rippleN; i++)
+var i; for (i = 0; i < master.rippleN; i+=1)
 {
     drawSpriteCropped(master.rippleAnimationSprite, master.rippleTime[i] div master.rippleAnimationInterval,
         master.rippleX[i] - sprite_get_xoffset(master.rippleAnimationSprite),

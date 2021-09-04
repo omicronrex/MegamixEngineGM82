@@ -19,12 +19,12 @@ action_id=603
 applies_to=self
 */
 /// load list of files
-for (var i = 0; true; i++)
+var i; for ( i = 0; true; i+=1)
 {
     // load file:
     fileName[i] = "save" + string(i + 1) + ".sav";
     global.saveFile = fileName[i];
-    var error = saveLoadGame(false);
+    var error; error = saveLoadGame(false);
 
     // if file doesn't exist, halt.
     if (error)
@@ -51,11 +51,11 @@ applies_to=self
 
 if (!controlsLocked)
 {
-    var selectionCount = fileCount + 2;
+    var selectionCount; selectionCount = fileCount + 2;
 
     // switch selection
-    var yDir = 0;
-    for (var i = 0; i < global.playerCount; i++)
+    var yDir; yDir = 0;
+    var i; for ( i = 0; i < global.playerCount; i+=1)
     {
         yDir += global.keyDownPressed[i] - global.keyUpPressed[i];
     }
@@ -66,8 +66,8 @@ if (!controlsLocked)
     if (yDir != 0)
         playSFX(sfxMenuMove);
 
-    var selected = false;
-    for (var i = 0; i < global.playerCount; i++)
+    var selected; selected = false;
+    var i; for ( i = 0; i < global.playerCount; i+=1)
     {
         selected = selected || global.keyPausePressed[i];
     }
@@ -95,7 +95,7 @@ if (!controlsLocked)
         {
             // load file:
             global.saveFile = fileName[selection - 1];
-            var error = saveLoadGame(false);
+            var error; error = saveLoadGame(false);
             if (error)
             {
                 freshSaveFile();
@@ -120,9 +120,9 @@ draw_set_color(c_white);
 draw_set_alpha(1);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
-for (var i = 0; i < fileCount + 2; i++)
+var i; for ( i = 0; i < fileCount + 2; i+=1)
 {
-    var draw_y = 48 + i * 12;
+    var draw_y; draw_y = 48 + i * 12;
 
     // draw cursor
     if (i == selection)
@@ -140,7 +140,7 @@ for (var i = 0; i < fileCount + 2; i++)
     else
     {
         // files
-        var file = i - 1;
+        var file; file = i - 1;
         draw_text(48, draw_y, fileName[file] + ": " + string(gameTimer[file] div (60 * 60)) + " minutes");
     }
 }

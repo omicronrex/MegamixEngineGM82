@@ -95,7 +95,7 @@ if (entityCanStep())
                 else
                 {
                     timer += 1;
-                    if (timer > 16) // <-- time waiting after shot here
+                    if (timer > 16) // <-=1 time waiting after shot here
                     {
                         phase = 0;
                         timer = 0;

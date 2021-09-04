@@ -24,7 +24,7 @@ if (entityCanStep())
 {
     if (spot != 1)
     {
-        spot--;
+        spot-=1;
         x -= 19;
     }
     else
@@ -33,7 +33,7 @@ if (entityCanStep())
         x = x + 38;
     }
 
-    moveTimer--;
+    moveTimer-=1;
     if (moveTimer == 0)
     {
         instance_destroy();

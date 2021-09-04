@@ -125,7 +125,7 @@ with (other)
     {
         _i = instance_create(x, y, objTornadoEffect);
 
-        var copy = instance_copy(false);
+        var copy; copy = instance_copy(false);
         _i.sprite_index = sprite_index;
         copy.sprite_index = sprite_index;
         copy.image_index = image_index;
@@ -163,7 +163,7 @@ applies_to=self
 */
 if (global.keyShootPressed[playerID] && !playerIsLocked(PL_LOCK_SHOOT))
 {
-    for (var z = 1; z <= 4; z++)
+    var z; for (z = 1; z <= 4; z+=1)
     {
         i = fireWeapon(0, 0, objTornadoBlow, (z == 1), (7 * (z == 1)), 1, 0);
         if (instance_exists(i))

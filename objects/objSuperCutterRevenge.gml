@@ -38,7 +38,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    phaseTimer++;
+    phaseTimer+=1;
     calibrateDirection();
     switch (phase)
     {
@@ -55,10 +55,10 @@ if (entityCanStep())
                 }
             break;
         case 1: // lunge
-            var p = (phaseTimer / 28) * 0.7 + 0.15;
-            var desDst = radius * (-0.5 * cos(p * pi) + 0.5)
+            var p; p = (phaseTimer / 28) * 0.7 + 0.15;
+            var desDst; desDst = radius * (-0.5 * cos(p * pi) + 0.5)
                 ;
-            var desX = xstart + dir * desDst
+            var desX; desX = xstart + dir * desDst
                 ;
             xspeed = desX - x;
             if (abs(p - 0.5) < 0.2)
@@ -79,11 +79,11 @@ if (entityCanStep())
             xspeed = 0;
             yspeed = 0;
             phaseTimer -= floorTo(phaseTimer, period);
-            var theta = pi * 2 * roundTo(phaseTimer / period, 1 / 16);
+            var theta; theta = pi * 2 * roundTo(phaseTimer / period, 1 / 16);
             x = xstart + radius * cos(theta) * dir;
             y = ystart - radius * sin(theta);
             animTimer = (animTimer + 1) mod 24;
-            var animTable = makeArray(1, 0, 2, 0)
+            var animTable; animTable = makeArray(1, 0, 2, 0)
                 ;
             image_index = animTable[animTimer div 6];
     }

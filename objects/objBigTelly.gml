@@ -92,7 +92,7 @@ if (entityCanStep())
                     playSFX(sfxEnemyShoot);
                     dropCount += 1;
                 }
-                if (dropCount >= 8) // <-- number of bombs dropped here
+                if (dropCount >= 8) // <-=1 number of bombs dropped here
                 {
                     phase = 4;
                     dropCount = 0;
@@ -116,7 +116,7 @@ if (entityCanStep())
             // wait for a bit, then decide what to do next. Note: this part is innacurate to the original behavior, but the original was indecipherable, so   :P
             case 5:
                 timer += 1;
-                if (timer >= 100) // <-- wait time after stopping here
+                if (timer >= 100) // <-=1 wait time after stopping here
                 {
                     timer = 0;
 
@@ -173,7 +173,7 @@ if (entityCanStep())
             case 2:
                 x = view_xview + megaX;
                 timer += 1;
-                if (timer >= 12) // <-- grace wait time here
+                if (timer >= 12) // <-=1 grace wait time here
                 {
                     phase = 3;
                     timer = 0;
@@ -193,7 +193,7 @@ if (entityCanStep())
                     playSFX(sfxEnemyShoot);
                     dropCount += 1;
                 }
-                if (dropCount >= 10) // <-- amount of bombs dropped here
+                if (dropCount >= 10) // <-=1 amount of bombs dropped here
                 {
                     phase = 4;
                     timer = 0;

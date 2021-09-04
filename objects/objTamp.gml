@@ -31,7 +31,7 @@ if (entityCanStep())
     switch (phase)
     {
         case 0:
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer <= 0)
             {
                 yspeed = -1;
@@ -42,7 +42,7 @@ if (entityCanStep())
                     image_index = 0;
                 }
 
-                warpDelay--;
+                warpDelay-=1;
                 if (warpDelay == 0)
                 {
                     yspeed = 0;
@@ -74,13 +74,13 @@ if (entityCanStep())
 
         // warp In
         case 2:
-        warpDelay--;
+        warpDelay-=1;
         if (warpDelay == 0)
         {
             image_alpha = 1;
             if (instance_exists(target))
             {
-                var newY = target.y - 64;
+                var newY; newY = target.y - 64;
                 if (!insideSection(target.x, newY))
                     newY = global.sectionTop + 8;
                 shiftObject(0, newY - y, true);
@@ -103,13 +103,13 @@ if (entityCanStep())
         }
         break;
     case 3:
-        moveTimer--;
+        moveTimer-=1;
         if (moveTimer <= 0)
         {
             yspeed = 3;
             if (ground)
             {
-                warpDelay--;
+                warpDelay-=1;
                 if (warpDelay > 0)
                 {
                     image_index = 5;

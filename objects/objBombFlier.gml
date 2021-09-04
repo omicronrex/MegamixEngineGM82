@@ -55,7 +55,7 @@ if (entityCanStep())
                 {
                     sprite_index = sprBombFlierBullet;
                     image_index = 0;
-                    uncoverWaitTimer = 6; // <-- wait time between uncovering and moving forward
+                    uncoverWaitTimer = 6; // <-=1 wait time between uncovering and moving forward
                 }
                 break;
             }

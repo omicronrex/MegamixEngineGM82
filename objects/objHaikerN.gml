@@ -93,21 +93,21 @@ if (entityCanStep())
             }
             if (animFrame > 6)
             {
-                var prevFrame = floor(animFrame);
+                var prevFrame; prevFrame = floor(animFrame);
                 animFrame += 0.3;
                 if (floor(animFrame) > 10)
                     animFrame = 6;
                 if (floor(animFrame) == 9 && prevFrame != floor(animFrame))
                 {
                     playSFX(sfxHaikerNShoot);
-                    var tx = 0;
-                    var ty = 0;
+                    var tx; tx = 0;
+                    var ty; ty = 0;
                     if (instance_exists(target))
                     {
                         tx = target.x;
                         ty = target.y;
                     }
-                    var i = instance_create(x + 8 * image_xscale, y, objEnemyBullet);
+                    var i; i = instance_create(x + 8 * image_xscale, y, objEnemyBullet);
                     i.grav = 0.15;
                     i.sprite_index = sprHaikerNGlob;
                     i.mask_index = sprHaikerNGlob;
@@ -161,7 +161,7 @@ if (spawned)
     timer = 0;
 
     a = y - ystart;
-    var den = (x - (endXoffset * image_xscale + xstart)) * (x - (endXoffset * image_xscale + xstart));
+    var den; den = (x - (endXoffset * image_xscale + xstart)) * (x - (endXoffset * image_xscale + xstart));
     a = a / den;
     y = a * ((x - (xstart + endXoffset * image_xscale)) * (x - (xstart + endXoffset * image_xscale))) + ystart;
     SPEED = min(point_distance(x, y, xstart, ystart) / 180, 2); // reach in 180 frames, but limit its speed

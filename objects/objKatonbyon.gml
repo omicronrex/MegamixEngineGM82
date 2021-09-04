@@ -50,7 +50,7 @@ if (entityCanStep())
                         phase = 2;
                         imgIndex += 3;
                         instance_create(x, y + sprite_height / 2, objKatonbyonBomb);
-                        xspeed = 2.4 * image_xscale; // <-- after-bomb-drop speed here
+                        xspeed = 2.4 * image_xscale; // <-=1 after-bomb-drop speed here
                         playSFX(sfxEnemyDrop2);
                     }
                 }
@@ -88,5 +88,5 @@ event_inherited();
 
 if (spawned)
 {
-    xspeed = 1.9 * image_xscale; // <-- initial speed here
+    xspeed = 1.9 * image_xscale; // <-=1 initial speed here
 }

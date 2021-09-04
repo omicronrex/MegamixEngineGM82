@@ -39,14 +39,14 @@ if (entityCanStep())
         bounces += 1;
         if (blockCollision)
             playSFX(sfxBallBounce);
-        var hand = collision_rectangle(bbox_left - abs(xspeed) - 1, bbox_top, bbox_right + abs(xspeed) + 1, bbox_bottom, objTheKeeperHand, false, false);
+        var hand; hand = collision_rectangle(bbox_left - abs(xspeed) - 1, bbox_top, bbox_right + abs(xspeed) + 1, bbox_bottom, objTheKeeperHand, false, false);
         if (hand != noone && (sign(hand.xspeed) != -sign(xspeed)))
         {
             xspeed += sign(xspeed) * 3.65;
         }
         else if (hand == noone)
         {
-            var s = sign(xspeed);
+            var s; s = sign(xspeed);
             xspeed -= s * 3.456;
             if (s > 0 && xspeed < 0)
                 xspeed = 2;

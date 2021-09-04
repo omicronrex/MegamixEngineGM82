@@ -11,7 +11,7 @@ if (argument_count <= 0)
     return 0;
 
 // check all lock pools exist:
-for (var lp = 0; lp < argument_count; lp++)
+var lp; for (lp = 0; lp < argument_count; lp+=1)
 {
     if (!lockPoolExists(argument[lp]))
     {
@@ -28,10 +28,10 @@ for (var lp = 0; lp < argument_count; lp++)
 }
 
 // find common lock value
-for (var lv = 0; true; lv++)
+var lv; for (lv = 0; true; lv+=1)
 {
-    var commonAvailability = true;
-    for (var lockPoolID = 0; lockPoolID < global.lockPoolN; lockPoolID++)
+    var commonAvailability; commonAvailability = true;
+    var lockPoolID; for (lockPoolID = 0; lockPoolID < global.lockPoolN; lockPoolID+=1)
     {
         // check if lock value available in this pool:
         if (lv < global.lockPoolLockCount[lockPoolID])
@@ -47,9 +47,9 @@ for (var lv = 0; true; lv++)
         continue;
 
     // add lock to all pools:
-    for (var lp = 0; lp < argument_count; lp++)
+    var lp; for (lp = 0; lp < argument_count; lp+=1)
     {
-        var lockPoolID = argument[lp];
+        var lockPoolID; lockPoolID = argument[lp];
         global.lockPoolLockTable[lockPoolID, lv] = true;
         global.lockPoolLockCount[lockPoolID] = max(global.lockPoolLockCount[lockPoolID], lv + 1);
     }

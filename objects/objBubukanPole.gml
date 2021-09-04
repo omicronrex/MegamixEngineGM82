@@ -17,6 +17,6 @@ blockCollision = 0;
 // enemy specific
 lands = 0;
 
-yspeed = -4; // <-- initial throwing arc
+yspeed = -4; // <-=1 initial throwing arc
 
 calibrateDirection();

@@ -80,16 +80,17 @@ applies_to=self
 */
 if (image_xscale != 0)
 {
-    var posOffset = max(sign(image_xscale), 0), negOffset = min(sign(image_xscale), 0);
+    var posOffset; posOffset = max(sign(image_xscale), 0)
+    var negOffset; negOffset = min(sign(image_xscale), 0);
 
     // body
-    for (i = -negOffset; i < floor(abs(image_xscale)) - negOffset; i++)
+    for (i = -negOffset; i < floor(abs(image_xscale)) - negOffset; i+=1)
     {
         draw_sprite(platformSprite, floor(imgIndex), floor(x + (i * 16) * sign(image_xscale)), floor(y));
     }
 
     // tail
-    var tileOffset = abs(image_xscale mod 1);
+    var tileOffset; tileOffset = abs(image_xscale mod 1);
     draw_sprite_part(platformSprite, floor(imgIndex), floor((16 * (1 - tileOffset)) * abs(negOffset)), 0, floor(16 * tileOffset), 16, floor(x + floor(image_xscale) * 16 - (16 - tileOffset * 16) * negOffset), floor(y));
 
     // sparkle tail for rainbow roa- bridge

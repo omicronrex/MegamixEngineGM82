@@ -46,7 +46,7 @@ if (entityCanStep())
             else if (type == 1)
             {
                 jumpCount += 1;
-                if (jumpCount % 2 == 0)
+                if (jumpCount mod 2 == 0)
                 {
                     yspeed = yspeed1;
                     xspeed = xspeed1 * dir;

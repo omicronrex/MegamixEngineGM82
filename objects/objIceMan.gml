@@ -128,7 +128,7 @@ if (entityCanStep())
             hasTriggeredFall = true;
             y = ystart;
             image_speed = 0;
-            attackTimer++;
+            attackTimer+=1;
             if (attackTimer < 8)
                 image_index = 1;
             if (attackTimer == 10)
@@ -187,11 +187,11 @@ if (entityCanStep())
                     image_index = 2;
                     image_speed = 0;
                     xspeed = 0;
-                    attackTimer++;
+                    attackTimer+=1;
                     if (attackTimer == 16)
                     {
                         phase = 1;
-                        y--;
+                        y-=1;
                         origY = y + 1;
                         attackTimer = 0;
                         sprite_index = sprIceMan;
@@ -215,22 +215,22 @@ if (entityCanStep())
 
                         if (y != origY)
                         {
-                            y++;
-                            yCount++;
+                            y+=1;
+                            yCount+=1;
                         }
                         else
                         {
-                            attackTimer++;
+                            attackTimer+=1;
                         }
                     }
                 }
                 else
                 {
-                    attackTimer++;
+                    attackTimer+=1;
                     if (attackTimer >= 35)
                     {
-                        y--;
-                        yCount++;
+                        y-=1;
+                        yCount+=1;
                         if (y <= origY - 64)
                         {
                             shooting = false;
@@ -253,12 +253,12 @@ if (entityCanStep())
                         image_index = 1;
                         yCount = 0;
 
-                        var i = instance_create(x + 12 * image_xscale, y + 2, objIceManSlasher);
+                        var i; i = instance_create(x + 12 * image_xscale, y + 2, objIceManSlasher);
                         i.image_xscale = image_xscale;
                         i.xspeed = 2 * image_xscale;
                         i.parent = id;
                         playSFX(sfxIceSlasher);
-                        shotLimit++;
+                        shotLimit+=1;
                     }
                     else
                     {

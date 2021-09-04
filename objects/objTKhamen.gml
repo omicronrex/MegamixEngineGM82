@@ -58,7 +58,7 @@ if (entityCanStep())
                 }
                 if (target.ground)
                 {
-                    moveTimer--;
+                    moveTimer-=1;
                     if (moveTimer <= 30)
                     {
                         imgIndex = 1;
@@ -76,7 +76,7 @@ if (entityCanStep())
         case 1:
             if (!instance_exists(rock))
             {
-                moveTimer--;
+                moveTimer-=1;
 
                 // Shoot rocks
                 if (moveTimer <= 0)
@@ -95,7 +95,7 @@ if (entityCanStep())
                             else
                             {
                                 imgIndex = 1;
-                                var i = instance_create(x + 34 * image_xscale, y + 26, objTKhamenRock);
+                                var i; i = instance_create(x + 34 * image_xscale, y + 26, objTKhamenRock);
                                 i.image_xscale = image_xscale;
                                 i.parent = id;
                                 rock = i.id;
@@ -119,29 +119,29 @@ if (entityCanStep())
             }
 
             // Drop rocks
-            selectTime--;
+            selectTime-=1;
             if (selectTime > 0)
             {
-                dropTime--;
+                dropTime-=1;
 
                 if (dropTime == 0)
                 {
                     if (instance_exists(objTKhamenRockDropper))
                     {
-                        var gridX = floor(bbox_left / view_wview) * view_wview;
-                        var gridY = floor(bbox_top / view_hview) * view_hview;
-                        var i = 0;
+                        var gridX; gridX = floor(bbox_left / view_wview) * view_wview;
+                        var gridY; gridY = floor(bbox_top / view_hview) * view_hview;
+                        var i; i = 0;
                         var rockDrop;
                         rockDrop[0] = 0;
 
                         with (objTKhamenRockDropper)
                         {
-                            var _x = floor(x / view_wview) * view_wview;
-                            var _y = floor(y / view_hview) * view_hview;
+                            var _x; _x = floor(x / view_wview) * view_wview;
+                            var _y; _y = floor(y / view_hview) * view_hview;
                             if ((_x == gridX) && (_y == gridY))
                             {
                                 rockDrop[i] = id;
-                                i++;
+                                i+=1;
                                 active = false;
                             }
                         }

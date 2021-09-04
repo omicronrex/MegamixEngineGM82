@@ -100,7 +100,7 @@ if (dead)
 draw_sprite_ext(sprite_index, image_index, round(x), floor(y), 1, image_yscale, image_angle, image_blend, image_alpha);
 if ((iFrames == 1 || iFrames == 3) || (iceTimer > 0))
 {
-    var flashcol = c_white;
+    var flashcol; flashcol = c_white;
     if (iceTimer > 0)
         flashcol = make_color_rgb(0, 120, 255);
     d3d_set_fog(true, flashcol, 0, 0);

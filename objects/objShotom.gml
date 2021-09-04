@@ -43,7 +43,7 @@ if (entityCanStep())
     if (instance_exists(target) && shootTimer >= 60 && target.y > bbox_top - 8 && target.y < bbox_bottom + 8
         && sign(target.x - x) == sign(image_xscale))
     {
-        var i = instance_create(x + 8 * image_xscale, y + 4 * image_yscale, objEnemyBullet);
+        var i; i = instance_create(x + 8 * image_xscale, y + 4 * image_yscale, objEnemyBullet);
         i.sprite_index = sprShotomBullet;
         i.mask_index = sprShotomBullet;
         i.xspeed = 3 * image_xscale;

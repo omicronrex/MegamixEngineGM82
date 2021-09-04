@@ -2,9 +2,9 @@
 /// returns the string capped to the maximum length;
 /// last few characters replaced by ender e.g. "..."
 
-var s = argument0;
-var l = argument1;
-var e = argument2;
+var s; s = argument0;
+var l; l = argument1;
+var e; e = argument2;
 
 if (string_length(s) > l)
 {

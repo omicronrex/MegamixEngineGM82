@@ -96,8 +96,8 @@ if (!global.frozen)
 
     if (chase)
     {
-        var dis = view_wview;
-        var chaseObj = target;
+        var dis; dis = view_wview;
+        var chaseObj; chaseObj = target;
 
         if (pickup && instance_exists(parent))
         {

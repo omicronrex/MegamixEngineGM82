@@ -19,7 +19,7 @@ applies_to=self
 */
 instance_destroy();
 
-var pid = collectPlayer.playerID;
+var pid; pid = collectPlayer.playerID;
 
 if (global.eTanks < global.maxETanks)
 {

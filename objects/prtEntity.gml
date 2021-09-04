@@ -23,7 +23,7 @@ canDamage = true; //@cc If false, the entity won't deal damage
 isTargetable = true; //@cc If false this object will be ignored by the targeting system
 spawnEnabled = true; //@cc if this is false, object will never spawn, but will remain dead instead.
 
-// projectiles --
+// projectiles -=1
 pierces = 2; // 0: destroyed when hits. 1: destroyed unless kills. 2: never destroyed
 penetrate = 0; // 0: reflectable. 1: not reflectable, but no damage. 2: bypasses shields
 attackDelay = 0;
@@ -263,7 +263,7 @@ else if (!global.frozen) // Basically everything prtEntity should usually be doi
     {
         iFrames -= 1;
     }
-    hitTimer++;
+    hitTimer+=1;
 
     setTargetStep(); // Targeting other entities (megaman, other players in co-op, etc)
 
@@ -298,7 +298,7 @@ else if (!global.frozen) // Basically everything prtEntity should usually be doi
         // special invincible effect handling
         if (invincible == true)
         {
-            sparkleTimer ++;
+            sparkleTimer +=1;
             if (!(sparkleTimer mod 6))
             {
                 with (instance_create(bboxGetXCenter(), bboxGetYCenter(), objSlideDust))
@@ -405,7 +405,7 @@ applies_to=self
 
 dead = 1;
 
-var _ex = instance_create(bboxGetXCenter(), bboxGetYCenter(), objExplosion);
+var _ex; _ex = instance_create(bboxGetXCenter(), bboxGetYCenter(), objExplosion);
 
 if (itemDrop == objKey)
 {
@@ -448,9 +448,9 @@ action_id=603
 applies_to=self
 */
 /// EV_WEAPON_SETDAMAGE: Set damage for weapons and weaknesses for enemies
-for (i = 0; i < specialDamageValuesTotal; i++)
+for (i = 0; i < specialDamageValuesTotal; i+=1)
 {
-    var indx = i * 2;
+    var indx; indx = i * 2;
     if (specialDamageValues[indx] != -1)
     {
         specialDamageValue(specialDamageValues[indx], specialDamageValues[indx + 1]);
@@ -483,7 +483,7 @@ if (spawned)
 
 if (DEBUG_SPAWN)
 {
-    var text = " spawn ";
+    var text; text = " spawn ";
     if (!spawned)
         text = " despawn ";
     print(object_get_name(object_index) + text + " (" + string(x) + ", " + string(y) + ")");
@@ -504,10 +504,10 @@ if (!dead)
     }
     if ((ceil(iFrames / 2) mod 4) || !iFrames)
     {
-        var iceBlinkTime = 42;
+        var iceBlinkTime; iceBlinkTime = 42;
         if ((ceil(iFrames / 2) mod 2) || (iceTimer > 0 && (iceTimer > iceBlinkTime || (iceTimer <= iceBlinkTime && iceTimer mod 4 == 0))))
         {
-            var flashcol = c_white;
+            var flashcol; flashcol = c_white;
             if (iceTimer > 0 && (iceTimer > iceBlinkTime || (iceTimer <= iceBlinkTime && iceTimer mod 4 == 0)))
             {
                 switch (iceGraphicStyle)

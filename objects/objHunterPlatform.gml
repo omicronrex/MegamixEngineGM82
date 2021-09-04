@@ -80,14 +80,14 @@ if (!global.frozen && !dead && !global.timeStopped)
         }
 
         //New code, use shifting script
-        var movey = (ystart + (ySet * 8)) - y;
+        var movey; movey = (ystart + (ySet * 8)) - y;
         shiftObject(0,movey,blockCollision);
 
         //Old code, manually shift entities
         /*
         with (prtEntity)
         {
-            for (var i = 0; i < abs((other.ySet - other.oldYSet)); i += 1)
+            var i; for ( i = 0; i < abs((other.ySet - other.oldYSet)); i += 1)
             {
                 if (place_meeting(x, y + sign(y - other.y), other) && blockCollision == 1)
                 {
@@ -101,7 +101,7 @@ if (!global.frozen && !dead && !global.timeStopped)
         {
             // if instance_place(x,y+sign(y - other.y),other) && blockCollision = 1
             // y += sign(other.ySet) * 8;
-            for (var i = 0; i < abs((other.ySet - other.oldYSet)); i += 1)
+            var i; for ( i = 0; i < abs((other.ySet - other.oldYSet)); i += 1)
             {
                 if (place_meeting(x, y + sign(y - other.y), other) && blockCollision == 1)
                 {

@@ -42,7 +42,7 @@ if (entityCanStep())
             {
                 if (instance_exists(target))
                 {
-                    var dir = point_direction(x, y, target.x, target.y);
+                    var dir; dir = point_direction(x, y, target.x, target.y);
                     xspeed = cos(degtorad(dir)) * 1.5;
                     yspeed = -sin(degtorad(dir)) * 1.5;
                 }
@@ -71,9 +71,9 @@ if (entityCanStep())
             imgOffset = 10;
             if (instance_exists(target) && phaseTimer == 1)
             {
-                var bullet = instance_create(x, y + 4, objEnemyBullet);
+                var bullet; bullet = instance_create(x, y + 4, objEnemyBullet);
                 playSFX(sfxEnemyShootClassic);
-                var dir = point_direction(x, y, target.x, target.y);
+                var dir; dir = point_direction(x, y, target.x, target.y);
                 bullet.xspeed = cos(degtorad(dir)) * 2;
                 bullet.yspeed = -sin(degtorad(dir)) * 2;
             }

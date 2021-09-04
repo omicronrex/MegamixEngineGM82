@@ -33,7 +33,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    timer++;
+    timer+=1;
     switch (phase)
     {
         case 0: // Move
@@ -51,7 +51,7 @@ if (entityCanStep())
             {
                 playSFX(sfxEnemyShootClassic);
                 var t;
-                for (i = 0; i < bullets; i++)
+                for (i = 0; i < bullets; i+=1)
                 {
                     t = instance_create(x, y, objEnemyBullet);
                     t.sprite_index = sprMM1MetBullet;

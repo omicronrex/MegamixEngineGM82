@@ -104,7 +104,7 @@ applies_to=self
 */
 if (global.keyShootPressed[playerID] && !playerIsLocked(PL_LOCK_SHOOT))
 {
-    for (var z = 0; z <= 2; z += 1)
+    var z; for (z = 0; z <= 2; z += 1)
     {
         i = fireWeapon(16, image_yscale * (ground == false), objThunderBeam, 1 * (z == 0), 1.5 * (z == 0), 1, 0);
         if (i)

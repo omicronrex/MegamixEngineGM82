@@ -69,7 +69,7 @@ else
 
     with (parent)
     {
-        var i = instance_create(x - 8 - 16, y, objRushTeleportBlock);
+        var i; i = instance_create(x - 8 - 16, y, objRushTeleportBlock);
         i.image_xscale = 3;
         i.image_yscale = image_yscale;
     }

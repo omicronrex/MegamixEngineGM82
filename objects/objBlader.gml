@@ -55,7 +55,7 @@ event_inherited();
 if (entityCanStep())
 {
     image_speed = 0.25;
-    timer++;
+    timer+=1;
     switch (phase)
     {
         case 1: // Look for target

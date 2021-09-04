@@ -55,7 +55,7 @@ if (!global.frozen || instance_exists(objSectionSwitcher))
                 angle -= spawnOffset;
                 count += 1;
 
-                var i = instance_create(x, y, object_index);
+                var i; i = instance_create(x, y, object_index);
                 i.parent = parent;
 
                 i.angle = angle;

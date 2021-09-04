@@ -1478,7 +1478,6 @@
 		|objMusicControl
 		|objDebugControl
 		|objMobileControl
-		|objExternalRoomSetup
 		|objDefer
 		|objStruct
 	+Menu

@@ -198,8 +198,8 @@ if (snaptogrid)
     yshift = roundTo(yshift, 16);
 }
 
-var xDrawBase = view_xview[0] + modf(xshift - view_xview[0] + offsetX, bgW);
-var yDrawBase = view_yview[0] + modf(yshift - view_yview[0] + offsetY, bgH);
+var xDrawBase; xDrawBase = view_xview[0] + modf(xshift - view_xview[0] + offsetX, bgW);
+var yDrawBase; yDrawBase = view_yview[0] + modf(yshift - view_yview[0] + offsetY, bgH);
 
 xDrawBase = floor(xDrawBase);
 yDrawBase = floor(yDrawBase);
@@ -209,16 +209,16 @@ for (i = -1; i < ceil(view_wview[0] / bgW) + 1; i += 1)
     for (j = -1; j < ceil(view_hview[0] / bgH) + 1; j += 1)
     {
         // determine offset of this backgroud chunk
-        var xDraw = i * bgW + xDrawBase;
-        var yDraw = j * bgH + yDrawBase;
+        var xDraw; xDraw = i * bgW + xDrawBase;
+        var yDraw; yDraw = j * bgH + yDrawBase;
 
         // restrict-to-section logic
-        var addX = 0;
-        var addY = 0;
-        var partX = bgL;
-        var partY = bgT;
-        var partW = bgW;
-        var partH = bgH;
+        var addX; addX = 0;
+        var addY; addY = 0;
+        var partX; partX = bgL;
+        var partY; partY = bgT;
+        var partW; partW = bgW;
+        var partH; partH = bgH;
 
         if (xDraw + bgW <= sectionLeft)
         {

@@ -40,8 +40,8 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var xsp = xspeed;
-var ysp = yspeed;
+var xsp; xsp = xspeed;
+var ysp; ysp = yspeed;
 xspeed = 0;
 yspeed = 0;
 event_inherited();
@@ -220,8 +220,8 @@ if (entityCanStep())
                 }
                 else
                 {
-                    var _X = x;
-                    var _Y = y;
+                    var _X; _X = x;
+                    var _Y; _Y = y;
 
                     if (dir == "left"
                         || dir == "right")
@@ -301,9 +301,9 @@ applies_to=self
 */
 lastRail = noone;
 
-var msk = mask_index;
-var rexsc = image_xscale;
-var reysc = image_yscale;
+var msk; msk = mask_index;
+var rexsc; rexsc = image_xscale;
+var reysc; reysc = image_yscale;
 mask_index = sprDot;
 
 image_xscale = 1;
@@ -316,7 +316,7 @@ image_xscale=1.0/sprite_get_width(sprite_index);
 
 with (prtRail)
 {
-    var quit = false;
+    var quit; quit = false;
     with (other)
     {
         if (place_meeting(round(x + xOffset), round(y + yOffset), other) || place_meeting(round(xprevious + xOffset), round(yprevious + yOffset), other))

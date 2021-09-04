@@ -41,7 +41,7 @@ if (entityCanStep())
             }
             if (image_index == 4)
             {
-                animTimer--;
+                animTimer-=1;
                 if (animTimer <= 0)
                 {
                     if (canShoot == true)
@@ -61,7 +61,7 @@ if (entityCanStep())
             }
             if (canShoot == false)
             {
-                animTimer--;
+                animTimer-=1;
                 if (animTimer <= 0)
                 {
                     image_index -= imgSpd;
@@ -74,8 +74,8 @@ if (entityCanStep())
             }
             break;
         case 1: // Idle
-            moveTimer--;
-            animTimer--;
+            moveTimer-=1;
+            animTimer-=1;
             if (animTimer <= 0)
             {
                 if (image_index == 0)

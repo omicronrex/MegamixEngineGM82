@@ -31,11 +31,11 @@ event_inherited();
 if (entityCanStep())
 {
     // determine spawn coords and direction
-    var dir = 1;
+    var dir; dir = 1;
     if (x > (global.sectionLeft + global.sectionRight) / 2)
         dir = -1;
-    var spawn_y = y;
-    var spawn_x = global.sectionLeft - 24;
+    var spawn_y; spawn_y = y;
+    var spawn_x; spawn_x = global.sectionLeft - 24;
     if (dir == -1)
         spawn_x = global.sectionRight + 24;
 

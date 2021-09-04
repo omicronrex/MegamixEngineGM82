@@ -69,12 +69,12 @@ if (introTimer > 0 && doesIntro)
 if (entityCanStep() && introTimer <= 0)
 {
     image_speed = 0;
-    var alone = true;
+    var alone; alone = true;
 
 
     if (instance_number(objSuzakAndFenix) > 1)
     {
-        var i = 0;
+        var i; i = 0;
         with (objSuzakAndFenix)
         {
             if (entityCanStep())
@@ -458,7 +458,7 @@ if (entityCanStep() && introTimer <= 0)
     }
 
     // Handle Animations
-    var changeFrame = false;
+    var changeFrame; changeFrame = false;
     animTimer += animSpeed;
     if (nextAnim != anim)
     {
@@ -569,8 +569,8 @@ event_inherited();
 /// Misc. initialization
 if (init == 1)
 {
-    var mapY = floor(y / 224);
-    var screenYBottom = mapY * 224 + 224;
+    var mapY; mapY = floor(y / 224);
+    var screenYBottom; screenYBottom = mapY * 224 + 224;
     init = 0;
     while (!place_meeting(x, y + 1, objSolid) && bbox_bottom < screenYBottom)
     {
@@ -586,7 +586,7 @@ if (init == 1)
     {
         ystart = y;
     }
-    var mapX = floor(x / 256);
+    var mapX; mapX = floor(x / 256);
     screenX = mapX * 256;
     if (xscaleStart == -1)
     {
@@ -605,7 +605,7 @@ else if (init == 2)
     init = 0;
 
 
-    var total = 0;
+    var total; total = 0;
     with (objSuzakAndFenix)
     {
         if (entityCanStep())
@@ -615,7 +615,7 @@ else if (init == 2)
     if (total > 1)
     {
         assert(total <= 2, "Too many active Suzak and Fenix");
-        var i = 0;
+        var i; i = 0;
         with (objSuzakAndFenix)
         {
             if (isMaster)

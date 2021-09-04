@@ -43,7 +43,7 @@ if (!global.frozen)
         activated = true;
 
         // don't effect the player when spawning in
-        for (var p = 0; p < instance_number(objMegaman); p++)
+        var p;for ( p = 0; p < instance_number(objMegaman); p+=1)
         {
             player = instance_find(objMegaman, p);
             if (instance_exists(player))
@@ -59,7 +59,7 @@ if (!global.frozen)
     // spawn leaves
     if (activated && windSpeed != 0)
     {
-        leafTimer++;
+        leafTimer+=1;
 
         if (leafTimer mod 7 == 0)
         {

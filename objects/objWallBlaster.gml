@@ -73,9 +73,9 @@ if (entityCanStep())
         if ((spriteGetXCenterObject(target) <= x && image_xscale == -1)
             || (spriteGetXCenterObject(target) >= x && image_xscale == 1))
         {
-            var newAngle = point_direction(x, spriteGetYCenter(), spriteGetXCenterObject(target),
+            var newAngle; newAngle = point_direction(x, spriteGetYCenter(), spriteGetXCenterObject(target),
                 spriteGetYCenterObject(target));
-            var angleSpd = 5;
+            var angleSpd; angleSpd = 5;
 
             if (abs(newAngle - currentAngle) > angleSpd && abs(abs(newAngle - currentAngle) - 360) > angleSpd)
             {
@@ -124,15 +124,15 @@ if (entityCanStep())
     // Shooting
     if (shooting == true)
     {
-        var interval = 30;
-        if (shootTimer % interval == 0)
+        var interval; interval = 30;
+        if (shootTimer mod interval == 0)
         {
             if (currentShootCount >= shootCount)
                 shooting = false;
             else
             {
                 // Create the bullet
-                var useImage = floor(image_index / 4);
+                var useImage; useImage = floor(image_index / 4);
 
                 var xx, yy;
                 switch (useImage)
@@ -171,7 +171,7 @@ if (entityCanStep())
                         break;
                 }
 
-                var ID = instance_create(x + image_xscale * (-sprite_get_xoffset(sprite_index) + xx), y - sprite_get_yoffset(sprite_index) + yy, objEnemyBullet);
+                var ID; ID = instance_create(x + image_xscale * (-sprite_get_xoffset(sprite_index) + xx), y - sprite_get_yoffset(sprite_index) + yy, objEnemyBullet);
                 ID.dir = wrapAngle(90 - ((useImage + 1) * 22.5));
                 ID.spd = 2;
 
@@ -184,7 +184,7 @@ if (entityCanStep())
 
         if (shooting == true)
         {
-            if (shootTimer % interval < interval / 2)
+            if (shootTimer mod interval < interval / 2)
                 shootImage = 1;
             else
                 shootImage = 0;
@@ -197,7 +197,7 @@ if (entityCanStep())
 
 
     // Determine animation frame
-    var angleImage, interval = 180 / 7;
+    var angleImage; var interval;interval = 180 / 7;
     if (image_xscale == 1)
     {
         var useAngle;
@@ -210,7 +210,7 @@ if (entityCanStep())
     }
     else
     {
-        var useAngle = currentAngle - 90;
+        var useAngle; useAngle = currentAngle - 90;
         angleImage = floor(useAngle / interval);
     }
 

@@ -133,10 +133,10 @@ if (entityCanStep())
     {
         if (checkSolid(other.xspeed,0))
         {
-            var midD = true;
+            var midD; midD = true;
         }
         else
-            var midD = false;
+            var midD; midD = false;
     }
     if (midD && xspeed != 0)
     {
@@ -153,10 +153,10 @@ if (entityCanStep())
     {
         if (!checkSolid(0,0)  && !place_meeting(x,y,objWater))
         {
-            var rightD = true;
+            var rightD; rightD = true;
         }
         else
-            var rightD = false;
+            var rightD; rightD = false;
     }
 
     if ((rightD && xspeed > 0))
@@ -171,10 +171,10 @@ if (entityCanStep())
     {
         if (!checkSolid(0,0)  && !place_meeting(x,y,objWater))
         {
-            var leftD = true;
+            var leftD; leftD = true;
         }
         else
-            var leftD = false;
+            var leftD; leftD = false;
     }
 
     if ((leftD && xspeed < 0))

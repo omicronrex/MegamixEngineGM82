@@ -104,7 +104,7 @@ if (entityCanStep())
         }
     }
 
-    timer++;
+    timer+=1;
 }
 else if (dead)
 {
@@ -122,7 +122,7 @@ applies_to=self
 
 if (!myItem)
 {
-    var randitem = floor(random(90));
+    var randitem; randitem = floor(random(90));
 
     if (randitem < 3)
     {
@@ -151,7 +151,7 @@ applies_to=self
 */
 if (myItem == 0)
 {
-    var randitem = floor(random(90));
+    var randitem; randitem = floor(random(90));
     if (myItem == noone)
     {
         for (i = 0; i < 4; i += 1)

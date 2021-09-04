@@ -84,11 +84,11 @@ if (place_meeting(x, y, prtPickup))
 }
 
 // find underlying tiles
-for (var ix = bbox_left + 8; ix < bbox_right; ix += 16)
+var ix; for (ix = bbox_left + 8; ix < bbox_right; ix += 16)
 {
-    for (var iy = bbox_top + 8; iy < bbox_bottom; iy += 16)
+    var iy; for (iy = bbox_top + 8; iy < bbox_bottom; iy += 16)
     {
-        var tile = tile_layer_find(depth, ix, iy);
+        var tile; tile = tile_layer_find(depth, ix, iy);
         if (tile != -1)
         {
             tileOffsetX[tileN] = tile_get_x(tile) - x;
@@ -97,7 +97,8 @@ for (var ix = bbox_left + 8; ix < bbox_right; ix += 16)
             tileTop[tileN] = tile_get_top(tile);
             tileWidth[tileN] = tile_get_width(tile);
             tileHeight[tileN] = tile_get_height(tile);
-            tiles[tileN++] = tile_get_background(tile);
+            tiles[tileN] = tile_get_background(tile);
+            tileN+=1
             tile_delete(tile);
         }
     }
@@ -115,7 +116,7 @@ applies_to=self
 */
 if (!dead)
 {
-    for (var i = 0; i < tileN; i++)
+    var i; for ( i = 0; i < tileN; i+=1)
     {
         draw_background_part(tiles[i], tileLeft[i], tileTop[i], tileWidth[i], tileHeight[i], floor(x) + tileOffsetX[i], floor(y) + tileOffsetY[i]);
     }
@@ -124,7 +125,7 @@ if (!dead)
     {
         // flash
         draw_set_blend_mode(bm_add);
-        for (var i = 0; i < tileN; i++)
+        var i; for ( i = 0; i < tileN; i+=1)
         {
             draw_background_part(tiles[i], tileLeft[i], tileTop[i], tileWidth[i], tileHeight[i], floor(x) + tileOffsetX[i], floor(y) + tileOffsetY[i]);
         }

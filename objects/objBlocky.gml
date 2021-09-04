@@ -99,7 +99,7 @@ if (entityCanStep())
         collapseTimer -= 1;
         if (collapseTimer == 30 || collapseTimer == 20 || collapseTimer == 10)
         {
-            var ID = instance_create(x, view_yview[0] + 224 - 16, objBlockySprayRise);
+            var ID; ID = instance_create(x, view_yview[0] + 224 - 16, objBlockySprayRise);
             ID.respawn = false;
             ID.despawnRange = 8;
             ID.canHit = false;

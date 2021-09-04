@@ -49,7 +49,7 @@ if (entityCanStep())
                 if (sign(image_xscale) == sign(target.x - x))
                 {
                     shootTimer += 1;
-                    if (shootTimer >= delay) // <-- wait time between shots here
+                    if (shootTimer >= delay) // <-=1 wait time between shots here
                     {
                         phase = 1;
                         shootTimer = 0;

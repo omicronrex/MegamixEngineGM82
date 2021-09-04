@@ -79,18 +79,18 @@ if (insideSection(x, y) && !global.frozen)
         else
         {
             // bring yspeed to lift speed:
-            var accel = other.liftAccel;
+            var accel; accel = other.liftAccel;
 
             // in downward lifts, gravity applies when moving upward
             if (other.liftSpeed * gravDir > 0 && yspeed < 0) // TODO: account for water gravity, etc.
                 accel = max(abs(accel), 0.25);
-            var deltaYSpeed = clamp(other.liftSpeed - yspeed, -abs(accel), abs(accel));
+            var deltaYSpeed; deltaYSpeed = clamp(other.liftSpeed - yspeed, -abs(accel), abs(accel));
             yspeed += deltaYSpeed;
 
             // stop at top if lift does not continue (these physics should be double-checked for accuracy)
             if (other.liftSpeed * gravDir < 0 && ((gravDir == 1 && bbox_top <= global.sectionTop + 16) || (gravDir == -1 && bbox_bottom >= global.sectionBottom - 16)) && !climbing)
             {
-                var continues = false;
+                var continues; continues = false;
                 with (other.object_index)
                     if (y * other.gravDir < other.y * other.gravDir)
                     {
@@ -132,7 +132,7 @@ if (insideSection(x, y) && !global.frozen)
             }
 
             // stop if hit object or side of screen:
-            var screenMargin = 8;
+            var screenMargin; screenMargin = 8;
             if (((x < view_xview[0] + screenMargin || x > view_xview[0] + view_wview[0] - screenMargin)
                 && !position_meeting(x, y, objSectionArrowLeft) && !position_meeting(x, y, objSectionArrowRight)) || xcoll != 0)
             {
@@ -146,7 +146,7 @@ if (insideSection(x, y) && !global.frozen)
 // delete map if player not in a gravity lift room
 if (global.gravityLiftXSpeedMap != -1)
 {
-    var deleteMap = true;
+    var deleteMap; deleteMap = true;
     with (object_index)
         if (insideSection(x, y))
             deleteMap = false;

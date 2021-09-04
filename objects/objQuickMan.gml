@@ -151,7 +151,7 @@ if (entityCanStep())
                     else
                         bugActive = false;
 
-                    // abort if jumping too many times -- don't want to jump out of arena!
+                    // abort if jumping too many times -=1 don't want to jump out of arena!
                     if (jump_count > 3)
                     {
                         bugActive = false;
@@ -232,7 +232,7 @@ if (entityCanStep())
                         {
                             faction = other.faction;
                             target = other.target;
-                            var dir = point_direction(x, y, target.x, target.y);
+                            var dir; dir = point_direction(x, y, target.x, target.y);
                             xspeed = cos(degtorad(dir)) * _speed * (0.5 + i / 2);
                             yspeed = -sin(degtorad(dir)) * _speed;
                             dist = point_distance(x, y, x + (target.x - x) * (0.5 + i / 2), target.y) + 48;

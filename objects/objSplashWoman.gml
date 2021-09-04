@@ -454,8 +454,8 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var bx = image_xscale;
-var by = y;
+var bx; bx = image_xscale;
+var by; by = y;
 y = round(y + sin(cAngleY) * cDistanceY);
 if (detectAnimation != image_xscale)
 {

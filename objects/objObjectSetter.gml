@@ -12,26 +12,26 @@ applies_to=self
 // only one autotiler runs this code:
 if (id == object_index.id)
 {
-    var beginTime = get_timer();
+    var beginTime; beginTime = get_timer();
     print("Autotile begin (instance " + string(id) + ")", WL_VERBOSE);
 
     // learn list of layers
     print("Determining layer set...", WL_VERBOSE);
-    var preplace_time = get_timer();
+    var preplace_time; preplace_time = get_timer();
     global.tileLayersN = 0;
-    var tid_all = tile_get_ids();
-    var tid_all_n = array_length_1d(tid_all);
+    var tid_all; tid_all = tile_get_ids();
+    var tid_all_n; tid_all_n = array_length_1d(tid_all);
     if (tid_all_n <= 0)
         exit;
     var layers;
     layers[0] = 0;
     global.tileLayers = layers;
-    for (var i = 0; i < tid_all_n; i++)
+    var i; for ( i = 0; i < tid_all_n; i+=1)
     {
-        var d = tile_get_depth(tid_all[i]);
+        var d; d = tile_get_depth(tid_all[i]);
         if (indexOf(global.tileLayers, d) == -1)
         {
-            global.tileLayers[global.tileLayersN++] = d;
+            global.tileLayers[global.tileLayersN] = d; global.tileLayersN+=1
         }
     }
 
@@ -43,12 +43,12 @@ if (id == object_index.id)
     print("Layers found: " + string(global.tileLayers), WL_VERBOSE);
 
     // map from (layer, bg) -> (automapper id)
-    for (var i = 0; i < global.tileLayersN; i++)
+    var i; for ( i = 0; i < global.tileLayersN; i+=1)
         global.automapper[i] = ds_map_create();
 
     // set of instances which were placed during the autotiler process
     // maps (instance id) -> (true)
-    var placed_instances = ds_map_create();
+    var placed_instances; placed_instances = ds_map_create();
 
     // each object scans for a key and parses it
     with (object_index)
@@ -58,21 +58,21 @@ if (id == object_index.id)
 
     preplace_time = get_timer() - preplace_time;
     print("Iterating through all tiles in all layers...", WL_VERBOSE);
-    var place_time = get_timer();
+    var place_time; place_time = get_timer();
 
-    for (var layerIndex = 0; layerIndex < global.tileLayersN; layerIndex++)
+    var layerIndex; for (layerIndex = 0; layerIndex < global.tileLayersN; layerIndex+=1)
     {
         // list each tile on each layer
-        var layer = global.tileLayers[layerIndex];
-        var tid = tile_get_ids_at_depth(layer);
-        var tid_n = array_length_1d(tid);
+        var layer; layer = global.tileLayers[layerIndex];
+        var tid; tid = tile_get_ids_at_depth(layer);
+        var tid_n; tid_n = array_length_1d(tid);
 
         print("Layer " + string(layer) + "...", WL_VERBOSE);
         print("  Splitting tiles...", WL_VERBOSE);
-        var tile_split_time = get_timer();
+        var tile_split_time; tile_split_time = get_timer();
 
         // split tiles into 16x16
-        for (var i = 0; i < tid_n; i++)
+        var i; for ( i = 0; i < tid_n; i+=1)
         {
             splitTile(tid[i], grid, grid);
         }
@@ -80,17 +80,17 @@ if (id == object_index.id)
         print("  Placing instances...", WL_VERBOSE);
 
         // look at every tile in room and place objects
-        var tid = tile_get_ids_at_depth(layer);
-        var tid_n = array_length_1d(tid);
-        var instance_placed_n = 0; // this variable is purely to help debugging
-        var instance_place_time = get_timer();
+        var tid; tid = tile_get_ids_at_depth(layer);
+        var tid_n; tid_n = array_length_1d(tid);
+        var instance_placed_n; instance_placed_n = 0; // this variable is purely to help debugging
+        var instance_place_time; instance_place_time = get_timer();
 
-        for (var i = 0; i < tid_n; i++)
+        var i; for ( i = 0; i < tid_n; i+=1)
         {
             // determine which objObjectSetter has the associated tileset
-            var bg = tile_get_background(tid[i]);
+            var bg; bg = tile_get_background(tid[i]);
 
-            var automapperID = ds_map_find_value(global.automapper[layerIndex], bg);
+            var automapperID; automapperID = ds_map_find_value(global.automapper[layerIndex], bg);
 
             if (is_undefined(automapperID))
             {
@@ -100,21 +100,21 @@ if (id == object_index.id)
             with (automapperID)
             {
                 // figure out which object to place according to tileset key (which is determined in user defined 0)
-                var key_lookup_x = floor(tile_get_left(tid[i])/grid) - key_left;
-                var key_lookup_y = floor(tile_get_top(tid[i])/grid) - key_top;
+                var key_lookup_x; key_lookup_x = floor(tile_get_left(tid[i])/grid) - key_left;
+                var key_lookup_y; key_lookup_y = floor(tile_get_top(tid[i])/grid) - key_top;
                 if( (key_lookup_x<0) || (key_lookup_x > coordW-1) || (key_lookup_y<0) || (key_lookup_y>coordH-1) )
                 {
                     break;
                 }
-                var obj_id = coord[# key_lookup_x, key_lookup_y];
+                var obj_id; obj_id = ds_grid_get(coord,key_lookup_x, key_lookup_y);
                 if (obj_id >= 0)
                 {
                     with (instance_create(floor(tile_get_x(tid[i]) / grid) * grid, floor(tile_get_y(tid[i]) / grid) * grid, obj_id))
                     {
-                        placed_instances[? id] = true;
+                        ds_map_set(placed_instances,id,true);
                         isTile = true;
                         visible = false;
-                        instance_placed_n++;
+                        instance_placed_n+=1;
                     }
                 }
             }
@@ -127,7 +127,7 @@ if (id == object_index.id)
 
     // clean up resources
     print("Cleaning up data structures...", WL_VERBOSE);
-    var free_time = get_timer();
+    var free_time; free_time = get_timer();
     print("  Freeing legend grids...", WL_VERBOSE);
     with (object_index)
     {
@@ -144,7 +144,7 @@ if (id == object_index.id)
     }
 
     print("  Freeing layer -> autotiler map", WL_VERBOSE);
-    for (var i = 0; i < global.tileLayersN; i++)
+    var i; for ( i = 0; i < global.tileLayersN; i+=1)
         ds_map_destroy(global.automapper[i]);
 
     print("  Freeing placed instances map", WL_VERBOSE);
@@ -164,7 +164,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var useTileAsTileset = (image_yscale<0);
+var useTileAsTileset; useTileAsTileset = (image_yscale<0);
 
 if(useTileAsTileset)
 {
@@ -173,13 +173,13 @@ if(useTileAsTileset)
 }
 
 /// parse key
-var key = -1;
+var key; key = -1;
 
 print("Parsing legend (instance " + string(id) + ")", WL_VERBOSE);
 print("  Searching for legend...", WL_VERBOSE);
 
 // search for key until one is found
-for (var i = global.tileLayersN - 1; i >= 0; i--)
+var i; for ( i = global.tileLayersN - 1; i >= 0; i-=1)
 {
     layer = global.tileLayers[i];
     layerIndex = i;
@@ -238,11 +238,11 @@ coordW = ceil(key_width/grid);
 coordH = ceil(key_height/grid);
 coord = ds_grid_create(coordW, coordH);
 
-for (var i = 0; i < coordW; i++)
+var i; for ( i = 0; i < coordW; i+=1)
 {
-    for (var j = 0; j < coordH; j++)
+    var j; for ( j = 0; j < coordH; j+=1)
     {
-        coord[# i, j] = -1;
+        ds_grid_set(coord,i,j,-1);
     }
 }
 
@@ -278,13 +278,13 @@ obj[26] = objCossackSnow;
 obj_n = array_length_1d(obj);
 
 // scan key for objects
-for (var _x = 0;_x < coordW; ++_x) //_x < key_width; _x += grid)
+var _x; for (_x = 0;_x < coordW; _x+=1) //_x < key_width; _x += grid)
 {
-    for (var _y = 0; _y < coordH; ++_y)// < key_height; _y += grid)
+    var _y; for (_y = 0; _y < coordH; _y+=1)// < key_height; _y += grid)
     {
-        var obj_found = noone;
+        var obj_found; obj_found = noone;
 
-        for (var i = 0; i < obj_n; i++) // find object located at this point
+        var i; for ( i = 0; i < obj_n; i+=1) // find object located at this point
         {
             if (position_meeting(key_x + _x*grid, key_y + _y*grid, obj[i]))
             {
@@ -294,7 +294,7 @@ for (var _x = 0;_x < coordW; ++_x) //_x < key_width; _x += grid)
 
         if (obj_found) // object found - add to list
         {
-            coord[# _x, _y] = obj_found;
+            ds_grid_set(coord,_x, _y,obj_found);
         }
     }
 }

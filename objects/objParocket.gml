@@ -36,7 +36,7 @@ if (entityCanStep())
     {
         // On ground
         case 0:
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer <= 0)
             {
                 if (bounceTimes < 2)
@@ -48,7 +48,7 @@ if (entityCanStep())
                     else
                     {
                         y += 1;
-                        bounceTimes++;
+                        bounceTimes+=1;
                     }
                 }
                 else
@@ -73,7 +73,7 @@ if (entityCanStep())
             if (y < view_yview - 2)
             {
                 yspeed = 0;
-                moveTimer--;
+                moveTimer-=1;
                 if (moveTimer <= 0)
                 {
                     x += 40;
@@ -155,12 +155,12 @@ event_inherited();
 
 if (sprite_index == sprParocketRise)
 {
-    var i = instance_create(x, y - (sprite_height / 2), objHarmfulExplosion);
+    var i; i = instance_create(x, y - (sprite_height / 2), objHarmfulExplosion);
     i.contactDamage = 6;
 }
 else
 {
-    var i = instance_create(x, y, objHarmfulExplosion);
+    var i; i = instance_create(x, y, objHarmfulExplosion);
     i.contactDamage = 6;
 }
 playSFX(sfxMM9Explosion);

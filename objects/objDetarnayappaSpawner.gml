@@ -53,7 +53,7 @@ if (entityCanStep())
     if (spawnTimer >= interval)
     {
         spawnTimer = 0;
-        var sy = bbox_bottom;
+        var sy; sy = bbox_bottom;
         if (dir == 1)
             sy = bbox_top - abs(bbox_bottom - bbox_top);
         with (instance_create(x, sy, objDetarnayappa))

@@ -44,12 +44,12 @@ if (!global.frozen)
 
     if (isActive)
     {
-        explodeDelay--;
+        explodeDelay-=1;
     }
 
     if (explodeDelay <= 0)
     {
-        var i = instance_create(x, y, objDustManDebris);
+        var i; i = instance_create(x, y, objDustManDebris);
         i.xspeed = 2;
         i.yspeed = 2;
         i.image_index = 4;

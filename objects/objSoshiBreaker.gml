@@ -82,7 +82,7 @@ if (entityCanStep())
             }
             else //Didn't hit the block for whatever reason? No biggie, start again!
             {
-                safeTimer++;
+                safeTimer+=1;
                 if (safeTimer == 240)
                 {
                     phase = 0;
@@ -98,25 +98,25 @@ if (entityCanStep())
                 imgIndex = 0;
 
                 // Create 7-way spreadshot
-                var i = instance_create(x, y - 8, objSoshiBreakerDebris);
+                var i; i = instance_create(x, y - 8, objSoshiBreakerDebris);
                 i.xspeed = -2;
                 i.yspeed = 2;
-                var i = instance_create(x - 2, y - 9, objSoshiBreakerDebris);
+                var i; i = instance_create(x - 2, y - 9, objSoshiBreakerDebris);
                 i.xspeed = -3;
                 i.yspeed = 0;
-                var i = instance_create(x, y - 10, objSoshiBreakerDebris);
+                var i; i = instance_create(x, y - 10, objSoshiBreakerDebris);
                 i.xspeed = -2;
                 i.yspeed = -2;
-                var i = instance_create(x + 1, y - 12, objSoshiBreakerDebris);
+                var i; i = instance_create(x + 1, y - 12, objSoshiBreakerDebris);
                 i.xspeed = 0;
                 i.yspeed = -3;
-                var i = instance_create(x + 2, y - 10, objSoshiBreakerDebris);
+                var i; i = instance_create(x + 2, y - 10, objSoshiBreakerDebris);
                 i.xspeed = 2;
                 i.yspeed = -2;
-                var i = instance_create(x + 4, y - 9, objSoshiBreakerDebris);
+                var i; i = instance_create(x + 4, y - 9, objSoshiBreakerDebris);
                 i.xspeed = 3;
                 i.yspeed = 0;
-                var i = instance_create(x + 2, y - 8, objSoshiBreakerDebris);
+                var i; i = instance_create(x + 2, y - 8, objSoshiBreakerDebris);
                 i.xspeed = 2;
                 i.yspeed = 2;
 

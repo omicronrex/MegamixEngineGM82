@@ -58,22 +58,22 @@ event_inherited();
 
 if (entityCanStep())
 {
-    var myRad = degtorad(image_angle + 90);
+    var myRad; myRad = degtorad(image_angle + 90);
     if (!checkSolid(-cos(myRad) * 8, sin(myRad) * 8))
     {
         event_user(EV_DEATH);
         exit;
     }
 
-    var xdir = cos(degtorad(image_angle));
-    var ydir = -sin(degtorad(image_angle));
-    var destRX = xstart + xdir * rightLimit;
-    var destRY = ystart + ydir * rightLimit;
-    var destLX = xstart - xdir * leftLimit;
-    var destLY = ystart - ydir * leftLimit;
+    var xdir; xdir = cos(degtorad(image_angle));
+    var ydir; ydir = -sin(degtorad(image_angle));
+    var destRX; destRX = xstart + xdir * rightLimit;
+    var destRY; destRY = ystart + ydir * rightLimit;
+    var destLX; destLX = xstart - xdir * leftLimit;
+    var destLY; destLY = ystart - ydir * leftLimit;
 
-    var stop = false;
-    var reverse = false;
+    var stop; stop = false;
+    var reverse; reverse = false;
     if (xspeed != 0 || yspeed != 0)
     {
         if (rightLimit != -1 && dir == 1 && sign(destRX - x) == -sign(dir * xdir) && sign(destRY - y) == -sign(dir * ydir))

@@ -56,7 +56,7 @@ if (firstFrame)
 
 if (!global.frozen)
 {
-    var canProceed = true;
+    var canProceed; canProceed = true;
     x += xcoll;
     y += ycoll;
     if ((xcoll != 0 || ycoll != 0) && !place_meeting(x, y, objSolid) && !place_meeting(x, y, objTopSolid))
@@ -64,7 +64,7 @@ if (!global.frozen)
         canProceed = false;
         with (prtEntity)
         {
-            var sld = 0;
+            var sld; sld = 0;
             if (!isSolid || ((canDamage && contactDamage != 0) && canHit != 0))
                 continue;
             if (!dead)
@@ -112,7 +112,7 @@ if (!global.frozen)
         x -= xcoll;
         y -= ycoll;
     }
-    for (var i = 0; i < 3; i += 1)
+    var i; for ( i = 0; i < 3; i += 1)
     {
         if (!canProceed || (ycoll == 0 && xcoll == 0))
             break;

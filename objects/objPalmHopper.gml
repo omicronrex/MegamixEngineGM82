@@ -51,7 +51,7 @@ if (entityCanStep())
                         {
                             y -= 4;
                             yspeed = -4.5;
-                            jumps--;
+                            jumps-=1;
                             phase = 1;
                         }
                     }
@@ -62,7 +62,7 @@ if (entityCanStep())
                 {
                     if (canShoot == true)
                     {
-                        shootTimer--;
+                        shootTimer-=1;
                         if (shootTimer <= 5)
                         {
                             image_index = 4;
@@ -74,7 +74,7 @@ if (entityCanStep())
                             playSFX(sfxMissileLaunch);
                             i.xspeed = 2 * image_xscale;
                             i.image_xscale = image_xscale;
-                            shotsLeft--;
+                            shotsLeft-=1;
                             if (shotsLeft > 0)
                             {
                                 shootTimer = 60;
@@ -98,7 +98,7 @@ if (entityCanStep())
             {
                 xspeed = 0;
                 image_index = 1;
-                animTimer--;
+                animTimer-=1;
 
                 if (animTimer <= 0)
                 {

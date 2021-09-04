@@ -23,7 +23,7 @@ event_inherited();
 
 if (!global.frozen)
 {
-    deathTimer++;
+    deathTimer+=1;
 
     if (deathTimer == deathTimerMax)
     {

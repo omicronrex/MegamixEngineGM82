@@ -50,8 +50,8 @@ if (instance_exists(parent))
     depth = parent.depth - 2;
 
     // debug
-    // attackTimer ++;
-    deathTimer--;
+    // attackTimer +=1;
+    deathTimer-=1;
 }
 else
 {
@@ -65,7 +65,7 @@ applies_to=self
 */
 if (attackTimer mod 2 == 0)
 {
-    for (var i = 0; i < tileNumber; i += 1)
+    var i; for ( i = 0; i < tileNumber; i += 1)
         draw_background_part(tileBG[i], tileLeft[i], tileTop[i], tileWidth[i], tileHeight[i], floor(x + tileX[i]), floor(y + tileY[i]));
 }
 

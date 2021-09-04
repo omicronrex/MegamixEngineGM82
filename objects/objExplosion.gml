@@ -28,16 +28,16 @@ applies_to=self
 */
 event_inherited();
 
-// if "myItem" ==  0 --> regular drop
-// if "myItem" == -1 --> drop nothing
-// if "myItem" >   0 --> use value to determine new object
+// if "myItem" ==  0 -=1> regular drop
+// if "myItem" == -1 -=1> drop nothing
+// if "myItem" >   0 -=1> use value to determine new object
 
 // Random drop rates (credit to Blyka)
 // randomize();
 
 if (myItem >= 0)
 {
-    var item = myItem;
+    var item; item = myItem;
 
     if (item == 0)
     {
@@ -47,7 +47,7 @@ if (myItem >= 0)
         }
         else
         {
-            var randItem = floor(random(600));
+            var randItem; randItem = floor(random(600));
             randItem *= 1 - (global.dropUpgrade * 0.33) - (global.converter * 0.1);
 
             if (randItem < 4)

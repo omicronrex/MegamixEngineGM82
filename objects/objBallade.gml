@@ -235,7 +235,7 @@ if (entityCanStep())
                     {
                         contactDamage = 0;
                         reflectable = false;
-                        for (var i = 0; i < 24; i += 1) // ballade cannot jump next to the wall, so offset the target object slightly away from the wall.
+                        var i; for ( i = 0; i < 24; i += 1) // ballade cannot jump next to the wall, so offset the target object slightly away from the wall.
                         {
                             if (checkSolid(-24, 0))
                             {

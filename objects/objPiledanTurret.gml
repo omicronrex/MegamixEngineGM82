@@ -13,7 +13,7 @@ action_id=603
 applies_to=self
 */
 /// Active phase
-var shootEnd = 120;
+var shootEnd; shootEnd = 120;
 switch (subPhase)
 {
     case 0:
@@ -25,14 +25,14 @@ switch (subPhase)
         }
         if (timer == 20 || timer == 60)
         {
-            var i = instance_create(x + 12 * image_xscale, y - 17 * image_yscale, objEnemyBullet);
+            var i; i = instance_create(x + 12 * image_xscale, y - 17 * image_yscale, objEnemyBullet);
             i.xspeed = image_xscale * 3;
             i.grav = 0;
             playSFX(sfxEnemyShootClassic);
         }
         else if (timer == 40 || timer == 80)
         {
-            var i = instance_create(x + 12 * image_xscale, y - 27 * image_yscale, objEnemyBullet);
+            var i; i = instance_create(x + 12 * image_xscale, y - 27 * image_yscale, objEnemyBullet);
             i.xspeed = image_xscale * 3;
             i.grav = 0;
             i.blockCollision = 0;

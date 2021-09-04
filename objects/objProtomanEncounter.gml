@@ -106,7 +106,7 @@ if (entityCanStep())
 
         if (phase == 0)
         {
-            animTimer++;
+            animTimer+=1;
             if animTimer == 1
             {
                 playSFX(sfxTeleportIn);
@@ -114,7 +114,7 @@ if (entityCanStep())
         }
         else
         {
-            animTimer--;
+            animTimer-=1;
         }
 
         image_index = 3 - (animTimer div 4 mod 2);

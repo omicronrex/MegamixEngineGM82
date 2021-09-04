@@ -38,7 +38,7 @@ if (!global.frozen)
     if (!isBlock)
     {
         // animate
-        animTimer++;
+        animTimer+=1;
 
         if (animTimer == 5)
         {
@@ -63,7 +63,7 @@ if (!global.frozen)
     } // now be a big boy.
     else if (isBlock)
     {
-        destroyTimer++;
+        destroyTimer+=1;
 
         // become a real block!
         if (destroyTimer == 0)

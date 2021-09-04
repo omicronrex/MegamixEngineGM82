@@ -79,7 +79,7 @@ if (entityCanStep())
         }
     }
     image_index = floor(animFrame);
-    var hasParent = instance_exists(parent);
+    var hasParent; hasParent = instance_exists(parent);
     if (!hasParent || (hasParent && parent.dead))
         event_user(EV_DEATH);
 }

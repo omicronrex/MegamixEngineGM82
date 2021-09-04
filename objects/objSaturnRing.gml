@@ -25,7 +25,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-for (var i = 32; i < 256; i += 1)
+var i; for ( i = 32; i < 256; i += 1)
 {
     if (checkSolid(i * image_xscale, 0, 1, 1))
     {

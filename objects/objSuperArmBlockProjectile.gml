@@ -35,7 +35,7 @@ if (instance_exists(host))
     }
 }
 
-var deathOnDrop = true;
+var deathOnDrop; deathOnDrop = true;
 if (checkSolid(cachedXSpeed, cachedYSpeed, true))
 {
     with (host)
@@ -77,9 +77,9 @@ if (noShatter)
 
 playSFX(sfxSuperArm);
 
-for (var ix = bbox_left; ix < bbox_right; ix += 16)
+var ix; for (ix = bbox_left; ix < bbox_right; ix += 16)
 {
-    for (var iy = bbox_top; iy < bbox_bottom; iy += 16)
+    var iy; for (iy = bbox_top; iy < bbox_bottom; iy += 16)
     {
         with (instance_create(ix, iy, objSuperArmDebris))
         {
@@ -97,7 +97,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var deathOnDrop = false;
+var deathOnDrop; deathOnDrop = false;
 with (host)
 {
     deathOnDrop = superArmDeathOnDrop;

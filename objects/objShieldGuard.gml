@@ -99,7 +99,7 @@ if (phase == 1)
             if ((other.object_index == objBusterShotCharged) || (other.object_index == objBreakDash))
             {
                 sprite_index = sprShieldGuardNoShield;
-                var i = instance_create(x, y, objShieldGuardShield);
+                var i; i = instance_create(x, y, objShieldGuardShield);
                 i.xspeed = -2 * image_xscale;
                 i.yspeed = -4;
                 i.image_xscale = image_xscale;

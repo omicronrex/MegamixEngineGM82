@@ -79,7 +79,7 @@ if (entityCanStep())
         imageTimer += 1;
         if (imageTimer == 12)
         {
-            var tgx = x + 12;
+            var tgx; tgx = x + 12;
             if (instance_exists(target))
                 tgx = target.x;
             imageTimer = 0;

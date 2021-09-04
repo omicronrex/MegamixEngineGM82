@@ -140,11 +140,11 @@ if (entityCanStep())
                 yspeed = -6;
                 image_index = 5;
                 attackTimer = -1000;
-                for (var i = 0; i < 12; i += 1) // create oil splash
+                var i; for ( i = 0; i < 12; i += 1) // create oil splash
                 {
-                    var inst = instance_create((x - 3) + irandom(6), y, objOilManParticle);
-                    var inst = instance_create((x - 3) + irandom(6), y, objOilManParticle);
-                    var inst = instance_create((x - 3) + irandom(6), y, objOilManParticle);
+                    var inst; inst = instance_create((x - 3) + irandom(6), y, objOilManParticle);
+                    var inst; inst = instance_create((x - 3) + irandom(6), y, objOilManParticle);
+                    var inst; inst = instance_create((x - 3) + irandom(6), y, objOilManParticle);
                     inst.sprite_index = sprOilManShot;
                 }
             }
@@ -195,7 +195,7 @@ if (entityCanStep())
         if (jumpToWall)
         {
             jumpToWall = false;
-            for (var i = 0; i < 256; i += 1)
+            var i; for ( i = 0; i < 256; i += 1)
             {
                 if (checkSolid(i * image_xscale, 0, 1, 1))
                 {
@@ -311,7 +311,7 @@ if (entityCanStep())
                     oilSlider = true;
                     image_index = 12;
                     var sd;
-                    for (var i = 0; i < 224; i += 1)
+                    var i; for ( i = 0; i < 224; i += 1)
                     {
                         if (checkSolid(0, i, 1, 1) || place_meeting(x, y + i, objTopSolid))
                             break;
@@ -342,10 +342,10 @@ if (entityCanStep())
                     if (attackTimer mod 3 == 1 && image_index == 16)
                     {
                         playSFX(sfxOil);
-                        for (var i = 0; i < 8; i += 1) // create oil splash
+                        var i; for ( i = 0; i < 8; i += 1) // create oil splash
                         {
-                            var inst = instance_create((x - 3) + irandom(6), y, objOilManParticle);
-                            var inst = instance_create((x - 3) + irandom(6), y, objOilManParticle);
+                            var inst; inst = instance_create((x - 3) + irandom(6), y, objOilManParticle);
+                            var inst; inst = instance_create((x - 3) + irandom(6), y, objOilManParticle);
                         }
                     }
                     if (image_index == 18)

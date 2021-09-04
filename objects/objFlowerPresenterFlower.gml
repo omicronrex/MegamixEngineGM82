@@ -151,7 +151,7 @@ if (entityCanStep())
         jetTimer += 1;
         if (jetTimer >= 4)
         {
-            // <-- jet animation speed here
+            // <-=1 jet animation speed here
             if (sprite_index == sprFlowerPresenterFlowerOn)
             {
                 sprite_index = sprFlowerPresenterFlowerOff;

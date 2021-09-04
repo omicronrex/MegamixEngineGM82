@@ -25,7 +25,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    var pressed = false;
+    var pressed; pressed = false;
     visible = true;
     with (prtEntity)
         if (ground && place_meeting(x, y + 2*sign(grav), other) && !dead)
@@ -41,11 +41,11 @@ if (entityCanStep())
     yspeed = 0;
     if (phase == 0)
     {
-        // inactive -- rise up unless pressed.
+        // inactive -=1 rise up unless pressed.
         if (pressed)
         {
-            activateTimer++;
-            rotorTimer--;
+            activateTimer+=1;
+            rotorTimer-=1;
             if (activateTimer > 10)
                 phase = 1;
         }
@@ -66,7 +66,7 @@ if (entityCanStep())
         yspeed = image_yscale / 2;
         image_index = 8;
         if (rotorTimer mod 5 == 0)
-            rotorTimer++;
+            rotorTimer+=1;
         if (!pressed)
             phase = 0;
 

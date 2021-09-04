@@ -167,7 +167,7 @@ if (entityCanStep())
             case 0:
                 sprite_index = idleSprite;
 
-                attackTimer++;
+                attackTimer+=1;
                 if (attackTimer < 15)
                 {
                     imgIndex = 0;
@@ -181,7 +181,7 @@ if (entityCanStep())
                         imgIndex += 0.1;
                         if (imgIndex == 1)
                         {
-                            var i = instance_create(x, bbox_top, objBubbleManLead);
+                            var i; i = instance_create(x, bbox_top, objBubbleManLead);
                             i.xspeed = 1 * image_xscale;
                             i.yspeed = -2;
                             i.image_xscale = image_xscale;
@@ -191,7 +191,7 @@ if (entityCanStep())
                         {
                             imgIndex = 0;
                             attackTimer = 0;
-                            bubbles++;
+                            bubbles+=1;
                         }
                     }
                 } // If Bubble Lead limit has been reached, begin next phase if target exists
@@ -211,7 +211,7 @@ if (entityCanStep())
                             bubbleLimit = choose(0, 1, 2);
 
                             // Fire a shot
-                            var i = instance_create(x + 16 * image_xscale, y, objBubbleBullet);
+                            var i; i = instance_create(x + 16 * image_xscale, y, objBubbleBullet);
                             i.image_xscale = image_xscale;
                             i.xspeed = 2 * image_xscale;
                             i.parent = id;
@@ -226,7 +226,7 @@ if (entityCanStep())
                             }
 
                             // Fire one more Bubble Lead before swimming
-                            var i = instance_create(x, bbox_top, objBubbleManLead);
+                            var i; i = instance_create(x, bbox_top, objBubbleManLead);
                             i.xspeed = 1 * image_xscale;
                             i.yspeed = -2;
                             i.image_xscale = image_xscale;
@@ -259,7 +259,7 @@ if (entityCanStep())
                 yCount += 0.5;
                 if ((yCount == 16) && (sprite_index == sprBubbleShoot))
                 {
-                    var i = instance_create(x + 16 * image_xscale, y, objBubbleBullet);
+                    var i; i = instance_create(x + 16 * image_xscale, y, objBubbleBullet);
                     i.image_xscale = image_xscale;
                     i.xspeed = 2 * image_xscale;
                     i.parent = id;
@@ -290,10 +290,10 @@ if (entityCanStep())
                 else
                 {
                     // Fire shot on landing
-                    attackTimer++;
+                    attackTimer+=1;
                     if (attackTimer == 1) && (bubbleLimit != 0)
                     {
-                        var i = instance_create(x + 16 * image_xscale, y, objBubbleBullet);
+                        var i; i = instance_create(x + 16 * image_xscale, y, objBubbleBullet);
                         i.image_xscale = image_xscale;
                         i.xspeed = 2 * image_xscale;
                         i.parent = id;

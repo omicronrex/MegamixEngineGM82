@@ -5,24 +5,24 @@
 // new_section_y - y coordinate at which to set the section
 // global - do we want to set the global section variables or only local ones
 
-var _global = argument2;
+var _global; _global = argument2;
 
-var _x = argument0;
-var _y = argument1;
-var _i = 0;
-var _size = ds_list_size(global.borderlist);
+var _x; _x = argument0;
+var _y; _y = argument1;
+var _i; _i = 0;
+var _size; _size = ds_list_size(global.borderlist);
 
 
-var _str = "";
-var _s = 0;
-var _e = 0;
+var _str; _str = "";
+var _s; _s = 0;
+var _e; _e = 0;
 
-var _st = 0;
-var _sb = room_height;
-var _sl = 0;
-var _sr = room_width;
+var _st; _st = 0;
+var _sb; _sb = room_height;
+var _sl; _sl = 0;
+var _sr; _sr = room_width;
 
-for (_i = 0; _i < _size; _i++)
+for (_i = 0; _i < _size; _i+=1)
 {
     _str = ds_list_find_value(global.borderlist, _i);
 

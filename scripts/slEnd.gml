@@ -13,7 +13,7 @@ if (global.sl_error)
 // saving:
 if (global.sl_save)
 {
-    var file = file_text_open_write(global.sl_filename);
+    var file; file = file_text_open_write(global.sl_filename);
     if (file == -1)
     {
         if (global.sl_map >= 0)

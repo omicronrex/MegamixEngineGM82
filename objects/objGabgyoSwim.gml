@@ -56,7 +56,7 @@ if (entityCanStep())
     }
 
     // AI
-    range = 48; // <-- movement area width here
+    range = 48; // <-=1 movement area width here
     if (xspeed == 0 || x < xstart - range || x > xstart + range)
     {
         image_xscale = -image_xscale;

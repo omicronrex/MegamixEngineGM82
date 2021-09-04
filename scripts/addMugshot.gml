@@ -1,9 +1,9 @@
 /// addMugshot(sprite, start, end, speed)
 
-var _sprite = argument0;
-var _start = argument1;
-var _end = argument2;
-var _speed = argument3;
+var _sprite; _sprite = argument0;
+var _start; _start = argument1;
+var _end; _end = argument2;
+var _speed; _speed = argument3;
 
 with (objDialogueBox)
 {

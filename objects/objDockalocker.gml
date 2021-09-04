@@ -85,7 +85,7 @@ if (!global.frozen && !dead && !global.timeStopped)
             break;
         case 1: // active
         // have solid
-            var canShoot = false;
+            var canShoot; canShoot = false;
             if (insideView())
             {
                 canHit = true;
@@ -197,7 +197,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var bullet = instance_create(x + 8, y + 11, objEnemyBullet);
+var bullet; bullet = instance_create(x + 8, y + 11, objEnemyBullet);
 bullet.target = self.target;
 bullet.contactDamage = 2;
 with (bullet)

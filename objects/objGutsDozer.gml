@@ -113,8 +113,8 @@ applies_to=self
 */
 event_inherited();
 
-var arenaCentre = view_xview[0] + view_wview[0] / 2;
-var stopDist = (view_wview[0] / 2 - 48);
+var arenaCentre; arenaCentre = view_xview[0] + view_wview[0] / 2;
+var stopDist; stopDist = (view_wview[0] / 2 - 48);
 
 if (entityCanStep())
 {
@@ -122,7 +122,7 @@ if (entityCanStep())
     {
         // animate (the boss is assembled animation wise in user event 2)
         animTimerTreads = (animTimerTreads + 1) mod 10;
-        animTimerMouth--;
+        animTimerMouth-=1;
 
         if (!instance_exists(child))
         {
@@ -157,7 +157,7 @@ if (entityCanStep())
         {
             // just stay put
             xspeed = 0;
-            waitTime--;
+            waitTime-=1;
         }
 
         // shooting (only when not far offscreen)
@@ -175,7 +175,8 @@ if (entityCanStep())
                     other.playerOnTank = true;
             }
 
-            if ((shootTimer--) <= 0 && instance_exists(target))
+            shootTimer-=1
+            if ((shootTimer) <= -1 && instance_exists(target))
             {
                 shootTimer = 60;
                 if (playerOnTank)
@@ -207,7 +208,7 @@ if (entityCanStep())
                 {
                     if (yOffset > 0)
                     {
-                        yOffset--;
+                        yOffset-=1;
                     }
                 }
             }
@@ -217,7 +218,7 @@ if (entityCanStep())
                 {
                     if (yOffset < 24)
                     {
-                        yOffset++;
+                        yOffset+=1;
                     }
                 }
             }
@@ -268,7 +269,7 @@ if (isFight && !dead)
     }
     mySolid.image_yscale = 0.1;
     mySolid.image_xscale = 164 / 16;
-    var dstXSolid = x;
+    var dstXSolid; dstXSolid = x;
     if (image_xscale == 1)
     {
         dstXSolid -= 166;
@@ -277,7 +278,7 @@ if (isFight && !dead)
     {
         dstXSolid += 2;
     }
-    var dstYSolid = y - 1;
+    var dstYSolid; dstYSolid = y - 1;
     mySolid.xspeed = dstXSolid - mySolid.x;
     mySolid.yspeed = dstYSolid - mySolid.y;
     mySolid.isSolid = 2;

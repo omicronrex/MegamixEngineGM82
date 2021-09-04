@@ -47,7 +47,7 @@ if (entityCanStep())
             visible = !visible;
         }
 
-        if (shootTimer >= 25) // <-- time between charge increases here
+        if (shootTimer >= 25) // <-=1 time between charge increases here
         {
             shotCharge += 1;
             shootTimer = 0;
@@ -66,14 +66,14 @@ if (entityCanStep())
     // Shoot
     if (shotCharge == 3)
     {
-        speed = 4; // <-- speed here
+        speed = 4; // <-=1 speed here
 
         if (instance_exists(target))
         {
             direction = point_direction(x, y, target.x, target.y);
         }
 
-        directionMax = 25; // <-- projectile angle limits here
+        directionMax = 25; // <-=1 projectile angle limits here
         if (image_xscale > 0)
         {
             if (direction > directionMax && direction <= 180)

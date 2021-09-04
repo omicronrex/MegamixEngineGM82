@@ -52,11 +52,11 @@ if (entityCanStep())
     image_index += 0.20;
     facePlayer = false;
 
-    moveDelay++;
+    moveDelay+=1;
 
     if (delayTurn > 0)
     {
-        delayTurn--;
+        delayTurn-=1;
     }
 
     if (moveDelay == 0)

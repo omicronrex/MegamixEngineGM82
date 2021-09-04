@@ -43,7 +43,7 @@ if (!global.frozen)
 {
     if (instance_exists(parent))
     {
-        attackTimer++;
+        attackTimer+=1;
 
         if (xspeed == 0 && yspeed == 0)
         {
@@ -107,7 +107,7 @@ if (!hasFired)
         {
             if ((ceil(iFrames / 2) mod 2) || (iceTimer > 0))
             {
-                var flashcol = c_white;
+                var flashcol; flashcol = c_white;
                 if (iceTimer > 0)
                 {
                     flashcol = make_color_rgb(0, 120, 255);

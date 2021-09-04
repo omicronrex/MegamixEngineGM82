@@ -59,7 +59,7 @@ if (entityCanStep())
 
         // Drop down
         case 1:
-        moveTimer--;
+        moveTimer-=1;
         if (moveTimer <= 0)
         {
             image_index = 3;
@@ -111,7 +111,7 @@ if (entityCanStep())
                 }
                 else
                 {
-                    moveTimer--;
+                    moveTimer-=1;
                     if (moveTimer <= 0)
                     {
                         sprite_index = sprShaboan;
@@ -129,7 +129,7 @@ if (entityCanStep())
             {
                 if ((target.x > x + 85) || (target.x < x - 85))
                 {
-                    moveTimer--;
+                    moveTimer-=1;
                     if (moveTimer > 0)
                     {
                         if (image_index >= 8)
@@ -152,7 +152,7 @@ if (entityCanStep())
             // Do idle animation if Mega Man is dead
             else
             {
-                moveTimer--;
+                moveTimer-=1;
                 if (moveTimer > 0)
                 {
                     if (image_index >= 8)
@@ -186,13 +186,13 @@ if (entityCanStep())
                     {
                         if (image_index == 8)
                         {
-                            blinkCount++;
+                            blinkCount+=1;
                         }
                     }
                     else
                     {
                         canBlink = false;
-                        moveTimer--;
+                        moveTimer-=1;
                         if (moveTimer == 0)
                         {
                             phase = 6;
@@ -217,7 +217,7 @@ if (entityCanStep())
                     if (image_index >= 10)
                     {
                         image_index = 8;
-                        blinkCount++;
+                        blinkCount+=1;
                     }
 
                     if (blinkCount == 3)

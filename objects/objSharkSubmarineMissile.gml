@@ -46,7 +46,7 @@ if (entityCanStep())
 
     if (reDirTimer < 20)
     {
-        reDirTimer++;
+        reDirTimer+=1;
     }
     else
     {
@@ -54,7 +54,7 @@ if (entityCanStep())
         if (instance_exists(target))
         {
             //
-            // --FIX THIS LATER--
+            // -=1FIX THIS LATER-=1
             //
             testAngle = point_direction(x, y, target.x, target.y);
             if (testAngle <= 0)
@@ -64,22 +64,22 @@ if (entityCanStep())
             if (testAngle >= (360 - aiming * 45)
                 && testAngle - (360 - aiming * 45) <= 180)
             {
-                aiming--;
+                aiming-=1;
             }
             else
             {
-                aiming++;
+                aiming+=1;
             }
         }
         else
         {
             if (aiming > 0 && aiming < 5)
             {
-                aiming--;
+                aiming-=1;
             }
             else
             {
-                aiming++;
+                aiming+=1;
             }
         }
         if (aiming < 0)

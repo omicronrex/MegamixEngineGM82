@@ -69,7 +69,7 @@ if (!init)
         sprite_index = sprProtoGenerator;
         introSprite = sprProtoGeneratorTeleport;
     }
-    for (var i = 0; i < enemiesOnScreen; i++)
+    var i; for ( i = 0; i < enemiesOnScreen; i+=1)
     {
         childStore[i] = noone;
     }
@@ -79,21 +79,21 @@ if (entityCanStep())
 {
     if (initalSpawn > 0 && attackTimer >= 0)
     {
-        for (var j = 0; j < initalSpawn; j++)
+        var j; for ( j = 0; j < initalSpawn; j+=1)
         {
             event_user(2);
-            numCur++;
+            numCur+=1;
         }
         initalSpawn = 0;
         animTimer = 32;
     }
 
     numA = 0;
-    for (var i = 0; i < array_length_1d(childStore); i++)
+    var i; for ( i = 0; i < array_length_1d(childStore); i+=1)
     {
         if (instance_exists(childStore[i]))
         {
-            numA++;
+            numA+=1;
         }
         else
         {
@@ -103,7 +103,7 @@ if (entityCanStep())
     }
     if (numA < enemiesOnScreen)
     {
-        attackTimer++;
+        attackTimer+=1;
         if (attackTimer == attackTimerMax - 32)
         {
             animTimer = 32;
@@ -121,7 +121,7 @@ if (entityCanStep())
 
     if (animTimer > 0)
     {
-        animTimer--;
+        animTimer-=1;
     }
 
     switch (animTimer)
@@ -188,11 +188,11 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var obj = noone;  //Clear initial closest object
-var disM = 999999; //Maximum distance to check
+var obj; obj = noone;  //Clear initial closest object
+var disM; disM = 999999; //Maximum distance to check
 if (initalSpawn > 0)
 {
-    var offset = 0;
+    var offset; offset = 0;
     if (instance_exists(target))
     {
         offset = x - target.x;
@@ -202,7 +202,7 @@ if (initalSpawn > 0)
         if (!spawned)
         {
 
-            var dis = point_distance(x - 8 * sign(offset), y, other.x, other.y);
+            var dis; dis = point_distance(x - 8 * sign(offset), y, other.x, other.y);
             if (dis < disM)
             {
                 obj = id;
@@ -217,7 +217,7 @@ else
     {
         if (!spawned)
         {
-            var dis = point_distance(x, y, other.x-(view_wview/2)+irandom(view_wview), other.y);
+            var dis; dis = point_distance(x, y, other.x-(view_wview/2)+irandom(view_wview), other.y);
             if (dis < disM)
             {
                 obj = id;
@@ -226,13 +226,13 @@ else
         }
     }
 }
-var currentObj = shotsFired mod array_length_1d(childObject);
-var currentEnemy = numCur;
+var currentObj; currentObj = shotsFired mod array_length_1d(childObject);
+var currentEnemy; currentEnemy = numCur;
 with (obj)
 {
     if (!spawned)
     {
-        var inst = instance_create(x,view_yview-16,objOctoGeneratorChild);
+        var inst; inst = instance_create(x,view_yview-16,objOctoGeneratorChild);
         inst.child = other.childObject[currentObj];
         inst.parent = other.id;
         inst.spawner = id;
@@ -249,7 +249,7 @@ with (obj)
 }
 
 
-shotsFired ++;
+shotsFired +=1;
 //@noformat: it's unclear why, but the beautifier trips up on this
 #define Other_20
 /*"/*'/**//* YYD ACTION
@@ -258,7 +258,7 @@ action_id=603
 applies_to=self
 */
 event_inherited();
-for (var i = 0; i < array_length_1d(childStore); i++)
+var i; for ( i = 0; i < array_length_1d(childStore); i+=1)
 {
     if (instance_exists(childStore[i]))
     {

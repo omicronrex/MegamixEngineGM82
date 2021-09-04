@@ -50,7 +50,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var ixsc = image_xscale;
+var ixsc; ixsc = image_xscale;
 image_xscale=1;
 event_inherited();
 image_xscale=ixsc;
@@ -65,10 +65,10 @@ if(!onCeiling)
 
 if (entityCanStep())
 {
-    var hasTarget = instance_exists(target);
-    var tx = 0;
-    var ty = 0;
-    var gravityDir = prevGravDir;
+    var hasTarget; hasTarget = instance_exists(target);
+    var tx; tx = 0;
+    var ty; ty = 0;
+    var gravityDir; gravityDir = prevGravDir;
     if (hasTarget)
     {
         tx = target.x;
@@ -91,7 +91,7 @@ if (entityCanStep())
         if (!isJumping)
         {
             grav = -0.25 * gravityDir;
-            var onLimit = false;
+            var onLimit; onLimit = false;
             if (image_xscale && x > xstart + rightLimit)
             {
                 x = xstart + rightLimit;
@@ -116,8 +116,8 @@ if (entityCanStep())
                     imageIndex = 0;
                 xspeed = ceilingSpeed * image_xscale;
             }
-            var _x = bbox_right;
-            var _tx = 0;
+            var _x; _x = bbox_right;
+            var _tx; _tx = 0;
             if (hasTarget)
             {
                 with (target)
@@ -141,10 +141,10 @@ if (entityCanStep())
                 xspeed = 0;
                 grav = 0.25 * gravityDir;
                 ground = false;
-                var top = bbox_top;
+                var top; top = bbox_top;
                 if (sign(grav) == -1)
                     top = bbox_bottom;
-                var i = instance_create(x, top + 1 * sign(grav), objDarspiderWeb);
+                var i; i = instance_create(x, top + 1 * sign(grav), objDarspiderWeb);
                 i.parent = id;
                 i.grv = grav;
             }
@@ -164,7 +164,7 @@ if (entityCanStep())
     {
         image_yscale = gravityDir;
         grav = 0.25 * gravityDir;
-        var speedLimit = 1.65;
+        var speedLimit; speedLimit = 1.65;
         if (!isJumping)
         {
             timer -= 1;
@@ -210,7 +210,7 @@ if (entityCanStep())
         }
         else
         {
-            var animLimit = 5 + !isDei;
+            var animLimit; animLimit = 5 + !isDei;
             if (floor(imageIndex) < animLimit)
             {
                 imageIndex += 0.35;

@@ -103,7 +103,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var xs = image_xscale;
+var xs; xs = image_xscale;
 image_xscale = 1;
 event_inherited();
 image_xscale = xs;

@@ -34,7 +34,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    timer = (timer + 1) % timerMax;
+    timer = (timer + 1) mod timerMax;
     image_index = 0;
 
     if (timer >= timerWarning)

@@ -63,7 +63,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-for (var i = 0; i < abs(image_xscale); i += 1)
+var i; for ( i = 0; i < abs(image_xscale); i += 1)
 {
     if (image_xscale >= 1 && i == image_xscale - 1)
         draw_sprite_ext(sprite_index, 0, x + i * 16, y, 1, image_yscale, image_angle, image_blend, image_alpha);

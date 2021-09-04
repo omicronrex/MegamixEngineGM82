@@ -8,7 +8,7 @@ applies_to=self
 event_inherited();
 image_speed = 0;
 
-for (var i = 0; i < global.playerCount; i += 1)
+var i; for ( i = 0; i < global.playerCount; i += 1)
 {
     global.BounceXVel[i] = 0;
     global.MeBounce[i] = noone;
@@ -40,8 +40,8 @@ if (!global.frozen)
         {
             with (other)
             {
-                var meg = other.id;
-                var pid = other.playerID;
+                var meg; meg = other.id;
+                var pid; pid = other.playerID;
                 if (place_meeting(x, y - 1, meg) && meg.yspeed >= 0)
                 {
                     meg.yspeed = -8.5;

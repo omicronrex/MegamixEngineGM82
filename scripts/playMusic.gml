@@ -4,21 +4,20 @@
 // If the music type is OGG, then everything but the track number will affect anything
 // For the arguments that don't affect aything, you can put anything. The values won't be used.
 
-var fileName = argument[0];
-var fileType = argument[1];
-var trackNumber = argument[2];
-var loopPosition = argument[3];
-var songLength = argument[4];
-var loops = true;
+var fileName; fileName = argument[0];
+var fileType; fileType = argument[1];
+var trackNumber; trackNumber = argument[2];
+var loopPosition; loopPosition = argument[3];
+var songLength; songLength = argument[4];
+var loops; loops = true;
 if (argument_count > 5)
     loops = argument[5];
-var volume = 1;
+var volume; volume = 1;
 if (argument_count > 6)
     volume = argument[6];
 
 // Search for music
 var mus;
-
 mus = 'Music\' + fileName;
 
 if (!file_exists(mus) || mus == global.levelSong)
@@ -64,23 +63,23 @@ else if (global.levelSongType == "VGM")
 {
     with (objMusicControl)
     {
-        sound_index = GME_LoadSong(mus);
-        if (sound_index != noone)
+        gmeLoad(mus);
         {
-            audio_sound_gain(sound_index, global.levelVolume * (global.musicvolume * 0.01), 0); // set the volume
-            song_tracks = GME_NumTracks();
-            song_voices = GME_NumVoices();
-            GME_StartTrack(global.levelTrackNumber);
+            gmeSetVolume(global.levelVolume * (global.musicvolume * 0.01) * 100)
+            //audio_sound_gain(sound_index, global.levelVolume * (global.musicvolume * 0.01), 0); // set the volume
+            song_tracks = gmeGetTracks();
+            song_voices = 1//GME_NumVoices();
+            gmeSetTrack(global.levelTrackNumber);
 
             forceReset = true;
 
             // don't play the song before the force reset
-            for (v = 0; v <= song_voices; v++)
-            {
-                GME_MuteVoice(v, true);
-            }
+            //for (v = 0; v <= song_voices; v+=1)
+            //{
+            //    GME_MuteVoice(v, true);
+            //}
 
-            GME_Play();
+            gmePlay();
         }
     }
 }

@@ -148,14 +148,14 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var yShift = 0;
+var yShift; yShift = 0;
 if (y - yMain < 0)
     yShift = 1;
 if (y - yMain > 0)
     yShift = -1;
 
-var xDiff = 9 * xPosition;
-var yDiff = (y + 5 + yShift - yMain - 2 - 3 * (y - yMain - yMax) / (yMax + yMin)) / 3;
+var xDiff; xDiff = 9 * xPosition;
+var yDiff; yDiff = (y + 5 + yShift - yMain - 2 - 3 * (y - yMain - yMax) / (yMax + yMin)) / 3;
 
 draw_sprite(sprBladeManSeeSawTether, 0, x, y + 5);
 draw_sprite(sprBladeManSeeSawTether, 0, x - xDiff, y + 5 + yShift - yDiff);

@@ -75,7 +75,7 @@ if (entityCanStep())
             delay = cooldownSmashed;
 
             // despite running the loop 5 times, the third iteraion is skipped, so only 4 projectiles are created.
-            for (var i = 0; i < 5; i += 1)
+            var i; for ( i = 0; i < 5; i += 1)
             {
                 if (i != 2)
                 {

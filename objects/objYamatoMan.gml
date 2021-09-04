@@ -154,7 +154,7 @@ if (entityCanStep())
     if (isFight == true)
     {
         image_speed = 0;
-        attackTimer++;
+        attackTimer+=1;
 
         if (instance_exists(target))
         {
@@ -193,8 +193,8 @@ if (entityCanStep())
                     hasFired = true;
                     image_index = 8;
                     yspeed = -8;
-                    var modi = choose(0.95, 0.75, 0.5);
-                    var ty = 0;
+                    var modi; modi = choose(0.95, 0.75, 0.5);
+                    var ty; ty = 0;
                     if (instance_exists(target))
                     {
                         ty = target.y;
@@ -209,7 +209,7 @@ if (entityCanStep())
                     playSFX(sfxEnemyShoot);
                     if (image_xscale == 1 && x + 8 < strMMX || image_xscale == -1 && x - 8 > strMMX) // how yamato man shoots depends on mega man's position.
                     {
-                        var i = instance_create(x, y, objCentaurSecondaryBullet);
+                        var i; i = instance_create(x, y, objCentaurSecondaryBullet);
                         i.sprite_index = sprYamatoManSpearhead;
                         i.image_speed = 0;
                         i.image_index = 0;
@@ -218,7 +218,7 @@ if (entityCanStep())
                         i.xscale = i.image_xscale;
                         i.contactDamage = 4;
                         i.spd = 2.5;
-                        var i = instance_create(x, y, objCentaurSecondaryBullet);
+                        var i; i = instance_create(x, y, objCentaurSecondaryBullet);
                         i.sprite_index = sprYamatoManSpearhead;
                         i.image_speed = 0;
                         i.image_index = 1;
@@ -227,7 +227,7 @@ if (entityCanStep())
                         i.xscale = i.image_xscale;
                         i.contactDamage = 4;
                         i.spd = 2.5;
-                        var i = instance_create(x, y, objCentaurSecondaryBullet);
+                        var i; i = instance_create(x, y, objCentaurSecondaryBullet);
                         i.sprite_index = sprYamatoManSpearhead;
                         i.image_speed = 0;
                         i.image_index = 2;
@@ -239,7 +239,7 @@ if (entityCanStep())
                     }
                     else
                     {
-                        var i = instance_create(x, y, objCentaurSecondaryBullet);
+                        var i; i = instance_create(x, y, objCentaurSecondaryBullet);
                         i.sprite_index = sprYamatoManSpearhead;
                         i.image_speed = 0;
                         i.image_index = 1;
@@ -248,7 +248,7 @@ if (entityCanStep())
                         i.xscale = i.image_xscale;
                         i.contactDamage = 4;
                         i.spd = 2.5;
-                        var i = instance_create(x, y, objCentaurSecondaryBullet);
+                        var i; i = instance_create(x, y, objCentaurSecondaryBullet);
                         i.sprite_index = sprYamatoManSpearhead;
                         i.image_speed = 0;
                         i.image_index = 1;
@@ -257,7 +257,7 @@ if (entityCanStep())
                         i.xscale = i.image_xscale;
                         i.contactDamage = 4;
                         i.spd = 2.5;
-                        var i = instance_create(x, y, objCentaurSecondaryBullet);
+                        var i; i = instance_create(x, y, objCentaurSecondaryBullet);
                         i.sprite_index = sprYamatoManSpearhead;
                         i.image_speed = 0;
                         i.image_index = 2;

@@ -46,19 +46,19 @@ if (!global.frozen)
                     canDamage = 0;
 
                     // Create drops
-                    var i = instance_create(x, y, objSaltWater);
+                    var i; i = instance_create(x, y, objSaltWater);
                     i.sprite_index = sprSaltWaterDrop;
                     i.xspeed = 0.5 * image_xscale;
                     i.yspeed = -5 * image_yscale;
                     i.grav = grav;
 
-                    var i = instance_create(x, y, objSaltWater);
+                    var i; i = instance_create(x, y, objSaltWater);
                     i.sprite_index = sprSaltWaterDrop;
                     i.xspeed = 1.25 * image_xscale;
                     i.yspeed = -4.5 * image_yscale;
                     i.grav = grav;
 
-                    var i = instance_create(x, y, objSaltWater);
+                    var i; i = instance_create(x, y, objSaltWater);
                     i.sprite_index = sprSaltWaterDrop;
                     i.xspeed = 2 * image_xscale;
                     i.yspeed = -4 * image_yscale;
@@ -79,19 +79,19 @@ if (!global.frozen)
                     canDamage = 0;
 
                     // Create drops
-                    var i = instance_create(x, y, objSaltWater);
+                    var i; i = instance_create(x, y, objSaltWater);
                     i.sprite_index = sprSaltWaterDrop;
                     i.xspeed = -0.5 * image_xscale;
                     i.yspeed = -4 * image_yscale;
                     i.grav = grav;
 
-                    var i = instance_create(x, y, objSaltWater);
+                    var i; i = instance_create(x, y, objSaltWater);
                     i.sprite_index = sprSaltWaterDrop;
                     i.xspeed = -1.25 * image_xscale;
                     i.yspeed = -3.5 * image_yscale;
                     i.grav = grav;
 
-                    var i = instance_create(x, y, objSaltWater);
+                    var i; i = instance_create(x, y, objSaltWater);
                     i.sprite_index = sprSaltWaterDrop;
                     i.xspeed = -2 * image_xscale;
                     i.yspeed = -3 * image_yscale;

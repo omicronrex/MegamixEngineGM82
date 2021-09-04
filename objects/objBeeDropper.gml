@@ -34,7 +34,7 @@ if (entityCanStep())
     {
         // setup
         case 0:
-            xspeed = 3 * image_xscale; // <-- initial speed here
+            xspeed = 3 * image_xscale; // <-=1 initial speed here
             phase = 1;
             break;
 
@@ -53,7 +53,7 @@ if (entityCanStep())
                     imgIndex += 2;
                     bomb = instance_create(x + 1 * image_xscale, y + 11, objHoneycombBomb);
                     bomb.image_xscale = image_xscale;
-                    xspeed = 3.6 * image_xscale; // <-- after-bomb-drop speed here
+                    xspeed = 3.6 * image_xscale; // <-=1 after-bomb-drop speed here
                     playSFX(sfxEnemyDrop2);
                 }
             }

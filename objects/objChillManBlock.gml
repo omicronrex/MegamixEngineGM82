@@ -196,10 +196,10 @@ else if (healthpoints < 1) // Break
     dead = true;
     if (itemDrop)
     {
-        var itemDrawLeft = max(0, sprite_get_bbox_left(sprite) - (floor(width / 4)));
-        var itemDrawRight = min(itemDrawLeft + width, min(sprite_get_bbox_right(sprite) + (floor(width / 4)), sprite_get_width(sprite)));
-        var itemDrawTop = max(0, sprite_get_bbox_top(sprite) - floor((height / 4)));
-        var itemDrawBottom = min(itemDrawTop + height, min(sprite_get_bbox_bottom(sprite) + floor((height / 4)), sprite_get_height(sprite)));
+        var itemDrawLeft; itemDrawLeft = max(0, sprite_get_bbox_left(sprite) - (floor(width / 4)));
+        var itemDrawRight; itemDrawRight = min(itemDrawLeft + width, min(sprite_get_bbox_right(sprite) + (floor(width / 4)), sprite_get_width(sprite)));
+        var itemDrawTop; itemDrawTop = max(0, sprite_get_bbox_top(sprite) - floor((height / 4)));
+        var itemDrawBottom; itemDrawBottom = min(itemDrawTop + height, min(sprite_get_bbox_bottom(sprite) + floor((height / 4)), sprite_get_height(sprite)));
         if (itemDrawLeft < 0 || ((itemDrawLeft < 0) != (itemDrawRight > width)))
         {
             itemDrawLeft = sprite_get_bbox_left(sprite);
@@ -212,13 +212,13 @@ else if (healthpoints < 1) // Break
         }
 
         // Gettimg the dimensions of the region to be draw
-        var itemDrawBoxWidth = abs(itemDrawLeft - itemDrawRight);
-        var itemDrawBoxHeight = abs(itemDrawTop - itemDrawBottom);
+        var itemDrawBoxWidth; itemDrawBoxWidth = abs(itemDrawLeft - itemDrawRight);
+        var itemDrawBoxHeight; itemDrawBoxHeight = abs(itemDrawTop - itemDrawBottom);
 
-        var bboxWidth = abs(bbox_left - bbox_right);
-        var bboxHeight = abs(bbox_top - bbox_bottom);
-        var boxLeft = bbox_left + 2;
-        var boxTop = bbox_top + 2;
+        var bboxWidth; bboxWidth = abs(bbox_left - bbox_right);
+        var bboxHeight; bboxHeight = abs(bbox_top - bbox_bottom);
+        var boxLeft; boxLeft = bbox_left + 2;
+        var boxTop; boxTop = bbox_top + 2;
 
         myEnemy = instance_create(boxLeft, boxTop, itemDrop);
         myEnemy.sprite_index = sprite;
@@ -288,10 +288,10 @@ if (drawItem && itemDrop && !dead)
         sprite = object_get_sprite(itemDrop);
 
     // getting the boundaries of the sprite
-    var itemDrawLeft = max(0, sprite_get_bbox_left(sprite) - (floor(width / 4)));
-    var itemDrawRight = min(itemDrawLeft + width, min(sprite_get_bbox_right(sprite) + (floor(width / 4)), sprite_get_width(sprite)));
-    var itemDrawTop = max(0, sprite_get_bbox_top(sprite) - floor((height / 4)));
-    var itemDrawBottom = min(itemDrawTop + height, min(sprite_get_bbox_bottom(sprite) + floor((height / 4)), sprite_get_height(sprite)));
+    var itemDrawLeft; itemDrawLeft = max(0, sprite_get_bbox_left(sprite) - (floor(width / 4)));
+    var itemDrawRight; itemDrawRight = min(itemDrawLeft + width, min(sprite_get_bbox_right(sprite) + (floor(width / 4)), sprite_get_width(sprite)));
+    var itemDrawTop; itemDrawTop = max(0, sprite_get_bbox_top(sprite) - floor((height / 4)));
+    var itemDrawBottom; itemDrawBottom = min(itemDrawTop + height, min(sprite_get_bbox_bottom(sprite) + floor((height / 4)), sprite_get_height(sprite)));
 
     if (itemDrawLeft < 0 || ((itemDrawLeft < 0) != (itemDrawRight > width)))
     {
@@ -305,16 +305,16 @@ if (drawItem && itemDrop && !dead)
     }
 
     // Getting the dimensions of the region to be draw
-    var itemDrawBoxWidth = abs(itemDrawLeft - itemDrawRight);
-    var itemDrawBoxHeight = abs(itemDrawTop - itemDrawBottom);
+    var itemDrawBoxWidth; itemDrawBoxWidth = abs(itemDrawLeft - itemDrawRight);
+    var itemDrawBoxHeight; itemDrawBoxHeight = abs(itemDrawTop - itemDrawBottom);
 
-    var bboxWidth = abs(bbox_left - bbox_right);
-    var bboxHeight = abs(bbox_top - bbox_bottom);
-    var boxLeft = bbox_left + 2;
-    var boxTop = bbox_top + 2;
+    var bboxWidth; bboxWidth = abs(bbox_left - bbox_right);
+    var bboxHeight; bboxHeight = abs(bbox_top - bbox_bottom);
+    var boxLeft; boxLeft = bbox_left + 2;
+    var boxTop; boxTop = bbox_top + 2;
 
-    var drawX = max(boxLeft + (xscale < 0) * itemDrawBoxWidth, boxLeft + (xscale < 0) * itemDrawBoxWidth + floor(width / 2) - floor(itemDrawBoxWidth / 2)) + itemDrawOffsetX;
-    var drawY = max(boxTop + (yscale < 0) * itemDrawBoxHeight, boxTop + (yscale < 0) * itemDrawBoxHeight + floor(height / 2) - floor(itemDrawBoxHeight / 2)) + itemDrawOffsetY;
+    var drawX; drawX = max(boxLeft + (xscale < 0) * itemDrawBoxWidth, boxLeft + (xscale < 0) * itemDrawBoxWidth + floor(width / 2) - floor(itemDrawBoxWidth / 2)) + itemDrawOffsetX;
+    var drawY; drawY = max(boxTop + (yscale < 0) * itemDrawBoxHeight, boxTop + (yscale < 0) * itemDrawBoxHeight + floor(height / 2) - floor(itemDrawBoxHeight / 2)) + itemDrawOffsetY;
 
     // the actual sprite drawing happens here
     d3d_set_fog(true, make_color_rgb(0, 120, 255), 0, 0);

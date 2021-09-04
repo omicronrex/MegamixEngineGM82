@@ -70,9 +70,9 @@ if (argument_count <= 0) // Setup of the weapon system
     // Only do this on startup, so sorting the weapons doesn't restore or drain your energy
     if (room == rmInit || room == rmDisclaimer)
     {
-        for (var j = 0; j <= global.totalWeapons; j++)
+        var j; for (j = 0; j <= global.totalWeapons; j+=1)
         {
-            for (var i = 0; i < global.playerCount; i++)
+            var i;for ( i = 0; i < global.playerCount; i+=1)
             {
                 global.ammo[i, j] = 0;
             }
@@ -97,7 +97,7 @@ else // Setup of each of the weapons
 
     global.weaponIcon[global.totalWeapons] = argument[3];
 
-    global.weaponID[? obj] = global.totalWeapons;
+    ds_map_set(global.weaponID,obj,global.totalWeapons);
     global.weaponObject[global.totalWeapons] = obj;
     global.weaponHotbar[global.totalWeapons] = global.totalWeapons;
 }

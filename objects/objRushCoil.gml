@@ -88,7 +88,7 @@ if (!global.frozen)
 
     if (timer)
     {
-        timer--;
+        timer-=1;
         if (!timer)
         {
             // Teleport away

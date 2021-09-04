@@ -46,7 +46,7 @@ event_inherited();
 
 if (!global.frozen && !instance_exists(objSectionSwitcher))
 {
-    var bossThere = 0;
+    var bossThere; bossThere = 0;
 
     if (instance_exists(prtBoss) || instance_exists(prtMiniBoss))
     {
@@ -84,7 +84,7 @@ for (i = 0; i < image_xscale; i += 1) // X
             tile_layer_delete_at(1000000, x + i * 16, y + j * 16);
             instance_create(x + 8 + i * 16, y + 8 + j * 16, objExplosion);
         }
-        var sld = collision_rectangle(bbox_left + 8, bbox_top + 8, bbox_right - 8,
+        var sld; sld = collision_rectangle(bbox_left + 8, bbox_top + 8, bbox_right - 8,
             bbox_bottom - 8, objSolid, 1, 1);
         while (sld!=noone) // Now delete it
         {
@@ -102,7 +102,7 @@ for (i = 0; i < image_xscale; i += 1) // X
             sld = collision_rectangle(bbox_left + 8, bbox_top + 8, bbox_right - 8,
             bbox_bottom - 8, objSolid, 1, 1);
         }
-        var bd = collision_rectangle(bbox_left + 8, bbox_top + 8, bbox_right - 8,
+        var bd; bd = collision_rectangle(bbox_left + 8, bbox_top + 8, bbox_right - 8,
             bbox_bottom - 8, prtBossDoor, 1, 1);
         while (bd!=noone) // Now delete the boss door
         {

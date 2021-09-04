@@ -206,7 +206,7 @@ if (other.object_index != objTornadoBlow)
     iFrames = 0;
     if (other.object_index != objWaterShield) && (other.object_index != objRainFlush)
     {
-        curSunLevel++;
+        curSunLevel+=1;
         if (curSunLevel >= sunLevel)
             weakSun = false;
 
@@ -219,7 +219,7 @@ if (other.object_index != objTornadoBlow)
     {
         if (objSolarMan.phase != 3)
         {
-            curSunLevel--;
+            curSunLevel-=1;
             weakSun = true;
 
             if (curSunLevel < 0)

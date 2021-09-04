@@ -27,7 +27,7 @@ event_inherited();
 
 if (!global.frozen)
 {
-    timer--;
+    timer-=1;
 
     if (!timer)
     {

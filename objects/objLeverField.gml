@@ -7,7 +7,7 @@ applies_to=self
 /*
   Place many of these over a large area to be disabled when
   the lever is pulled. Only set creation code variables on one
-  of the field objects in the area -- the information will automatically
+  of the field objects in the area -=1 the information will automatically
   propagate to its neighbours.
 
   To have adjacent fields with different properties, declare the

@@ -187,7 +187,7 @@ if (entityCanStep())
                 if (attackTimer == 8)
                 {
                     image_index = 5;
-                    var sd = instance_create(x, y - 8, objGyroShot); // gyro attack is the vertical vartiety by default, if the xspeed is 1 then it'll find the correct speed in the gyro attack object.
+                    var sd; sd = instance_create(x, y - 8, objGyroShot); // gyro attack is the vertical vartiety by default, if the xspeed is 1 then it'll find the correct speed in the gyro attack object.
                     sd.xspeed = 1;
                     sd.yspeed = 0;
                 }

@@ -39,9 +39,9 @@ tugSpeed[global.playerCount] = 0;
 tugLock[global.playerCount] = 0;
 tugDefer[global.playerCount] = 0;
 
-var myID = id;
+var myID; myID = id;
 
-var canStep = entityCanStep();
+var canStep; canStep = entityCanStep();
 if (canStep)
     image_speed = 0.2;
 else
@@ -51,7 +51,7 @@ with (objMegaman)
     if (canStep)
     {
         // check if other magfly has lock?
-        var otherLock = false;
+        var otherLock; otherLock = false;
         with (objMagFly)
         {
             if (tugLock[other.playerID] && id != myID)

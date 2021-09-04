@@ -91,7 +91,7 @@ if (entityCanStep())
                 }
                 else
                 {
-                    animDelay++;
+                    animDelay+=1;
                 }
             }
             break;

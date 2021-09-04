@@ -45,10 +45,10 @@ event_inherited();
 if (entityCanStep()
     && introTimer <= 0)
 {
-    attackTimer++;
+    attackTimer+=1;
 
-    var halfAttack = attackTimerMax / 2;
-    var quarterAttack = attackTimerMax / 4;
+    var halfAttack; halfAttack = attackTimerMax / 2;
+    var quarterAttack; quarterAttack = attackTimerMax / 4;
 
     switch (phase)
     {
@@ -153,7 +153,7 @@ if (entityCanStep()
                 }
 
                 instance_create(tarX, view_yview + 16, objShiroShard);
-                for (var i = shardsCreated mod 2; i < shardsCreated; i += 2)
+                var i; for ( i = shardsCreated mod 2; i < shardsCreated; i += 2)
                 {
                     instance_create(tarX + ceil(i / 2) * 32, view_yview + 16, objShiroShard);
                     instance_create(tarX - ceil(i / 2) * 32, view_yview + 16, objShiroShard);

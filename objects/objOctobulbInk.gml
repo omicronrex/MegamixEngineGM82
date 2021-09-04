@@ -16,7 +16,7 @@ timer = 0;
 animTimer = 0;
 img = 0;
 
-for (var i = 0; i < 4; i++)
+var i; for ( i = 0; i < 4; i+=1)
 {
     xs[i] = 0;
     ys[i] = 0;
@@ -31,7 +31,7 @@ event_inherited();
 
 if (!global.frozen)
 {
-    var spd = 0.15;
+    var spd; spd = 0.15;
 
     if (timer < 20)
     {
@@ -52,7 +52,7 @@ if (!global.frozen)
 
     if (timer == 20)
     {
-        var i = instance_create(x + 6, y, objOctobulbJellyfish);
+        var i; i = instance_create(x + 6, y, objOctobulbJellyfish);
         i.dir = 0;
         i.spd = 2;
         i = instance_create(x + 8, y, objOctobulbJellyfish);
@@ -84,7 +84,7 @@ applies_to=self
 */
 if (timer < 60 || (timer >= 60 && !(timer mod 4)))
 {
-    for (var i = 0; i < 4; i++)
+    var i; for ( i = 0; i < 4; i+=1)
     {
         draw_sprite(sprOctobulbInk, img, x + xs[i], y + ys[i]);
     }

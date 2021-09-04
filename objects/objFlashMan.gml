@@ -113,13 +113,13 @@ if (entityCanStep())
         image_speed = 0;
         sprite_index = sprFlashman;
 
-        var prevPhase = phase;
+        var prevPhase; prevPhase = phase;
 
         switch (phase)
         {
             case 0: // walking/jumping
                 xspeed = image_xscale * walkSpeed;
-                flashTimer++;
+                flashTimer+=1;
 
                 if (ground && flashTimer >= flashInterval)
                 {
@@ -132,10 +132,10 @@ if (entityCanStep())
                     image_index = 7 + (phaseTimer div 8) mod 4;
 
                     // consider jumping:
-                    var doJump = false;
+                    var doJump; doJump = false;
 
                     // if a player is shooting
-                    for (var i = 0; i < global.playerCount; i++)
+                    var i; for ( i = 0; i < global.playerCount; i+=1)
                         if (global.keyShootPressed[i])
                             doJump = true;
 
@@ -240,9 +240,9 @@ if (entityCanStep())
                 break;
         }
 
-        phaseTimer++;
+        phaseTimer+=1;
 
-        // new phase -- reset timer
+        // new phase -=1 reset timer
         if (prevPhase != phase)
         {
             phaseTimer = 0;

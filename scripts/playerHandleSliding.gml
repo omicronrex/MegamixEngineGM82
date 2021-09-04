@@ -3,13 +3,13 @@
 
 if (global.enableSlide && !playerIsLocked(PL_LOCK_SLIDE))
 {
-    var statusSliding = true;
+    var statusSliding; statusSliding = true;
     if (instance_exists(statusObject))
     {
         statusSliding = statusObject.statusCanSlide;
     }
 
-    var keyPressed = global.keySlidePressed[playerID] || (global.keyJumpPressed[playerID] && yDir == gravDir);
+    var keyPressed; keyPressed = global.keySlidePressed[playerID] || (global.keyJumpPressed[playerID] && yDir == gravDir);
 
     // begin new slide
     if (ground && !isSlide && statusSliding && keyPressed)
@@ -19,7 +19,7 @@ if (global.enableSlide && !playerIsLocked(PL_LOCK_SLIDE))
         // check to see that the place is free for sliding
         premask = mask_index;
         mask_index = firstSlideMask;
-        var goForth = !checkSolid(image_xscale, 0);
+        var goForth; goForth = !checkSolid(image_xscale, 0);
         mask_index = premask;
 
         if (goForth)
@@ -59,9 +59,9 @@ if (global.enableSlide && !playerIsLocked(PL_LOCK_SLIDE))
             slideChargeLock = lockPoolLock(localPlayerLock[PL_LOCK_CHARGE]);
         }
 
-        var canProceed = true;
-        var isfree = true;
-        var jump = global.keyJumpPressed[playerID] && yDir != gravDir /*&& !playerIsLocked(PL_LOCK_JUMP )*/ ;
+        var canProceed; canProceed = true;
+        var isfree; isfree = true;
+        var jump; jump = global.keyJumpPressed[playerID] && yDir != gravDir /*&& !playerIsLocked(PL_LOCK_JUMP )*/ ;
 
         if (image_xscale == -xDir || slideTimer >= slideFrames || jump)
         {
@@ -69,10 +69,10 @@ if (global.enableSlide && !playerIsLocked(PL_LOCK_SLIDE))
         }
 
         // Check if Mega Man would get stuck inside something if he would stop the slide now
-        var prepremask = mask_index;
+        var prepremask; prepremask = mask_index;
 
         // mask_index = premask;
-        var preDSpikes = dieToSpikes;
+        var preDSpikes; preDSpikes = dieToSpikes;
         dieToSpikes = false;
         if (checkSolid(0, -gravDir * 8))
         {
@@ -92,7 +92,7 @@ if (global.enableSlide && !playerIsLocked(PL_LOCK_SLIDE))
             }
         }
 
-        /*// Check if Mega Man would be grounded when having the extended sliding mask
+        /* Check if Mega Man would be grounded when having the extended sliding mask
         ground = true;
         checkGround();
         */

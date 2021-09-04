@@ -125,7 +125,7 @@ if (entityCanStep())
     {
         if (!checkSolid(0, 16, 1, 1))
         {
-            var inst = instance_create(x, y + 16, object_index);
+            var inst; inst = instance_create(x, y + 16, object_index);
             inst.subGroup = true;
             with (inst)
             {
@@ -162,14 +162,14 @@ applies_to=self
 */
 if (subGroup)
 {
-    for (var i = 0; i < tileNumber; i += 1)
+    var i; for ( i = 0; i < tileNumber; i += 1)
         draw_background_part(tileBG[i], tileLeft[i], tileTop[i], tileWidth[i], tileHeight[i], floor(x + tileX[i]), floor(y + tileY[i]));
 }
 else
 {
     if (destroyTimer mod 2 == 0)
     {
-        for (var i = 0; i < tileNumber; i += 1)
+        var i; for ( i = 0; i < tileNumber; i += 1)
             draw_background_part(tileBG[i], tileLeft[i], tileTop[i], tileWidth[i], tileHeight[i], floor(x + tileX[i]), floor(y + 16 + tileY[i]));
     }
 }

@@ -95,7 +95,7 @@ if (!global.frozen)
                 }
                 else
                 {
-                    var ispushed = pushed;
+                    var ispushed; ispushed = pushed;
 
                     with (objMegaman)
                     {
@@ -133,7 +133,7 @@ if (!global.frozen)
             event_user(EV_DEATH);
         }
 
-        timer++;
+        timer+=1;
     }
 }
 #define Other_17
@@ -203,16 +203,16 @@ applies_to=self
 */
 if (forming)
 {
-    var shardTime = 20;
+    var shardTime; shardTime = 20;
 
     if (timer < shardTime)
     {
         shards = sprite_get_number(sprIceWallShard) - 1;
         shImg = shards - min(shards, floor(timer) / 3);
 
-        for (var i = 0; i < 4; i += 1)
+        var i; for ( i = 0; i < 4; i += 1)
         {
-            for (var z = shards; z >= shImg; z -= 1)
+            var z; for (z = shards; z >= shImg; z -= 1)
             {
                 draw_sprite_ext(sprIceWallShard, z,
                     round(x + (min(8, shardTime - (timer - z)) * (3 * (1 - (i mod 2 == 0) * 2)))),

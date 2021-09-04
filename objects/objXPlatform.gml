@@ -107,7 +107,7 @@ if (entityCanStep())
     }
     else
     {
-        var stop = true;
+        var stop; stop = true;
         with (partner)
         {
             if (moved)

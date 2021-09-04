@@ -94,21 +94,21 @@ if (entityCanStep())
         }
 
         // play jumping animation
-        animTimer++;
+        animTimer+=1;
         xspeed = 0;
         yspeed = 0;
         image_index = animTable[clamp(animTimer div animIter, 0, array_length_1d(animTable) - 1)];
         if (animTimer div animIter >= array_length_1d(animTable) - 1)
         {
             // jump
-            var jumpType = irandom(jumpTypes - 1);
-            var h = jumpHeight[jumpType];
-            var xDir = choose(1, -1);
+            var jumpType; jumpType = irandom(jumpTypes - 1);
+            var h; h = jumpHeight[jumpType];
+            var xDir; xDir = choose(1, -1);
             if (instance_exists(target))
                 xDir = sign(target.x - x);
-            var d = jumpDistance[jumpType] * xDir;
+            var d; d = jumpDistance[jumpType] * xDir;
             yspeed = -image_yscale * sqrt(2 * h * grav);
-            var time = abs(2 * yspeed / grav);
+            var time; time = abs(2 * yspeed / grav);
             xspeed = d / time;
         }
     }
@@ -128,7 +128,7 @@ action_id=603
 applies_to=self
 */
 event_inherited();
-var i = instance_create(x,y,objBigExplosion);
+var i; i = instance_create(x,y,objBigExplosion);
 with (i)
 {
     playSFX(sfxMM9Explosion);

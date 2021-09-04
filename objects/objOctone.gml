@@ -38,7 +38,7 @@ if (entityCanStep())
         case 0: // retracted
             image_index = 0;
             if (waitTimer > 0)
-                waitTimer--;
+                waitTimer-=1;
             if (waitTimer <= 0) // pop out if mega man comes near
                 with (objMegaman)
                     if (point_distance(x, y, other.x, other.y) < 64)

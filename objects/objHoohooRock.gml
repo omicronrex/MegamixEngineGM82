@@ -50,7 +50,7 @@ if (entityCanStep())
         instance_destroy();
         playSFX(sfxHoohooRock);
 
-        for (i = 1; i <= 4; i++)
+        for (i = 1; i <= 4; i+=1)
         {
             debris = instance_create(x, y, objEnemyBullet);
             debris.sprite_index = sprHoohooRock;

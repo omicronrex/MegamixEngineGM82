@@ -55,8 +55,8 @@ if (entityCanStep())
         // landing animation
         if (landTimer > 0)
         {
-            landTimer--;
-            var animTable = makeArray(0, 9, 6);
+            landTimer-=1;
+            var animTable; animTable = makeArray(0, 9, 6);
             image_index = animTable[landTimer div 10];
         } // determine jump
         else if (landTimer == 0 && jumpTimer == 0)
@@ -76,18 +76,18 @@ if (entityCanStep())
         // jumping animation
         if (jumpTimer > 0)
         {
-            jumpTimer--;
+            jumpTimer-=1;
             if (jumpType == 0)
                 image_index = 0;
             else
             {
-                var animTable = makeArray(9, 9, 6);
+                var animTable; animTable = makeArray(9, 9, 6);
                 image_index = animTable[jumpTimer div 6];
             }
             if (jumpTimer == 0)
             {
                 yspeed = -sqrt(2 * jumpHeight[jumpType] * grav);
-                var airTime = 2 * abs(yspeed / grav);
+                var airTime; airTime = 2 * abs(yspeed / grav);
                 xspeed = jumpDistance[jumpType] / airTime * image_xscale;
                 jumpXSpeed = xspeed;
             }
@@ -103,7 +103,7 @@ action_id=603
 applies_to=self
 */
 event_inherited();
-var i = instance_create(x,y,objBigExplosion);
+var i; i = instance_create(x,y,objBigExplosion);
 with (i)
 {
     playSFX(sfxMM9Explosion);

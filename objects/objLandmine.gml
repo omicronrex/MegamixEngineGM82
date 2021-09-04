@@ -60,13 +60,13 @@ if (entityCanStep())
             }
             else
             {
-                imgIndex++;
+                imgIndex+=1;
             }
             if (imgIndex >= 4)
             {
                 imgIndex = 1;
             }
-            timer--;
+            timer-=1;
             if (timer == 0)
             {
                 event_user(EV_DEATH);

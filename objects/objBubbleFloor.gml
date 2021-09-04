@@ -60,15 +60,15 @@ if (!global.frozen && !dead && !global.timeStopped)
 
     with (objMegaman)
     {
-        var ysp = other.yspeed * (other.yspeed*gravDir>0) + yspeed*(yspeed*gravDir>0);
+        var ysp; ysp = other.yspeed * (other.yspeed*gravDir>0) + yspeed*(yspeed*gravDir>0);
         if (place_meeting(x, y + 2 * gravDir + ysp, other.id))
         {
             var bounciness, jumpPower;
 
             with (other)
-                other.prevYspeed = yspeed_map[? other.id];
+                other.prevYspeed = ds_map_get(yspeed_map,other.id);
 
-            var xscl = sign(other.image_xscale);
+            var xscl; xscl = sign(other.image_xscale);
             var onBigBubble;
             if(xscl>0)
             {
@@ -102,20 +102,20 @@ if (!global.frozen && !dead && !global.timeStopped)
         }
 
         with (other)
-            yspeed_map[? other.id] = other.yspeed;
+            ds_map_set(yspeed_map,other.id,other.yspeed);
     }
 
     with (prtEntity)
     {
-        var ysp = other.yspeed * (other.yspeed*sign(grav)>0) + yspeed*(yspeed*sign(grav)>0);
+        var ysp; ysp = other.yspeed * (other.yspeed*sign(grav)>0) + yspeed*(yspeed*sign(grav)>0);
         if (object_index!=objMegaman&& place_meeting(x, y + 2*sign(grav)+ysp, other.id) && !dead && !object_is_ancestor(object_index,prtPlayerProjectile)&& object_index!= prtPlayerProjectile)
         {
             var bounciness;
 
             with (other)
-                other.prevYspeed = yspeed_map[? other.id];
+                other.prevYspeed = ds_map_get(yspeed_map,other.id);
 
-            var xscl = sign(other.image_xscale);
+            var xscl; xscl = sign(other.image_xscale);
             var onBigBubble;
             if(xscl>0)
             {
@@ -143,7 +143,7 @@ if (!global.frozen && !dead && !global.timeStopped)
         }
 
         with (other)
-            yspeed_map[? other.id] = other.yspeed;
+            ds_map_set(yspeed_map,other.id,other.yspeed);
     }
 }
 #define Other_4
@@ -152,11 +152,11 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var combineDir = sign(image_xscale);
+var combineDir; combineDir = sign(image_xscale);
 image_xscale=ceil(image_xscale);
 if(!place_meeting(x-combineDir*16,y,object_index))
 {
-    var next = instance_place(x+combineDir*16,y,object_index);
+    var next; next = instance_place(x+combineDir*16,y,object_index);
     while(next!=noone && sign(next.image_xscale)==combineDir)
     {
         with(next)
@@ -189,8 +189,8 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var drawDir = sign(image_xscale);
-for(var i=0;i<abs(image_xscale);++i)
+var drawDir; drawDir = sign(image_xscale);
+var i; for(i =0;i<abs(image_xscale);i+=1)
 {
     draw_sprite_ext(sprBubbleFloor, image_index, xstart+drawDir*i*32, ystart, drawDir, image_yscale, image_angle, image_blend, image_alpha);
 }

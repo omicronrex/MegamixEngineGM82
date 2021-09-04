@@ -7,10 +7,10 @@
 // isArray: must be true if loading an array.
 // default: return this value if loading fails (by default, return value)
 
-var value = argument[0];
-var defaultValue = value;
-var key = "";
-var isArray = false;
+var value; value = argument[0];
+var defaultValue; defaultValue = value;
+var key; key = "";
+var isArray; isArray = false;
 if (argument_count > 1)
 {
     key = argument[1];
@@ -18,7 +18,7 @@ if (argument_count > 1)
 else
 {
     // autogenerate key
-    key = "_VARN_" + string(global.sl_varcounter++);
+    key = "_VARN_" + string(global.sl_varcounter); global.sl_varcounter+=1
 }
 
 if (argument_count > 2)
@@ -34,12 +34,12 @@ if (global.sl_error)
 
 if (global.sl_save)
 {
-    global.sl_map[? key] = value;
+    ds_map_set(global.sl_map,key,value);
     return value;
 }
 else
 {
-    var lookup = global.sl_map[? key];
+    var lookup; lookup = ds_map_get(global.sl_map,key);
     if (!is_undefined(lookup))
     {
         // handle arrays specially
@@ -47,13 +47,12 @@ else
         {
             if (is_real(lookup))
             {
-                var list = lookup;
-                if (ds_exists(list, ds_type_list))
+                var list; list = lookup;
                 {
                     if (ds_list_size(list) > 0)
                     {
                         var returnArray;
-                        for (var i = 0; i < ds_list_size(list); i++)
+                        var i; for (i = 0; i < ds_list_size(list); i+=1)
                         {
                             returnArray[i] = ds_list_find_value(list, i);
                         }
@@ -72,7 +71,7 @@ else
         }
     }
 
-    // not found in file -- return default, throw no error (!)
+    // not found in file -=1 return default, throw no error (!)
     print("Key not found in " + global.sl_filename + ": " + string(key) + " (using default.)", WL_VERBOSE);
     return defaultValue;
 }

@@ -48,7 +48,7 @@ if (entityCanStep())
     {
         // Do Small Jump
         case 0:
-            moveTimer--;
+            moveTimer-=1;
             if ((moveTimer <= 0) && (ground))
             {
                 image_index += imgSpd;
@@ -104,7 +104,7 @@ if (entityCanStep())
                         xspeed = 0;
                         yspeed = 0;
                         image_index = 2;
-                        moveTimer--;
+                        moveTimer-=1;
                         if (moveTimer == 0)
                         {
                             phase = 0;
@@ -115,7 +115,7 @@ if (entityCanStep())
             break;
         // Do Large Jump
         case 2:
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer <= 0)
             {
                 image_index += imgSpd;

@@ -53,7 +53,7 @@ if (entityCanStep())
 
                 if (instance_exists(target))
                 {
-                    var dist = abs(spriteGetXCenter() - spriteGetXCenterObject(target));
+                    var dist; dist = abs(spriteGetXCenter() - spriteGetXCenterObject(target));
                     if (dist <= 5 * 16)
                     {
                         phase = 1;

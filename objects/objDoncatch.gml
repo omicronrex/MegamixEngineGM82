@@ -95,10 +95,10 @@ if (entityCanStep())
             image_index = 5;
             if (positionCollision(x + 10 * image_xscale, bbox_bottom + 2))
             {
-                var shot1 = instance_create(x + 10 * image_xscale, bbox_bottom, objDoncatchDebris);
-                var shot2 = instance_create(x + 10 * image_xscale, bbox_bottom, objDoncatchDebris);
-                var shot3 = instance_create(x + 10 * image_xscale, bbox_bottom, objDoncatchDebris);
-                var shot4 = instance_create(x + 10 * image_xscale, bbox_bottom, objDoncatchDebris);
+                var shot1; shot1 = instance_create(x + 10 * image_xscale, bbox_bottom, objDoncatchDebris);
+                var shot2; shot2 = instance_create(x + 10 * image_xscale, bbox_bottom, objDoncatchDebris);
+                var shot3; shot3 = instance_create(x + 10 * image_xscale, bbox_bottom, objDoncatchDebris);
+                var shot4; shot4 = instance_create(x + 10 * image_xscale, bbox_bottom, objDoncatchDebris);
                 shot1.version = 1;
                 shot2.version = 2;
                 shot3.version = 3;

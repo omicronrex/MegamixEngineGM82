@@ -75,7 +75,7 @@ if (entityCanStep())
     }
     else
     {
-        dieTime++;
+        dieTime+=1;
 
         image_index = 4 + dieTime div 4;
 

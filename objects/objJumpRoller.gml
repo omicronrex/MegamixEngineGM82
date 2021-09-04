@@ -47,13 +47,13 @@ if (entityCanStep())
     // bounce up and down
     if (ground && jumpCooldown < 45)
     {
-        animTimer++;
-        wheelTimer++;
+        animTimer+=1;
+        wheelTimer+=1;
 
         // hey hey hey what a perfect place to put the fire code
         if (place_meeting(x, y, objJumpRollerFlameField))
         {
-            flameTimer++;
+            flameTimer+=1;
 
             if (flameTimer == 30 || flameTimer == 40)
             {
@@ -71,7 +71,7 @@ if (entityCanStep())
     // Weird code since the enemy hangs on these frames for slightly longer
     if (animTimer == 8 + ((imgOffset == 1 || imgOffset == 3) * 4))
     {
-        imgOffset++;
+        imgOffset+=1;
 
         if (imgOffset > 3)
         {
@@ -132,7 +132,7 @@ if (entityCanStep())
     // handle jump cooldown
     if (jumpCooldown > -1)
     {
-        jumpCooldown--;
+        jumpCooldown-=1;
 
         if (jumpCooldown == 10)
         {

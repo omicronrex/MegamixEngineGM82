@@ -382,7 +382,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var xsc = image_xscale;
+var xsc; xsc = image_xscale;
 image_xscale = abs(image_xscale);
 event_inherited();
 image_xscale = xsc;

@@ -4,9 +4,9 @@
 // Entites that have "shiftVisible > 0" and prtAlwaysActive-objects do not get deactivated
 // Argument1: 1 to Reactivate objects in the current section
 
-var deac = argument0;
-var reac = argument1;
-var sw = global.switchingSections;
+var deac; deac = argument0;
+var reac; reac = argument1;
+var sw; sw = global.switchingSections;
 
 if (deac)
 {
@@ -23,14 +23,14 @@ if (deac)
         }
     }
 
-    var specialObjects = makeArray(objQuickSand, prtRail); // these objects behave differently, but we still want to deactivate them after a transition
-    var n = array_length_1d(specialObjects);
+    var specialObjects; specialObjects = makeArray(objQuickSand, prtRail); // these objects behave differently, but we still want to deactivate them after a transition
+    var n; n = array_length_1d(specialObjects);
 
     with (all)
     {
         if (object_index == prtEntity || object_is_ancestor(object_index, prtEntity))
         {
-            var reset = 1;
+            var reset; reset = 1;
 
             if (shiftVisible)
             {
@@ -88,9 +88,9 @@ if (deac)
         }
         else if (object_index != prtAlwaysActive && !object_is_ancestor(object_index, prtAlwaysActive))
         {
-            var stay = 0;
+            var stay; stay = 0;
 
-            for (var i = 0; i < n; i++)
+            var i; for (i = 0; i < n; i+=1)
             {
                 if (object_index == specialObjects[i] || object_is_ancestor(object_index, specialObjects[i]))
                 {

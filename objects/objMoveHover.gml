@@ -39,7 +39,7 @@ if (entityCanStep())
     {
         returnTimer = 0;
         xspeed = 2 * moveDir * moveTimer / shiftTime * shiftDist / shiftTime;
-        moveTimer--;
+        moveTimer-=1;
         if (moveTimer >= shiftTime - 10)
         {
             animTimer = 0;
@@ -52,7 +52,7 @@ if (entityCanStep())
     }
     else
     {
-        returnTimer++;
+        returnTimer+=1;
         if (returnTimer > 60 && abs(x - xstart) > 1)
         {
             xspeed = sign(xstart - x) * 0.4;
@@ -74,7 +74,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var dir = point_direction(x, y, other.x, other.y);
+var dir; dir = point_direction(x, y, other.x, other.y);
 
 
 if (dir < 70 || dir > 290)

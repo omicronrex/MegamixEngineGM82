@@ -89,8 +89,8 @@ if (!global.frozen && dead && !instance_exists(objSectionSwitcher) && killed)
 
         if (floor(deadTimer / 5) * 5 == deadTimer)
         {
-            var xcenter = bbox_left + abs(bbox_left - bbox_right) / 2;
-            var ycenter = bbox_top + abs(bbox_top - bbox_bottom) / 2;
+            var xcenter; xcenter = bbox_left + abs(bbox_left - bbox_right) / 2;
+            var ycenter; ycenter = bbox_top + abs(bbox_top - bbox_bottom) / 2;
             playSFX(sfxExplosion);
 
             // randomize();
@@ -107,8 +107,8 @@ if (!global.frozen && dead && !instance_exists(objSectionSwitcher) && killed)
         {
             if (lockTransition)
             {
-                var canUnlock = true;
-                var i = 0;
+                var canUnlock; canUnlock = true;
+                var i; i = 0;
                 with (prtMiniBoss)
                 {
                     if (!dead && lockTransition)
@@ -130,8 +130,8 @@ if (!global.frozen && dead && !instance_exists(objSectionSwitcher) && killed)
         deadTimer += 1;
         if (deadTimer >= 2 || !respawn)
         {
-            var xcenter = bbox_left + abs(bbox_left - bbox_right) / 2;
-            var ycenter = bbox_top + abs(bbox_top - bbox_bottom) / 2;
+            var xcenter; xcenter = bbox_left + abs(bbox_left - bbox_right) / 2;
+            var ycenter; ycenter = bbox_top + abs(bbox_top - bbox_bottom) / 2;
             playSFX(sfxExplosion);
             inst = instance_create(round(xcenter - sprite_xoffset + (sprite_width / 2)), round(ycenter - sprite_yoffset + (sprite_height / 2)),
                 objBigExplosion);
@@ -141,8 +141,8 @@ if (!global.frozen && dead && !instance_exists(objSectionSwitcher) && killed)
             }
             if (lockTransition)
             {
-                var canUnlock = true;
-                var i = 0;
+                var canUnlock; canUnlock = true;
+                var i; i = 0;
                 with (prtMiniBoss)
                 {
                     if (!dead && lockTransition)
@@ -254,7 +254,7 @@ else
     {
         if ((ceil(iFrames / 2) mod 2) || (iceTimer > 0))
         {
-            var flashcol = c_white;
+            var flashcol; flashcol = c_white;
             if (iceTimer > 0)
             {
                 flashcol = make_color_rgb(0, 120, 255);

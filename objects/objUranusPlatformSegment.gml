@@ -45,7 +45,7 @@ x += xspeed;
 y += yspeed;
 entityPlatform();
 yspeed = 0;
-var hasParent = instance_exists(parent);
+var hasParent; hasParent = instance_exists(parent);
 if (!hasParent || (hasParent && parent.dead))
 {
     instance_destroy();
@@ -55,7 +55,7 @@ if (entityCanStep())
 {
     if (instance_exists(objMegaman))
     {
-        var prevGrav = gravDir;
+        var prevGrav; prevGrav = gravDir;
         gravDir = objMegaman.gravDir;
         if (prevGrav != gravDir)
         {
@@ -75,7 +75,7 @@ if (entityCanStep())
 
     if (hasParent)
     {
-        var origin = parent.y;
+        var origin; origin = parent.y;
         if (gravDir == -1)
             origin = parent.y + 16;
         if (abs(y - origin) > range)
@@ -90,7 +90,7 @@ applies_to=self
 */
 /*
 ///Debug
-var color= draw_get_color();
+var color; color = draw_get_color();
 draw_rectangle(x,y,x-1+image_xscale*16,y,0);
 color=draw_get_color();
 */

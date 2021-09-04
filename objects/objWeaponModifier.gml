@@ -44,7 +44,7 @@ applies_to=self
 */
 event_inherited();
 
-if (destroyIfUnlocked && !global.weaponLocked[global.weaponID[? weapon]])
+if (destroyIfUnlocked && !global.weaponLocked[ds_map_get(global.weaponID,weapon)])
 {
     instance_destroy();
 }
@@ -56,7 +56,7 @@ applies_to=self
 */
 playSFX(sfxImportantItem);
 
-weaponID = global.weaponID[? weapon];
+weaponID = ds_map_get(global.weaponID,weapon);
 
 if (levelReward)
 {
@@ -98,13 +98,14 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-weaponID = global.weaponID[? weapon];
+weaponID = ds_map_get(global.weaponID,weapon);
+
 
 if (!dead)
 {
     if (sprite_index == sprWeaponIconsMegaBuster)
     {
-        var icon = global.weaponIcon[weaponID];
+        var icon; icon = global.weaponIcon[weaponID];
 
         // original sprite
         draw_sprite_ext(icon, 0, x, y, image_xscale, image_yscale, image_angle, c_white, 1);
@@ -122,7 +123,7 @@ if (!dead)
         // flash if it's a locker
         if (lockToWeapon)
         {
-            flashTimer++;
+            flashTimer+=1;
 
             if (flashTimer >= 30)
             {

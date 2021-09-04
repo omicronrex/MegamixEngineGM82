@@ -32,7 +32,7 @@ event_inherited();
 // Do wind
 if (instance_place(x, y, objMegaman)) // check for the player
 {
-    var player = instance_place(x, y, objMegaman);
+    var player; player = instance_place(x, y, objMegaman);
 
     if (player)
     {

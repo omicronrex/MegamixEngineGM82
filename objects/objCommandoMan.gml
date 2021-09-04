@@ -177,7 +177,7 @@ if (entityCanStep())
         {
             calibrateDirection();
         }
-        attackTimer++;
+        attackTimer+=1;
         switch (phase)
         {
             // Shoot Commando Bomb from ground
@@ -189,7 +189,7 @@ if (entityCanStep())
                 if (attackTimer == 50)
                 {
                     image_index = 7;
-                    var i = instance_create(x + 32 * image_xscale, y, objCommandoBomb);
+                    var i; i = instance_create(x + 32 * image_xscale, y, objCommandoBomb);
                     i.image_xscale = image_xscale;
                     i.xspeed = 3 * image_xscale;
                     playSFX(sfxCommandoBombLaunch);
@@ -226,7 +226,7 @@ if (entityCanStep())
                             if (!hasFired)
                             {
                                 image_index = 10;
-                                var i = instance_create(x + 32 * image_xscale, y, objCommandoBomb);
+                                var i; i = instance_create(x + 32 * image_xscale, y, objCommandoBomb);
                                 i.image_xscale = image_xscale;
                                 i.xspeed = 3 * image_xscale;
                                 i.canTurn = true;
@@ -281,7 +281,7 @@ if (entityCanStep())
                             if (!hasFired)
                             {
                                 image_index = 10;
-                                var i = instance_create(x + 32 * image_xscale, y, objCommandoBomb);
+                                var i; i = instance_create(x + 32 * image_xscale, y, objCommandoBomb);
                                 i.image_xscale = image_xscale;
                                 i.xspeed = 3 * image_xscale;
                                 i.canTurn = true;
@@ -359,7 +359,7 @@ if (entityCanStep())
                                 screenShake(30, 1, 1);
 
                                 // Create ground wave
-                                var i = instance_create(x + 32 * image_xscale, y + 17, objCommandoGroundWave);
+                                var i; i = instance_create(x + 32 * image_xscale, y + 17, objCommandoGroundWave);
                                 i.image_xscale = image_xscale;
 
                                 // Stun Mega Man

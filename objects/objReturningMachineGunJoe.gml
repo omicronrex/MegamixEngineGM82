@@ -81,7 +81,7 @@ if (entityCanStep())
         if (timer == 0)
         {
             playSFX(sfxEnemyShootClassic);
-            var i = instance_create(x + image_xscale * 16, y - image_yscale * 10, objEnemyBullet);
+            var i; i = instance_create(x + image_xscale * 16, y - image_yscale * 10, objEnemyBullet);
             i.sprite_index = sprReturningMachinegunJoeBullet;
             i.image_index = min(1, color);
             i.image_xscale = image_xscale;
@@ -181,7 +181,7 @@ if (floor(animFrame) > 0)
     exit;
 if (!hasShield)
     exit;
-var front = bbox_right;
+var front; front = bbox_right;
 if (image_xscale == -1)
     front = bbox_left;
 if (collision_rectangle(x + 8 * image_xscale, bbox_top, front, bbox_bottom, other, true, true))
@@ -194,7 +194,7 @@ if (collision_rectangle(x + 8 * image_xscale, bbox_top, front, bbox_bottom, othe
     {
         phase = 3;
         hasShield = false;
-        var i = instance_create(x, y, objReturningMachinegunJoeShield);
+        var i; i = instance_create(x, y, objReturningMachinegunJoeShield);
         i.image_xscale = image_xscale;
         i.image_index = min(1, color);
         i.xspeed = -1 * image_xscale;

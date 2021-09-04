@@ -1,7 +1,7 @@
 /// stringTrim(string)
 /// returns the given string with spaces trimmed from both ends
 
-var str = argument0;
+var str; str = argument0;
 
 // left trim
 while (stringStartsWith(str, " ") || stringStartsWith(str, chr(10)) || stringStartsWith(str, chr(13)) || stringStartsWith(str, "

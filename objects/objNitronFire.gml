@@ -47,7 +47,7 @@ if (!global.frozen && !global.timeStopped)
                     break;
             }
             sprite_index = sprites;
-            phase++;
+            phase+=1;
             break;
 
         // dropping through the air
@@ -57,7 +57,7 @@ if (!global.frozen && !global.timeStopped)
             {
                 y -= yspeed;
                 grav = 0;
-                phase++;
+                phase+=1;
                 imgIndex = 0;
                 explosion = instance_create(x, y, objExplosion);
                 image_alpha = 0;
@@ -74,7 +74,7 @@ if (!global.frozen && !global.timeStopped)
                 image_alpha = 1;
 
                 imgIndex = 1;
-                phase++;
+                phase+=1;
             }
             break;
 
@@ -83,7 +83,7 @@ if (!global.frozen && !global.timeStopped)
             imgIndex += imgSpd;
             if (imgIndex >= 5)
             {
-                phase++;
+                phase+=1;
             }
             break;
 
@@ -97,7 +97,7 @@ if (!global.frozen && !global.timeStopped)
             peakTimer -= 1;
             if (peakTimer <= 0)
             {
-                phase++;
+                phase+=1;
                 imgIndex = 5;
             }
             break;

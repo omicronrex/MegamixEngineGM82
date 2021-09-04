@@ -85,8 +85,8 @@ if (entityCanStep())
     {
         while (segmentCount < segmentLimit)
         {
-            var i = instance_create(x, y, objUranusPlatformSegment);
-            var origin = y;
+            var i; i = instance_create(x, y, objUranusPlatformSegment);
+            var origin; origin = y;
             if (_gravDir == -1)
                 origin = y + 16;
             i.image_xscale = image_xscale - (2 * (image_xscale / (16 * image_xscale))); // Prevent early slope effect
@@ -124,19 +124,19 @@ if (!dead)
     {
         if (xspeed == 0 && yspeed == 0)
             exit;
-        var _prevX = x;
-        var _prevY = y;
-        var xsp = xspeed;
-        var ysp = yspeed;
+        var _prevX; _prevX = x;
+        var _prevY; _prevY = y;
+        var xsp; xsp = xspeed;
+        var ysp; ysp = yspeed;
         x = xprevious;
         y = yprevious;
-        var verticalCollision = bbox_top >= other.bbox_bottom;
+        var verticalCollision; verticalCollision = bbox_top >= other.bbox_bottom;
         if (gravDir == -1)
         {
             verticalCollision = bbox_bottom <= other.bbox_top;
         }
-        var horizontalCollision1 = bbox_right <= other.bbox_left;
-        var horizontalCollision2 = bbox_left >= other.bbox_right;
+        var horizontalCollision1; horizontalCollision1 = bbox_right <= other.bbox_left;
+        var horizontalCollision2; horizontalCollision2 = bbox_left >= other.bbox_right;
 
         if ((
             verticalCollision
@@ -209,7 +209,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var i = 0;
+var i; i = 0;
 while (i < image_xscale)
 {
     draw_sprite_ext(sprite_index, image_index, x + (i * 16), y + 16 * (_gravDir == -1), 1, _gravDir, 0, c_white, 1);

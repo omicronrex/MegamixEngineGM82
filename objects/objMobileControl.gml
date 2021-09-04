@@ -4,6 +4,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
+/*
 /// Handles controls for Android platforms.
 
 if (os_type != os_android)
@@ -20,7 +21,7 @@ js_center_y = 0;
 js_null_radius_frac = 1 / 32;
 js_drag_radius_frac = 1 / 23;
 
-// simulated digital input -- values are -1, 0, or 1
+// simulated digital input -=1 values are -1, 0, or 1
 js_h = 0;
 js_v = 0;
 js_jump = false;
@@ -45,14 +46,15 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var _width = view_wview[0];
-var _height = view_hview[0];
+/*
+var _width; _width = view_wview[0];
+var _height; _height = view_hview[0];
 
-var _js_null_radius = _height * js_null_radius_frac;
-var _js_drag_radius = _height * js_drag_radius_frac;
+var _js_null_radius; _js_null_radius = _height * js_null_radius_frac;
+var _js_drag_radius; _js_drag_radius = _height * js_drag_radius_frac;
 
 // can simulate jump/drop by flicking upward
-var simjump = false;
+var simjump; simjump = false;
 with (objMegaman)
 {
     if (!climbing && !global.frozen)
@@ -60,7 +62,7 @@ with (objMegaman)
 }
 
 // charges automatically when not held down
-var simshot = false;
+var simshot; simshot = false;
 with (objMegaman)
 {
     if (!global.frozen)
@@ -72,15 +74,15 @@ if (simshot)
 
 cursorDown = false;
 
-for (var i = 0; i < 5; i++)
+var i; for ( i = 0; i < 5; i+=1)
 {
     if (device_mouse_check_button(i, mb_left))
     {
-        var _x = device_mouse_x(i) - view_xview[0]
+        var _x; _x = device_mouse_x(i) - view_xview[0]
             ;
-        var _y = device_mouse_y(i) - view_yview[0]
+        var _y; _y = device_mouse_y(i) - view_yview[0]
             ;
-        var _pressed = device_mouse_check_button_pressed(i, mb_left);
+        var _pressed; _pressed = device_mouse_check_button_pressed(i, mb_left);
         if (_x < _width * dev_split_frac)
         {
             cursorDown = true;
@@ -97,8 +99,8 @@ for (var i = 0; i < 5; i++)
             else
             {
                 // drag joystick
-                var dx = _x - js_center_x;
-                var dy = _y - js_center_y;
+                var dx; dx = _x - js_center_x;
+                var dy; dy = _y - js_center_y;
                 js_center_x += sign(dx) * max(abs(dx) - _js_drag_radius, 0);
                 js_center_y += sign(dy) * max(abs(dy) - _js_drag_radius, 0);
                 if (simjump)
@@ -106,7 +108,7 @@ for (var i = 0; i < 5; i++)
             }
 
             // determine key input
-            var dist = point_distance(js_center_x, js_center_y, _x, _y)
+            var dist; dist = point_distance(js_center_x, js_center_y, _x, _y)
                 ;
             if (dist < _js_null_radius)
             {
@@ -115,7 +117,7 @@ for (var i = 0; i < 5; i++)
             }
             else
             {
-                var angle = point_direction(js_center_x, js_center_y, _x, _y);
+                var angle; angle = point_direction(js_center_x, js_center_y, _x, _y);
                 global.keyUp[0] = (angle > 30 && angle < 150);
                 global.keyDown[0] = (angle > 210 && angle < 330);
                 global.keyLeft[0] = (angle > 120 && angle < 240);
@@ -201,17 +203,18 @@ lib_id=1
 action_id=603
 applies_to=self
 */
+/*
 if (!cursorDown)
     exit;
 
-var _width = view_wview[0];
-var _height = view_hview[0];
+var _width; _width = view_wview[0];
+var _height; _height = view_hview[0];
 
-var _x = js_center_x + view_xview[0];
-var _y = js_center_y + view_yview[0];
+var _x; _x = js_center_x + view_xview[0];
+var _y; _y = js_center_y + view_yview[0];
 
-var _js_null_radius = _height * js_null_radius_frac;
-var _js_drag_radius = _height * js_drag_radius_frac;
+var _js_null_radius; _js_null_radius = _height * js_null_radius_frac;
+var _js_drag_radius; _js_drag_radius = _height * js_drag_radius_frac;
 
 draw_set_color(c_white);
 draw_set_alpha(0.4);

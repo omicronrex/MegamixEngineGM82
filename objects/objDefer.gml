@@ -59,7 +59,7 @@ applies_to=self
 */
 /// trigger / decrement timer
 triggered = true;
-timer--;
+timer-=1;
 if (!timer)
 {
     if (argCount > 0)

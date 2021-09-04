@@ -36,10 +36,10 @@ if (entityCanStep())
         blockCollision = false;
         grav = 0;
 
-        raiseTimer++;
+        raiseTimer+=1;
         if (raiseTimer == 1)
         {
-            for (var i = 0; i < 4; i++)
+            var i; for ( i = 0; i < 4; i+=1)
             {
                 spawnFire[i] = instance_create(x, y, object_index);
                 with (spawnFire[i])
@@ -54,16 +54,16 @@ if (entityCanStep())
 
     if (raiseTimer > 0)
     {
-        raiseTimer++;
-        var offset = raiseTimer;
+        raiseTimer+=1;
+        var offset; offset = raiseTimer;
         if (raiseTimer > 32)
             offset = 32;
         if (raiseTimer > 50)
             offset = 32 - (raiseTimer - 50);
-        var die = false;
+        var die; die = false;
         if (offset < 0)
             die = true;
-        for (var i = 0; i < 4; i++)
+        var i; for ( i = 0; i < 4; i+=1)
         {
             with (spawnFire[i])
             {

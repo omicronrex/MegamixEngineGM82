@@ -48,11 +48,11 @@ if (entityCanStep())
             }
             break;
         case 1: // approaching the player
-            animTimer++;
+            animTimer+=1;
 
             if (animTimer == 7)
             {
-                image_index++;
+                image_index+=1;
                 if (image_index > 3)
                 {
                     image_index = 0;
@@ -75,13 +75,13 @@ if (entityCanStep())
             }
             break;
         case 2: // pole vaulting
-            animTimer++;
+            animTimer+=1;
 
             if (animTimer >= 8)
             {
                 phase = 3;
                 xspeed = jumpSpd * image_xscale;
-                yspeed = -5.5; // <-- jump speed
+                yspeed = -5.5; // <-=1 jump speed
                 ground = 0;
 
                 image_index = 5;
@@ -93,11 +93,11 @@ if (entityCanStep())
             }
             break;
         case 3: // flying through the air
-            animTimer++;
+            animTimer+=1;
 
             if (animTimer >= 10)
             {
-                image_index++;
+                image_index+=1;
                 animTimer = 0;
 
                 if (image_index > 8)
@@ -117,12 +117,12 @@ if (entityCanStep())
             break;
         // waiting a moment after landing
         case 4: // insert FUNNY ace spark motion sickness joke here
-            animTimer++;
+            animTimer+=1;
 
             if (animTimer >= 5)
             {
                 animTimer = 0;
-                image_index++;
+                image_index+=1;
 
                 if (image_index > 12)
                 {

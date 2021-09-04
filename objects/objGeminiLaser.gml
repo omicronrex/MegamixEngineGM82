@@ -99,7 +99,7 @@ if (!global.frozen)
     // Collision with walls
     if (xcoll != 0)
     {
-        bounceCount++;
+        bounceCount+=1;
 
         if (angle == 0) // Laser going right
         {
@@ -122,7 +122,7 @@ if (!global.frozen)
     // Collision with floors/ceilings
     if (ycoll != 0)
     {
-        bounceCount++;
+        bounceCount+=1;
 
         angle = wrapAngle(angle + (90 * sign(xspeed) * sign(ycoll)));
 

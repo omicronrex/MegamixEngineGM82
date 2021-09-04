@@ -52,7 +52,7 @@ if (init)
 if (entityCanStep())
 {
     // Animation
-    animTimer++;
+    animTimer+=1;
 
     // wing flap
     if (animTimer == 10 && image_index != 2)
@@ -92,7 +92,7 @@ if (entityCanStep())
     {
         image_index = 2;
         hasRock = false;
-        var ID = instance_create(x, y + 8, objHoohooRock);
+        var ID; ID = instance_create(x, y + 8, objHoohooRock);
         ID.image_xscale = image_xscale;
         ID.col = col;
     }

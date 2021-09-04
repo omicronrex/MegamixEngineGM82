@@ -2,8 +2,8 @@
 // Allows for quick weapon switching
 // If you do not want quick weapon switching in your game, simply remove the script from objMegaman's step event
 
-var dir = (global.keyWeaponSwitchRight[playerID] - global.keyWeaponSwitchLeft[playerID]);
-var oldWeapon = global.weapon[playerID];
+var dir; dir = (global.keyWeaponSwitchRight[playerID] - global.keyWeaponSwitchLeft[playerID]);
+var oldWeapon; oldWeapon = global.weapon[playerID];
 
 if (dir != 0)
 {
@@ -17,14 +17,14 @@ if (dir != 0)
         }
     }
 
-    quickWeaponScrollTimer--;
+    quickWeaponScrollTimer-=1;
 
     if (!quickWeaponScrollTimer)
     {
         while (true)
         {
-            var wpn = indexOf(global.weaponHotbar, global.weapon[playerID]);
-            wpn = (wpn + global.totalWeapons + dir + 1) % (global.totalWeapons + 1);
+            var wpn; wpn = indexOf(global.weaponHotbar, global.weapon[playerID]);
+            wpn = (wpn + global.totalWeapons + dir + 1) mod (global.totalWeapons + 1);
 
             global.weapon[playerID] = global.weaponHotbar[wpn];
             if (!global.weaponLocked[global.weapon[playerID]])

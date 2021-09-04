@@ -43,7 +43,7 @@ if (entityCanStep())
     if (ground)
     {
         xspeed = 0;
-        destroyTimer++;
+        destroyTimer+=1;
     }
 
     if (destroyTimer >= 32)

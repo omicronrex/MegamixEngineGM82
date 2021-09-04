@@ -3,17 +3,17 @@
 // invokes drawCostume with the correct values
 // sheetX, sheetY: coord (in 48x48 units) of the animation frame in the skin sheet.
 
-var pid = argument0,
-    cid = argument1,
-    sheetX = argument2,
-    sheetY = argument3,
-    _x = floor(argument4),
-    _y = floor(argument5),
-    _xscale = argument6,
-    _yscale = argument7;
+var pid; pid = argument0;
+var cid;cid = argument1;
+var sheetX;sheetX = argument2;
+var sheetY;sheetY = argument3;
+var _x;_x = floor(argument4);
+var _y;_y = floor(argument5);
+var _xscale;_xscale = argument6;
+var _yscale;_yscale = argument7;
 
-var _inked = false;
-var baseCol = c_white;
+var _inked; _inked = false;
+var baseCol; baseCol = c_white;
 if (instance_exists(objMegaman))
 {
     with (objMegaman)

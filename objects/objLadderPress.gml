@@ -32,13 +32,13 @@ applies_to=self
 */
 event_inherited();
 
-var clampTime = 60 * 2.5;
+var clampTime; clampTime = 60 * 2.5;
 
 if (entityCanStep())
 {
     blockCollision = 0;
     grav = 0;
-    phaseTimer++;
+    phaseTimer+=1;
     if (!position_meeting(x + 8, y, objLadder))
     {
         grav = 0.25;
@@ -54,7 +54,7 @@ if (entityCanStep())
     {
         // clamp down
         yspeed = 0;
-        var animTable = makeArray(1, 2, 3, 2, 3, 3, 3, 3, 3, 3, 2, 1, 0);
+        var animTable; animTable = makeArray(1, 2, 3, 2, 3, 3, 3, 3, 3, 3, 2, 1, 0);
         image_index = animTable[(phaseTimer - clampTime) div 4];
         if (image_index == 0)
             phaseTimer = 0;
@@ -64,12 +64,12 @@ if (entityCanStep())
         yspeed = yDir * abs(moveSpeed);
 
         // move up/down ladder
-        var turnAround = false;
+        var turnAround; turnAround = false;
         if (!position_meeting(x + 8, y + yDir * 16, objLadder))
             turnAround = true;
         if (y >= global.sectionBottom - 32 || y <= global.sectionTop + 16)
             turnAround = true;
-        var i = instance_position(x + 8, y + yDir, objGenericStopper);
+        var i; i = instance_position(x + 8, y + yDir, objGenericStopper);
         if (i != noone && i.objectToStop == object_index)
             turnAround = true;
         if (turnAround)

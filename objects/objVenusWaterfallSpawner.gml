@@ -41,7 +41,7 @@ if (entityCanStep() && insideSection(x, y + 1))
         init = 1;
     }
 
-    moveTimer++;
+    moveTimer+=1;
 
     if (moveTimer == floor(waterDelay / 3)) //60
     {
@@ -50,17 +50,17 @@ if (entityCanStep() && insideSection(x, y + 1))
 
     if (moveTimer == waterDelay)
     {
-        var i = instance_create(x, y - 3, objVenusWaterfallStart);
+        var i; i = instance_create(x, y - 3, objVenusWaterfallStart);
         start = i.id;
         playSFX(sfxRushingWater);
     }
 
     if ((moveTimer > waterDelay) && (!instance_exists(start)))
     {
-        waterTimer++;
+        waterTimer+=1;
         if (waterTimer == 60)
         {
-            var i = instance_create(x, y + 3, objVenusWaterfallEnd);
+            var i; i = instance_create(x, y + 3, objVenusWaterfallEnd);
             stop = i.id;
         }
 

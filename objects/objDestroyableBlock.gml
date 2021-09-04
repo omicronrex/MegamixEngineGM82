@@ -146,7 +146,7 @@ else
     }
 
     // check for player color
-    var wac = -1;
+    var wac; wac = -1;
 
     with (objMegaman)
     {

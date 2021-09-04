@@ -85,7 +85,7 @@ applies_to=self
 switch (phase)
 {
     case 1: // Move in box
-        boxOffset--;
+        boxOffset-=1;
         if (boxOffset <= 0)
         {
             boxOffset = 0;
@@ -95,7 +95,7 @@ switch (phase)
         }
         break;
     case 2: // Increase visible text
-        timer--;
+        timer-=1;
         if (!timer)
         {
             textLength += 0.5 + (1.5 * (global.keyJump[0] || global.keyPause[0]));
@@ -113,12 +113,12 @@ switch (phase)
         }
         break;
     case 3: // Go to next block of text
-        timer--;
+        timer-=1;
         if (!timer)
         {
             if (optionCount > 0 && ds_list_size(text) == 1) // Move between options
             {
-                var mv = global.keyDownPressed[0] - global.keyUpPressed[0];
+                var mv; mv = global.keyDownPressed[0] - global.keyUpPressed[0];
                 if (mv != 0)
                 {
                     playSFX(sfxTextBox);
@@ -160,7 +160,7 @@ switch (phase)
                                     option_chosen = objDialogueBox.optionPos;
                                     if (option_text[option_chosen] != "")
                                     {
-                                        var d = instance_nearest(x, y, objDialogueBox);
+                                        var d; d = instance_nearest(x, y, objDialogueBox);
                                         d.dialogueLock = playerFreeMovement(d.dialogueLock);
                                         prev_index = d.image_index;
                                         with (d)
@@ -180,7 +180,7 @@ switch (phase)
         }
         break;
     case 4: // Move away box
-        boxOffset++;
+        boxOffset+=1;
         if (boxOffset == 8)
         {
             visible = 0;
@@ -206,7 +206,7 @@ action_id=603
 applies_to=self
 */
 // Box
-var ypos = view_yview - 8 * boxOffset;
+var ypos; ypos = view_yview - 8 * boxOffset;
 if (pos == 1)
 {
     ypos = view_yview + view_hview + 8 * boxOffset;
@@ -232,12 +232,12 @@ if (showtext)
     }
 
     // These variables checks if the current line reaches over the boundry.
-    var line = 0;
-    var length = floor((view_wview[0] - 56) / 8);
-    var count = 0;
+    var line; line = 0;
+    var length; length = floor((view_wview[0] - 56) / 8);
+    var count; count = 0;
 
-    var effect = 0; // /0 = normal text, /1 = shakey /2 = wavey
-    var colour = c_white; // /C0 = white, /C1 = red, /C2 = yellow, /C3 = green, /C3 = blue
+    var effect; effect = 0; // /0 = normal text, /1 = shakey /2 = wavey
+    var colour; colour = c_white; // /C0 = white, /C1 = red, /C2 = yellow, /C3 = green, /C3 = blue
 
     for (i = 1; i <= textLength; i += 1) // we're going to draw the text individually, that way we can apply all sorts of effects to it.
     {
@@ -247,9 +247,9 @@ if (showtext)
         {
             if (string_char_at(itext, i + 1) == "C") // Color
             {
-                var col1 = string_char_at(itext, i + 2);
-                var col2 = string_char_at(itext, i + 3);
-                var col3 = col1 + col2;
+                var col1; col1 = string_char_at(itext, i + 2);
+                var col2; col2 = string_char_at(itext, i + 3);
+                var col3; col3 = col1 + col2;
                 colour = global.nesPalette[real(col3)];
                 i += 3;
                 continue;
@@ -281,7 +281,7 @@ if (showtext)
             {
                 break;
             }
-            e++;
+            e+=1;
         }
 
         if (count + e > length + 1)

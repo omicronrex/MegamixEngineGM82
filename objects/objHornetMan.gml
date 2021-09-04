@@ -127,7 +127,7 @@ if (entityCanStep())
                 {
                     timer = -2; // travel up a bit farther before shooting bees
                     imgIndex = 7;
-                    phase++;
+                    phase+=1;
                 }
 
                 break;
@@ -156,8 +156,8 @@ if (entityCanStep())
                     bee.contactDamage = 4;
                     playSFX(sfxHornetChaser);
 
-                    counter++;
-                    imgIndex2++;
+                    counter+=1;
+                    imgIndex2+=1;
                     imgIndex += 2;
 
                     if (counter >= 3)
@@ -166,7 +166,7 @@ if (entityCanStep())
                         counter = 0;
                         yspeed = 0;
                         imgIndex2 = 0;
-                        phase++;
+                        phase+=1;
                     }
                 }
 
@@ -203,7 +203,7 @@ if (entityCanStep())
                         timer = 0;
                         grav = gravAccel;
                         imgIndex = 4;
-                        phase++;
+                        phase+=1;
                     }
                 }
 

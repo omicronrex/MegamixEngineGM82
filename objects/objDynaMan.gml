@@ -191,7 +191,7 @@ if (entityCanStep())
             if (attackTimer > 0)
             {
                 xspeed = 0;
-                attackTimer--;
+                attackTimer-=1;
             }
             else
             {
@@ -202,7 +202,7 @@ if (entityCanStep())
                     if (smallJumps > jumpCounter)
                     {
                         attackTimer = 10;
-                        jumpCounter++;
+                        jumpCounter+=1;
                     }
                     else
                     {
@@ -278,7 +278,7 @@ if (entityCanStep())
             {
                 if (attackTimer > 0)
                 {
-                    attackTimer--;
+                    attackTimer-=1;
                 }
                 else
                 {

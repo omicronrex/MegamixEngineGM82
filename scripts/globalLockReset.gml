@@ -6,7 +6,7 @@
 lockPoolReleaseAll(global.timeStopped);
 lockPoolReleaseAll(global.playerFrozen);
 
-for (var i = 0; i < PL_LOCK_MAX; i++)
+var i; for (i = 0; i < PL_LOCK_MAX; i+=1)
 {
     lockPoolReleaseAll(global.playerLock[i]);
 }

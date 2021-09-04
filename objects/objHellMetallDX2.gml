@@ -38,14 +38,14 @@ if (entityCanStep())
     switch (phase)
     {
         case 0:
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer <= 0)
             {
                 if ((moveTimer == 0) && (instance_exists(target)))
                 {
                     imgIndex = 4;
 
-                    var i = instance_create(x, y - 14, objEnemyBullet);
+                    var i; i = instance_create(x, y - 14, objEnemyBullet);
                     i.image_xscale = image_xscale;
                     i.grav = 0.25;
                     i.image_xscale = image_xscale;
@@ -77,7 +77,7 @@ if (entityCanStep())
             moveTimer = 20;
             break;
         case 2:
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer <= 0)
             {
                 imgIndex -= imgSpd;

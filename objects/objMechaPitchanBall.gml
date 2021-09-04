@@ -59,7 +59,7 @@ action_id=603
 applies_to=self
 */
 a = y - k;
-var den = (x - h) * (x - h);
+var den; den = (x - h) * (x - h);
 a = a / den;
 xspeed = dir * abs(x - ix) / 60;
 #define Other_20

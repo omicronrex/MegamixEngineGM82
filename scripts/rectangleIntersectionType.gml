@@ -7,14 +7,14 @@
 
 // meeting at a single line segment does not count as intersection
 
-var ax1 = argument0;
-var ay1 = argument1;
-var ax2 = argument2;
-var ay2 = argument3;
-var bx1 = argument4;
-var by1 = argument5;
-var bx2 = argument6;
-var by2 = argument7;
+var ax1; ax1 = argument0;
+var ay1; ay1 = argument1;
+var ax2; ax2 = argument2;
+var ay2; ay2 = argument3;
+var bx1; bx1 = argument4;
+var by1; by1 = argument5;
+var bx2; bx2 = argument6;
+var by2; by2 = argument7;
 
 // no overlap
 if (ax2 <= bx1 || ax1 >= bx2 || ay2 <= by1 || ay1 >= by2)

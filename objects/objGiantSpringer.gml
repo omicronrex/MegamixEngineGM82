@@ -31,7 +31,7 @@ if (entityCanStep())
 
     animTimer += 1;
     image_index = ((animTimer div 8) mod 2);
-    var spd = 0.75;
+    var spd; spd = 0.75;
     if (loadTimer <= 20)
     {
         // loaded missile

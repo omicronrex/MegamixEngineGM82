@@ -35,7 +35,8 @@ if (canProceed)
         exit;
     }
 
-    if ((demoTimer++) mod 500 == 495)
+    demoTimer+=1
+    if ((demoTimer) mod 500 == 495)
     {
         if (!recordInputPlayback(
             choose("Recordings/demoPharaohMan.mrc",
@@ -83,7 +84,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var oldCol = draw_get_color();
+var oldCol; oldCol = draw_get_color();
 draw_set_color(c_white);
 
 draw_set_valign(fa_top);

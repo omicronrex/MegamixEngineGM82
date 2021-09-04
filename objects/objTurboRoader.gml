@@ -35,7 +35,7 @@ event_inherited();
 if (entityCanStep())
 {
     // increment AI timer
-    actionTimer++;
+    actionTimer+=1;
 
     switch (phase)
     {

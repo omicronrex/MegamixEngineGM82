@@ -6,26 +6,26 @@
 
 if (argument_count == 0)
     return false;
-var lv = argument[argument_count - 1] - 1;
-var strict = argument_count > 1;
+var lv; lv = argument[argument_count - 1] - 1;
+var strict; strict = argument_count > 1;
 if (lv < 0)
     return false;
-var anyRelease = false;
-for (var lockPoolID = 0; lockPoolID < global.lockPoolN; lockPoolID++)
+var anyRelease; anyRelease = false;
+var lockPoolID; for (lockPoolID = 0; lockPoolID < global.lockPoolN; lockPoolID+=1)
 {
     if (!lockPoolExists(lockPoolID))
         continue;
 
     // determine whether this lock pool has the given lock checked out
-    var poolHasLock = lv < global.lockPoolLockCount[lockPoolID];
+    var poolHasLock; poolHasLock = lv < global.lockPoolLockCount[lockPoolID];
     if (poolHasLock)
         poolHasLock = global.lockPoolLockTable[lockPoolID, lv];
 
     // strict error-checking
     if (strict)
     {
-        var strictPoolCheck = false;
-        for (var i = 0; i < argument_count - 1; i++)
+        var strictPoolCheck; strictPoolCheck = false;
+        var i;for ( i = 0; i < argument_count - 1; i+=1)
             if (argument[i] == lockPoolID)
                 strictPoolCheck = true;
         if (poolHasLock && !strictPoolCheck)
@@ -51,7 +51,7 @@ for (var lockPoolID = 0; lockPoolID < global.lockPoolN; lockPoolID++)
         // If this is the rightmost lock in this lock pool, recalculate number of locks
         if (lv == global.lockPoolLockCount[lockPoolID] - 1)
         {
-            for (var lvi = lv; lvi >= 0; lvi--)
+            var lvi; for (lvi = lv; lvi >= 0; lvi-=1)
             {
                 if (global.lockPoolLockTable[lockPoolID, lvi])
                 {

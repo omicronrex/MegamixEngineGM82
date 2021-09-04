@@ -76,7 +76,7 @@ if (entityCanStep())
     {
         image_index = 2;
         hasEgg = false;
-        var ID = instance_create(x, y + 3, objPipiEgg);
+        var ID; ID = instance_create(x, y + 3, objPipiEgg);
         ID.col = col;
         ID.image_xscale = image_xscale;
     }

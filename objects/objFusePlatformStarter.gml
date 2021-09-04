@@ -36,7 +36,7 @@ if (entityCanStep())
 {
     if (timeUntilDeath >= 0)
     {
-        timeUntilDeath--;
+        timeUntilDeath-=1;
 
         // tick down to death
         if (timeUntilDeath == 0)

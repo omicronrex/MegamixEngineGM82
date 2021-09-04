@@ -82,7 +82,7 @@ if (!fire)
     }
 
     // ITS LIT FAM :joy:
-    for (var i = 0; i < array_length_1d(fireSource); i++)
+    var i; for ( i = 0; i < array_length_1d(fireSource); i+=1)
     {
         if (place_meeting(x, y - 1, fireSource[i]))
         {
@@ -129,6 +129,7 @@ applies_to=self
 fire = true;
 
 var oil;
+oil[0]; oil;
 oil[0] = objOil;
 oil[1] = objPUOil;
 

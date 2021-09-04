@@ -34,7 +34,7 @@ if (entityCanStep())
     {
         // wait
         case 0:
-            shootWait = random_range(30, 120); // <-- time waiting inbetween shots here
+            shootWait = random_range(30, 120); // <-=1 time waiting inbetween shots here
             phase = 1;
             break;
 

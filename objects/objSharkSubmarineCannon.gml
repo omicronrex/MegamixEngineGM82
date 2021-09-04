@@ -107,7 +107,7 @@ if (entityCanStep())
 
         if (headShark.startFiring)
         {
-            timer++;
+            timer+=1;
         }
 
         // Opening.
@@ -134,7 +134,7 @@ if (entityCanStep())
             || timer == phaseMultiple * 32)
         {
             cannonIndex = 3;
-            var newShot = instance_create(x - 20 * image_xscale,
+            var newShot; newShot = instance_create(x - 20 * image_xscale,
                 y + 14 * image_yscale, objSharkSubmarineLaser);
             newShot.image_xscale = -image_xscale;
         }
@@ -202,10 +202,10 @@ if (instance_exists(parent))
     {
         if ((ceil(iFrames / 2) mod 4) || !iFrames)
         {
-            var iceBlinkTime = 42;
+            var iceBlinkTime; iceBlinkTime = 42;
             if ((ceil(iFrames / 2) mod 2) || (iceTimer > 0 && (iceTimer > iceBlinkTime || (iceTimer <= iceBlinkTime && iceTimer mod 4 == 0))))
             {
-                var flashcol = c_white;
+                var flashcol; flashcol = c_white;
                 if (iceTimer > 0 && (iceTimer > iceBlinkTime || (iceTimer <= iceBlinkTime && iceTimer mod 4 == 0)))
                 {
                     switch (iceGraphicStyle)

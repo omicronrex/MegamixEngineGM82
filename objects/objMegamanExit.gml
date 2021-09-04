@@ -92,24 +92,16 @@ else
     {
         // begin new a stage
         assert((myRoom != -1 || (isExternal&&(externalRoomFilename!=""))), "mega man exit set to go to a new stage but didn't set the room.");
-        if(isExternal)
-        {
-            roomExternalClear(externalRoomFilename);
-            myRoom = roomExternalLoad(externalRoomFilename);
-        }
+
         goToLevel(myRoom, true);
     }
     else if (myRoom != -1 || (isExternal&&(externalRoomFilename!="")))
     {
-        // do not start new level -- just teleport
+        // do not start new level -=1 just teleport
         global.hasTeleported = 1;
         global.teleportX = X;
         global.teleportY = Y;
-        if(isExternal)
-        {
-            roomExternalClear(externalRoomFilename);
-            myRoom = roomExternalLoad(externalRoomFilename);
-        }
+
         global.nextRoom = myRoom;
     }
     else if (returnToHub)
@@ -125,12 +117,12 @@ applies_to=self
 */
 timer += 1;
 
-var t = floor(timer * 0.3);
+var t; t = floor(timer * 0.3);
 
 if (type < 3)
 {
-    var ximg = 10;
-    var yimg = 8;
+    var ximg; ximg = 10;
+    var yimg; yimg = 8;
 
     switch (floor(t))
     {
@@ -161,8 +153,8 @@ if (type < 3)
 }
 else
 {
-    var ximg = 0 + min(4, t);
-    var yimg = 11;
+    var ximg; ximg = 0 + min(4, t);
+    var yimg; yimg = 11;
 
     if (t == 0)
     {

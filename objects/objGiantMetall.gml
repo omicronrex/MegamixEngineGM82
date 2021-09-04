@@ -104,7 +104,7 @@ if (entityCanStep())
         {
             coolDown -= 1;
         }
-        blinkWait--;
+        blinkWait-=1;
         if (blinkWait == 0)
         {
             blink = true;
@@ -112,7 +112,7 @@ if (entityCanStep())
 
         if (blink == true)
         {
-            blinkTimer--;
+            blinkTimer-=1;
             if (blinkTimer == 0)
             {
                 blinkTimer = 8;

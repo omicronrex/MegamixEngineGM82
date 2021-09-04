@@ -123,7 +123,7 @@ if (!startCheck)
     startCheck = true;
 
 
-    for (var i = 0; i < view_wview; i++)
+    var i; for ( i = 0; i < view_wview; i+=1)
     {
         if (checkSolid(i, 0))
         {
@@ -138,7 +138,7 @@ if (!startCheck)
             break;
         }
     }
-    for (var i = 0; i < view_hview; i++)
+    var i; for ( i = 0; i < view_hview; i+=1)
     {
         if (checkSolid(0, -i))
         {
@@ -162,11 +162,11 @@ if (!global.frozen)
     else if (isIntro)
     {
         // custom intro:
-        attackTimer++;
+        attackTimer+=1;
 
         if (attackTimer == 10 && image_index > 0)
         {
-            image_index--;
+            image_index-=1;
             attackTimer = 0;
         }
         if (attackTimer == 40)
@@ -184,11 +184,11 @@ if (entityCanStep())
 {
     if (isFight)
     {
-        attackTimer++;
-        animTimer++;
-        delayRock--;
-        turnTimer++;
-        delayMove--;
+        attackTimer+=1;
+        animTimer+=1;
+        delayRock-=1;
+        turnTimer+=1;
+        delayMove-=1;
 
 
 
@@ -202,7 +202,7 @@ if (entityCanStep())
 
         if (animTimer mod 5 == 0)
         {
-            lightFrame++;
+            lightFrame+=1;
             if (lightFrame == 3)
             {
                 lightFrame = 0;
@@ -222,7 +222,7 @@ if (entityCanStep())
                     if (turnTimer >= turnCheck[cTurn mod 4]) // spaz about
                     {
                         turnTimer = 0;
-                        cTurn++;
+                        cTurn+=1;
                     }
                     delayMove = choose(0, 0, 32);
                     if (delayMove > 0)
@@ -232,7 +232,7 @@ if (entityCanStep())
                 }
                 if (delayRock <= 0 && !instance_exists(child)) // if no rocks or explosions exist, and there is no deleay, create rock
                 {
-                    var inst = instance_create(view_xview + 24 + irandom(view_wview - 48), view_yview - 16, objPowerPistonRock);
+                    var inst; inst = instance_create(view_xview + 24 + irandom(view_wview - 48), view_yview - 16, objPowerPistonRock);
                     inst.parent = id;
                     inst.itemDrop = -1;
                     child = inst.id;
@@ -271,7 +271,7 @@ if (entityCanStep())
                     ID.dir = getAngle - shootAngle;
                     ID.xscale = image_xscale;
                     playSFX(sfxEnemyShoot);
-                    shotsFired++;
+                    shotsFired+=1;
 
                     if (shotsFired >= 2)
                     {

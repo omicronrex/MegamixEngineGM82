@@ -85,7 +85,7 @@ if (instance_exists(parent))
         // Creates the Tengu Blade disk.
         if (nothingStruck)
         {
-            var activeDisk = instance_create(x + (6 * image_xscale), y, objTenguDisk);
+            var activeDisk; activeDisk = instance_create(x + (6 * image_xscale), y, objTenguDisk);
             activeDisk.image_xscale = image_xscale;
             activeDisk.image_yscale = image_yscale;
             activeDisk.xspeed = activeDisk.xSpdConst * image_xscale;

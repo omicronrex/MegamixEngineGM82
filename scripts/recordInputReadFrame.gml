@@ -15,7 +15,7 @@ while (stringStartsWith(global.recordInputSaveData, "-"))
     global.recordInputSaveData = stringSubstring(global.recordInputSaveData, 2);
 
 // check if viewer has ended the playback
-for (var i = 0; i < global.playerCount; i++)
+var i; for ( i = 0; i < global.playerCount; i+=1)
 {
     if (global.keyPause[i] || global.keyPausePressed[i])
         global.recordInputEnd = 2;
@@ -27,7 +27,7 @@ global.recordInputFidelityMessageCompare = "";
 while (true)
 {
     // detect EOF or frame end:
-    var nextFrameMarker = stringIndexOf(global.recordInputSaveData, "-");
+    var nextFrameMarker; nextFrameMarker = stringIndexOf(global.recordInputSaveData, "-");
     if (nextFrameMarker == 0)
         return 1;
     if (nextFrameMarker == 1)
@@ -35,7 +35,7 @@ while (true)
 
     // read key:
     var key;
-    var colonIndex = stringIndexOf(global.recordInputSaveData, ":");
+    var colonIndex; colonIndex = stringIndexOf(global.recordInputSaveData, ":");
     if (colonIndex)
     {
         key = (stringSubstring(global.recordInputSaveData, 1, colonIndex));
@@ -46,7 +46,7 @@ while (true)
 
     // read value:
     var value;
-    var newlineIndex = stringIndexOf(global.recordInputSaveData, "|");
+    var newlineIndex; newlineIndex = stringIndexOf(global.recordInputSaveData, "|");
     if (newlineIndex)
     {
         value = stringTrim(stringSubstring(global.recordInputSaveData, 1, newlineIndex));
@@ -64,7 +64,7 @@ while (true)
     }
     else
     {
-        var pid = real(string_digits(key));
+        var pid; pid = real(string_digits(key));
         // dub input:
         global.keyLeftPressed[pid]              = stringIndexOf(value, "L") > 0;
         global.keyLeft[pid]                     = stringIndexOf(value, "l") > 0;

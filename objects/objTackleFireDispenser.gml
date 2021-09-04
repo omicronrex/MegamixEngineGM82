@@ -43,10 +43,10 @@ spawnTimer = -1;
 
 canHit = false;
 
-//@nocc -- use dispenseOffScreen instead
+//@nocc -=1 use dispenseOffScreen instead
 respawnRange = -1;
 
-//@nocc -- use dispenseOffScreen instead
+//@nocc -=1 use dispenseOffScreen instead
 despawnRange = -1;
 
 blockCollision = false;
@@ -105,26 +105,28 @@ if (entityCanStep())
     // timers
     if (timer >= 0 && tackleFireN == 0 && (dispenseOffScreen || insideView()))
     {
-        if ((timer--) == 0)
+        if ((timer) == 0)
         {
             // create tackle fires
             spawnTimer = 0;
             flightTimer = 0;
         }
+        timer-=1
     }
 
-    var srcX = x + 8 * cos(degtorad(image_angle));
-    var srcY = y - 8 * sin(degtorad(image_angle)) - 8;
+    var srcX; srcX = x + 8 * cos(degtorad(image_angle));
+    var srcY; srcY = y - 8 * sin(degtorad(image_angle)) - 8;
 
     if (spawnTimer >= 0)
     {
-        flightTimer++;
-        if ((spawnTimer--) == 0)
+        flightTimer+=1;
+        spawnTimer-=1
+        if ((spawnTimer) == -1)
         {
             spawnTimer = tackleFireInterval;
             with (instance_create(srcX, srcY, objTackleFire))
             {
-                other.tackleFire[other.tackleFireN++] = id;
+                other.tackleFire[other.tackleFireN] = id; other.tackleFireN+=1
                 respawn = false;
                 respawnRange = -1;
                 despawnRange = -1;
@@ -135,6 +137,7 @@ if (entityCanStep())
             }
         }
 
+
         // end volley
         if (tackleFireN >= 4)
         {
@@ -143,29 +146,29 @@ if (entityCanStep())
     }
     else if (flightTimer > 0)
     {
-        flightTimer++;
+        flightTimer+=1;
     }
 
     // lerp paths precomputation
-    var dstX = srcX;
-    var dstY = srcY;
-    var dstAngle = 0;
+    var dstX; dstX = srcX;
+    var dstY; dstY = srcY;
+    var dstAngle; dstAngle = 0;
     if (instance_exists(destination))
     {
         dstX = destination.x + 8 * cos(degtorad(destination.image_angle));
         dstY = destination.y - 8 * sin(degtorad(destination.image_angle)) - 8;
         dstAngle = destination.image_angle - 90;
     }
-    var vecUx = dstX - srcX;
-    var vecUy = dstY - srcY;
-    var vecVx = vecUy;
-    var vecVy = -vecUx;
+    var vecUx; vecUx = dstX - srcX;
+    var vecUy; vecUy = dstY - srcY;
+    var vecVx; vecVx = vecUy;
+    var vecVy; vecVy = -vecUx;
 
     nComplete = 0;
-    for (var k = 0; k < tackleFireN; k++)
+    var k; for (k = 0; k < tackleFireN; k+=1)
     {
-        var fire = tackleFire[k];
-        var t = (flightTimer - k * tackleFireInterval) / tackleFireFlightTime
+        var fire; fire = tackleFire[k];
+        var t; t = (flightTimer - k * tackleFireInterval) / tackleFireFlightTime
             ;
         if (t > 1)
         {
@@ -178,7 +181,7 @@ if (entityCanStep())
 
         if (!instance_exists(fire))
         {
-            nComplete++;
+            nComplete+=1;
             continue;
         }
 
@@ -186,15 +189,15 @@ if (entityCanStep())
         // in u-v coordinates
         var dLU, dLV;
 
-        // --first index--
+        // -=1first index-=1
         // 0: source curve
         // 1: dest curve
-        // --second index--
+        // -=1second index-=1
         // 0: aligned
         // 1: left
         // 2: reverse
         // 3: right
-        var argsin = 2.5;
+        var argsin; argsin = 2.5;
         dLU[0, 0] = t;
         dLU[0, 1] = t;
         dLU[0, 2] = sin(2 * argsin * (t - 0.5)) * 0.5 / sin(argsin) + 0.5;
@@ -231,8 +234,8 @@ if (entityCanStep())
         pDst[2] = linearFalloff(thDst / 90);
         pDst[3] = linearFalloff(thDst / 90 + 1);
 
-        var desU = 0, desV = 0;
-        for (var i = 0; i < 4; i++)
+        var desU, desV; desU = 0; desV = 0;
+        var i; for ( i = 0; i < 4; i+=1)
         {
             desU += pSrc[i] * dLU[0, i] * (1 - t);
             desU += pDst[i] * dLU[1, i] * t;
@@ -280,7 +283,7 @@ applies_to=self
 */
 // mildly intelligent default assign
 
-var preferredDistance = 64;
+var preferredDistance; preferredDistance = 64;
 
 // fix yscale (idempotent)
 if (image_yscale == -1)
@@ -296,11 +299,11 @@ if (image_yscale == -1)
 if (tag == "")
 {
     setSection(x, y, false);
-    var myTag = "AUTO-ASSIGN-" + string(x) + "," + string(y) + "-SRC";
-    var altTag = "AUTO-ASSIGN-" + string(x) + "," + string(y) + "-DST";
-    var candidates = makeArray();
-    var candidateScore = makeArray();
-    var candidateN = 0;
+    var myTag; myTag = "AUTO-ASSIGN-" + string(x) + "," + string(y) + "-SRC";
+    var altTag; altTag = "AUTO-ASSIGN-" + string(x) + "," + string(y) + "-DST";
+    var candidates; candidates = makeArray();
+    var candidateScore; candidateScore = makeArray();
+    var candidateN; candidateN = 0;
     with (object_index)
     {
         setSection(x, y, false);
@@ -318,19 +321,19 @@ if (tag == "")
         if (id != other.id && sectionLeft == other.sectionLeft && sectionTop == other.sectionTop && tag == "")
         {
             candidates[candidateN] = id;
-            var pd = point_direction(x, y, other.x, other.y);
-            var pdA = angle_difference(pd, image_angle - 90);
-            var pdB = angle_difference(pd, other.image_angle - 90);
-            var p = abs(cos(degtorad(pdA))) + abs(cos(degtorad(pdB))) + 0.3;
-            var myScore = sqrt(sqr(x - other.x) + sqr(y - other.y)) * p * p;
+            var pd; pd = point_direction(x, y, other.x, other.y);
+            var pdA; pdA = angle_difference(pd, image_angle - 90);
+            var pdB; pdB = angle_difference(pd, other.image_angle - 90);
+            var p; p = abs(cos(degtorad(pdA))) + abs(cos(degtorad(pdB))) + 0.3;
+            var myScore; myScore = sqrt(sqr(x - other.x) + sqr(y - other.y)) * p * p;
             candidateScore[candidateN] = myScore;
-            candidateN++;
+            candidateN+=1;
         }
     }
 
     if (candidateN > 0)
     {
-        var index = argMin(candidateScore);
+        var index; index = argMin(candidateScore);
 
         // pair these
         with (candidates[index])

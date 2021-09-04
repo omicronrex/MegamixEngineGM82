@@ -89,7 +89,7 @@ if (!visible)
     exit;
 if (!dead)
 {
-    var prvY = y;
+    var prvY; prvY = y;
 
     if (instance_exists(parent))
     {

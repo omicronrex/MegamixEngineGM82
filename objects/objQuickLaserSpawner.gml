@@ -118,11 +118,11 @@ if (!dead && !global.frozen && !global.timeStopped)
     {
         // wait
         case 0:
-            timer++;
+            timer+=1;
             if (timer >= delay)
             {
                 timer = 0;
-                phase++;
+                phase+=1;
 
                 if (doSFX)
                 {
@@ -178,7 +178,7 @@ if (!dead && !global.frozen && !global.timeStopped)
                     height = sprite_get_height(sprite);
                 }
 
-                for (i = 0; i < height; i++)
+                for (i = 0; i < height; i+=1)
                 {
                     laser = instance_create(sx, sy, objQuickLaser);
                     laser.image_xscale = 0;
@@ -211,7 +211,7 @@ if (!dead && !global.frozen && !global.timeStopped)
                     }
                 }
             }
-            phase++; // do nothing now
+            phase+=1; // do nothing now
             break;
 
         // laser rotation
@@ -224,7 +224,7 @@ if (!dead && !global.frozen && !global.timeStopped)
             // rotate spawner
             if(timer>0)
             {
-                --timer;
+                timer-=1;
                 if(!useRails)
                     break;
             }
@@ -292,7 +292,7 @@ if (!dead && !global.frozen && !global.timeStopped)
             }
 
             // rotate
-            for (i = 0; i < ds_list_size(myLasers); i++)
+            for (i = 0; i < ds_list_size(myLasers); i+=1)
             {
                 laser = ds_list_find_value(myLasers, i);
                 laser.image_angle = image_angle;

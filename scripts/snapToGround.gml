@@ -18,9 +18,9 @@
 //_ velY: just initialize to 0
 //_ prevCollision: initialize to true, this is used to keep track of succesful movements, and if for whatever reason it fails too much, the script will return 0
 
-var _speed = argument[0];
-var gt = 4;
-var failTolerancy = 4;
+var _speed; _speed = argument[0];
+var gt; gt = 4;
+var failTolerancy; failTolerancy = 4;
 if (argument_count > 1 && argument[1] > 0)
 {
     gt = argument[1];
@@ -56,10 +56,10 @@ if (_groundDir == -1) // Push out of solids and set the direction in which the g
     }
     checkGround();
 }
-var groundXDir = cos(degtorad(_groundDir));
-var groundYDir = -sin(degtorad(_groundDir));
-var _xdir = groundYDir * _dir;
-var _ydir = -groundXDir * _dir;
+var groundXDir; groundXDir = cos(degtorad(_groundDir));
+var groundYDir; groundYDir = -sin(degtorad(_groundDir));
+var _xdir; _xdir = groundYDir * _dir;
+var _ydir; _ydir = -groundXDir * _dir;
 if (abs(_velX) != _speed && abs(_velY) != _speed) // update speed if its not set
 {
     _velX = _speed * _xdir;
@@ -84,7 +84,7 @@ else
 
 // checkSolid didn't work when this was made, however now it has an option to ignore slopes,
 // but I decided to keep this code here anyways
-var onGround = ground;
+var onGround; onGround = ground;
 if (argument_count < 2 || argument_count > 2 && !argument[2])
     onGround = false;
 
@@ -114,10 +114,10 @@ if(!onGround)
 
 if (_prevCollision == 1 && !onGround) // if not on the ground rotate and snap to the previous solid
 {
-    var _X = x;
-    var _Y = y;
-    var colXPoint = 0;
-    var colYPoint = 0;
+    var _X; _X = x;
+    var _Y; _Y = y;
+    var colXPoint; colXPoint = 0;
+    var colYPoint; colYPoint = 0;
     x = xprevious; // restore position to check for the last solid we were on
     y = yprevious;
 
@@ -168,8 +168,8 @@ if (_prevCollision == 1 && !onGround) // if not on the ground rotate and snap to
             colYPoint = bbox_bottom;
             break;
     }
-    var myGround = noone;
-    var preMsk = mask_index;
+    var myGround; myGround = noone;
+    var preMsk; preMsk = mask_index;
     mask_index = sprDot;
     x = colXPoint + groundXDir * 2;
     y = colYPoint + groundYDir * 2;
@@ -180,7 +180,7 @@ if (_prevCollision == 1 && !onGround) // if not on the ground rotate and snap to
         {
             if (dead || !(isSolid == 1) || !insideView())
                 continue;
-            var b = false;
+            var b; b = false;
             with (other)
             {
                 if (place_meeting(x, y, other.id))
@@ -204,14 +204,14 @@ if (_prevCollision == 1 && !onGround) // if not on the ground rotate and snap to
         {
             if (_velX > 0)
             {
-                var clst = myGround.bbox_right + 1;
+                var clst; clst = myGround.bbox_right + 1;
                 if (abs((clst) - bbox_left) > abs((myGround.bbox_left - 1) - bbox_left))
                     clst = myGround.bbox_left - 1;
                 shiftObject((clst) - bbox_left, 0, 1);
             }
             else
             {
-                var clst = myGround.bbox_left - 1;
+                var clst; clst = myGround.bbox_left - 1;
                 if (abs((clst) - bbox_right) > abs((myGround.bbox_right + 1) - bbox_right))
                     clst = myGround.bbox_right + 1;
                 shiftObject((clst) - bbox_right, 0, 1);
@@ -221,14 +221,14 @@ if (_prevCollision == 1 && !onGround) // if not on the ground rotate and snap to
         {
             if (_velY > 0)
             {
-                var clst = myGround.bbox_bottom + 1;
+                var clst; clst = myGround.bbox_bottom + 1;
                 if (abs((myGround.bbox_bottom + 1) - bbox_top) > abs((myGround.bbox_top - 1) - bbox_top))
                     clst = myGround.bbox_top - 1;
                 shiftObject(0, (clst) - bbox_top, 1);
             }
             else
             {
-                var clst = myGround.bbox_top - 1;
+                var clst; clst = myGround.bbox_top - 1;
                 if (abs((clst) - bbox_bottom) > abs((myGround.bbox_bottom + 1) - bbox_bottom))
                     clst = myGround.bbox_bottom + 1;
                 shiftObject(0, clst - bbox_bottom, 1);

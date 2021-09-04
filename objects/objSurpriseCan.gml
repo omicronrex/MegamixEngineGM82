@@ -20,12 +20,12 @@ applies_to=self
 */
 dead = 1;
 
-var ex = instance_create(x + 8, y + 8, objExplosion);
+var ex; ex = instance_create(x + 8, y + 8, objExplosion);
 ex.myItem = myItem;
 
 if (myItem == 0)
 {
-    var randitem = floor(random(90));
+    var randitem; randitem = floor(random(90));
 
     if (randitem < 3)
     {

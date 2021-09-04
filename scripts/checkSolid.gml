@@ -3,18 +3,18 @@
 // noSlopeConditions: default false
 // alwaysCheckSolids: defaul false, if true, solid entities will be detected even if the object calling the script is already colliding with it
 
-var _xs = argument[0];
-var _ys = argument[1];
-var noSlopeConditions = false;
-var alwaysCheckSolids = false;
+var _xs; _xs = argument[0];
+var _ys; _ys = argument[1];
+var noSlopeConditions; noSlopeConditions = false;
+var alwaysCheckSolids; alwaysCheckSolids = false;
 if (argument_count > 2)
     noSlopeConditions = argument[2];
 if (argument_count > 3)
     alwaysCheckSolids = argument[3];
-var myid = id;
+var myid; myid = id;
 
 // Set the direction of gravity
-var cgrav = sign(grav);
+var cgrav; cgrav = sign(grav);
 if (object_index == objMegaman)
 {
     cgrav = gravDir;
@@ -41,7 +41,7 @@ if (dieToSpikes)
 {
     if(!alwaysCheckSolids)
     {
-        var spSolid = (canHit && iFrames != 0);
+        var spSolid; spSolid = (canHit && iFrames != 0);
         with (objSpike)
         {
             solid = spSolid;
@@ -94,7 +94,7 @@ with (prtEntity)
 
 // If you don't know, place_free checks for if you're touching an object flagged with the default
 // 'solid' variable. That's why everything is set as solid here and then set back to 0 afterwards.
-var ret = 1;
+var ret; ret = 1;
 if (place_free(x + _xs, y + _ys))
 {
     ret = 0;

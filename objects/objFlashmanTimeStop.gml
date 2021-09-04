@@ -24,14 +24,14 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-animationTimer++;
+animationTimer+=1;
 
 if (global.frozen)
     exit;
 
 if (animationTimer mod 8 == 0)
 {
-    for (var i = 0; i < 4; i++)
+    var i; for ( i = 0; i < 4; i+=1)
     {
         with (instance_create(
             view_xview[0] + irandom_range(0, view_wview[0]),

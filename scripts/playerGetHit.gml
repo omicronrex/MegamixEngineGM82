@@ -2,7 +2,7 @@
 // Call it like this: with objMegaman playerGetHit();
 // Makes the player get hit
 
-var dmg = argument0;
+var dmg; dmg = argument0;
 
 if (!isHit)
 {
@@ -20,9 +20,9 @@ if (!isHit)
         if (instance_exists(vehicle))
         {
             // Rush Cycle absorbs hits
-            if (vehicle.object_index == objRushCycle && !global.infiniteEnergy[global.weaponID[? objRushCycle]])
+            if (vehicle.object_index == objRushCycle && !global.infiniteEnergy[ds_map_get(global.weaponID,objRushCycle)])
             {
-                var ndmg = dmg;
+                var ndmg; ndmg = dmg;
                 dmg -= min(dmg, global.ammo[playerID, global.weapon[playerID]]);
                 global.ammo[playerID, global.weapon[playerID]] = max(0, global.ammo[playerID, global.weapon[playerID]] - ((ndmg) / (global.energySaver + 1)));
             }

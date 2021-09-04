@@ -33,7 +33,7 @@ applies_to=self
 // Reset game
 if (keyboard_check_pressed(vk_f2))
 {
-    audio_stop_all();
+    sound_stop_all();
     stopMusic();
     game_restart();
 }
@@ -41,7 +41,7 @@ if (keyboard_check_pressed(vk_f2))
 // Change screen size
 if (keyboard_check_pressed(vk_f3))
 {
-    var pre = global.screensize;
+    var pre; pre = global.screensize;
 
     setScreenSize(global.screensize + 1);
 
@@ -186,12 +186,12 @@ action_id=603
 applies_to=self
 */
 // console update
-var CONSOLE_MAX = 16;
+var CONSOLE_MAX; CONSOLE_MAX = 16;
 draw_set_halign(fa_left);
 draw_set_valign(fa_bottom);
-for (var i = 0; i < CONSOLE_MAX && i < global.consoleN; i++)
+var i; for ( i = 0; i < CONSOLE_MAX && i < global.consoleN; i+=1)
 {
-    var messageN = global.consoleN - i - 1;
+    var messageN; messageN = global.consoleN - i - 1;
     global.consoleTimer[messageN] += 1;
 }
 #define Draw_73
@@ -201,12 +201,12 @@ action_id=603
 applies_to=self
 */
 // Console
-var CONSOLE_MAX = 16;
+var CONSOLE_MAX; CONSOLE_MAX = 16;
 draw_set_halign(fa_left);
 draw_set_valign(fa_bottom);
-for (var i = 0; i < CONSOLE_MAX && i < global.consoleN; i++)
+var i; for ( i = 0; i < CONSOLE_MAX && i < global.consoleN; i+=1)
 {
-    var messageN = global.consoleN - i - 1;
+    var messageN; messageN = global.consoleN - i - 1;
     draw_set_color(global.consoleColour[messageN]);
     draw_set_alpha(roundTo(clamp(lerp(5, 0, global.consoleTimer[messageN] / 120), 0, 1), 0.2));
     draw_text(view_xview[0], view_yview[0] + view_hview[0] - 12 * i, global.consoleMessage[messageN]);
@@ -219,13 +219,13 @@ if (viewobjects)
     draw_set_valign(fa_top);
     draw_set_color(c_white);
 
-    var cID = 0;
-    var yy = view_yview + 16;
+    var cID; cID = 0;
+    var yy; yy = view_yview + 16;
 
     if (limit)
     {
         draw_sprite_ext(sprDot, 0, view_xview + 8, yy, view_wview - 16, limit * 8, 0, c_gray, 0.5);
-        for (_i = 0; limit > _i; _i++)
+        for (_i = 0; limit > _i; _i+=1)
         {
             cID = ds_list_find_value(ids, _i + scroll);
 

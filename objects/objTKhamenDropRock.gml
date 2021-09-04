@@ -34,7 +34,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    waitTimer--;
+    waitTimer-=1;
 
     if (waitTimer <= 0)
     {

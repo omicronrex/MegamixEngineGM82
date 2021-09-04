@@ -69,7 +69,7 @@ if (entityCanStep())
             timer -= 1;
             if (timer <= 0)
             {
-                timer = 80; // <-- time between shots here
+                timer = 80; // <-=1 time between shots here
 
                 if (instance_exists(target))
                 {
@@ -111,7 +111,7 @@ if (entityCanStep())
                 timer += 1;
                 if (timer >= 60)
                 {
-                    // <-- time staying unhiden here
+                    // <-=1 time staying unhiden here
                     phase = 3;
                     timer = 0;
                 }

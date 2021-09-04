@@ -144,12 +144,12 @@ if (!global.frozen)
         {
             hasTriggeredFall = true;
             y = ystart;
-            attackTimer++;
+            attackTimer+=1;
             if (hasCostume != 0)
             {
                 if (attackTimer == 10)
                 {
-                    var i = instance_create(x, y, objBigExplosion);
+                    var i; i = instance_create(x, y, objBigExplosion);
                     with (i)
                         playSFX(sfxExplosion);
                 }
@@ -189,16 +189,16 @@ if (entityCanStep())
         {
             // Set up barrier
             case 4:
-                var i = instance_create(x + 30, y, objDarkBarrier);
+                var i; i = instance_create(x + 30, y, objDarkBarrier);
                 i.dir = -1;
-                var i = instance_create(x - 30, y, objDarkBarrier);
+                var i; i = instance_create(x - 30, y, objDarkBarrier);
                 i.dir = 1;
                 image_index = 0;
                 phase = choose(0, 1);
                 break;
             // Fire shots
             case 0:
-                attackTimer++;
+                attackTimer+=1;
                 if (attackTimer < 20)
                 {
                     image_index = 0;
@@ -217,7 +217,7 @@ if (entityCanStep())
 
                         if (image_index == 2.4)
                         {
-                            var i = instance_create(x + 24 * image_xscale, y - 6, objEnemyBullet);
+                            var i; i = instance_create(x + 24 * image_xscale, y - 6, objEnemyBullet);
                             i.sprite_index = sprDarkShot;
                             i.xspeed = 4 * image_xscale;
                             i.contactDamage = 6;
@@ -229,7 +229,7 @@ if (entityCanStep())
                         {
                             image_speed = 0;
                             attackTimer = 0;
-                            shots++;
+                            shots+=1;
                         }
                     }
                     else
@@ -245,7 +245,7 @@ if (entityCanStep())
                 break;
             // Fire barriers
             case 1:
-                attackTimer++;
+                attackTimer+=1;
                 if (objDarkBarrier.orbit == false)
                 {
                     if (attackTimer >= 20)
@@ -272,14 +272,14 @@ if (entityCanStep())
 
                     if (!instance_exists(objDarkBarrier))
                     {
-                        var i = instance_create(view_xview, y, objDarkBarrier);
+                        var i; i = instance_create(view_xview, y, objDarkBarrier);
                         i.dir = 1;
                         i.orbit = false;
                         i.comeBack = true;
                         i.stopHere = x - 30;
                         barrier1 = i.id;
 
-                        var i = instance_create(view_xview + view_wview, y, objDarkBarrier);
+                        var i; i = instance_create(view_xview + view_wview, y, objDarkBarrier);
                         i.dir = -1;
                         i.orbit = false;
                         i.comeBack = true;

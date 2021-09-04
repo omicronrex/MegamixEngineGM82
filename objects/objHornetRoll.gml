@@ -48,7 +48,7 @@ if (!global.frozen)
             case 0: // rest
                 break;
             case 1: // extend
-                var p = abs((x - xstart) / (extendX - restX));
+                var p; p = abs((x - xstart) / (extendX - restX));
                 p *= p; // quadratic scaling
                 x += image_xscale * (speedExtendBegin * (1 - p) + p * speedExtendEnd);
                 if (x * image_xscale >= xstart * image_xscale + (extendX - restX))
@@ -59,12 +59,12 @@ if (!global.frozen)
                 }
                 break;
             case 2: // extended
-                timer++;
+                timer+=1;
                 if (timer >= timeRestExtend)
                     phase = 3;
                 break;
             case 3: // retract
-                var p = abs((x - xstart + image_xscale * restX) / (extendX));
+                var p; p = abs((x - xstart + image_xscale * restX) / (extendX));
                 p *= (1 - p); // quadratic scaling
                 x -= image_xscale * (speedRetractBegin * (p) + (1 - p) * speedRetractEnd);
                 if (x * image_xscale <= xstart * image_xscale - restX)
@@ -75,7 +75,7 @@ if (!global.frozen)
                 }
                 break;
             case 4: // retracted
-                timer++;
+                timer+=1;
                 if (timer >= timeRestRetract)
                     phase = 5;
                 break;
@@ -132,7 +132,7 @@ if (!global.frozen)
     {
         with (instance_place(x, y, objMegaman))
         {
-            var collide = false;
+            var collide; collide = false;
 
             if (other.image_xscale == 1)
             {
@@ -145,7 +145,7 @@ if (!global.frozen)
 
             if (collide)
             {
-                var checkX = (other.x) - (max(abs(x - bbox_left), abs(x - bbox_right))) * other.image_xscale;
+                var checkX; checkX = (other.x) - (max(abs(x - bbox_left), abs(x - bbox_right))) * other.image_xscale;
                 if (!checkSolid(checkX - x, 0))
                 {
                     x = checkX;
@@ -176,12 +176,12 @@ applies_to=self
 // draw platform:
 if (instance_exists(myPlatform))
 {
-    var platEndX = myPlatform.x;
+    var platEndX; platEndX = myPlatform.x;
     if (image_xscale == -1)
         platEndX = myPlatform.x + 16 * myPlatform.image_xscale;
-    for (var i = 0; i <= floor(myPlatform.image_xscale); i++)
+    var i; for ( i = 0; i <= floor(myPlatform.image_xscale); i+=1)
     {
-        var draw_x = platEndX + (i * image_xscale) * 16;
+        var draw_x; draw_x = platEndX + (i * image_xscale) * 16;
         draw_sprite_ext(sprHornetRollPlatform, i == 0, draw_x, y, image_xscale, 1, 0, c_white, 1);
     }
 }

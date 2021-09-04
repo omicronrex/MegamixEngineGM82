@@ -126,7 +126,7 @@ if (entityCanStep())
             grav = gravStart;
             if (y >= ystart && yspeed >= 0)
             {
-                shotsFired++;
+                shotsFired+=1;
                 yspeed = -3;
                 playSFX(sfxTeckyun);
             }
@@ -214,13 +214,13 @@ if (entityCanStep())
                 else if (shotsFired == 0 && (!instance_exists(objGeminiManLaser) || (global.difficulty == DIFF_HARD)) && attackTimer > 24) // only fire gemini lasers if none exists
                 {
                     shotsFired = 1;
-                    var sideShot = choose(0, 1, 2, 3);
+                    var sideShot; sideShot = choose(0, 1, 2, 3);
                     playSFX(sfxGeminiLaser);
 
 
-                    for (var i = 0; i < 2 + (global.difficulty == DIFF_HARD); i++)
+                    var i; for ( i = 0; i < 2 + (global.difficulty == DIFF_HARD); i+=1)
                     {
-                        for (var j = -laserSpeed * 3; j < 0; j += laserSpeed)
+                        var j; for ( j = -laserSpeed * 3; j < 0; j += laserSpeed)
                         {
                             switch (sideShot) // vary laser shot and direction depending on randomly chosen side
                             {
@@ -266,7 +266,7 @@ if (entityCanStep())
                             image_xscale = sign(xspeed);
                             image_yscale = sign(yspeed);
                         }
-                        var oldShot = sideShot;
+                        var oldShot; oldShot = sideShot;
                         while (sideShot == oldShot)
                         {
                             sideShot = choose(0, 1, 2, 3);

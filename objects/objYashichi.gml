@@ -21,7 +21,7 @@ instance_destroy();
 
 playSFX(sfxYasichi);
 
-var pid = collectPlayer.playerID;
+var pid; pid = collectPlayer.playerID;
 
 global.playerHealth[pid] = 28;
 for (i = 0; i <= global.totalWeapons; i += 1)

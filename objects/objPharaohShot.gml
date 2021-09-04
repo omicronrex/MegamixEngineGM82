@@ -28,7 +28,7 @@ applies_to=self
 */
 event_inherited();
 
-var ammo = global.ammo[playerID, global.weapon[playerID]];
+var ammo; ammo = global.ammo[playerID, global.weapon[playerID]];
 if (ammo <= 0 && charging)
 {
     instance_destroy();
@@ -80,7 +80,7 @@ if (!global.frozen)
 
         if (instance_exists(parent))
         {
-            var canShoot = false;
+            var canShoot; canShoot = false;
             with (parent)
             {
                 canShoot = !playerIsLocked(PL_LOCK_SHOOT);
@@ -89,7 +89,7 @@ if (!global.frozen)
             if (!global.keyShoot[parent.playerID] && canShoot) // LET GO OF CHARGE AND SHOOT
             {
                 canDamage = true;
-                var xs = 16;
+                var xs; xs = 16;
                 if (!parent.ground && (parent.isShoot < 3))
                 {
                     xs -= 5;

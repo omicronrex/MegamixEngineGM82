@@ -100,7 +100,7 @@ if (spawned)
 {
     if (attachedToCloud && instance_exists(myCloud))
     {
-        var f = false;
+        var f; f = false;
         with (myCloud)
             f = insideView(x, y);
         if (f)

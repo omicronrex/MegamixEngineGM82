@@ -3,8 +3,8 @@
 // d: divisor. Default: 1.
 // guaranteed to return non-negative number.
 
-var _x = argument[0];
-var _d = 1;
+var _x; _x = argument[0];
+var _d; _d = 1;
 if (argument_count > 1)
 {
     _d = abs(argument[1]);

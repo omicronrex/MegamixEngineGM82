@@ -12,7 +12,7 @@ if (iceTimer > 0)
     if (icePhysics)
     {
         // xspeed friction:
-        var fric = 0.75;
+        var fric; fric = 0.75;
         if (!ground)
             fric = 0.1;
         if (abs(xspeed) > fric)
@@ -33,7 +33,7 @@ if (iceTimer > 0)
     if (!isSolid && !place_meeting(x, y, objMegaman) && ground)
         isSolid = iceSolid;
 
-    // ice effect ends -- reset variables
+    // ice effect ends -=1 reset variables
     if (iceTimer == 0)
     {
         yspeed = yspeedPreIce;

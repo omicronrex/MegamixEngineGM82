@@ -63,7 +63,7 @@ if (entityCanStep())
         case 0:
             if (moveSpeed == 0)
             {
-                moveTimer--;
+                moveTimer-=1;
                 if (moveTimer == 0)
                 {
                     calibrateDirection();
@@ -104,7 +104,7 @@ if (entityCanStep())
     }
 
     // Self destruct after several seconds
-    countDown--;
+    countDown-=1;
     if (countDown == 0)
     {
         dead = true;

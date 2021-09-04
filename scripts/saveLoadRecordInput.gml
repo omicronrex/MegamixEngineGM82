@@ -2,7 +2,7 @@
 /// sl() calls for start of input recording
 
 // global values
-var rm = roomExternalGetName(global.recordInputRoom);
+var rm; rm = roomExternalGetName(global.recordInputRoom);
 if (stringStartsWith(rm, "+"))
 {
     if (string_pos("datafiles", rm) > 0)
@@ -50,11 +50,11 @@ global.difficulty = sl(global.difficulty, "difficulty");
 saveLoadHotbarHelper();
 
 // global player values
-for (var i = 0; i < global.recordPlayerCount; i++)
+var i; for ( i = 0; i < global.recordPlayerCount; i+=1)
 {
     global.recordInputPlayerHealth[i] = sl(global.playerHealth[i], "health" + string(i));
     global.recordInputRespawnTimer[i] = sl(global.respawnTimer[i], "respawnTimer" + string(i));
-    for (var j = 0; j <= global.totalWeapons; j++)
+    var j; for ( j = 0; j <= global.totalWeapons; j+=1)
     {
         global.recordInputAmmo[i, j] = sl(global.ammo[i, j], "ammo_" + string(i) + "_" + object_get_name(global.weaponObject[j]));
     }
@@ -86,7 +86,7 @@ if (global.sl_save)
 {
     with (objMegaman)
     {
-        var i = playerID;
+        var i; i = playerID;
         global.recordInputPlayerX[i] = sl(x, "playerX" + string(i));
         global.recordInputPlayerY[i] = sl(y, "playerY" + string(i));
         global.recordInputXScale[i] = sl(image_xscale, "playerXScale" + string(i));

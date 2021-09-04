@@ -63,7 +63,7 @@ else if (destroyEntities)
 // destroy solids & co.
 if (destroySolids)
 {
-    for (var i = 0; i < array_length_1d(solids); i++)
+    var i; for (i = 0; i < array_length_1d(solids); i+=1)
     {
         with (solids[i])
         {
@@ -78,9 +78,9 @@ if (destroySolids)
 // delete tiles
 if (destroyTiles)
 {
-    for (var _x = roundTo(bbox_left, 8) + 4; _x < roundTo(bbox_right, 8); _x += 8)
+    var _x; for (_x = roundTo(bbox_left, 8) + 4; _x < roundTo(bbox_right, 8); _x += 8)
     {
-        for (var _y = roundTo(bbox_top, 8) + 4; _y < roundTo(bbox_bottom, 8); _y += 8)
+        var _y; for (_y = roundTo(bbox_top, 8) + 4; _y < roundTo(bbox_bottom, 8); _y += 8)
         {
             tile_layer_delete_at(destroyTilesDepth, _x, _y);
         }

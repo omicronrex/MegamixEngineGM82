@@ -63,7 +63,7 @@ if (!global.frozen)
             }
             else
             {
-                var dir = (global.keyDown[parent.playerID] - global.keyUp[parent.playerID]) * (sign(parent.image_yscale));
+                var dir; dir = (global.keyDown[parent.playerID] - global.keyUp[parent.playerID]) * (sign(parent.image_yscale));
                 if (dir != 0)
                 {
                     if (yspeed * sign(yspeed) < 2)

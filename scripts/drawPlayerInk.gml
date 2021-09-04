@@ -3,20 +3,20 @@
 // that is, all black except for the eyes (white) and outline (39)
 // sheetX, sheetY: coord (in 48x48 units) of the animation frame in the skin sheet.
 
-var pid = argument0,
-    sheetX = argument1,
-    sheetY = argument2,
-    _x = floor(argument3),
-    _y = floor(argument4),
-    _xscale = argument5,
-    _yscale = argument6;
+var pid; pid = argument0;
+var sheetX;sheetX = argument1;
+var sheetY;sheetY = argument2;
+var _x;_x = floor(argument3);
+var _y;_y = floor(argument4);
+var _xscale;_xscale = argument5;
+var _yscale;_yscale = argument6;
 
 if (global.inkSurface[0] == -1 || !surface_exists(global.inkSurface[0]))
 {
     global.inkSurface[0] = surface_create(48, 48);
     global.inkSurface[1] = surface_create(48, 48);
 }
-var v = 0;
+var v; v = 0;
 if (global.inkSurface[0])
 {
     surface_set_target(global.inkSurface[1]);
@@ -40,7 +40,7 @@ if (global.inkSurface[0])
     draw_set_blend_mode(bm_add);
     draw_set_color(c_white);
     draw_set_alpha(1);
-    for (var i = 0; i <= 10; i++)
+    var i; for (i = 0; i <= 10; i+=1)
     {
         v = !v;
         surface_reset_target();

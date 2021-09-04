@@ -190,7 +190,7 @@ if (entityCanStep())
                 }
                 if (sprite_index == sprDanganJump && image_index == 2)
                 {
-                    for (var i = 8; i < 224; i += 1)
+                    var i; for ( i = 8; i < 224; i += 1)
                     {
                         if (place_meeting(x, (y - i) - 8, objSolid))
                         {
@@ -202,7 +202,7 @@ if (entityCanStep())
                         }
                     }
                     yspeed = ySpeedAim(y, y - setY, grav);
-                    for (var i = 32; i < 256; i += 1)
+                    var i; for ( i = 32; i < 256; i += 1)
                     {
                         if (place_meeting(x + i * image_xscale, y, objSolid))
                         {
@@ -249,7 +249,7 @@ if (entityCanStep())
                 }
                 if (sprite_index == sprDanganThrow && image_index == 1 && !hasFired)
                 {
-                    for (var i = 0; i < 3; i += 1)
+                    var i; for ( i = 0; i < 3; i += 1)
                     {
                         var inst;
                         inst = instance_create(x + 4 * image_xscale, y + 2, objDanganBullet);

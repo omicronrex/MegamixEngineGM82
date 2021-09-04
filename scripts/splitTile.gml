@@ -29,24 +29,24 @@ if (!tile_exists(t))
     exit;
 
 // tile width
-var tw = tile_get_width(t);
+var tw; tw = tile_get_width(t);
 
 // tile height
-var th = tile_get_height(t);
+var th; th = tile_get_height(t);
 
 // tile x
-var tx = tile_get_x(t);
+var tx; tx = tile_get_x(t);
 
 // tile y
-var ty = tile_get_y(t);
+var ty; ty = tile_get_y(t);
 
 // tile left
-var tl = tile_get_left(t);
+var tl; tl = tile_get_left(t);
 
 // tile top
-var tT = tile_get_top(t);
-var td = tile_get_depth(t);
-var tsrc = tile_get_background(t);
+var tT; tT = tile_get_top(t);
+var td; td = tile_get_depth(t);
+var tsrc; tsrc = tile_get_background(t);
 
 if (tw == _w && th == _h && tx mod _w == 0 && ty mod _h == 0)
 {

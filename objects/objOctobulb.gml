@@ -77,13 +77,13 @@ applies_to=self
 event_inherited();
 if (entityCanStep())
 {
-    var prevAnim = anim;
+    var prevAnim; prevAnim = anim;
     if (maxEnergy == -1)
     {
         maxEnergy = 120; // Default Value
     }
-    var ph = phase;
-    var addEnergy = false;
+    var ph; ph = phase;
+    var addEnergy; addEnergy = false;
     if (ph == 1 && place_meeting(x, y, objThunderBeam))
     {
         addEnergy = true;
@@ -192,9 +192,9 @@ if (entityCanStep())
 
 
 
-                var side = -1;
-                var ox = x - 80;
-                var en = noone;
+                var side; side = -1;
+                var ox; ox = x - 80;
+                var en; en = noone;
                 if (instance_exists(objMegaman))
                 {
                     with (objMegaman)
@@ -203,11 +203,11 @@ if (entityCanStep())
                             side = 1;
                     }
                 }
-                var ordr = 0;
+                var ordr; ordr = 0;
 
                 if (expectedEnergy < maxEnergy)
                 {
-                    var i = 0;
+                    var i; i = 0;
                     repeat (2)
                     {
                         switch (timer)

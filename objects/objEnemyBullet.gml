@@ -48,7 +48,7 @@ if (entityCanStep())
                 instance_destroy();
             else
                 dead = true;
-            var i = instance_create(x, y, objHarmfulExplosion);
+            var i; i = instance_create(x, y, objHarmfulExplosion);
             i.contactDamage = contactDamage;
             playSFX(explosionSFX);
         }

@@ -59,7 +59,7 @@ if (entityCanStep())
     // colliding with things:
     if (slowdeath_timer == 0)
     {
-        var do_collision = false;
+        var do_collision; do_collision = false;
 
         with (objMegaman)
         {

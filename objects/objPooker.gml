@@ -143,8 +143,8 @@ if (entityCanStep())
                     }
                 }
 
-                var _hasWeight = false;
-                var _overlappingEntity = false;
+                var _hasWeight; _hasWeight = false;
+                var _overlappingEntity; _overlappingEntity = false;
                 if (!lock)
                 {
                     with (objMegaman)
@@ -184,7 +184,7 @@ if (entityCanStep())
                     timer = 32;
                     lock = true;
                     yOffset = 2;
-                    var direc = sign(image_xscale);
+                    var direc; direc = sign(image_xscale);
                     if (instance_exists(platTarget))
                         direc = sign(platTarget.image_xscale);
                     dir = direc;
@@ -252,7 +252,7 @@ if (phase == 0)
         dir = sign(other.image_xscale);
         if (dir == 0)
         {
-            var otherX = 0;
+            var otherX; otherX = 0;
             with (other)
                 otherX = bboxGetXCenter();
             if (otherX > bboxGetXCenter())

@@ -31,7 +31,7 @@ event_inherited();
 
 if (!global.frozen && !global.timeStopped)
 {
-    var maxLoops = 3;
+    var maxLoops; maxLoops = 3;
     if (loops == maxLoops && imgIndex >= 7)
     {
         xspeed = image_xscale * 1.75;

@@ -115,7 +115,7 @@ if (entityCanStep())
             }
             break;
         case 2: // Extend and advance
-            var prevFrame = floor(animFrame);
+            var prevFrame; prevFrame = floor(animFrame);
             animFrame += animSpeed;
             if (prevFrame != floor(animFrame))
             {
@@ -133,7 +133,7 @@ if (entityCanStep())
             }
             break;
         case 3:
-            var prevFrame = floor(animFrame);
+            var prevFrame; prevFrame = floor(animFrame);
             animFrame -= animSpeed;
             if (prevFrame != floor(animFrame) && prevFrame == 3)
             {

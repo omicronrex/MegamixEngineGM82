@@ -101,7 +101,7 @@ if (entityCanStep())
     if (assTimer >= 0)
     {
         // this variable is initially set out of -1 via objCyorownBullet's event user 10
-        assTimer++;
+        assTimer+=1;
 
         if (assTimer == 30 || assTimer == 40)
         {

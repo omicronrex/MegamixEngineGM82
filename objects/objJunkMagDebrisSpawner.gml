@@ -47,7 +47,7 @@ if (!global.frozen && !dead && !global.timeStopped)
             timer += 1;
             if (timer >= 180)
             {
-                var debris = instance_create(x, global.sectionBottom, objJunkMagDebris);
+                var debris; debris = instance_create(x, global.sectionBottom, objJunkMagDebris);
                 debris.myFlag = myFlag;
                 timer = 0;
             }

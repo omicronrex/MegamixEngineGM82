@@ -47,7 +47,7 @@ if (entityCanStep())
 
     if (!instance_exists(i))
     {
-        timer++;
+        timer+=1;
         if (timer >= delay)
         {
             i = instance_create(x, y, obj);

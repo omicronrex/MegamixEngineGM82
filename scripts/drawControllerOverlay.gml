@@ -11,7 +11,7 @@ if (global.showControllerOverlay == 2)
     spr = sprControllerOverlayThin;
 }
 
-for (var j = 0; j < global.playerCount; j += 1)
+var j; for (j = 0; j < global.playerCount; j += 1)
 {
     draw_x -= (sprite_get_width(spr) - 28);
     draw_sprite_ext(spr, 0, draw_x, draw_y, 1, 1, 0, c_white, 1 / 1.28);

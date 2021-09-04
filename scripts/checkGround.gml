@@ -1,5 +1,5 @@
 /// checkGround([noSlopeEffect])
-var noSlopeEffect = false;
+var noSlopeEffect; noSlopeEffect = false;
 if (argument_count > 0 && argument[0])
     noSlopeEffect = true;
 
@@ -16,17 +16,17 @@ if (!blockCollision)
     exit;
 }
 
-var myid = id;
+var myid; myid = id;
 
 // Determine gravity direction
-var cgrav = sign(grav);
+var cgrav; cgrav = sign(grav);
 if (object_index == objMegaman)
 {
     cgrav = gravDir;
 }
 cgrav += (cgrav == 0);
 
-var slp = ceil(abs(xspeed) + 1 + (object_index == objMegaman));
+var slp; slp = ceil(abs(xspeed) + 1 + (object_index == objMegaman));
 
 // Enable the solid flag in all solid objects to exploit
 // game maker's built-in collision detection.
@@ -50,7 +50,7 @@ with (objGenericStopper)
 if (dieToSpikes) // entities with this variable set to "true" die when coming in contact with spikes
 {
     // spikes become solid when hitstunned
-    var spSolid = (canHit && iFrames != 0);
+    var spSolid; spSolid = (canHit && iFrames != 0);
     with (objSpike)
     {
         solid = spSolid;

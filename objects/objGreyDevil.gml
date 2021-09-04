@@ -232,7 +232,7 @@ if (entityCanStep())
                 imageTimerMax = 16;
                 if (image_index == 2) // grey devil fires three globules
                 {
-                    for (var i = 0; i < 3; i += 1)
+                    var i; for ( i = 0; i < 3; i += 1)
                     {
                         var inst;
                         inst = instance_create(x, y - 24, objGreyDevilGloop);

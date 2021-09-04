@@ -63,7 +63,7 @@ applies_to=self
 event_inherited();
 if (entityCanStep())
 {
-    var prevAnim = anim;
+    var prevAnim; prevAnim = anim;
 
     switch (phase)
     {
@@ -199,7 +199,7 @@ if (entityCanStep())
         case 3: /// One hand advances a bit and goes back up, the other one moves until it hits the wall and then comes back.
             if (timer == -1)
             {
-                var rand = irandom(1); // chooses the hand that will come back immmediately at random
+                var rand; rand = irandom(1); // chooses the hand that will come back immmediately at random
                 anim = 1;
                 rightHand = instance_create(rightBound, upperBound, objTheKeeperHand);
                 rightHand.x -= abs(bbox_left - bbox_right) / 2;
@@ -263,7 +263,7 @@ if (entityCanStep())
                     image_index = 4;
                 else
                 {
-                    var _x = x + sprite_width / 2;
+                    var _x; _x = x + sprite_width / 2;
                     if (_x < ball.x)
                     {
                         image_index = 5;

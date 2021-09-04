@@ -69,7 +69,7 @@ if (entityCanStep())
         }
         else
         {
-            var dist = abs(x - tx);
+            var dist; dist = abs(x - tx);
             if (dist > 16 * 7.5)
             {
                 newAngle = 3;
@@ -150,7 +150,7 @@ if (entityCanStep())
         if (timer == 0)
         {
             playSFX(sfxCannonShoot);
-            var i = instance_create(x, y, objEnemyBullet);
+            var i; i = instance_create(x, y, objEnemyBullet);
             i.explodeOnContact = true;
             i.contactDamage = 4;
             animOffset = 1;
@@ -158,7 +158,7 @@ if (entityCanStep())
             i.image_speed = 0;
             i.healthpoints = 1;
             i.healthpointsStart = 1;
-            var animFrame = angle;
+            var animFrame; animFrame = angle;
             if (animFrame > 4)
                 animFrame = abs(animFrame - 8);
             switch (animFrame)
@@ -213,7 +213,7 @@ if (entityCanStep())
             }
             i.x = x + image_xscale * 16 * abs(cos(degtorad(angle * 20)));
             i.y = y - 9 * image_yscale - image_yscale * 16 * abs(sin(degtorad(angle * 20)));
-            var _y = y;
+            var _y; _y = y;
             if (sign(ty - y) == gravDir)
             {
                 _y = ty;
@@ -230,7 +230,7 @@ if (entityCanStep())
         }
         if (timer > 5)
             animOffset = 0;
-        var waitTime = 120;
+        var waitTime; waitTime = 120;
         if (old)
             waitTime = 80;
         if (timer > waitTime)
@@ -240,7 +240,7 @@ if (entityCanStep())
         timer += 1;
     }
 
-    var animFrame = angle;
+    var animFrame; animFrame = angle;
     if (animFrame > 4)
         animFrame = abs(animFrame - 8);
     image_index = animOffset * 5 + animFrame;

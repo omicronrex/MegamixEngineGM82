@@ -45,7 +45,7 @@ if (entityCanStep())
         yspd[2] = 2.5;
         xspd[3] = 0;
         yspd[3] = -2.5;
-        for (var i = 2 * (global.difficulty == DIFF_EASY); i < 4; i++)
+        var i; for ( i = 2 * (global.difficulty == DIFF_EASY); i < 4; i+=1)
         {
             with (instance_create(x, y - 4, objEnemyBullet))
             {

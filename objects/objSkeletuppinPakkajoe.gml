@@ -54,7 +54,7 @@ if (entityCanStep())
             screenShake(16, 2, 2);
             event_user(EV_DEATH);
 
-            for (i = 0; i < 8; i++)
+            for (i = 0; i < 8; i+=1)
             {
                 z = instance_create(x, y, object_index);
                 z.phase = 2;
@@ -70,7 +70,7 @@ if (entityCanStep())
     }
     else
     {
-        timer++;
+        timer+=1;
         if (timer >= 30)
         {
             if (checkSolid(0, 0))
@@ -95,7 +95,7 @@ if (phase == 2)
 
     global.damage = 0;
     i = instance_create(x, y, objDamagePopup);
-    i.str = choose("WOW!", "NICE", "*_*", "DEADLY", "MEME", "DELET THIS", "THE END IS NOW", "9001", "An Excellent#Explosion", "NICE", "WOW?", "I HOPE I WIN", "KABOOM!", "GOOD JOB M8", "Is this loss?", "STALE MEME", "TOO OP#PLS NERF", "Y U NO#SHUUT?", "MEGA MAN#DOES HIS#TAXES", "MEME");
+    i.str = choose(choose("WOW!", "NICE", "*_*", "DEADLY", "MEME", "DELET THIS", "THE END IS NOW", "9001", "An Excellent#Explosion", "NICE"),choose("WOW?", "I HOPE I WIN", "KABOOM!", "GOOD JOB M8", "Is this loss?", "STALE MEME", "TOO OP#PLS NERF", "Y U NO#SHUUT?", "MEGA MAN#DOES HIS#TAXES", "MEME"));
     i.timer -= 60;
 
     global.damage = contactDamage;

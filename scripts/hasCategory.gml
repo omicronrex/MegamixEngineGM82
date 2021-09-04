@@ -8,5 +8,5 @@ if (string_pos(argument1, argument0) == 0)
     return false;
 
 // precise check
-var catArray = stringSplit(argument0, ",", true);
+var catArray; catArray = stringSplit(argument0, ",", true);
 return (indexOf(catArray, argument1) != -1);

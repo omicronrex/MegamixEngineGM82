@@ -61,10 +61,10 @@ if (entityCanStep())
         // Create wall explosions
         if (sprite_index == sprCommandoManBombHor)
         {
-            var i = instance_create(x + 7 * image_xscale, y - 7, objCommandoBombExplosion);
+            var i; i = instance_create(x + 7 * image_xscale, y - 7, objCommandoBombExplosion);
             i.image_xscale = image_xscale;
             i.image_yscale = -1;
-            var i = instance_create(x + 7 * image_xscale, y + 7, objCommandoBombExplosion);
+            var i; i = instance_create(x + 7 * image_xscale, y + 7, objCommandoBombExplosion);
             i.image_xscale = image_xscale;
             i.image_yscale = 1;
         }
@@ -72,10 +72,10 @@ if (entityCanStep())
         // Create ground explosions
         if (sprite_index == sprCommandoManBombVer)
         {
-            var i = instance_create(x + 7, y + 7, objCommandoBombExplosion);
+            var i; i = instance_create(x + 7, y + 7, objCommandoBombExplosion);
             i.sprite_index = sprCommandoExplosionHor;
             i.image_xscale = 1;
-            var i = instance_create(x - 7, y + 7, objCommandoBombExplosion);
+            var i; i = instance_create(x - 7, y + 7, objCommandoBombExplosion);
             i.sprite_index = sprCommandoExplosionHor;
             i.image_xscale = -1;
         }

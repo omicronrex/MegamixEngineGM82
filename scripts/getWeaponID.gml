@@ -1,4 +1,4 @@
 // getWeaponID(object)
 // returns the ID of the given weapon object
 
-return global.weaponID[? argument0];
+return ds_map_get(global.weaponID,argument0);

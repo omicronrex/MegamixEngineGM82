@@ -58,13 +58,13 @@ event_inherited();
 
 if (entityCanStep())
 {
-    var lighting_active = false;
+    var lighting_active; lighting_active = false;
 
-    for (var i = 0; i < array_length_1d(lightSource); i++)
+    var i; for ( i = 0; i < array_length_1d(lightSource); i+=1)
     {
         with (lightSource[i])
         {
-            var valid = visible;
+            var valid; valid = visible;
             if (object_index == objOil)
                 if (!fire)
                     valid = false;
@@ -76,7 +76,7 @@ if (entityCanStep())
         }
     }
 
-    var lighting_semi_desired = true;
+    var lighting_semi_desired; lighting_semi_desired = true;
     with (objQuickLightingNormal)
         if (insideView())
         {
@@ -105,7 +105,7 @@ if (entityCanStep())
         lightingSemi = lighting_semi_desired;
 
     roundedLightingLevel = floor(lightingLevel * 5) / 5;
-    var _rrl = roundedLightingLevel;
+    var _rrl; _rrl = roundedLightingLevel;
 
     // oil goes dark
     with (objOil)

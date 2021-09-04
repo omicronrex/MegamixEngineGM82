@@ -176,9 +176,9 @@ if (global.keyShootPressed[playerID] && !playerIsLocked(PL_LOCK_SHOOT) && !insta
             postRotate = parent.image_xscale;
         }
         playSFX(sfxSolarBlazePop);
-        for (var i = 1; i < 4; i++)
+        var i; for (i = 1; i < 4; i+=1)
         {
-            var inst = instance_create(x, y, objFlameMixer);
+            var inst; inst = instance_create(x, y, objFlameMixer);
             inst.cAngle = 90 * i;
             inst.parent = j.parent;
             inst.orgID = j.id;

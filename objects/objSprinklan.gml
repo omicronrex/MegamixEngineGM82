@@ -50,7 +50,7 @@ if (init)
 }
 if (entityCanStep())
 {
-    var prevAnim = anim;
+    var prevAnim; prevAnim = anim;
 
     if (!stopped)
     {
@@ -93,7 +93,7 @@ if (entityCanStep())
         else
         {
             xspeed=0;
-            --stopTimer;
+            stopTimer-=1;
         }
     }
     else
@@ -157,7 +157,7 @@ if (animFrame == 2)
     dir = 1;
 else
     dir = -1;
-var bullet = instance_create(x + 7 * dir, y - 16, objEnemyBullet);
+var bullet; bullet = instance_create(x + 7 * dir, y - 16, objEnemyBullet);
 bullet.xspeed = dir * 2;
 bullet.grav = 0.25;
 bullet.yspeed = -2 - irandom(2);

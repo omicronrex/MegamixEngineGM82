@@ -57,7 +57,7 @@ if (entityCanStep()
         {
             playSFX(sfxGutsQuake);
         }
-        doQuake--;
+        doQuake-=1;
         with (objMegaman)
         {
             if (ground) // shunt mega man off the floor to prevent sliding and break dash
@@ -100,7 +100,7 @@ if (entityCanStep()
             {
                 xspeed = 0;
                 moveDir *= -1;
-                phase++;
+                phase+=1;
             }
             break;
         case 1:
@@ -112,7 +112,7 @@ if (entityCanStep()
             }
             if (cutterFrame == 6 && attackTimer == 0)
             {
-                var inst = instance_create(x + 24 * image_xscale, y - 24, objMadGrinderBlade);
+                var inst; inst = instance_create(x + 24 * image_xscale, y - 24, objMadGrinderBlade);
                 inst.image_xscale = image_xscale;
                 inst.parent = id;
                 child = inst.id;
@@ -124,7 +124,7 @@ if (entityCanStep()
             {
                 hasCutter = true;
                 cutterFrame = 0;
-                phase++;
+                phase+=1;
                 attackTimer = 0;
                 playSFX(sfxCrashBombArm);
             }
@@ -133,16 +133,16 @@ if (entityCanStep()
         case 9: // jump
             yspeed = -4;
             playSFX(sfxCyberGabyoallBoost);
-            phase++;
+            phase+=1;
             break;
         case 4:
         case 10: // land
-            attackTimer++;
+            attackTimer+=1;
             if (ground)
             {
                 attackTimer = 0;
                 doQuake = 48;
-                phase++;
+                phase+=1;
             }
             break;
         case 7: // fire fireballs if variant 0;
@@ -154,11 +154,11 @@ if (entityCanStep()
             {
                 jitterFrame = 2;
                 mouthOpen = true;
-                attackTimer++;
+                attackTimer+=1;
 
                 if (attackTimer == attackTimerMax && shotsFired < 4)
                 {
-                    var fire = instance_create(x + 16 * image_xscale, y - 16, objMadGrinderFire);
+                    var fire; fire = instance_create(x + 16 * image_xscale, y - 16, objMadGrinderFire);
                     with (fire)
                     {
                         instance_create(x, y, objExplosion);
@@ -187,7 +187,7 @@ if (entityCanStep()
                             fire.yspeed = 1.5;
                             break;
                     }
-                    shotsFired++;
+                    shotsFired+=1;
                     attackTimer = 0;
                 }
 
@@ -199,7 +199,7 @@ if (entityCanStep()
                 {
                     attackTimer = 0;
                     shotsFired = 0;
-                    phase++;
+                    phase+=1;
                 }
             }
             break;
@@ -297,7 +297,7 @@ else
     {
         if ((ceil(iFrames / 2) mod 2) || (iceTimer > 0))
         {
-            var flashcol = c_white;
+            var flashcol; flashcol = c_white;
             if (iceTimer > 0)
             {
                 flashcol = make_color_rgb(0, 120, 255);

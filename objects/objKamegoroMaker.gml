@@ -88,7 +88,7 @@ if (entityCanStep())
         contactDamage = 8;
         if (!instance_exists(objKamegoroTornado) && delayPipe == 0)
         {
-            var inst = instance_find(objKamegoroTornadoMakerH, irandom(instance_number(objKamegoroTornadoMakerH) - 1));
+            var inst; inst = instance_find(objKamegoroTornadoMakerH, irandom(instance_number(objKamegoroTornadoMakerH) - 1));
             if (chosenPipe != inst.id)
             {
                 chosenPipe = inst.id;

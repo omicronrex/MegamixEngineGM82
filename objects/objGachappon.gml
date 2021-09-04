@@ -42,7 +42,7 @@ if (entityCanStep())
     }
 
     animFrame += 0.2;
-    var didLoop = false;
+    var didLoop; didLoop = false;
     if (floor(animFrame) > 1)
     {
         animFrame = 0;
@@ -90,7 +90,7 @@ if (entityCanStep())
                 if (didLoop)
                 {
                     animFrame = 1;
-                    var i = instance_create(x, y - 64, objEnemyBullet);
+                    var i; i = instance_create(x, y - 64, objEnemyBullet);
                     i.sprite_index = sprTotemPolenProjectile;
                     i.blockCollision = false;
                     i.grav = 0.25;
@@ -118,14 +118,14 @@ if (entityCanStep())
         case 2: // Regular shot
             if (timer > 20)
             {
-                var pao = floor(animOffset);
+                var pao; pao = floor(animOffset);
                 animOffset += 0.2;
                 if (floor(animOffset) > 3 && pao != floor(animOffset))
                 {
                     animOffset = 3;
                     shootCount += 1;
                     timer = -1;
-                    var i = instance_create(x + 8 * image_xscale, y - 4, objEnemyBullet);
+                    var i; i = instance_create(x + 8 * image_xscale, y - 4, objEnemyBullet);
                     i.xspeed = 3.5 * image_xscale;
                     i.contactDamage = 2;
                 }

@@ -36,7 +36,7 @@ if (entityCanStep())
                 i = instance_create(x, y, objUpnDown);
                 i.respawn = false;
                 i.col = col;
-                cooldownTimer = 120; // <-- cooldown time
+                cooldownTimer = 120; // <-=1 cooldown time
             }
         }
     }

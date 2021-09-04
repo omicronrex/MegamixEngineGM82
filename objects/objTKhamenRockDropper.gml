@@ -40,7 +40,7 @@ if (entityCanStep())
                     if (imgIndex > 6)
                     {
                         dropRock = true;
-                        var i = instance_create(x, y - 7, objTKhamenDropRock);
+                        var i; i = instance_create(x, y - 7, objTKhamenDropRock);
                         i.image_xscale = -image_xscale;
                     }
                 }

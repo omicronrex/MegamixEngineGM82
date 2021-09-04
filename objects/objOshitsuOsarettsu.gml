@@ -51,8 +51,8 @@ if (entityCanStep())
     }
     else
     {
-        var leftLimit = xstart;
-        var rightLimit = xstart + maxDist * 16 * startXscale;
+        var leftLimit; leftLimit = xstart;
+        var rightLimit; rightLimit = xstart + maxDist * 16 * startXscale;
         if (startXscale == -1)
         {
             leftLimit = xstart + maxDist * 16 * startXscale;
@@ -74,7 +74,7 @@ if (entityCanStep())
         if (stunTimer != 0)
         {
             animSpeed = 0.35;
-            var psign = sign(xspeed);
+            var psign; psign = sign(xspeed);
             xspeed += sign(xspeed) * -1 * deccel;
             if (psign != sign(xspeed))
                 xspeed = 0;

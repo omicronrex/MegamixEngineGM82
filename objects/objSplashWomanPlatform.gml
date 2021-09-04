@@ -36,7 +36,7 @@ if (entityCanStep())
     if(timer>startupTime)
     {
         xspeed = spd;
-        var pc = floor(((timer-startupTime)/activeTime)*100);
+        var pc; pc = floor(((timer-startupTime)/activeTime)*100);
         image_index = clamp(round(pc/16.66667),1,6)-1;
         if(timer>startupTime+activeTime)
         {

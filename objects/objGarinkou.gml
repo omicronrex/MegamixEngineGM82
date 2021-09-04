@@ -46,7 +46,7 @@ if (entityCanStep())
         // landing animation
         if (landTimer > 0)
         {
-            landTimer--;
+            landTimer-=1;
             image_index = landTimer div 8;
 
             //Play sound
@@ -59,7 +59,7 @@ if (entityCanStep())
         {
             jumpType = choose(0, 0, 1);
             yspeed = -sqrt(2 * jumpHeight[jumpType] * grav);
-            var airTime = 2 * abs(yspeed / grav);
+            var airTime; airTime = 2 * abs(yspeed / grav);
             xspeed = jumpDistance[jumpType] / airTime * image_xscale;
             jumpXSpeed = xspeed;
         }

@@ -31,7 +31,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    moveTimer--;
+    moveTimer-=1;
     switch (phase)
     {
         case 0:
@@ -79,7 +79,7 @@ if (entityCanStep())
     }
 
     // Animation
-    switchSprites--;
+    switchSprites-=1;
 
     if (switchSprites < 0)
     {

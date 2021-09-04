@@ -66,7 +66,7 @@ if (entityCanStep())
         case 0:
             if (instance_exists(target))
             {
-                if (abs(target.x - x) < 32) // <-- detection range here
+                if (abs(target.x - x) < 32) // <-=1 detection range here
                 {
                     phase = 1;
 

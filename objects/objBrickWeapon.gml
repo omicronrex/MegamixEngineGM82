@@ -50,7 +50,7 @@ applies_to=self
 */
 // spawn debris upon hitting an enemy and being destroyed
 var i;
-for (i = 0; i < 4; i++)
+for (i = 0; i < 4; i+=1)
 {
     debris = instance_create(x, y, objBrickWeaponDebris);
     debris.image_index = i;
@@ -99,8 +99,8 @@ chargedWeaponCost = 4;
 action = 2; // 0 - no frame; 1 - shoot; 2 - throw
 willStop = 1; // If this is 1, the player will halt on shooting ala Metal Blade.
 
-var chargeTime = 57; // Set charge time for this weapon
-var initChargeTime = 20;
+var chargeTime; chargeTime = 57; // Set charge time for this weapon
+var initChargeTime; initChargeTime = 20;
 
 // THE MM11 BRICK WEAPON IS COMPLICATED ALSO, OKAY
 if (global.keyShootPressed[playerID] && !playerIsLocked(PL_LOCK_SHOOT))
@@ -174,21 +174,22 @@ if (global.ammo[playerID, global.weapon[playerID]] >= chargedWeaponCost)
                         playSFX(sfxCharged);
                     }
 
+                    var brick;brick=ds_map_get(global.weaponID,objBrickWeapon)
                     switch (floor(chargeTimer / 3 mod 3))
                     {
                         case 0:
-                            global.primaryCol[playerID] = global.weaponSecondaryColor[global.weaponID[? objBrickWeapon]];
+                            global.primaryCol[playerID] = global.weaponSecondaryColor[brick];
                             global.secondaryCol[playerID] = c_black;
-                            global.outlineCol[playerID] = global.weaponPrimaryColor[global.weaponID[? objBrickWeapon]];
+                            global.outlineCol[playerID] = global.weaponPrimaryColor[brick];
                             break;
                         case 1:
                             global.primaryCol[playerID] = c_black;
-                            global.secondaryCol[playerID] = global.weaponPrimaryColor[global.weaponID[? objBrickWeapon]];
-                            global.outlineCol[playerID] = global.weaponSecondaryColor[global.weaponID[? objBrickWeapon]];
+                            global.secondaryCol[playerID] = global.weaponPrimaryColor[brick];
+                            global.outlineCol[playerID] = global.weaponSecondaryColor[brick];
                             break;
                         case 2:
-                            global.primaryCol[playerID] = global.weaponPrimaryColor[global.weaponID[? objBrickWeapon]];
-                            global.secondaryCol[playerID] = global.weaponSecondaryColor[global.weaponID[? objBrickWeapon]];
+                            global.primaryCol[playerID] = global.weaponPrimaryColor[brick];
+                            global.secondaryCol[playerID] = global.weaponSecondaryColor[brick];
                             global.outlineCol[playerID] = c_black;
                             break;
                     }

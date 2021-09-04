@@ -5,7 +5,7 @@
 // it can be guaranteed that no currently-checked-out locks will be
 // returned.
 
-for (var lp = 0; lp < argument_count; lp++)
+var lp; for (lp = 0; lp < argument_count; lp+=1)
 {
     lockPoolID = argument[lp];
     if (!lockPoolExists(lockPoolID))
@@ -15,7 +15,7 @@ for (var lp = 0; lp < argument_count; lp++)
     }
 
     // remove all locks on this lock pool
-    for (var i = 0; i < global.lockPoolLockCount[lockPoolID]; i++)
+    var i; for (i = 0; i < global.lockPoolLockCount[lockPoolID]; i+=1)
     {
         global.lockPoolLockTable[lockPoolID, i] = false;
     }

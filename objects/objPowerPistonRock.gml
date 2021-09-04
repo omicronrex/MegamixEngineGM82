@@ -33,7 +33,7 @@ event_inherited();
 
 if (global.frozen == false)
 {
-    canCollide--;
+    canCollide-=1;
 
     if (canCollide > 0 && checkSolid(x, y))
     {
@@ -47,13 +47,13 @@ if (global.frozen == false)
 
     if (ground && canCollide <= 0)
     {
-        var inst = instance_create(x, y, objHarmfulExplosion);
+        var inst; inst = instance_create(x, y, objHarmfulExplosion);
         with (parent)
         {
             child = inst.id;
         }
 
-        for (var i = 0; i < 2; i += 1)
+        var i; for ( i = 0; i < 2; i += 1)
         {
             inst = instance_create(x, y - 8, objNewShotmanBullet);
             inst.grav = 0.25;

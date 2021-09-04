@@ -28,7 +28,7 @@ if (entityCanStep() && !killed && !stop)
 {
     if (isFight)
     {
-        attackTimer++;
+        attackTimer+=1;
         if (attackTimer == missileInterval * 0.25)
         {
             hatchIndex = 1; // Hatch partially open.

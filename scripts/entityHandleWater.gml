@@ -2,11 +2,11 @@
 
 if (inWater != -1) // If inWater is set to -1 then there can be no interaction with water
 {
-    var xw = xspeed + hspeed;
-    var yw = yspeed + vspeed;
-    var _yc = bboxGetYCenter();
-    var preWater = inWater;
-    var overlapping = instance_place(x, y - 2 * sign(grav), objWater);
+    var xw; xw = xspeed + hspeed;
+    var yw; yw = yspeed + vspeed;
+    var _yc; _yc = bboxGetYCenter();
+    var preWater; preWater = inWater;
+    var overlapping; overlapping = instance_place(x, y - 2 * sign(grav), objWater);
 
     if (xw != 0)
     {
@@ -106,7 +106,7 @@ if (inWater != -1) // If inWater is set to -1 then there can be no interaction w
             {
                 if (place_meeting(x, y + yw, other) == preWater)
                 {
-                    var splash = instance_create(min(max(bboxGetXCenterObject(other.id), bbox_left + 16), bbox_right - 16), bbox_top, objSplash);
+                    var splash; splash = instance_create(min(max(bboxGetXCenterObject(other.id), bbox_left + 16), bbox_right - 16), bbox_top, objSplash);
                     if (yw * (preWater - other.inWater) > 0)
                     {
                         splash.image_angle += 180;
@@ -122,7 +122,7 @@ if (inWater != -1) // If inWater is set to -1 then there can be no interaction w
             {
                 if (place_meeting(x + xw, y, other) == preWater)
                 {
-                    var splash = instance_create(bbox_left, min(max(bboxGetYCenterObject(other.id), bbox_top + 16), bbox_bottom - 16), objSplash);
+                    var splash; splash = instance_create(bbox_left, min(max(bboxGetYCenterObject(other.id), bbox_top + 16), bbox_bottom - 16), objSplash);
                     splash.image_angle = 90;
                     if (xw * (preWater - other.inWater) > 0)
                     {

@@ -177,7 +177,7 @@ if ((entityCanStep()) && !pop)
             {
                 iFrames = 4;
                 playSFX(sfxEnemyHit);
-                healthpoints --;
+                healthpoints -=1;
             }
 
             instance_destroy();

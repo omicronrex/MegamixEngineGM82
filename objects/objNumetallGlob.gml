@@ -33,7 +33,7 @@ action_id=603
 applies_to=self
 */
 /// Remove ice physics
-var globCount = 0;
+var globCount; globCount = 0;
 with (objNumetallGlob)
 {
     if (id != other.id && capture == other.capture)
@@ -71,7 +71,7 @@ if (!global.frozen || (global.switchingSections && phase == 1))
 
     if (phase == 0 && !global.switchingSections) // Bullet behaviour
     {
-        var i = instance_place(x, y, objMegaman);
+        var i; i = instance_place(x, y, objMegaman);
         if (i != noone)
         {
             phase = 1;

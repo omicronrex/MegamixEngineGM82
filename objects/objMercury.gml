@@ -126,7 +126,7 @@ if (entityCanStep())
         {
             hasTriggeredFall = true;
             y = ystart;
-            attackTimer++;
+            attackTimer+=1;
 
             // Intro animation
             if (attackTimer < 10)
@@ -171,13 +171,13 @@ if (entityCanStep())
     // Battle Data
     if (isFight)
     {
-        delay--;
+        delay-=1;
 
         switch (phase)
         {
             // Fire Grab Buster
             case 0:
-                attackTimer++;
+                attackTimer+=1;
                 if ((attackTimer > 15) && (attackTimer mod 30 == 0) && (shotsFired < 9))
                 {
                     image_index = 8;
@@ -201,7 +201,7 @@ if (entityCanStep())
                         image_xscale = other.image_xscale;
                         parent = other.id;
                     }
-                    other.shotsFired++;
+                    other.shotsFired+=1;
                 } // If maximum Grab Buster shots have been fired
                 else if (shotsFired == 9)
                 {
@@ -213,7 +213,7 @@ if (entityCanStep())
 
             // Form blob
             case 1:
-                attackTimer++;
+                attackTimer+=1;
                 if (attackTimer > 30)
                 {
                     image_speed = 0.25;
@@ -230,11 +230,11 @@ if (entityCanStep())
                     if (blobMove == 0)
                     {
                         xspeed = 4 * image_xscale;
-                        blobTimer++;
+                        blobTimer+=1;
 
                         if ((blobTimer == 17) && (instance_number(objMercurySmallBlob) < 2)) //( round(x) == view_xview + 85) || (round(x) == view_xview + 170)
                         {
-                            var i = instance_create(x, y, objMercurySmallBlob);
+                            var i; i = instance_create(x, y, objMercurySmallBlob);
                             i.blobMove = blobMove;
                             i.image_xscale = image_xscale;
                             blobTimer = 0;
@@ -336,7 +336,7 @@ if (entityCanStep())
 
             // Pop back up
             case 3:
-                attackTimer++;
+                attackTimer+=1;
                 if (attackTimer >= 30)
                 {
                     if (attackTimer == 30)

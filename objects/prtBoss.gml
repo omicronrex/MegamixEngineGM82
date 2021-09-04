@@ -47,7 +47,7 @@ applies_to=self
 event_inherited();
 
 //Default weaknesses
-for(var i=0; i<global.totalWeapons ; i++)
+var i; for(i =0; i<global.totalWeapons ; i+=1)
 {
     enemyDamageValue(global.weaponObject[i], 1);
 }
@@ -467,7 +467,7 @@ if (instance_exists(objMegaman) && !global.frozen && !isFight && !wasKilled)
                     healthBarHealth += healthBarTimer div 3;
                     healthBarTimer = 0;
                 }
-                var maxHealth=healthpoints;
+                var maxHealth; maxHealth =healthpoints;
                 if(shareMode==1)
                 {
                     with(prtBoss)
@@ -615,7 +615,7 @@ else if(!quickSpawn)
 {
     if (healthParent==-1)
     {
-        var newParent = noone;
+        var newParent; newParent = noone;
         with (prtBoss)
         {
             if (id!=other.id && !dead && healthParent == other.id)
@@ -674,7 +674,7 @@ if (quickSpawn || global.aliveBosses <= 0)
     }
     else if (itemDrop == objEnergyElement)
     {
-        var a = instance_create(bboxGetXCenter() - 8, bboxGetYCenter() - 8, objEnergyElement);
+        var a; a = instance_create(bboxGetXCenter() - 8, bboxGetYCenter() - 8, objEnergyElement);
         with (a)
         {
             name = other.elementName;

@@ -39,7 +39,7 @@ applies_to=self
 event_inherited();
 if (entityCanStep())
 {
-    attackTimer++;
+    attackTimer+=1;
     cAngle += addAngle * image_xscale;
     if (abs(cAngle) >= 360)
     {
@@ -50,7 +50,7 @@ if (entityCanStep())
         if (image_index == 1)
         {
             image_index = 2;
-            for (var i = 0; i < 4; i++)
+            var i; for ( i = 0; i < 4; i+=1)
             {
                 star[i] = instance_create(x, y - 24, objMorningJoeStar);
                 star[i].newX = x;
@@ -63,7 +63,7 @@ if (entityCanStep())
         {
             animFrame += 0.125;
             image_index = 2 + (animFrame mod 3);
-            for (var i = 0; i < 4; i++)
+            var i; for ( i = 0; i < 4; i+=1)
             {
                 star[i].newX = xOffset[floor(animFrame mod 3)] * image_xscale + round(x + cos(degtorad(cAngle + i * 90)) * cDistance);
                 star[i].newY = y - 24;
@@ -84,7 +84,7 @@ if (entityCanStep())
     }
     else if (attackTimer == 124)
     {
-        for (var i = 0; i < 4; i++)
+        var i; for ( i = 0; i < 4; i+=1)
         {
             star[i].newX = x + 32 * image_xscale;
             star[i].newY = y;

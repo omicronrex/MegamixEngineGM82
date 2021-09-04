@@ -128,7 +128,7 @@ if (!global.frozen)
             cAngle += 4;
             bobAround = true;
             image_speed = 0;
-            attackTimer++;
+            attackTimer+=1;
             if (attackTimer < 8)
                 image_index = 0;
             if (attackTimer == 8)
@@ -158,7 +158,7 @@ if (entityCanStep())
     if (isFight == true)
     {
         image_speed = 0;
-        attackTimer++;
+        attackTimer+=1;
         cAngle += 4;
         if (cAngle >= 360)
         {
@@ -199,7 +199,7 @@ if (entityCanStep())
                 {
                     hasFired = true;
                     playSFX(sfxSonicManSonicMine);
-                    var inst = instance_create(x, y, objSonicMine);
+                    var inst; inst = instance_create(x, y, objSonicMine);
                     inst.xspeed = 4 * image_xscale;
                     inst = instance_create(x, y, objSonicMine);
                     inst.xspeed = 2.5 * image_xscale;

@@ -10,9 +10,6 @@ mathTableSetup();
 lockPoolInit();
 globalLockInit();
 
-// extension initialization
-cleanMem('init');
-
 sound_add_directory("data\sound\",".wav",0,1)
 
 // Keys
@@ -43,7 +40,7 @@ global.keyWeaponSwitchRightPressed[4] = 0;
 global.quadWidth = 256;
 global.quadHeight = 240;
 
-// borders for game area outside of display area -- screenHeight must equal quadHeight + quadMarginTop + quadMarginBottom
+// borders for game area outside of display area -=1 screenHeight must equal quadHeight + quadMarginTop + quadMarginBottom
 // (Note that these values are also set automatically given a grid room background)
 global.quadMarginTop = 8;
 global.quadMarginBottom = 8;
@@ -138,14 +135,14 @@ global.keyCoinTotal = 0;
 global.keyCoinCollected = 0;
 
 // The default player used
-for (i = 0; i < 5; i++)
+for (i = 0; i < 5; i+=1)
 {
     global.characterSelected[i] = "NONE";
 }
 // Weapon inventory
 weaponSetup();
 
-// cached view -- view is fixed here if not following any object
+// cached view -=1 view is fixed here if not following any object
 global.cachedXView = 0;
 global.cachedYView = 0;
 
@@ -228,8 +225,3 @@ global.factionStance[7, 4] = 0;
 global.factionStance[7, 5] = 0;
 global.factionStance[7, 6] = 0;
 global.factionStance[7, 7] = 0;
-
-// load external rooms
-global.roomExternalCache = ds_map_create();
-global.roomExternalFileName = ds_map_create();
-global.roomExternalSetupMap = ds_map_create();

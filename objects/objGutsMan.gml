@@ -254,7 +254,7 @@ if (entityCanStep())
                     blockCollision = true;
                     depth = prevDepth;
                     image_speed = 0;
-                    var cy = bboxGetYCenter();
+                    var cy; cy = bboxGetYCenter();
 
                     if (positionCollision(bbox_left, cy, 1, 1))
                     {
@@ -301,7 +301,7 @@ if (entityCanStep())
                     visible = 1;
                     canHit = true;
                     canDamage = true;
-                    var _x = x;
+                    var _x; _x = x;
                     x = newX;
                     if (!checkSolid(0, 0, 1, 1))
                     {
@@ -311,8 +311,8 @@ if (entityCanStep())
                     block.x = x;
                     block.y = y;
                     timer = 0;
-                    var cy = bboxGetYCenter();
-                    var safeToAdjust = !checkSolid(32 * sign(newX - _x), -64, 1, 1);
+                    var cy; cy = bboxGetYCenter();
+                    var safeToAdjust; safeToAdjust = !checkSolid(32 * sign(newX - _x), -64, 1, 1);
                     if (safeToAdjust)
                     {
                         y -= 64;

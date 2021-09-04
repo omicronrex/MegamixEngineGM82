@@ -78,7 +78,7 @@ if (!global.frozen)
     }
     else
     {
-        deathTimer--;
+        deathTimer-=1;
         if (!deathTimer)
         {
             event_user(EV_DEATH);
@@ -123,13 +123,13 @@ if (!dead)
     // flicker before disappearing:
     if (growing || deathTimer >= 48 || (deathTimer mod 12 >= 6))
     {
-        var length = abs(floor(sprite_width));
-        var sLength = length;
-        var img = sprite_get_width(sprite_index) - ((timer / 2) mod sprite_get_width(sprite_index));
+        var length; length = abs(floor(sprite_width));
+        var sLength; sLength = length;
+        var img; img = sprite_get_width(sprite_index) - ((timer / 2) mod sprite_get_width(sprite_index));
 
         while (length > 0)
         {
-            var draw = min(sprite_get_width(sprite_index) - img, length);
+            var draw; draw = min(sprite_get_width(sprite_index) - img, length);
 
             draw_sprite_part_ext(sprite_index, 0, img, 0, draw, sprite_height * image_yscale, round(x) + ((sLength - length) * sign(image_xscale)), round(y), sign(image_xscale), image_yscale, global.primaryCol[playerID], 1);
             draw_sprite_part_ext(sprite_index, 1, img, 0, draw, sprite_height * image_yscale, round(x) + ((sLength - length) * sign(image_xscale)), round(y), sign(image_xscale), image_yscale, global.secondaryCol[playerID], 1);
@@ -138,13 +138,13 @@ if (!dead)
             img = 0;
         }
 
-        for (var i = 0; i < 2; i++)
+        var i; for ( i = 0; i < 2; i+=1)
         {
-            var xs = 0;
+            var xs; xs = 0;
 
             if (i == 0)
             {
-                var xs = sLength * sign(image_xscale);
+                var xs; xs = sLength * sign(image_xscale);
             }
             else if (growing)
             {

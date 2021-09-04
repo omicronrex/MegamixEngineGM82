@@ -131,45 +131,45 @@ if (canStep) // When the door is closing, we should not move
 {
     if (!(door && !canProgressDoor))
     {
-        var bor = 0;
-        var sp = 0;
+        var bor; bor = 0;
+        var sp; sp = 0;
 
         if (dir == 'x') // Set variables for left and right
         {
-            var mview = view_xview;
-            var sview = view_yview;
-            var whview = view_wview;
+            var mview; mview = view_xview;
+            var sview; sview = view_yview;
+            var whview; whview = view_wview;
 
-            var lb = (max(global.sectionTop + global.quadMarginTop, global.borderLockTop) - sview);
-            var rb = (min(global.sectionBottom - global.quadMarginBottom, global.borderLockBottom) - (sview + view_hview));
-            var dis = (round(triggerPlayer.y) - (sview + view_hview * 0.5));
+            var lb; lb = (max(global.sectionTop + global.quadMarginTop, global.borderLockTop) - sview);
+            var rb; rb = (min(global.sectionBottom - global.quadMarginBottom, global.borderLockBottom) - (sview + view_hview));
+            var dis; dis = (round(triggerPlayer.y) - (sview + view_hview * 0.5));
 
             if (num == 1)
             {
-                var pos = max(global.sectionLeft, global.borderLockLeft);
+                var pos; pos = max(global.sectionLeft, global.borderLockLeft);
             }
             else if (num == -1)
             {
-                var pos = min(global.sectionRight, global.borderLockRight) - whview;
+                var pos; pos = min(global.sectionRight, global.borderLockRight) - whview;
             }
         }
         else if (dir == 'y') // Set variables for up and down
         {
-            var mview = view_yview;
-            var sview = view_xview;
-            var whview = view_hview;
+            var mview; mview = view_yview;
+            var sview; sview = view_xview;
+            var whview; whview = view_hview;
 
-            var lb = (max(global.sectionLeft, global.borderLockLeft) - sview);
-            var rb = (min(global.sectionRight, global.borderLockRight) - (sview + view_wview));
-            var dis = round(triggerPlayer.x) - (sview + view_wview * 0.5);
+            var lb; lb = (max(global.sectionLeft, global.borderLockLeft) - sview);
+            var rb; rb = (min(global.sectionRight, global.borderLockRight) - (sview + view_wview));
+            var dis; dis = round(triggerPlayer.x) - (sview + view_wview * 0.5);
 
             if (num == 1)
             {
-                var pos = max(global.sectionTop + global.quadMarginTop, global.borderLockTop);
+                var pos; pos = max(global.sectionTop + global.quadMarginTop, global.borderLockTop);
             }
             else if (num == -1)
             {
-                var pos = min(global.sectionBottom - global.quadMarginBottom, global.borderLockBottom) - whview;
+                var pos; pos = min(global.sectionBottom - global.quadMarginBottom, global.borderLockBottom) - whview;
             }
         }
 
@@ -246,7 +246,7 @@ if (canStep) // When the door is closing, we should not move
             }
         }
 
-        var pt = pos + (((num < 0) * whview) + ((borderDistance * (1 + (dir == 'y' && plat > 0))) * num));
+        var pt; pt = pos + (((num < 0) * whview) + ((borderDistance * (1 + (dir == 'y' && plat > 0))) * num));
 
         if (dir == 'x')
         {

@@ -37,7 +37,7 @@ if (entityCanStep())
     }
 
     // AI
-    destroyTimer++;
+    destroyTimer+=1;
 
     if (destroyTimer == 60)
     {
@@ -47,7 +47,7 @@ if (entityCanStep())
     // animation
     if (destroyTimer > 20)
     {
-        animTimer++;
+        animTimer+=1;
 
         if (animTimer == 4)
         {

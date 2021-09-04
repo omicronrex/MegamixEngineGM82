@@ -1,11 +1,11 @@
 /// getWeaponDamage(aggressor, [target])
 // returns how much damage the aggressor would do to the given target.
 
-var aggressor = argument[0];
-var target = id;
+var aggressor; aggressor = argument[0];
+var target; target = id;
 if (argument_count > 1)
 {
-    var target = argument[1];
+    var target; target = argument[1];
 }
 
 with (target) // Do this to set "other" to the target's ID

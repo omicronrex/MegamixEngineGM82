@@ -1,5 +1,5 @@
 /// addChoice(number, text)
-var i = instance_nearest(x, y, objDialogueBox);
+var i; i = instance_nearest(x, y, objDialogueBox);
 
 _on = argument0; // on = option_number
 _option = argument1;

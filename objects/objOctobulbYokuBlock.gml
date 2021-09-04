@@ -25,7 +25,7 @@ applies_to=self
 event_inherited();
 if (entityCanStep())
 {
-    var active = false;
+    var active; active = false;
     if (myFlag == -1)
     {
         if (instance_exists(objOctobulb))

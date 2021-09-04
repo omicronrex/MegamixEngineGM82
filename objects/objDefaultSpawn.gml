@@ -11,25 +11,3 @@ respawnAnimation = 0;
 
 //@cc play the animation sequence while ready's being displayed
 showDuringReady = false;
-
-
-// since this object is the first in the resource tree,
-// and is ubiquitous among levels, it must help bootstrap
-// the external room loader
-with (objExternalRoomSetup)
-{
-    event_perform(ev_create, 0);
-}
-#define Other_4
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-// since this object is the first in the resource tree,
-// and is ubiquitous among levels, it must help bootstrap
-// the external room loader
-with (objExternalRoomSetup)
-{
-    event_perform(ev_other, ev_room_start);
-}

@@ -80,7 +80,7 @@ if (entityCanStep())
             // setup
             isSolid = false;
 
-            var ax = x;
+            var ax; ax = x;
             if (image_xscale < 0)
                 ax -= 16;
 
@@ -111,7 +111,7 @@ if (entityCanStep())
             else
             {
                 // move up/down to partner
-                var yDir = sign(partner.y - y)
+                var yDir; yDir = sign(partner.y - y)
                     ;
                 if (abs(partner.y - y) < spd)
                     y = partner.y;
@@ -126,7 +126,7 @@ if (entityCanStep())
             // move left/right to partner
             if (abs(partner.x - x) > 1.5 * moveSpeed)
             {
-                var xDir = sign(partner.x - x);
+                var xDir; xDir = sign(partner.x - x);
                 x += xDir * moveSpeed;
             }
             else
@@ -178,7 +178,7 @@ applies_to=self
 event_inherited();
 
 // determine if this section already has a control object
-var controllerExists = false;
+var controllerExists; controllerExists = false;
 
 setSection(x, y, false);
 
@@ -211,7 +211,7 @@ if (!controllerExists)
                 {
                     puyoBrickPriorities[other.puyoBrickN] = priority;
                     other.puyoBrickList[other.puyoBrickN] = id;
-                    other.puyoBrickN++;
+                    other.puyoBrickN+=1;
                 }
             }
 

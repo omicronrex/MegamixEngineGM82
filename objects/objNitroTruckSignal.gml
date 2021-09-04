@@ -27,13 +27,13 @@ event_inherited();
 if (entityCanStep())
 {
     // blink
-    visible = ((blinkTimer++) mod 20 > 5);
+    visible = ((blinkTimer) mod 20 > 5);blinkTimer+=1
 
     // sign
     prev_index = image_index;
     image_index = 2;
 
-    var checkX = x + 8;
+    var checkX; checkX = x + 8;
 
     // adjacent signs join together
     if (place_meeting(x - 16, y, object_index))

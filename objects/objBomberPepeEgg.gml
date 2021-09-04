@@ -17,7 +17,7 @@ facePlayerOnSpawn = true;
 // enemy specific
 lands = 0;
 
-yspeed = -1; // <-- initial throwing arc
+yspeed = -1; // <-=1 initial throwing arc
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -40,10 +40,10 @@ if (entityCanStep())
         switch (lands)
         {
             case 1:
-                yspeed = -4; // <-- first bounce height
+                yspeed = -4; // <-=1 first bounce height
                 break;
             case 2:
-                yspeed = -2.6; // <-- second bounce height
+                yspeed = -2.6; // <-=1 second bounce height
                 break;
             case 3:
                 event_user(0); // blow up

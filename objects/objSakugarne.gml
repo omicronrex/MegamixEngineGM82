@@ -217,7 +217,7 @@ if (active)
     {
         if (yspeed * gravDir >= 0 && !global.timeStopped)
         {
-            var spadd = 1;
+            var spadd; spadd = 1;
             if (!playerIsLocked(PL_LOCK_JUMP))
             {
                 spadd += global.keyJump[playerID];

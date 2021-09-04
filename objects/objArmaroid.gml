@@ -46,7 +46,7 @@ if (entityCanStep())
                 if (imgIndex == 1)
                 {
                     imgIndex = 3;
-                    var i = instance_create(x - 16 * image_xscale, y - 16, objArmaroidMissile);
+                    var i; i = instance_create(x - 16 * image_xscale, y - 16, objArmaroidMissile);
                     missile = i.id;
                     if (image_index == -1)
                     {
@@ -60,7 +60,7 @@ if (entityCanStep())
                     }
                     i.parent = id;
                     playSFX(sfxMissileLaunch);
-                    shotsFired++;
+                    shotsFired+=1;
                 }
                 else if (imgIndex == 4)
                 {
@@ -125,10 +125,10 @@ if (entityCanStep())
             break;
         // Spin
         case 3:
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer <= 0)
             {
-                spinTimer--;
+                spinTimer-=1;
                 if (spinTimer > 0)
                 {
                     if (spinTimer <= 90)

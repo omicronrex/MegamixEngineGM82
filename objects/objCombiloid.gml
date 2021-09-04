@@ -103,7 +103,7 @@ if (entityCanStep()
             if (attackTimer >= 4 && wireY < (abs((round(y - partner.y)) / 8)))
             {
                 attackTimer = 0;
-                wireY++;
+                wireY+=1;
             }
             if (attackTimer >= 32)
             {
@@ -115,7 +115,7 @@ if (entityCanStep()
             if (attackTimer >= 4 && wireY > 0)
             {
                 attackTimer = 0;
-                wireY--;
+                wireY-=1;
             }
             if (wireY == 0)
             {
@@ -145,7 +145,7 @@ if (entityCanStep()
             if (attackTimer >= 48)
             {
                 playSFX(sfxEnemyShoot);
-                var inst = instance_create(x + 8, y, objCombiloidProjectile);
+                var inst; inst = instance_create(x + 8, y, objCombiloidProjectile);
                 inst.sprite_index = sprCombiloidBullet2;
                 inst.dir = 0;
                 inst.image_xscale = 1;
@@ -157,7 +157,7 @@ if (entityCanStep()
                 inst.spd = 2.5;
                 attackTimer = 0;
             }
-            var foundSolid = true;
+            var foundSolid; foundSolid = true;
             mask_index = mskCombiDetector;
             if (!checkSolid((32 * image_xscale), 16 * image_yscale))
             {
@@ -233,9 +233,9 @@ applies_to=self
 */
 if (instance_exists(partner))
 {
-    var ySeRe = sign(y - partner.y);
+    var ySeRe; ySeRe = sign(y - partner.y);
 
-    for (var i = 0; i < wireY; i++)
+    var i; for ( i = 0; i < wireY; i+=1)
     {
         draw_sprite(sprCombiloidWire, 0, x, y - (i * 8) * ySeRe);
     }

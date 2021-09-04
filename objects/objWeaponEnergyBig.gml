@@ -35,10 +35,10 @@ applies_to=self
 */
 instance_destroy();
 
-var pid = collectPlayer.playerID;
+var pid; pid = collectPlayer.playerID;
 increaseWeapon = global.weapon[pid];
 
-var e = global.ammo[pid, global.weapon[pid]];
+var e; e = global.ammo[pid, global.weapon[pid]];
 
 // Energybalancer
 if (global.weapon[pid] == 0 || e == 28)

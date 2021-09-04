@@ -98,13 +98,13 @@ if (entityCanStep())
             if (timer == 0)
             {
                 despawnRange = -1;
-                var _y = y - 16 * (vdir == 1);
-                var _x = x - 16 * (windowDir == -1);
+                var _y; _y = y - 16 * (vdir == 1);
+                var _x; _x = x - 16 * (windowDir == -1);
                 playSFX(sfxPointanMake);
                 switch (pattern)
                 {
                     case 0:
-                        var i = instance_create(_x, _y, objPointanWindow);
+                        var i; i = instance_create(_x, _y, objPointanWindow);
                         i.type = 1;
                         i = instance_create(_x + 16 * windowDir, _y, objPointanWindow);
                         i.dir = windowDir;
@@ -117,17 +117,17 @@ if (entityCanStep())
                         i.delay = 90;
                         break;
                     case 1:
-                        for (var j = 0; j < 4; j++)
+                        var j; for ( j = 0; j < 4; j+=1)
                         {
-                            var i = instance_create(_x, _y - j * 16 * vdir, objPointanWindow);
+                            var i; i = instance_create(_x, _y - j * 16 * vdir, objPointanWindow);
                             i.delay = j * 30;
                             i.dir = windowDir;
                         }
                         break;
                     case 2:
-                        for (var j = 0; j < 4; j++)
+                        var j; for ( j = 0; j < 4; j+=1)
                         {
-                            var i = instance_create(_x + j * 16 * windowDir, _y, objPointanWindow);
+                            var i; i = instance_create(_x + j * 16 * windowDir, _y, objPointanWindow);
                             i.delay = j * 30;
                             i.type = 1;
                         }
@@ -194,23 +194,23 @@ applies_to=self
 event_inherited();
 if (!dead && phase == 1)
 {
-    var width = abs(prevX - x);
-    var height = abs(prevY - y);
-    var top = (prevY < y) * prevY + (prevY >= y) * y;
-    var bottom = (prevY >= y) * prevY + (prevY < y) * y;
-    var left = (prevX < x) * prevX + (prevX >= x) * x;
-    var right = (prevX >= x) * prevX + (prevX < x) * x;
+    var width; width = abs(prevX - x);
+    var height; height = abs(prevY - y);
+    var top; top = (prevY < y) * prevY + (prevY >= y) * y;
+    var bottom; bottom = (prevY >= y) * prevY + (prevY < y) * y;
+    var left; left = (prevX < x) * prevX + (prevX >= x) * x;
+    var right; right = (prevX >= x) * prevX + (prevX < x) * x;
     draw_sprite(sprPointanSelectionSquare, 0, left, top);
     draw_sprite(sprPointanSelectionSquare, 2, left, bottom);
     draw_sprite(sprPointanSelectionSquare, 4, right, bottom);
     draw_sprite(sprPointanSelectionSquare, 6, right, top);
 
-    for (var i = 1; i < floor(width / 4); i += 1)
+    var i; for ( i = 1; i < floor(width / 4); i += 1)
     {
         draw_sprite(sprPointanSelectionSquare, 7, left + i * 4, top);
         draw_sprite(sprPointanSelectionSquare, 3, left + i * 4, bottom);
     }
-    for (var i = 1; i < floor(height / 4); i += 1)
+    var i; for ( i = 1; i < floor(height / 4); i += 1)
     {
         draw_sprite(sprPointanSelectionSquare, 1, left, top + i * 4);
         draw_sprite(sprPointanSelectionSquare, 5, right, top + i * 4);

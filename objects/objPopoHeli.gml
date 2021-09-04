@@ -83,7 +83,7 @@ if (init && entityCanStep())
         if ((x - prevX) * image_xscale < -lenght / 2)
         {
             // set y to parabolic position based on x
-            var yp = ((abs(x - prevX + xspeed + image_xscale * (lenght / 2))) / lenght) * 2;
+            var yp; yp = ((abs(x - prevX + xspeed + image_xscale * (lenght / 2))) / lenght) * 2;
             yspeed = (prevY - y + (yp * yp * spawnHeightOffset));
 
             // accelerate
@@ -109,8 +109,8 @@ if (init && entityCanStep())
     {
         if (moveTimer != 0)
         {
-            moveTimer--;
-            shootTimer--;
+            moveTimer-=1;
+            shootTimer-=1;
             if (shootTimer == 0)
             {
                 i = instance_create(x + 9 * image_xscale, y + 7, objPopoHeliFire);

@@ -25,7 +25,7 @@ event_inherited();
 if (entityCanStep())
 {
     // animation
-    animTimer++;
+    animTimer+=1;
 
     if (animTimer == 4 && image_index != 2)
     {
@@ -34,7 +34,7 @@ if (entityCanStep())
     }
 
     // Die.
-    destroyTimer--;
+    destroyTimer-=1;
 
     // "puff out" effect
     if (destroyTimer == 0)

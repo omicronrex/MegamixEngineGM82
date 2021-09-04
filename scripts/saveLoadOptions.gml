@@ -1,6 +1,6 @@
 /// saveLoadOptions(save?);
 // saves / loads options
-// save? -- true: save; false: load
+// save? -=1 true: save; false: load
 
 slBegin(argument0, "options.sav")
 
@@ -25,7 +25,7 @@ global.showControllerOverlay = sl(global.showControllerOverlay, "controlleroverl
 global.escapeBehavior         = sl(global.escapeBehavior, "escapebehavior");
 
 // controls
-for (var i = 0; i < 4; i += 1)
+var i; for (i = 0; i < 4; i += 1)
 {
     // keyboard
     global.leftKey[i]  = sl(global.leftKey[i],  "key-l" + string(i));

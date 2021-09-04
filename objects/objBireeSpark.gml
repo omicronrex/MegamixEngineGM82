@@ -34,11 +34,11 @@ if (entityCanStep())
 
     xspeed = 1 * image_xscale;
 
-    shootTimer--;
+    shootTimer-=1;
 
     if (shootTimer <= 0)
     {
-        var i = instance_create(x, y + 14, objBireeSparkShot);
+        var i; i = instance_create(x, y + 14, objBireeSparkShot);
         i.image_xscale = image_xscale;
         shootTimer = 180;
     }

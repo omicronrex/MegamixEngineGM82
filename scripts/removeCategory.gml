@@ -1,18 +1,17 @@
 /// removeCategory(entity, category)
 /// removes the given category from the given entity, if the entity has it.
 
-var entity = argument0;
-var category = argument1;
+var entity; entity = argument0;
+var category; category = argument1;
 if (category == "")
 {
     exit;
 }
-var a = stringSplit(entity.category, ",", true);
-var deleteIndex = indexOf(a, category)
-    ;
-var b;
-b[0] = "";
-for (var i = 0; i < array_length_1d(a); i++)
+var a; a = stringSplit(entity.category, ",", true);
+var deleteIndex; deleteIndex = indexOf(a, category)
+
+var b; b[0] = "";
+var i; for (i = 0; i < array_length_1d(a); i+=1)
 {
     if (i != deleteIndex)
     {

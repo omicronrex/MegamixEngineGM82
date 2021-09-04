@@ -156,7 +156,7 @@ applies_to=self
 */
 if (global.damage != 0 && instance_exists(parent))
 {
-    var xs = dashSpeed * parent.image_xscale * 1.5;
+    var xs; xs = dashSpeed * parent.image_xscale * 1.5;
 
     with (other)
     {
@@ -216,8 +216,8 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var chargeTime = 40; // Set charge time for this weapon
-var initChargeTime = 20;
+var chargeTime; chargeTime = 40; // Set charge time for this weapon
+var initChargeTime; initChargeTime = 20;
 
 // Shooting buster shots if not charged.
 if (global.keyShootPressed[playerID] && !playerIsLocked(PL_LOCK_SHOOT) && !instance_exists(objBreakDash))
@@ -286,21 +286,22 @@ if (global.ammo[playerID, global.weapon[playerID]] > 0)
                         audio_stop_sound(sfxCharging);
                         playSFX(sfxCharged);
                     }
+                    breakdash=ds_map_get(global.weaponID,objBreakDash)
                     switch (floor(chargeTimer / 3 mod 3))
                     {
                         case 0:
-                            global.primaryCol[playerID] = global.weaponSecondaryColor[global.weaponID[? objBreakDash]];
+                            global.primaryCol[playerID] = global.weaponSecondaryColor[breakdash];
                             global.secondaryCol[playerID] = c_black;
-                            global.outlineCol[playerID] = global.weaponPrimaryColor[global.weaponID[? objBreakDash]];
+                            global.outlineCol[playerID] = global.weaponPrimaryColor[breakdash];
                             break;
                         case 1:
                             global.primaryCol[playerID] = c_black;
-                            global.secondaryCol[playerID] = global.weaponPrimaryColor[global.weaponID[? objBreakDash]];
-                            global.outlineCol[playerID] = global.weaponSecondaryColor[global.weaponID[? objBreakDash]];
+                            global.secondaryCol[playerID] = global.weaponPrimaryColor[breakdash];
+                            global.outlineCol[playerID] = global.weaponSecondaryColor[breakdash];
                             break;
                         case 2:
-                            global.primaryCol[playerID] = global.weaponPrimaryColor[global.weaponID[? objBreakDash]];
-                            global.secondaryCol[playerID] = global.weaponSecondaryColor[global.weaponID[? objBreakDash]];
+                            global.primaryCol[playerID] = global.weaponPrimaryColor[breakdash];
+                            global.secondaryCol[playerID] = global.weaponSecondaryColor[breakdash];
                             global.outlineCol[playerID] = c_black;
                             break;
                     }

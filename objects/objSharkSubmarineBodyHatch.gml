@@ -135,7 +135,7 @@ if (entityCanStep())
         {
             hatchIndex = 0;
         }
-        timer++;
+        timer+=1;
         image_index = hatchIndex; // Making sure the hitbox changes when opened.
     }
     else
@@ -178,10 +178,10 @@ if (instance_exists(bodyShark))
     {
         if ((ceil(iFrames / 2) mod 4) || !iFrames)
         {
-            var iceBlinkTime = 42;
+            var iceBlinkTime; iceBlinkTime = 42;
             if ((ceil(iFrames / 2) mod 2) || (iceTimer > 0 && (iceTimer > iceBlinkTime || (iceTimer <= iceBlinkTime && iceTimer mod 4 == 0))))
             {
-                var flashcol = c_white;
+                var flashcol; flashcol = c_white;
                 if (iceTimer > 0 && (iceTimer > iceBlinkTime || (iceTimer <= iceBlinkTime && iceTimer mod 4 == 0)))
                 {
                     switch (iceGraphicStyle)

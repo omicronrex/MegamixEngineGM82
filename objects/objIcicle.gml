@@ -6,7 +6,7 @@ applies_to=self
 */
 // Falling icicle gimmick from the Dr Wily's Revenge.
 // creation code:
-// appearTime -- the amount of time it takes before the icicle begins to form.
+// appearTime -=1 the amount of time it takes before the icicle begins to form.
 
 event_inherited();
 
@@ -33,7 +33,7 @@ if (entityCanStep())
 {
     depth = 0;
 
-    appearTimer++;
+    appearTimer+=1;
     if (appearTimer <= appearTime)
     {
         // not forming yet

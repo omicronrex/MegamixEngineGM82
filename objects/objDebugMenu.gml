@@ -44,7 +44,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var _endy = endy;
+var _endy; _endy = endy;
 if (mode == 1)
 {
     _endy = 3;
@@ -79,14 +79,14 @@ if ((global.keyUp[playerID] ^^ global.keyDown[playerID]) // only do quick scroll
 {
     if (quickScrollTimer <= 0) // slight pause between scrolls
     {
-        quickScrollTimer = 8; // <-- time until quick scroll here
+        quickScrollTimer = 8; // <-=1 time until quick scroll here
     }
 
-    quickScrollTimer--;
+    quickScrollTimer-=1;
 }
 else
 {
-    quickScrollTimer = 25; // <-- time until quick scroll here
+    quickScrollTimer = 25; // <-=1 time until quick scroll here
 }
 
 // Functions for each option
@@ -181,7 +181,7 @@ if (mode == 0)
                     playSFX(sfxUnlocked);
                     with (objMegaman)
                     {
-                        costumeID--;
+                        costumeID-=1;
                         if (costumeID < 0)
                         {
                             costumeID = global.playerSpriteMax - 1;
@@ -194,7 +194,7 @@ if (mode == 0)
                     playSFX(sfxUnlocked);
                     with (objMegaman)
                     {
-                        costumeID++;
+                        costumeID+=1;
                         if (costumeID >= global.playerSpriteMax)
                         {
                             costumeID = 0;
@@ -272,7 +272,7 @@ else if (mode == 1)
         {
             case 0:
             case 1:
-                var filename = get_save_filename("Mega Man Recording|*.mrc", "");
+                var filename; filename = get_save_filename("Mega Man Recording|*.mrc", "");
                 if (filename != "")
                 {
                     if (option == 0)

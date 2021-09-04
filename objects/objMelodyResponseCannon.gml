@@ -41,7 +41,7 @@ if (entityCanStep())
 {
     if (attackTimer > 0 || !instance_exists(objMelodyResponseButtonUp))
     {
-        attackTimer--;
+        attackTimer-=1;
     }
 
 
@@ -70,7 +70,7 @@ if (entityCanStep())
         case 32:
             playSFX(sfxEnemyShootClassic);
             image_index = 3;
-            var inst = instance_create(x - 18, y - 8 * image_yscale, objMelodyResponseBullet);
+            var inst; inst = instance_create(x - 18, y - 8 * image_yscale, objMelodyResponseBullet);
             inst.xspeed = -6;
             inst.yspeed = 0;
             inst = instance_create(x - 14, y + 8 * image_yscale, objMelodyResponseBullet);
@@ -89,7 +89,7 @@ if (entityCanStep())
         case 16:
             playSFX(sfxEnemyShootClassic);
             image_index = 4;
-            var inst = instance_create(x - 16, y - 3 * image_yscale, objMelodyResponseBullet);
+            var inst; inst = instance_create(x - 16, y - 3 * image_yscale, objMelodyResponseBullet);
             inst.xspeed = -4;
             inst.yspeed = 2 * image_yscale;
             inst = instance_create(x - 10, y + 13 * image_yscale, objMelodyResponseBullet);

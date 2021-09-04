@@ -1,5 +1,5 @@
 /// playerIntro(init)
-var init = argument0;
+var init; init = argument0;
 
 // Set teleport sounds
 if (global.teleportSound)

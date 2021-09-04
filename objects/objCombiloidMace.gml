@@ -46,7 +46,7 @@ if (entityCanStep())
     }
     if (instance_exists(parent))
     {
-        attackTimer++;
+        attackTimer+=1;
         if (instance_exists(target))
         {
             strMMX = target.x;

@@ -140,7 +140,7 @@ if (entityCanStep()
             }
             break;
         case 0: // run towards mega man
-            var collider = instance_place(x + 8 * image_xscale, y, objTruckJoeStop);
+            var collider; collider = instance_place(x + 8 * image_xscale, y, objTruckJoeStop);
             if (abs(xspeed) < spdF && !collider || collider && x < collider.x)
             {
                 xspeed += image_xscale * 0.05;
@@ -153,7 +153,7 @@ if (entityCanStep()
             {
                 xspeed = 0;
             }
-            animTimer++;
+            animTimer+=1;
             if (animTimer == 64)
             {
                 joeFrame = 1;
@@ -193,7 +193,7 @@ if (entityCanStep()
             {
                 joeFrame = 2;
             }
-            attackTimer++;
+            attackTimer+=1;
             switch (attackTimer)
             {
                 case 8:
@@ -343,7 +343,7 @@ else
     {
         if ((ceil(iFrames / 2) mod 2) || (iceTimer > 0))
         {
-            var flashcol = c_white;
+            var flashcol; flashcol = c_white;
             if (iceTimer > 0)
             {
                 flashcol = make_color_rgb(0, 120, 255);

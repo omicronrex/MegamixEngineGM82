@@ -14,7 +14,7 @@ with (objMusicControl)
 {
     if (sound_index != noone)
     {
-        GME_Stop();
+        gmeStop();
     }
 }
 

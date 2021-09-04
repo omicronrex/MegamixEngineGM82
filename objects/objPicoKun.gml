@@ -140,9 +140,9 @@ if (entityCanStep())
         {
             if (instance_exists(target))
             {
-                var dx = target.x - x;
-                var dy = target.y - y;
-                var dist = sqrt(dx * dx + dy * dy);
+                var dx; dx = target.x - x;
+                var dy; dy = target.y - y;
+                var dist; dist = sqrt(dx * dx + dy * dy);
                 xspeed = dx * spd / dist;
                 yspeed = dy * spd / dist;
             }

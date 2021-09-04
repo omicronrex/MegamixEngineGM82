@@ -39,7 +39,7 @@ if (instance_exists(prtBoss))
     delay = 8;
 }
 
-delay--;
+delay-=1;
 
 
 if (!instance_exists(prtBoss) && hasBossSpawned && !active)
@@ -53,7 +53,7 @@ if (active && !instance_exists(objLifeEnergyBig) && !instance_exists(prtBoss) &&
     lockOn = true;
     clearedBossX[bossesDefeated] = teleportX;
     clearedBossY[bossesDefeated] = teleportY;
-    bossesDefeated++;
+    bossesDefeated+=1;
     inst = instance_create(objMegaman.x, objMegaman.y, objTeleporter);
     with (inst)
     {
@@ -82,7 +82,7 @@ if (lockOn)
 {
     with (objMegaman)
     {
-        var MMID = playerID;
+        var MMID; MMID = playerID;
     }
     inst.playerMet[MMID] = false;
     inst.x = objMegaman.x;
@@ -102,7 +102,7 @@ applies_to=self
 /// destroy teleporters already cleared
 if (bossesDefeated < 9999)
 {
-    for (var i = 0; i < bossesDefeated; i++)
+    var i; for ( i = 0; i < bossesDefeated; i+=1)
     {
         with (instance_place(clearedBossX[i], clearedBossY[i], objTeleporter))
         {

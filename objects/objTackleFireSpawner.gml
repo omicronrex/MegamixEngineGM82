@@ -41,9 +41,9 @@ if (entityCanStep())
 {
     if (timer == startWait)
     {
-        for (var n = 0; n < num; n++)
+        var n; for (n = 0; n < num; n+=1)
         {
-            var i = instance_create(x, y, objTackleFire);
+            var i; i = instance_create(x, y, objTackleFire);
             i.popDelay = spacing * n;
             i.alarmDrop = alarmDrop + spacing * (num - 1) - (spacing * n);
             i.randomOffset = 1;

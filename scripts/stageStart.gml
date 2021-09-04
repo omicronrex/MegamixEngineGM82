@@ -14,7 +14,7 @@ ds_list_clear(pickups);
 checkpoint = false;
 
 // refresh health and ammo
-for (var i = 0; i < global.playerCount; i++)
+var i; for (i = 0; i < global.playerCount; i+=1)
 {
     resetPlayerState(i);
 }

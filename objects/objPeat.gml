@@ -58,7 +58,7 @@ if (entityCanStep())
             case 1:
                 if (!visible)
                     visible = true;
-                yspeed = -0.9; // <-- egg rise speed here
+                yspeed = -0.9; // <-=1 egg rise speed here
 
                 // break out of egg
                 if (y <= breakY || healthpoints < healthpointsStart)
@@ -88,7 +88,7 @@ if (entityCanStep())
 
             // wait until flying
             case 2:
-                waitTime = 20; // <-- time waiting until flying here
+                waitTime = 20; // <-=1 time waiting until flying here
 
                 // set direction to fly to
                 if (timer == waitTime / 2)
@@ -97,7 +97,7 @@ if (entityCanStep())
                     {
                         direction = point_direction(x, y, target.x, target.y);
                         direction = floor(direction / 45) * 45;
-                        var s = 0;
+                        var s; s = 0;
                         if (direction == 270)
                             s = 1;
                         else if (direction == 90)
@@ -128,7 +128,7 @@ if (entityCanStep())
 
             // fly
             case 3:
-                speed = 4.5; // <-- flying speed here
+                speed = 4.5; // <-=1 flying speed here
 
                 break;
         }

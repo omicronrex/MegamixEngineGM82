@@ -36,7 +36,7 @@ if (entityCanStep())
         // Blinking
         case 0:
             facePlayer = true;
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer <= 0)
             {
                 if (hasBlinked == false)
@@ -85,7 +85,7 @@ if (entityCanStep())
 
         // Jumping
         case 1:
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer == 10)
             {
                 image_index = 4;
@@ -107,10 +107,10 @@ if (entityCanStep())
         case 2:
             if ((floor(image_index) == 12) || (floor(image_index) == 17))
             {
-                moveTimer--;
+                moveTimer-=1;
                 if (moveTimer == 29)
                 {
-                    var i = instance_create(x + 8 * image_xscale, y - 7, objHandooHand);
+                    var i; i = instance_create(x + 8 * image_xscale, y - 7, objHandooHand);
                     i.xspeed = 2 * image_xscale;
                     i.image_xscale = image_xscale;
                 }

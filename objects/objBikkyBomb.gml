@@ -36,10 +36,10 @@ if (entityCanStep())
     {
         // spawn and Spin
         case 0:
-        moveTimer--;
+        moveTimer-=1;
         if (moveTimer <= 0)
         {
-            spinTimer--;
+            spinTimer-=1;
 
             if (spinTimer > 0)
             {
@@ -81,7 +81,7 @@ if (entityCanStep())
             }
             if (imgIndex == 4)
             {
-                var i = instance_create(x + 8 * image_xscale, y - 4, objBikkyBombBall);
+                var i; i = instance_create(x + 8 * image_xscale, y - 4, objBikkyBombBall);
                 i.yspeed = -4;
                 i.image_xscale = image_xscale;
                 playSFX(sfxEnemyDrop);
@@ -94,7 +94,7 @@ if (entityCanStep())
             break;
         // Jump
         case 2:
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer <= 0)
             {
                 if (jumps < 3)
@@ -133,7 +133,7 @@ if (entityCanStep())
                 phase = 4;
                 imgIndex = 0;
                 xspeed = 0;
-                jumps++;
+                jumps+=1;
             }
             break;
         // Landing animation

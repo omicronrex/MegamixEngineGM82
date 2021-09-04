@@ -84,7 +84,7 @@ switch (phase)
             global.nextRoom = 0;
             objGlobalControl.showhealth = 0;
             visible = 1;
-            phase++;
+            phase+=1;
         }
         break;
 
@@ -92,7 +92,7 @@ switch (phase)
     case 1:
         if (objGlobalControl.fadeAlpha == 0)
         {
-            phase++;
+            phase+=1;
         }
         break;
 
@@ -114,7 +114,7 @@ switch (phase)
         else
         {
             global.nextRoom = -1;
-            phase++;
+            phase+=1;
         }
         break;
 
@@ -146,7 +146,7 @@ if (instance_exists(objColoredTextOverlaysMenu))
 
 if (phase == 2 && !selected)
 {
-    // var maxplayers = min(4+gamepad_get_device_count(),4);
+    // var maxplayers; maxplayers = min(4+gamepad_get_device_count(),4);
 
     // left / right controlled selections
     dir = (global.keyRightPressed[0] || (global.keyRight[0] && horizontalQuickScrollTimer <= 0)) - (global.keyLeftPressed[0] || (global.keyLeft[0] && horizontalQuickScrollTimer <= 0));
@@ -354,8 +354,8 @@ if (phase == 2 && !selected)
     }
 
     // pause controlled selections
-    var pausePressed = false;
-    for (var i = 0; i < global.playerCount; i++)
+    var pausePressed; pausePressed = false;
+    for (i = 0; i < global.playerCount; i+=1)
         if (global.keyPausePressed[i])
             pausePressed = i + 1;
 
@@ -366,7 +366,7 @@ if (phase == 2 && !selected)
             // exit
             case 0:
                 selected = true;
-                phase++;
+                phase+=1;
                 playSFX(sfxMenuSelect);
                 break;
 
@@ -381,7 +381,7 @@ if (phase == 2 && !selected)
                 current = 'LEFT';
                 keyID=0;
                 pID = pausePressed - 1;
-                for(var i=0;i<40;i++)
+                for(i =0;i<40;i+=1)
                     currentKeys[i]=-1;
                 break;
 
@@ -393,7 +393,7 @@ if (phase == 2 && !selected)
                 }
                 if (!objGlobalControl.joystick_connected)
                 {
-                    objGlobalControl.joystick_connected = gamepad_get_device_count() > 0;
+                    objGlobalControl.joystick_connected = joystick_count() > 0;
                 }
                 if (!objGlobalControl.joystick_connected)
                 {
@@ -405,7 +405,7 @@ if (phase == 2 && !selected)
                 selected = 1;
                 current = 'JUMP';
                 pID = pausePressed - 1;
-                for(var i=0;i<40;i++)
+                for(i =0;i<40;i+=1)
                     currentKeys[i]=-1;
                 break;
 
@@ -430,7 +430,7 @@ if (phase == 2 && !selected)
         }
         else if (option < optionOffset)
         {
-            optionOffset--;
+            optionOffset-=1;
         }
 
         playSFX(sfxMenuMove);
@@ -447,7 +447,7 @@ if (phase == 2 && !selected)
         }
         else if (option >= optionOffset + visibleOptions)
         {
-            optionOffset++;
+            optionOffset+=1;
         }
 
         playSFX(sfxMenuMove);
@@ -464,11 +464,11 @@ if (phase == 2 && !selected)
             verticalQuickScrollTimer = 9;
         }
 
-        verticalQuickScrollTimer--;
+        verticalQuickScrollTimer-=1;
     }
     else
     {
-        verticalQuickScrollTimer = 25; // <-- time until quick scroll here
+        verticalQuickScrollTimer = 25; // <-=1 time until quick scroll here
     }
 
     // horizontal quick scroll timer handling
@@ -481,11 +481,11 @@ if (phase == 2 && !selected)
             horizontalQuickScrollTimer = 9;
         }
 
-        horizontalQuickScrollTimer--;
+        horizontalQuickScrollTimer-=1;
     }
     else
     {
-        horizontalQuickScrollTimer = 25; // <-- time until quick scroll here
+        horizontalQuickScrollTimer = 25; // <-=1 time until quick scroll here
     }
 }
 /*"/*'/**//* YYD ACTION
@@ -503,7 +503,7 @@ if (!newControls)
 key = -1;
 
 // control configuration
-var skip = newControls && (keyboard_key == vk_delete);
+var skip; skip = newControls && (keyboard_key == vk_delete);
 
 if (newControls == 1)
 {
@@ -545,7 +545,7 @@ if (newControls == 1)
         if(skip)
             key=-1;
         currentKeys[keyID + pID*10]=key;
-        keyID++;
+        keyID+=1;
         // assign key
         press = 1;
         switch (current)
@@ -630,14 +630,14 @@ if (newControls == 2)
     if(!skip)
     {
         var i, b;
-        var jID = pID;
-        if (!gamepad_is_connected(jID))
+        var jID; jID = pID;
+        if (!joystick_exists(jID))
             jID += 4 - objGlobalControl.xinputDeviceCount;
-        b = gamepad_button_count(jID);
+        b = joystick_buttons(jID);
 
         for (i = 0; i < b; i += 1)
         {
-            if (gamepad_button_check(jID, i))
+            if (joystick_check_button(jID, i))
             {
                 key = i;
                 break;
@@ -660,7 +660,7 @@ if (newControls == 2)
         if(skip)
             key=-1;
         currentKeys[keyID + pID*10]=key;
-        keyID++;
+        keyID+=1;
         press = 1;
         switch (current)
         {
@@ -694,7 +694,7 @@ if (newControls == 2)
                     global.joystick_pauseKey[pID] = key;
                 current = 'JUMP';
                 pID += 1;
-                if (pID >= 1 && gamepad_get_device_count() > pID) // global.playerCount
+                if (pID >= 1 && joystick_count() > pID) // global.playerCount
                 {
                     selected = 0;
                     buffer = 1;
@@ -717,7 +717,7 @@ applies_to=self
 
 if(key != -1 && !press)
 {
-    for(var i=0;i<10 && currentKeys[i+pID*10]!=-1;i++)
+    var i; for(i =0;i<10 && currentKeys[i+pID*10]!=-1;i+=1)
     {
         if(currentKeys[i+pID*10]==key)
         {
@@ -784,14 +784,14 @@ else if (showArrow)
 // draw options
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
-for (var j = 0; j < visibleOptions; j++)
+var j; for (j = 0; j < visibleOptions; j+=1)
 {
     draw_text_ext(drawXPosition + 48, drawYPosition + 52 + j * 14, optionText[optionOffset + j], 14, 256);
 }
 
 // draw current option status'
 opt = '';
-for (var j = 0; j < visibleOptions; j++)
+for (j = 0; j < visibleOptions; j+=1)
 {
     switch (optionOffset + j)
     {
@@ -1018,7 +1018,7 @@ if (newControls)
         draw_text(drawXPosition + 128, drawYPosition + 88, 'PRESS KEY FOR');
     else
         draw_text(drawXPosition + 128, drawYPosition + 88, 'PRESS KEY FOR#(PRESS DEL TO SKIP)');
-    var playerMod = "";
+    var playerMod; playerMod = "";
     playerMod = " (P" + string(pID + 1) + ")";
     draw_text(drawXPosition + 128, drawYPosition + 104, current + playerMod);
 }

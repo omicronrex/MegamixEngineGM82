@@ -21,19 +21,19 @@ if (entityCanStep())
     if (timer == 0)
     {
         // split tiles
-        for (var i = -1; i < 2; i++)
-            for (var j = 0; j < 2; j++)
+        var i; for ( i = -1; i < 2; i+=1)
+            var j; for ( j = 0; j < 2; j+=1)
             {
                 carveSolid(x + i * 16, y + j * 16, x + (i + 1) * 16, y + (j + 1) * 16);
-                var tile = tile_layer_find(tile_layer, x + i * 16 + 8, y + j * 16 + 8);
+                var tile; tile = tile_layer_find(tile_layer, x + i * 16 + 8, y + j * 16 + 8);
                 if (tile != -1)
                 {
                     splitTile(tile);
                 }
             }
     }
-    timer++;
-    var progress = timer div 3;
+    timer+=1;
+    var progress; progress = timer div 3;
 
     // what tiles blow up
     pos_n = 0;
@@ -63,7 +63,7 @@ if (entityCanStep())
     }
     if (timer == 3 * 3)
     {
-        for (var i = 0; i < inst_restore_n; i++)
+        var i; for ( i = 0; i < inst_restore_n; i+=1)
         {
             instance_activate_object(inst_restore[i]);
             with (inst_restore[i])
@@ -76,27 +76,27 @@ if (entityCanStep())
             }
         }
     }
-    for (var i = 0; i < pos_n; i++)
+    var i; for ( i = 0; i < pos_n; i+=1)
     {
         with (instance_position(x + 8 + pos_x[i], y + 8 + pos_y[i], objSolid))
         {
             instance_deactivate_object(id);
         }
-        var tile = tile_layer_find(tile_layer, x + 8 + pos_x[i], y + 8 + pos_y[i]);
+        var tile; tile = tile_layer_find(tile_layer, x + 8 + pos_x[i], y + 8 + pos_y[i]);
         if (tile != -1 && tile_get_visible(tile))
         {
-            other.restore_tile[other.restore_tile_n++] = tile;
+            other.restore_tile[other.restore_tile_n] = tile; other.restore_tile_n+=1
             tile_set_visible(tile, false);
         }
     }
 }
-var restore = !insideSection(x, y) && !instance_exists(objSectionSwitcher);
+var restore; restore = !insideSection(x, y) && !instance_exists(objSectionSwitcher);
 if (instance_exists(parent))
     if (parent.beenOutsideView)
         restore = true;
 if (restore)
 {
-    for (var i = 0; i < restore_tile_n; i++)
+    var i; for ( i = 0; i < restore_tile_n; i+=1)
     {
         tile_set_visible(restore_tile[i], true);
     }

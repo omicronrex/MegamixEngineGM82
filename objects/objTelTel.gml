@@ -62,7 +62,7 @@ event_inherited();
 if (entityCanStep())
 {
     // Animation and actioning ROLLED INTO ONE????
-    actionTimer++;
+    actionTimer+=1;
 
     switch (phase)
     {
@@ -261,7 +261,7 @@ switch (global.telTelWeather)
 
     // Go to snow
     case 1: // Ice weapons trigger snowy weather
-        for (var i = 0; i < array_length_1d(snowSource); i++)
+        var i; for ( i = 0; i < array_length_1d(snowSource); i+=1)
         {
             if (other.object_index == snowSource[i])
             {
@@ -295,7 +295,7 @@ switch (global.telTelWeather)
 
     // Go to clear
     case 2: // Fire weapons clear snowy weather
-        for (var i = 0; i < array_length_1d(clearSource); i++)
+        var i; for ( i = 0; i < array_length_1d(clearSource); i+=1)
         {
             if (other.object_index == clearSource[i])
             {

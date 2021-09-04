@@ -28,7 +28,7 @@ if (sprite_index != sprExplosionClassic)
 }
 else
 {
-    var imgs = floor(image_number / 4);
+    var imgs; imgs = floor(image_number / 4);
 
     image_index = image_index mod imgs;
 

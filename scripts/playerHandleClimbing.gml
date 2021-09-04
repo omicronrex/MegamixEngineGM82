@@ -1,8 +1,8 @@
 /// playerHandleClimbing();
 
-var ladder = collision_line(bboxGetXCenter(), bbox_top + 2, bboxGetXCenter(), bbox_bottom, objLadder, false, false);
+var ladder; ladder = collision_line(bboxGetXCenter(), bbox_top + 2, bboxGetXCenter(), bbox_bottom, objLadder, false, false);
 
-var ladderDown = instance_position(spriteGetXCenter(), ((bbox_top * (gravDir < 0)) + (bbox_bottom * (gravDir > 0))) + gravDir, objLadder);
+var ladderDown; ladderDown = instance_position(spriteGetXCenter(), ((bbox_top * (gravDir < 0)) + (bbox_bottom * (gravDir > 0))) + gravDir, objLadder);
 
 if (!playerIsLocked(PL_LOCK_CLIMB))
 {
@@ -93,10 +93,10 @@ if (!playerIsLocked(PL_LOCK_CLIMB))
         }
 
         // Releasing the ladder
-        var jump = global.keyJumpPressed[playerID] && yDir != -gravDir && !playerIsLocked(PL_LOCK_CLIMB);
+        var jump; jump = global.keyJumpPressed[playerID] && yDir != -gravDir && !playerIsLocked(PL_LOCK_CLIMB);
         if ((ground && yDir == gravDir) || !place_meeting(bbox_left, y, objLadder) || !place_meeting(bbox_right, y, objLadder) || jump)
         {
-            var climbedUp=false;
+            var climbedUp; climbedUp =false;
             if (!place_meeting(x, y, objLadder))
             {
                 if (place_meeting(x, y + (gravDir * climbSpeed), objLadder))

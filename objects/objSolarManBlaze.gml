@@ -34,7 +34,7 @@ if (entityCanStep())
         if ((bbox_bottom < view_yview) && (instance_exists(target)))
         {
             // Fire Solar Blaze
-            var i = instance_create(target.x, view_yview, objSolarManBlaze);
+            var i; i = instance_create(target.x, view_yview, objSolarManBlaze);
             i.size = size;
             i.isBomb = true;
             i.blockCollision = true;
@@ -82,7 +82,7 @@ if (entityCanStep())
         {
             image_xscale *= -1;
 
-            var i = instance_create(x, y, objSolarManBlaze);
+            var i; i = instance_create(x, y, objSolarManBlaze);
             i.isWave = true;
             i.size = size;
             i.image_xscale = image_xscale;

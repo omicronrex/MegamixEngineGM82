@@ -1,5 +1,5 @@
 /// playerDraw()
-var restoreMusic = 0;
+var restoreMusic; restoreMusic = 0;
 // Don't draw if the game is fading in
 if (teleporting || showReady)
 {

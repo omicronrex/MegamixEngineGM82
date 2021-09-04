@@ -238,7 +238,7 @@ if (entityCanStep())
                 }
                 if (attackTimer == 16)
                 {
-                    for (var i = 32; i < 256; i += 1)
+                    var i; for ( i = 32; i < 256; i += 1)
                     {
                         if (checkSolid(i * image_xscale, y, 0, 1))
                             break;

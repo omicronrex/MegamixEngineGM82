@@ -26,7 +26,7 @@ if (entityCanStep())
 {
     if (!instance_exists(kamapot))
     {
-        var i = instance_create(x, y - 3 * image_yscale, objKamapot);
+        var i; i = instance_create(x, y - 3 * image_yscale, objKamapot);
         i.kamapotSpeed = kamapotSpeed * image_yscale;
         i.image_yscale = image_yscale;
 

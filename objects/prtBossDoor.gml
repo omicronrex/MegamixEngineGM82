@@ -73,7 +73,7 @@ event_inherited();
 
 if (canOpen)
 {
-    var player = collision_rectangle(bbox_left + 3, bbox_top + 3, bbox_right - 3, bbox_bottom - 3, objMegaman, false, false);
+    var player; player = collision_rectangle(bbox_left + 3, bbox_top + 3, bbox_right - 3, bbox_bottom - 3, objMegaman, false, false);
 
     if (player)
     {
@@ -90,17 +90,17 @@ if (canOpen)
 
                     if (other.type == "h")
                     {
-                        var i = sign(bboxGetXCenterObject(other.id) - x);
+                        var i; i = sign(bboxGetXCenterObject(other.id) - x);
                         setSection(x + (other.sprite_width + sprite_get_width(mask_index)) * i, y, 1);
-                        var xy = "x";
-                        var b = abs((other.bbox_right - global.sectionLeft) * (i == 1) + (other.bbox_left - global.sectionRight) * (i == -1));
+                        var xy; xy = "x";
+                        var b; b = abs((other.bbox_right - global.sectionLeft) * (i == 1) + (other.bbox_left - global.sectionRight) * (i == -1));
                     }
                     if (other.type == "v")
                     {
-                        var i = sign(bboxGetYCenterObject(other.id) - y);
+                        var i; i = sign(bboxGetYCenterObject(other.id) - y);
                         setSection(x, y + (other.sprite_height + sprite_get_height(mask_index)) * i, 1);
-                        var xy = "y";
-                        var b = abs((other.bbox_bottom - global.sectionTop) * (i == 1) + (other.bbox_top - global.sectionBottom) * (i == -1)) + 8;
+                        var xy; xy = "y";
+                        var b; b = abs((other.bbox_bottom - global.sectionTop) * (i == 1) + (other.bbox_top - global.sectionBottom) * (i == -1)) + 8;
                     }
                 }
 
@@ -120,7 +120,7 @@ if (canOpen)
 
 if (closing || opening)
 {
-    var lastHeightFrame = doorHeight;
+    var lastHeightFrame; lastHeightFrame = doorHeight;
 
     doorHeight = clamp(doorHeight + imgSpeed * (1 - (!closing) * 2), 0, height);
 
@@ -226,7 +226,7 @@ if(type=='h')
 {
 
     // Set vertical (horizontal door)
-    var inst = instance_place(x, y + 4, object_index);
+    var inst; inst = instance_place(x, y + 4, object_index);
     while (inst!=noone)
     {
         while(inst!=noone)
@@ -272,7 +272,7 @@ else if(type=='v')
         inst = instance_place(x + 4, y, object_index);
     }
     // Set vertical (horizontal door)
-    var inst = instance_place(x, y + 4, object_index);
+    var inst; inst = instance_place(x, y + 4, object_index);
     while (inst!=noone)
     {
         while(inst!=noone)
@@ -350,8 +350,8 @@ applies_to=self
 */
 if (!isTile)
 {
-    var xsc = image_xscale;
-    var ysc = image_yscale;
+    var xsc; xsc = image_xscale;
+    var ysc; ysc = image_yscale;
 
     if (type == 'h')
     {
@@ -363,9 +363,9 @@ if (!isTile)
     }
 
     // Draw sprite-based door
-    for (var i = 0; i < xsc; i++)
+    var i; for ( i = 0; i < xsc; i+=1)
     {
-        for (var z = 0; z < ysc; z++)
+        var z; for (z = 0; z < ysc; z+=1)
         {
             draw_sprite_ext(sprite_index, image_index,
                 x + i * sprite_get_width(sprite_index),

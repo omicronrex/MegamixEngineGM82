@@ -111,7 +111,7 @@ applies_to=self
 */
 event_inherited();
 
-for (var i = 0; i < 4; i++)
+var i; for (i = 0; i < 4; i+=1)
 {
     ID = instance_create(x + image_xscale, spriteGetYCenter(), objMM5AimedBullet);
     ID.dir = 45 + (90 * i);

@@ -97,7 +97,7 @@ if (!global.frozen)
     }
 
     // Set this as a variable for ease of access
-    var isGlobalLocked = (isLocked(global.playerLock[PL_LOCK_MOVE]) &&
+    var isGlobalLocked; isGlobalLocked = (isLocked(global.playerLock[PL_LOCK_MOVE]) &&
         isLocked(global.playerLock[PL_LOCK_JUMP]) &&
         isLocked(global.playerLock[PL_LOCK_TURN]) &&
         isLocked(global.playerLock[PL_LOCK_SHOOT]) &&
@@ -125,7 +125,7 @@ if (!global.frozen)
             turning = 0;
 
             // Set up ice multiplier
-            var iceMultiplier = 1;
+            var iceMultiplier; iceMultiplier = 1;
 
             if (place_meeting(x, y + rider.gravDir, objIce)
                 || place_meeting(x, y + rider.gravDir, objOil)
@@ -146,7 +146,7 @@ if (!global.frozen)
                 {
                     if (rider.xDir == image_xscale && rider.ground)
                     {
-                        var i = instance_create(x - 14 * image_xscale, y, objSlideDust);
+                        var i; i = instance_create(x - 14 * image_xscale, y, objSlideDust);
                         i.image_xscale = image_xscale;
                         i.image_yscale = image_yscale;
                         playSFX(sfxRushCycle1);
@@ -154,10 +154,10 @@ if (!global.frozen)
                 }
 
                 // Check for boost inputs
-                var boosting = (global.keySlide[rider.playerID] || global.keyDown[rider.playerID]);
+                var boosting; boosting = (global.keySlide[rider.playerID] || global.keyDown[rider.playerID]);
 
                 // set speed, including the boosts
-                var spd = 3.15 + (2 * boosting);
+                var spd; spd = 3.15 + (2 * boosting);
 
                 xspeed = clamp(xspeed + (0.125 * iceMultiplier) * rider.xDir, -spd, spd);
 
@@ -169,7 +169,7 @@ if (!global.frozen)
                 // spawn trail effects if boosting
                 if (boosting)
                 {
-                    trailTimer++;
+                    trailTimer+=1;
 
                     if (trailTimer mod 3 == 0 && abs(xspeed) > 1.5)
                     {
@@ -206,7 +206,7 @@ if (!global.frozen)
                     {
                         if (place_meeting(x, y + image_yscale * 2, objSpike))
                         {
-                            if global.infiniteEnergy[global.weaponID[? objRushCycle]]
+                            if global.infiniteEnergy[ds_map_get(global.weaponID,objRushCycle)]
                             {
                                 global.playerHealth[playerID] = max(0, global.playerHealth[playerID] - 1);
                             }
@@ -267,7 +267,7 @@ if (!global.frozen)
                 animTimer = 0;
                 if (!(dustTimer mod 8))
                 {
-                    var i = instance_create(x + 16 * image_xscale, y - 1 * image_yscale, objSlideDust);
+                    var i; i = instance_create(x + 16 * image_xscale, y - 1 * image_yscale, objSlideDust);
                     i.image_xscale = image_xscale;
                     i.image_yscale = image_yscale;
                     i.hspeed = xspeed * 1.5;

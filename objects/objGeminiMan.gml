@@ -123,9 +123,9 @@ if (entityCanStep())
 
         if (makeClones)
         {
-            for (var i = 0; i < maxClones; i++)
+            var i; for ( i = 0; i < maxClones; i+=1)
             {
-                var c = instance_create(x, y, objGemineighbour);
+                var c; c = instance_create(x, y, objGemineighbour);
                 c.clone = id;
                 c.healthParent=id;
                 c.sprite_index = sprGeminiStand;
@@ -226,13 +226,13 @@ if (entityCanStep())
                     }
                     xspeed = sign(xspeed);
                 }
-                var isPhaseDifferent = false;
-                var i = 0;
+                var isPhaseDifferent; isPhaseDifferent = false;
+                var i; i = 0;
                 with (objGeminiMan)
                 {
                     if (id != other && phase < 2 && clone.id == other.clone.id)
                     {
-                        i++;
+                        i+=1;
                         if (phase != other.phase)
                         {
                             isPhaseDifferent = true;

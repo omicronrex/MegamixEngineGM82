@@ -69,7 +69,7 @@ switch (phase)
             global.nextRoom = 0;
             objGlobalControl.showhealth = 0;
             visible = 1;
-            phase++;
+            phase+=1;
         }
         break;
 
@@ -77,7 +77,7 @@ switch (phase)
     case 1:
         if (objGlobalControl.fadeAlpha == 0)
         {
-            phase++;
+            phase+=1;
         }
         break;
 
@@ -88,7 +88,7 @@ switch (phase)
     // Fading out
     case 3:
         global.nextRoom = -1;
-        phase++;
+        phase+=1;
         break;
 
     // End fading out
@@ -207,7 +207,7 @@ if (phase == 2 && !selected)
             // back
             case 0:
                 selected = true;
-                phase++;
+                phase+=1;
                 playSFX(sfxMenuSelect);
                 break;
         }
@@ -250,11 +250,11 @@ if (phase == 2 && !selected)
             verticalQuickScrollTimer = 9;
         }
 
-        verticalQuickScrollTimer--;
+        verticalQuickScrollTimer-=1;
     }
     else
     {
-        verticalQuickScrollTimer = 25; // <-- time until quick scroll here
+        verticalQuickScrollTimer = 25; // <-=1 time until quick scroll here
     }
 
     // horizontal quick scroll timer handling
@@ -271,7 +271,7 @@ if (phase == 2 && !selected)
     }
     else
     {
-        horizontalQuickScrollTimer = 25; // <-- time until quick scroll here
+        horizontalQuickScrollTimer = 25; // <-=1 time until quick scroll here
     }
 }
 #define Draw_0
@@ -298,14 +298,14 @@ if (cursorImgIndex >= 5)
 // draw options
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
-for (var j = 0; j < array_length_1d(optionText); j++)
+var j; for ( j = 0; j < array_length_1d(optionText); j+=1)
 {
     draw_text_ext(view_xview[0] + 16, view_yview[0] + 8 + j * 12, optionText[j], 12, 256);
 }
 
 // draw current option status'
 opt = '';
-for (var j = 0; j < array_length_1d(optionText); j++)
+var j; for ( j = 0; j < array_length_1d(optionText); j+=1)
 {
     switch (j)
     {
@@ -356,7 +356,7 @@ draw_sprite_part_ext(sprDialogueBox, 0, 48, 0, 1, 64, view_xview[0] + 48, view_y
 draw_sprite_part_ext(sprDialogueBox, 0, 48, 0, 8, 64, view_xview[0] + view_wview[0] - 8, view_yview[0] + 148, 1, 1, image_blend, image_alpha); // right border
 
 draw_sprite_part(sprDialogueBox, 0, 1, 4, 2, 4, view_xview[0] + 4 + (floor(dialogueBoxLightOffset / 8) mod 10) * 2, view_yview[0] + 148 + 4); // moving light
-dialogueBoxLightOffset++;
+dialogueBoxLightOffset+=1;
 
 // draw_sprite(sprDialogueBox, 0, view_xview[0], view_yview[0] + 148);
 draw_sprite(sprMugshots, 0, view_xview[0] + 5, view_yview[0] + 148 + 18);

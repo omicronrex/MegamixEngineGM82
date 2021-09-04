@@ -153,7 +153,7 @@ for (i = 1; i < 5; i += 1)
                 with (b)
                 {
                     recurseDepth = other.recurseDepth + 1;
-                    global.sheepBlockStack[global.sheepBlockStack_n++] = id;
+                    global.sheepBlockStack[global.sheepBlockStack_n] = id; global.sheepBlockStack_n+=1
                 }
             }
         }

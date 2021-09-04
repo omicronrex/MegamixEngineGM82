@@ -17,8 +17,8 @@ if (!instance_exists(vehicle))
 }
 
 // Stop movement at section borders (horizontal)
-var xdis = x - (view_xview + ((view_wview * 0.5)));
-var xpos = (view_wview * 0.5)-6;
+var xdis; xdis = x - (view_xview + ((view_wview * 0.5)));
+var xpos; xpos = (view_wview * 0.5)-6;
 
 if (abs(xdis) > xpos)
 {
@@ -37,8 +37,8 @@ if (abs(xdis) > xpos)
 
 
 // stop movement at section borders (vertical)
-var ydis = y - (view_yview + (view_hview * 0.5));
-var ypos = (view_hview * 0.5) + 32;
+var ydis; ydis = y - (view_yview + (view_hview * 0.5));
+var ypos; ypos = (view_hview * 0.5) + 32;
 
 if (ydis * gravDir < -ypos)
 {

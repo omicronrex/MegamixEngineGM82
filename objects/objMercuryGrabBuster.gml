@@ -57,7 +57,7 @@ with (other)
             if (global.bolts >= 10)
             {
                 // Choose between big or small bolt
-                var z = choose(0, 1);
+                var z; z = choose(0, 1);
 
                 // Take big Bolt
                 if (z == 1)
@@ -101,13 +101,13 @@ with (other)
         else if (hasItem == 1)
         {
             // Choose random weapon to steal from
-            var e = random(global.totalWeapons);
+            var e; e = random(global.totalWeapons);
             {
                 // Check if chosen weapon has ammo above 10
                 if (global.ammo[e] > 10)
                 {
                     // Choose big or small energy
-                    var z = choose(0, 1);
+                    var z; z = choose(0, 1);
 
                     // Take big energy
                     if (z == 1)

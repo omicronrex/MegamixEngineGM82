@@ -38,7 +38,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    animTimer++;
+    animTimer+=1;
     if (animTimer >= moveTime)
     {
         animTimer = 0;
@@ -50,7 +50,7 @@ if (entityCanStep())
             animPhase = 0;
         }
     }
-    var animTable = makeArray(2, 1, 0, 1);
+    var animTable; animTable = makeArray(2, 1, 0, 1);
     image_index = animTable[animPhase];
 }
 #define Other_21

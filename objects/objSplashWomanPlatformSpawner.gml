@@ -45,7 +45,7 @@ if(entityCanStep())
         {
             timer =-1;
             //spawn platform
-            var ID = instance_create(x,y,objSplashWomanPlatform);
+            var ID; ID = instance_create(x,y,objSplashWomanPlatform);
             ID.activeTime = activeTime;
             ID.respawn=false;
             ID.spd = abs(platformSpeed)*sign(image_xscale);

@@ -107,8 +107,8 @@ if (!global.frozen && !dead && !global.timeStopped)
         actionTimer = 0;
     }
 
-    var bx = 0;
-    var by = 0;
+    var bx; bx = 0;
+    var by; by = 0;
     if (image_index == 0 || image_index == 1)
     {
         bx = 6;

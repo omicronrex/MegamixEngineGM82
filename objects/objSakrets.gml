@@ -47,7 +47,7 @@ if (entityCanStep())
     }
 
     // timer increment
-    shootTimer++;
+    shootTimer+=1;
 
     // behavior
     switch (phase)
@@ -71,7 +71,7 @@ if (entityCanStep())
             }
 
             // Animation
-            animTimer++;
+            animTimer+=1;
             if (animTimer == 4)
             {
                 imgIndex = !imgIndex;

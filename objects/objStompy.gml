@@ -60,7 +60,7 @@ if (entityCanStep()
     if (findYSpeed) // find the y speed for a jump. this code is reused throughout, so its also been made a trigger event to not reuse code.
     {
         setY = 32;
-        for (var i = 32; i < 224; i++)
+        var i; for ( i = 32; i < 224; i+=1)
         {
             if //( place_meeting(x, (y - i) - 40, objSolid))
             (checkSolid(0, -(i)))
@@ -87,8 +87,8 @@ if (entityCanStep()
             }
             if (attackTimer >= attackTimerMax)
             {
-                var setX = 32;
-                for (var i = 32; i < view_wview; i++)
+                var setX; setX = 32;
+                var i; for ( i = 32; i < view_wview; i+=1)
                 {
                     if //( place_meeting(x+i*image_xscale,y,objSolid))
                     (checkSolid(i * image_xscale, 0))
@@ -112,10 +112,10 @@ if (entityCanStep()
                 image_xscale *= -1;
                 xspeed = 0;
                 doQuake = true;
-                var spawnOffset = 32;
-                for (var i = 0; i < 4; i++)
+                var spawnOffset; spawnOffset = 32;
+                var i; for ( i = 0; i < 4; i+=1)
                 {
-                    var inst = instance_create(x + spawnOffset * image_xscale, view_yview, objStompyProjectile);
+                    var inst; inst = instance_create(x + spawnOffset * image_xscale, view_yview, objStompyProjectile);
                     if (i mod 2 == 1)
                     {
                         inst.grav *= 0.75;
@@ -152,7 +152,7 @@ if (entityCanStep()
                 image_index = 0;
                 xspeed = 0;
                 doQuake = true;
-                var inst = instance_create(x - 24 * image_xscale, view_yview, objStompyProjectile);
+                var inst; inst = instance_create(x - 24 * image_xscale, view_yview, objStompyProjectile);
                 inst.parent = id;
                 attackTimer = 0;
                 if (turnTrigger)

@@ -30,7 +30,7 @@ if (entityCanStep())
         delayDetection = 2;
     }
 
-    delayDetection--;
+    delayDetection-=1;
 
     if (delayDetection <= 0)
     {

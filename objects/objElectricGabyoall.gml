@@ -196,7 +196,7 @@ if (entityCanStep())
                 {
                     if (shootWaitTimer > -40 - blinks)
                     {
-                        // <-- duration of shooting here
+                        // <-=1 duration of shooting here
                         shootWaitTimer -= 1;
                     }
                     else

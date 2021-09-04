@@ -49,7 +49,7 @@ if (entityCanStep())
 
             if (timer >= 90)
             {
-                // <-- time spinning spear here
+                // <-=1 time spinning spear here
                 phase = 2;
                 imgIndex = 6;
                 timer = 0;

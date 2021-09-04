@@ -98,8 +98,8 @@ if (entityCanStep())
     attackTimer += 1;
 
     // check whether all relevant objects have been destroyed.
-    var destroyCheck = true;
-    for (var j = 0; j < array_length_1d(acceptableTarget); j++)
+    var destroyCheck; destroyCheck = true;
+    var j; for ( j = 0; j < array_length_1d(acceptableTarget); j+=1)
     {
         if (instance_exists(acceptableTarget[j]))
         {
@@ -109,22 +109,22 @@ if (entityCanStep())
 
     if (attackTimer >= 10 && phase == 0 && !destroyCheck) // if not, find the highest object of the type that is nearest to the player
     {
-        var checkX = 999;
-        var oldX = 9999;
-        var checkY = 1;
-        var oldY = 0;
-        for (var i = 0; i < array_length_1d(acceptableTarget); i++)
+        var checkX; checkX = 999;
+        var oldX; oldX = 9999;
+        var checkY; checkY = 1;
+        var oldY; oldY = 0;
+        var i; for ( i = 0; i < array_length_1d(acceptableTarget); i+=1)
         {
             if (instance_exists(acceptableTarget[i]))
             {
-                var tempHand = id;
+                var tempHand; tempHand = id;
                 with (instance_nearest(x, view_yview, acceptableTarget[i]))
                 {
                     if (!dead)
                     {
                         checkX = abs(x - other.x);
                         checkY = abs(view_yview - y);
-                        var tempNear = id;
+                        var tempNear; tempNear = id;
                         if (checkX < oldX)
                         {
                             other.nearInst = tempNear;
@@ -203,7 +203,7 @@ if (entityCanStep())
             attackTimer = 0;
             phase = 3;
             image_index = 1;
-            for (var i = 0; i < 5; i += 1)
+            var i; for ( i = 0; i < 5; i += 1)
             {
                 if (i != 2)
                 {
@@ -221,7 +221,7 @@ if (entityCanStep())
             instance_activate_object(nearInst);
             with (nearInst) // take the grabbed object, temporaily shift it to the hand position, run its death event, then put it back.
             {
-                var oldY = y;
+                var oldY; oldY = y;
                 y = other.y;
                 if (object_is_ancestor(self, prtBoss) || object_is_ancestor(self, prtMiniBoss))
                 {
@@ -277,7 +277,7 @@ if (dead) // when this miniboss is dead, restore objects unless otherwise told n
     if (restoreObjects)
     {
         reactTrigger = false;
-        for (var i = 0; i < array_length_1d(acceptableTarget); i++)
+        var i; for ( i = 0; i < array_length_1d(acceptableTarget); i+=1)
         {
             instance_activate_object(acceptableTarget[i]);
             with (acceptableTarget[i])

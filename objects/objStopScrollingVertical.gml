@@ -6,7 +6,7 @@ applies_to=self
 */
 image_speed = 0;
 
-var width = image_xscale * sprite_get_width(sprite_index);
+var width; width = image_xscale * sprite_get_width(sprite_index);
 
 if (object_is_ancestor(object_index, objDownScrolling) || object_is_ancestor(object_index, objVerticalScrolling)
     || object_index == objDownScrolling || object_index == objVerticalScrolling)

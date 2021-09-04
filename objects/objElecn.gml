@@ -75,7 +75,7 @@ if (entityCanStep())
         case 1: // dropping in
             if (!dropIn || y - startY >= 48)
             {
-                // <-- drop distance
+                // <-=1 drop distance
                 phase = 2;
                 xspeed = spd * image_xscale;
                 yspeed = 0;

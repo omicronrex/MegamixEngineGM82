@@ -30,14 +30,14 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var size = image_xscale;
-var img = size;
-var bit = 0;
+var size; size = image_xscale;
+var img; img = size;
+var bit; bit = 0;
 
 while (img > 0)
 {
     bit = min(sprite_get_width(sprite_index), img);
-    var height = sprite_get_height(sprite_index);
+    var height; height = sprite_get_height(sprite_index);
     draw_sprite_general(sprite_index, image_index, 0, 0, bit, height, x + (size - img) * cos(degtorad(image_angle)), y - (size - img) * sin(degtorad(image_angle)), 1, 1, image_angle, c_white, c_white, c_white, c_white, image_alpha);
     img -= bit;
 }

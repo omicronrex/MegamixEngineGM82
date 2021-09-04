@@ -77,7 +77,7 @@ applies_to=self
 
 if (global.keyShootPressed[playerID] && !playerIsLocked(PL_LOCK_SHOOT) && !instance_exists(objPowerStone))
 {
-    for (var angle = 0; angle < 360; angle += 120)
+    var angle; for (angle = 0; angle < 360; angle += 120)
     {
         i = fireWeapon(cos(degtorad(angle)) * 16, -(sin(degtorad(angle)) * 16), objPowerStone, 3, (1 / 3), 0, 0);
         if (i) // set starting speed

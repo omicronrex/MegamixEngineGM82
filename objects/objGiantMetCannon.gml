@@ -59,7 +59,7 @@ applies_to=self
 event_inherited();
 if (entityCanStep())
 {
-    attackTimer++;
+    attackTimer+=1;
 
     // to stop the met cannon from crushing a player underneath them, we change its mask
     switch (curYOffset)
@@ -93,11 +93,11 @@ if (entityCanStep())
             break;
         case 1:
         case 3: // delay movement
-            delayTimer++;
+            delayTimer+=1;
             if (delayTimer == delayTimerMax)
             {
                 delayTimer = 0;
-                phase++;
+                phase+=1;
             }
             break;
         case 2: // move down
@@ -286,7 +286,7 @@ else
     {
         if ((ceil(iFrames / 2) mod 2) || (iceTimer > 0))
         {
-            var flashcol = c_white;
+            var flashcol; flashcol = c_white;
             if (iceTimer > 0)
             {
                 flashcol = make_color_rgb(0, 120, 255);
@@ -294,7 +294,7 @@ else
 
             d3d_set_fog(true, flashcol, 0, 0);
 
-            for (var i = 0; i < ceil(abs(curYOffset) / 8); i++)
+            var i; for ( i = 0; i < ceil(abs(curYOffset) / 8); i+=1)
             {
                 draw_sprite_ext(sprGiantMetCannonMiddle, i, round(x)+1, round(y) + spriteOffset + (i * 8), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
             }
@@ -306,7 +306,7 @@ else
             {
                 draw_set_blend_mode(bm_add);
 
-                for (var i = 0; i < ceil(abs(curYOffset) / 8); i++)
+                var i; for ( i = 0; i < ceil(abs(curYOffset) / 8); i+=1)
                 {
                     draw_sprite_ext(sprGiantMetCannonMiddle, i, round(x)+1, round(y) + spriteOffset + (i * 8), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
                 }
@@ -317,7 +317,7 @@ else
         }
         else
         {
-            for (var i = 0; i < ceil(abs(curYOffset) / 8); i++)
+            var i; for ( i = 0; i < ceil(abs(curYOffset) / 8); i+=1)
             {
                 draw_sprite_ext(sprGiantMetCannonMiddle, i, round(x)+1, round(y) + spriteOffset + (i * 8), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
             }

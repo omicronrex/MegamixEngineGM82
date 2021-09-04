@@ -8,13 +8,13 @@
 // argument5 - gravitationalAcceleration (default: grav of the object that called this script)
 // argument6 - cap for how fast a value this script can return (optional) (positive numbers only) (set it to -1 to have no speed limit)
 
-var _originX = argument[0];
-var _originY = argument[1];
-var _targetX = argument[2];
-var _targetY = argument[3];
-var _ySpd = 0;
-var _accel = 0;
-var _speedLimit = 8; // <-- default speed limit here
+var _originX; _originX = argument[0];
+var _originY; _originY = argument[1];
+var _targetX; _targetX = argument[2];
+var _targetY; _targetY = argument[3];
+var _ySpd; _ySpd = 0;
+var _accel; _accel = 0;
+var _speedLimit; _speedLimit = 8; // <-=1 default speed limit here
 
 if (argument_count > 4)
 {
@@ -42,17 +42,17 @@ if (argument_count > 6)
 if (_ySpd != 0 && _accel != 0)
 {
     // figure out how far up we can go
-    var airTime = (0 - _ySpd) / _accel;
+    var airTime; airTime = (0 - _ySpd) / _accel;
 
     if (airTime < 0)
     {
         airTime = 0;
     }
 
-    var maxYDelta = _ySpd * airTime + 0.5 * _accel * power(airTime, 2);
+    var maxYDelta; maxYDelta = _ySpd * airTime + 0.5 * _accel * power(airTime, 2);
 
     // figure out how high we need to go
-    var yDelta = _targetY - _originY;
+    var yDelta; yDelta = _targetY - _originY;
 
     // check to see if the object's y is too high to hit
     if ((maxYDelta < 0 && yDelta < maxYDelta)
@@ -69,7 +69,7 @@ if (_ySpd != 0 && _accel != 0)
         }
     }
 
-    var radical = power(_ySpd, 2) - 4 * (_accel / 2) * (-yDelta);
+    var radical; radical = power(_ySpd, 2) - 4 * (_accel / 2) * (-yDelta);
 
     if (radical <= 0)
     {
@@ -95,8 +95,8 @@ if (_ySpd != 0 && _accel != 0)
     }
 
     // calculate speed needed to reach target in the given time with the given distance
-    var xDelta = _targetX - _originX;
-    var newXSpeed = xDelta / airTime;
+    var xDelta; xDelta = _targetX - _originX;
+    var newXSpeed; newXSpeed = xDelta / airTime;
 
     // enforce speed limit
     if (_speedLimit != -1 && (newXSpeed > _speedLimit || newXSpeed < -_speedLimit))

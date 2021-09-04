@@ -56,7 +56,7 @@ if (entityCanStep())
 
     if (image_index == 1)
     {
-        attackTimer++;
+        attackTimer+=1;
     }
 
     if (attackTimer == 10 && xspeed == 0)

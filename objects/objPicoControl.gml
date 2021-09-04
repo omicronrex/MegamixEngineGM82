@@ -41,7 +41,7 @@ if (healthpoints <= 0 && isFight)
 else if (isFight)
 {
     // determine if possible to initiate next set of puyos
-    var nextSet = true;
+    var nextSet; nextSet = true;
     if (instance_exists(objPicoKun))
         nextSet = false;
     with (objPicoBrick)
@@ -53,8 +53,8 @@ else if (isFight)
     if (nextSet)
     {
         // initiate next set of puyos
-        var a = puyoBrickList[puyoBrickIndex];
-        var b = puyoBrickList[puyoBrickIndex + 1];
+        var a; a = puyoBrickList[puyoBrickIndex];
+        var b; b = puyoBrickList[puyoBrickIndex + 1];
         a.phase = 1;
         b.phase = 1;
         a.partner = b;
@@ -71,7 +71,7 @@ else if (isFight)
             a.image_xscale *= -1;
             a.x += 16;
         }
-        var spd = (3 - 2 * healthpoints / 28) + (global.difficulty == DIFF_HARD);
+        var spd; spd = (3 - 2 * healthpoints / 28) + (global.difficulty == DIFF_HARD);
         a.spd = spd;
         b.spd = spd;
     }

@@ -53,7 +53,7 @@ if (entityCanStep())
             }
             else
             {
-                spawnTimer++;
+                spawnTimer+=1;
             }
         }
         else

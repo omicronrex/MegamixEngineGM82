@@ -93,7 +93,7 @@ if (!global.frozen && !dead
             }
             else
             {
-                if (timer >= 70) // <-- time until they leave
+                if (timer >= 70) // <-=1 time until they leave
                 {
                     xOffset += -spd * dir * 3;
                 }

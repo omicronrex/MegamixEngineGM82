@@ -33,7 +33,7 @@ if (entityCanStep())
 {
     calibrateDirection();
 
-    moveTimer--;
+    moveTimer-=1;
     switch (phase)
     {
         case 0:
@@ -66,7 +66,7 @@ if (entityCanStep())
                     i = instance_create(x, y - 4, objEnemyBullet);
                     i.xspeed = 2 * image_xscale;
                     playSFX(sfxEnemyShootClassic);
-                    shotLimit--;
+                    shotLimit-=1;
                     moveTimer = 90;
                 }
                 else
@@ -87,7 +87,7 @@ if (entityCanStep())
     }
 
     // Blinking animation
-    animTimer--;
+    animTimer-=1;
     if (animTimer == 0)
     {
         if (image_index == 0)

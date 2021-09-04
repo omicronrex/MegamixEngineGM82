@@ -60,7 +60,7 @@ if (entityCanStep())
             calibrateDirection();
             xspeed = 1 * image_xscale;
             xs = xspeed;
-            yspeed = -3.5; // <-- jump height
+            yspeed = -3.5; // <-=1 jump height
             imgIndex = 1;
         }
         else if (ground)

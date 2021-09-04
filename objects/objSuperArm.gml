@@ -6,7 +6,7 @@ applies_to=self
 */
 /// resets super arm carry state if necessary
 
-var owner = global.eventArgs;
+var owner; owner = global.eventArgs;
 with (owner)
 {
     if (global.weaponObject[global.weapon[playerID]] != objSuperArm || !instance_exists(owner))
@@ -129,22 +129,22 @@ applies_to=self
 */
 defer(ev_step, ev_step_end, 0, eventExecute, makeArray(ev_other, ev_user0, objSuperArm, true, id));
 
-var currentWeapon = global.weapon[playerID];
-var insufficientAmmo = global.ammo[playerID, currentWeapon] <= 0;
-var ammoCost = 2;
+var currentWeapon; currentWeapon = global.weapon[playerID];
+var insufficientAmmo; insufficientAmmo = global.ammo[playerID, currentWeapon] <= 0;
+var ammoCost; ammoCost = 2;
 
-var interactionCache = makeArray();
-var interactionCacheSort = makeArray();
-var interactionCacheCount = 0;
+var interactionCache; interactionCache = makeArray();
+var interactionCacheSort; interactionCacheSort = makeArray();
+var interactionCacheCount; interactionCacheCount = 0;
 
-var superArmHeldObject = noone;
+var superArmHeldObject; superArmHeldObject = noone;
 with (prtEntity)
 {
     if (hasCategory(category, "superArmTarget"))
     {
         interactionCache[interactionCacheCount] = id;
         interactionCacheSort[interactionCacheCount] = floor(depth);
-        interactionCacheCount++;
+        interactionCacheCount+=1;
         if (superArmHoldOwner == other.id)
         {
             superArmHeldObject = id;
@@ -156,28 +156,28 @@ with (prtEntity)
 // remove this if frame rate drops (note that behaviour will change!)
 quickSortBy(interactionCache, interactionCacheSort);
 
-var doPickUpAction = false;
+var doPickUpAction; doPickUpAction = false;
 
 // not holding anything.. look for an object as a candidate!!
 if (superArmHeldObject == noone)
 {
-    var checkPosYList = makeArray(2, 8, -2, -6, 11);
-    var selectFlash = noone;
+    var checkPosYList; checkPosYList = makeArray(2, 8, -2, -6, 11);
+    var selectFlash; selectFlash = noone;
     if (!playerIsLocked(PL_LOCK_SHOOT))
     {
-        for (var j = 4; j >= 0; j--)
+        var j; for ( j = 4; j >= 0; j-=1)
         {
-            for (var i = 0; i < array_length_1d(checkPosYList); i++)
+            var i; for ( i = 0; i < array_length_1d(checkPosYList); i+=1)
             {
-                for (var k = 0; k < interactionCacheCount; k++)
+                var k; for ( k = 0; k < interactionCacheCount; k+=1)
                 {
                     with (interactionCache[k])
                     {
                         var checkPosX, checkPosY;
                         with (other)
                         {
-                            var checkPosX = x + image_xscale * 4 * j;
-                            var checkPosY = y + checkPosYList[i] * image_yscale;
+                            var checkPosX; checkPosX = x + image_xscale * 4 * j;
+                            var checkPosY; checkPosY = y + checkPosYList[i] * image_yscale;
                         }
                         if (position_meeting(checkPosX, checkPosY, id) && !superArmThrown && superArmHoldOwner == noone && !insufficientAmmo && !dead)
                         {
@@ -209,7 +209,7 @@ if (superArmHeldObject == noone)
     }
     doPickUpAction = global.keyShootPressed[playerID] && !playerIsLocked(PL_LOCK_SHOOT);
 
-    for (var k = 0; k < interactionCacheCount; k++)
+    var k; for (k = 0; k < interactionCacheCount; k+=1)
     {
         with (interactionCache[k])
         {
@@ -274,8 +274,8 @@ if (superArmHeldObject != noone)
         originToBBoxCenter = (bbox_left + bbox_right) / 2 - round(x);
     }
 
-    var superArmDesiredX = x - originToBBoxCenter;
-    var superArmDesiredY = y - originToBBoxBottom - 6;
+    var superArmDesiredX; superArmDesiredX = x - originToBBoxCenter;
+    var superArmDesiredY; superArmDesiredY = y - originToBBoxBottom - 6;
     if (image_yscale == -1)
     {
         superArmDesiredY = y + originToBBoxTop + 6;
@@ -287,7 +287,7 @@ if (superArmHeldObject != noone)
     superArmHeldObject.yspeed = 0;
 
     // throw
-    var doThrowAction = !doPickUpAction && global.keyShootPressed[playerID] && !playerIsLocked(PL_LOCK_SHOOT);
+    var doThrowAction; doThrowAction = !doPickUpAction && global.keyShootPressed[playerID] && !playerIsLocked(PL_LOCK_SHOOT);
     if (doThrowAction)
     {
         global.ammo[playerID, currentWeapon] = max(global.ammo[playerID, currentWeapon] - ammoCost, 0);

@@ -5,9 +5,9 @@
 
 // Note: do not use this to *return* to a hub. Call returnFromLevel() instead.
 
-var rm = argument[0];
-var fadeOut = true;
-var returnHere = true;
+var rm; rm = argument[0];
+var fadeOut; fadeOut = true;
+var returnHere; returnHere = true;
 if (argument_count > 1)
 {
     returnHere = argument[1];

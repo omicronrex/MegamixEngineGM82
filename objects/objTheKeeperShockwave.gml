@@ -25,7 +25,7 @@ if (entityCanStep())
     timer += 1;
     if (timer > 10)
     {
-        if (timer % 4 == 0)
+        if (timer mod 4 == 0)
         {
             visible = false;
         }

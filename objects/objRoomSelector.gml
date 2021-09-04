@@ -91,14 +91,14 @@ if (!selected)
     {
         if (quickScrollTimer <= 0) // slight pause between scrolls
         {
-            quickScrollTimer = 8; // <-- time until quick scroll here
+            quickScrollTimer = 8; // <-=1 time until quick scroll here
         }
 
-        quickScrollTimer--;
+        quickScrollTimer-=1;
     }
     else
     {
-        quickScrollTimer = 25; // <-- time until quick scroll here
+        quickScrollTimer = 25; // <-=1 time until quick scroll here
     }
 
     // controls
@@ -208,30 +208,13 @@ if (!selected)
         myRoom = ds_list_find_value(roomlist, option - 1);
         if (myRoom == -1)
         {
-            // load external
-            var filename = "+" + get_open_filename("Game Maker Rooms|*.room.gmx", "");
-            if (filename != "+" && stringEndsWith(filename, ".room.gmx"))
-            {
-                roomExternalClear(filename);
-                var rmExt = roomExternalLoad(filename);
-                if (rmExt >= 0)
-                {
-                    goToLevel(rmExt);
-                    selected = 1;
 
-                    playSFX(sfxMenuSelect);
-
-                    exit;
-                }
-            }
-
-            // if this is reached, an error occurred
             playSFX(sfxError);
         }
         else if (myRoom == -2)
         {
             // play recording
-            var filename = get_open_filename("Mega Man Recording|*.mrc", "");
+            var filename; filename = get_open_filename("Mega Man Recording|*.mrc", "");
             if (filename != "")
             {
                 recordInputPlayback(filename);
@@ -298,7 +281,7 @@ if (!selected)
                 dir = -1;
             }
 
-            var pre = global.difficulty;
+            var pre; pre = global.difficulty;
             global.difficulty = max(0, min(2, global.difficulty + dir));
 
             if (global.difficulty != pre)
@@ -320,7 +303,7 @@ draw_set_valign(fa_top);
 
 draw_text(128, round(8 + (sin(timer / 12) * 1)), "STAGE SELECT");
 
-var col = c_white;
+var col; col = c_white;
 if (timer mod 44 < 40)
 {
     col = make_color_rgb(128, 128, 128);
@@ -342,7 +325,7 @@ if (endx + shift < ds_list_size(roomlist))
 
 for (i = 0; i < endx; i += 1)
 {
-    var text = ds_list_find_value(roomnames, i + shift);
+    var text; text = ds_list_find_value(roomnames, i + shift);
 
     // special colours
     if (is_undefined(text))

@@ -6,18 +6,19 @@
 // colPrimary, colSecondary, colOutline: palette colours
 // [alphaBase, alphaPrimary, alphaSecondary, alphaOutline] (optional): alpha values for palette (0-1)
 
-var costume = argument[0],
-    sheetX = argument[1],
-    sheetY = argument[2],
-    _x = argument[3],
-    _y = argument[4],
-    _xscale = argument[5],
-    _yscale = argument[6],
-    col,
-    alpha;
+var costume; costume = argument[0]
+var sheetX;sheetX = argument[1]
+var sheetY;sheetY = argument[2]
+var _x;_x = argument[3]
+var _y;_y = argument[4]
+var _xscale;_xscale = argument[5]
+var _yscale;_yscale = argument[6]
+var col;
+var alpha;
+var i;
 
 // palette
-for (var i = 0; i < 4; i++)
+for (i = 0; i < 4; i+=1)
 {
     col[i] = argument[7 + i];
     if (argument_count > 11 + i)
@@ -26,9 +27,9 @@ for (var i = 0; i < 4; i++)
         alpha[i] = 1;
 }
 
-var SquareSize = 48;
+var SquareSize; SquareSize = 48;
 
-for (var i = 0; i < 4; i += 1)
+for (i = 0; i < 4; i += 1)
 {
     draw_sprite_part_ext(costume, i,
         1 + (floor(sheetX) * (SquareSize + 3)),

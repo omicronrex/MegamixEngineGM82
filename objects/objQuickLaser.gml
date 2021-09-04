@@ -86,7 +86,7 @@ if (entityCanStep())
         step = sprite_get_height(sprite_index) + 1;
     }
 
-    for (var i = 0; i <= sprite_get_height(sprite_index); i += step)
+    var i; for ( i = 0; i <= sprite_get_height(sprite_index); i += step)
     {
         // get line coordinates
         x1 = x + i * cos(degtorad(image_angle - 90)); // go down the height of the laser (subtracts because the way angle increases is misaligned with the coordinate plane in game maker (increasing swings negative first))
@@ -207,7 +207,7 @@ if (entityCanStep())
         }
 
         // find where the collision line first intersects each object's bbox, and use that to find the new xscale
-        for (j = 0; j < ds_list_size(solidList); j++)
+        for (j = 0; j < ds_list_size(solidList); j+=1)
         {
             obj = ds_list_find_value(solidList, j);
 
@@ -269,7 +269,7 @@ if (entityCanStep())
                             if (x1 < x2)
                             {
                                 // laser is going right
-                                for (cx = cx; cx < x2; cx++)
+                                for (cx = cx; cx < x2; cx+=1)
                                 {
                                     if (collision_point(cx, cy, obj, true, false) != noone)
                                     {
@@ -283,7 +283,7 @@ if (entityCanStep())
                             else
                             {
                                 // laser is going left
-                                for (cx = cx; cx > x2; cx--)
+                                for (cx = cx; cx > x2; cx-=1)
                                 {
                                     if (collision_point(cx, cy, obj, true, false) != noone)
                                     {
@@ -348,7 +348,7 @@ if (entityCanStep())
                         if (y1 < y2)
                         {
                             // laser is going right
-                            for (cy = cy; cy < y2; cy++)
+                            for (cy = cy; cy < y2; cy+=1)
                             {
                                 if (collision_point(cx, cy, obj, true, false) != noone)
                                 {
@@ -362,7 +362,7 @@ if (entityCanStep())
                         else
                         {
                             // laser is going left
-                            for (cy = cy; cy > y2; cy--)
+                            for (cy = cy; cy > y2; cy-=1)
                             {
                                 if (collision_point(cx, cy, obj, true, false) != noone)
                                 {
@@ -473,9 +473,9 @@ if (bbox_right >= view_xview[0] && bbox_left <= view_xview[0] + view_wview[0] &&
 {
     if (myPixel >= 0 || sprite_get_width(sprite_index) > 1)
     {
-        var size = image_xscale * sprite_get_width(sprite_index);
-        var img = size;
-        var bit = 0;
+        var size; size = image_xscale * sprite_get_width(sprite_index);
+        var img; img = size;
+        var bit; bit = 0;
 
         while (img > 0)
         {

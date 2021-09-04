@@ -5,9 +5,9 @@
 if (global.recordInputMode != 0)
     return -1;
 
-var filename = argument0;
+var filename; filename = argument0;
 
-var file = file_text_open_read(filename);
+var file; file = file_text_open_read(filename);
 if (file == -1)
 {
     return -1;
@@ -17,9 +17,9 @@ while (!file_text_eof(file))
     global.recordInputSaveData += file_text_readln(file) + chr(10);
 file_text_close(file);
 
-var HEADER_MARKER = "END HEADER";
-var headerEnd = stringIndexOf(global.recordInputSaveData, HEADER_MARKER);
-var headerString = stringSubstring(global.recordInputSaveData, 1, headerEnd);
+var HEADER_MARKER; HEADER_MARKER = "END HEADER";
+var headerEnd; headerEnd = stringIndexOf(global.recordInputSaveData, HEADER_MARKER);
+var headerString; headerString = stringSubstring(global.recordInputSaveData, 1, headerEnd);
 
 global.recordInputSaveData = stringSubstring(global.recordInputSaveData, headerEnd + string_length(HEADER_MARKER));
 global.recordInputSaveData = stringTrim(global.recordInputSaveData);
@@ -34,7 +34,7 @@ show_debug_message("=========");
 
 slPlaintextBegin(headerString);
 saveLoadRecordInput();
-var error = slPlaintextEnd();
+var error; error = slPlaintextEnd();
 
 if (!error)
 {

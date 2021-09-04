@@ -62,7 +62,7 @@ if (entityCanStep())
             }
         }
     }
-    var pindx = image_index;
+    var pindx; pindx = image_index;
     image_index = floor(animFrame);
     if (image_index == 0)
     {
@@ -87,7 +87,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    var mIndx = -999999;
+    var mIndx; mIndx = -999999;
     if (!instance_exists(owner))
     {
         exit;
@@ -101,8 +101,8 @@ if (entityCanStep())
         exit;
     if (true) // Keep the parts toghether
     {
-        var i = self.id;
-        var minIndex = 99999;
+        var i; i = self.id;
+        var minIndex; minIndex = 99999;
         with (objBariIIIBody)
         {
             if (owner.id == other.owner.id && index < minIndex)
@@ -117,15 +117,15 @@ if (entityCanStep())
                     i = instance_place(x, y - 4, owner);
                     with (owner)
                     {
-                        var xdist = other.x - x;
+                        var xdist; xdist = other.x - x;
                         shiftObject(xdist, 0, false);
                         x = other.x;
 
                         if (i != noone)
                         {
-                            var dist = other.bbox_top - 1 - bbox_bottom;
+                            var dist; dist = other.bbox_top - 1 - bbox_bottom;
 
-                            // var xdist = other.x-x;
+                            // var xdist; xdist = other.x-x;
                             shiftObject(0, dist, false);
                             y = other.bbox_top - 1;
                             ground = true;
@@ -140,7 +140,7 @@ if (entityCanStep())
                 { }
                 else
                 {
-                    var minId = index;
+                    var minId; minId = index;
                     i = noone;
                     with (objBariIIIBody)
                     {
@@ -157,7 +157,7 @@ if (entityCanStep())
                     {
                         with (i)
                         {
-                            var xdist = other.x - x;
+                            var xdist; xdist = other.x - x;
                             shiftObject(xdist, 0, false);
                             x = other.x;
                         }
@@ -167,7 +167,7 @@ if (entityCanStep())
                             mask_index = pmi;
                             with (i)
                             {
-                                var dist = other.bbox_top - 1 - bbox_bottom;
+                                var dist; dist = other.bbox_top - 1 - bbox_bottom;
                                 shiftObject(0, dist, false);
                                 y = other.bbox_top - 1;
                             }
@@ -199,9 +199,9 @@ if (image_index != 0)
 y += 4;
 if (true) // Keep the parts toghether
 {
-    var i = self.id;
-    var Other = id;
-    var minIndex = 99999;
+    var i; i = self.id;
+    var Other; Other = id;
+    var minIndex; minIndex = 99999;
     with (objBariIIIBody)
     {
         if (owner == other.owner.id && index < minIndex)
@@ -216,12 +216,12 @@ if (true) // Keep the parts toghether
                 i = instance_place(x, y - 4, owner);
                 with (owner)
                 {
-                    var xdist = other.x - x;
+                    var xdist; xdist = other.x - x;
                     shiftObject(xdist, 0, false);
                     x = other.x;
                     if (i != noone)
                     {
-                        var dist = other.bbox_top - 1 - bbox_bottom;
+                        var dist; dist = other.bbox_top - 1 - bbox_bottom;
                         shiftObject(0, dist, false);
                         y = other.bbox_top - 1;
                         ground = true;
@@ -236,7 +236,7 @@ if (true) // Keep the parts toghether
             { }
             else
             {
-                var maxIndex = index;
+                var maxIndex; maxIndex = index;
                 i = noone;
                 with (objBariIIIBody)
                 {
@@ -248,8 +248,8 @@ if (true) // Keep the parts toghether
                 }
                 with (i)
                 {
-                    var dist = other.bbox_top - 1 - bbox_bottom;
-                    var xdist = other.x - x;
+                    var dist; dist = other.bbox_top - 1 - bbox_bottom;
+                    var xdist; xdist = other.x - x;
                     shiftObject(xdist, dist, false);
                 }
             }

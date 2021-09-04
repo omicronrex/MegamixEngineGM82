@@ -4,9 +4,9 @@
 global.recordInputSaveData += "-";
 
 // key input data:
-for (var i = 0; i < global.playerCount; i++)
+var i; for ( i = 0; i < global.playerCount; i+=1)
 {
-    var flags = "";
+    var flags; flags = "";
     if (global.keyLeftPressed[i])
         flags += "L";
     if (global.keyLeft[i])
@@ -61,7 +61,7 @@ if (global.recordInputFidelityMessageBuffer != "")
 }
 
 // append to file since last mark:
-var file = file_text_open_append(global.recordInputFile);
+var file; file = file_text_open_append(global.recordInputFile);
 if (file == -1)
     global.recordInputEnd = true;
 else

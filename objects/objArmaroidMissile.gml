@@ -39,7 +39,7 @@ if (entityCanStep())
             case 0:
                 if (startWait > 0)
                 {
-                    startWait--;
+                    startWait-=1;
                 }
                 else
                 {
@@ -49,7 +49,7 @@ if (entityCanStep())
             case 1:
                 if (waitTimer < 15)
                 {
-                    waitTimer++;
+                    waitTimer+=1;
                     break;
                 }
                 pxd = target.x - x;

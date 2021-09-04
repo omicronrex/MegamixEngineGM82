@@ -180,7 +180,7 @@ if (entityCanStep())
                 {
                     if (instance_exists(target))
                         getAngle = point_direction(x, y, target.x, target.y); // find angle between mega man and hunter, fire babies in the opposite direction
-                    var inst = instance_create(x, y, objHunterBaby);
+                    var inst; inst = instance_create(x, y, objHunterBaby);
                     inst.xspeed = cos(degtorad(getAngle - 180)) * 1.5;
                     inst.yspeed = -sin(degtorad(getAngle - 180)) * 1.5;
                     inst = instance_create(x, y, objHunterBaby);
@@ -238,7 +238,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var xsc = image_xscale;
+var xsc; xsc = image_xscale;
 image_xscale = abs(image_xscale);
 event_inherited();
 image_xscale = xsc;

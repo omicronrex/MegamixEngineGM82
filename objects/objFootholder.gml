@@ -60,7 +60,7 @@ if (init)
     init = 0;
     if(mode==1 && targetMode == 2)
     {
-        var hasPath = false;
+        var hasPath; hasPath = false;
         with(objFootholderGuide)
         {
             if(myFlag==other.myFlag&&order!=-1)
@@ -76,7 +76,7 @@ if (init)
     }
     else
     {
-        var hasGuides = false;
+        var hasGuides; hasGuides = false;
         with(objFootholderGuide)
         {
             if(myFlag==other.myFlag)
@@ -163,19 +163,19 @@ if (entityCanStep())
         }
         if (moveTarget == noone)
         {
-            var total = 0;
+            var total; total = 0;
             with (objFootholderGuide)
             {
                 if (myFlag == other.myFlag)
-                    total++;
+                    total+=1;
             }
             if(targetMode == 2)
             {
-                var nextTarget = noone;
-                var prevEndTarget = noone;
-                var startTarget = noone;
-                var prevStartTarget = noone;
-                var endTarget = noone;
+                var nextTarget; nextTarget = noone;
+                var prevEndTarget; prevEndTarget = noone;
+                var startTarget; startTarget = noone;
+                var prevStartTarget; prevStartTarget = noone;
+                var endTarget; endTarget = noone;
 
                 with(objFootholderGuide)
                 {
@@ -245,7 +245,7 @@ if (entityCanStep())
                 {
                     if (myFlag == other.myFlag && !place_meeting(x, y, other.id))
                     {
-                        var dist1 = 0, dist2 = 0;
+                        var dist1; dist1 = 0; var dist2; dist2 = 0;
                         if (other.moveTarget != noone)
                         {
                             dist1 = point_distance(x, y, other.x, other.y);
@@ -260,13 +260,13 @@ if (entityCanStep())
                             else if (id == other.prevMoveTarget)
                             {
                                 var randList;
-                                var i = 0;
+                                var i; i = 0;
                                 with (objFootholderGuide)
                                 {
                                     if (id != other.id && myFlag == other.myFlag)
                                     {
                                         randList[i] = id;
-                                        i++;
+                                        i+=1;
                                     }
                                 }
                                 other.moveTarget = randList[max(0, irandom(i - 1))];

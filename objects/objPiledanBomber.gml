@@ -38,7 +38,7 @@ if (entityCanStep())
             var refs;
             refs[0] = noone;
             refs[1] = noone;
-            var k = 0;
+            var k; k = 0;
             with (objPiledan)
             {
                 if (place_meeting(x, y, other))
@@ -47,9 +47,9 @@ if (entityCanStep())
                     k += 1;
                 }
             }
-            for (var j = 0; j < k; j++)
+            var j; for ( j = 0; j < k; j+=1)
             {
-                var i = refs[j];
+                var i; i = refs[j];
                 if (i != noone && sign(i.yspeed) == image_yscale && i.foundMachine && i.image_yscale == image_yscale)
                 {
                     myPiledan = i;
@@ -151,8 +151,8 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var _y = bbox_top;
-var _y2 = bbox_bottom;
+var _y; _y = bbox_top;
+var _y2; _y2 = bbox_bottom;
 if (image_yscale == -1)
 {
     _y = bbox_bottom;

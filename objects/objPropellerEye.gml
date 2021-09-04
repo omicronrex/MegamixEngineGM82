@@ -106,7 +106,7 @@ if (entityCanStep())
 
     // animate propeller
     propellerTimer += 1;
-    if (propellerTimer >= 3) // <-- propeller animation speed here
+    if (propellerTimer >= 3) // <-=1 propeller animation speed here
     {
         if (sprite_index == sprPropellerEyePropeller1)
         {

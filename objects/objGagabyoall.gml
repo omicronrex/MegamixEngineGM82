@@ -32,7 +32,7 @@ if (entityCanStep())
     if (!stopped)
     {
         // animation
-        animTimer++;
+        animTimer+=1;
         if (animTimer == 4)
         {
             animTimer = 0;

@@ -41,7 +41,7 @@ if (entityCanStep())
     {
         // wait until popping up
         case 1:
-            if (timer >= 60) // <-- grace period time here
+            if (timer >= 60) // <-=1 grace period time here
             {
                 if (timer == graceWait)
                 {
@@ -107,7 +107,7 @@ if (entityCanStep())
                 if ((image_xscale < 0 && x < target.x - 48)
                     || (image_xscale > 0 && x > target.x + 48))
                 {
-                    // <-- turn around range here
+                    // <-=1 turn around range here
                     image_xscale = -image_xscale;
                     timer = shootWait;
                 }

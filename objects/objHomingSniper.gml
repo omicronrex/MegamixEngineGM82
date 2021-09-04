@@ -13,7 +13,7 @@ pierces = 0;
 
 isController = 0;
 
-for (var i = 0; i < 6; i++)
+var i; for (i = 0; i < 6; i+=1)
 {
     controllerTargets[i] = noone;
     crosshairFrame[i] = 0;
@@ -56,20 +56,20 @@ if (!global.frozen && !global.switchingSections)
             crosshairFrame[0] = 0;
         }
 
-        timer++;
+        timer+=1;
 
         if (instance_exists(target)) // Aiming
         {
-            var newAngle = point_direction(x, y, bboxGetXCenterObject(target), bboxGetYCenterObject(target));
+            var newAngle; newAngle = point_direction(x, y, bboxGetXCenterObject(target), bboxGetYCenterObject(target));
             newAngle = wrapAngle(floor(newAngle / 30) * 30);
 
             if (!(timer mod 4))
             {
                 if (angle != newAngle)
                 {
-                    var delta = 360 - angle;
-                    var nangl = (newAngle + delta) % 360;
-                    var rotDir = 1 - ((nangl >= 180) * 2);
+                    var delta; delta = 360 - angle;
+                    var nangl; nangl = (newAngle + delta) mod 360;
+                    var rotDir; rotDir = 1 - ((nangl >= 180) * 2);
 
                     angle = wrapAngle(angle + 30 * rotDir);
                 }
@@ -116,10 +116,10 @@ if (isController) // Code for the controller
     if (!global.frozen)
     {
         // Amount of targets - based on the chargeTimer
-        var n = array_length_1d(controllerTargets);
-        var maxTarget = min(parent.chargeTimer div 10, global.ammo[parent.playerID, global.weapon[parent.playerID]]);
-        var removed = false;
-        for (var i = 0; i < n; i++)
+        var n; n = array_length_1d(controllerTargets);
+        var maxTarget; maxTarget = min(parent.chargeTimer div 10, global.ammo[parent.playerID, global.weapon[parent.playerID]]);
+        var removed; removed = false;
+        var i; for ( i = 0; i < n; i+=1)
         {
             if (instance_exists(controllerTargets[i]))
             {
@@ -131,8 +131,8 @@ if (isController) // Code for the controller
 
         // Clean up spots in the array that contain IDs of dead/unhittable targets
         // And refill them with new targets
-        var j = 0;
-        for (var i = 0; j < maxTarget && i < array_length_1d(controllerTargets); i++)
+        var j; j = 0;
+        var i; for ( i = 0; j < maxTarget && i < array_length_1d(controllerTargets); i+=1)
         {
             if (!controllerTargets[i])
             {
@@ -182,7 +182,7 @@ with (objDestroyableBlock)
 
 if (isController)
 {
-    for (var i = 0; i < array_length_1d(controllerTargets); i++)
+    var i; for ( i = 0; i < array_length_1d(controllerTargets); i+=1)
     {
         if (instance_exists(controllerTargets[i]))
         {
@@ -201,7 +201,7 @@ if (isController)
 
 setTargetStep();
 
-for (var i = 0; i < array_length_1d(targetsToIgnore); i++)
+var i; for ( i = 0; i < array_length_1d(targetsToIgnore); i+=1)
 {
     with (targetsToIgnore[i])
     {
@@ -211,16 +211,16 @@ for (var i = 0; i < array_length_1d(targetsToIgnore); i++)
 
 if (!instance_exists(target) && targetsToIgnore[0] != -1) // Find the least frequent target
 {
-    var n = array_length_1d(targetsToIgnore);
+    var n; n = array_length_1d(targetsToIgnore);
     if (n > 0)
     {
         quickSort(targetsToIgnore);
-        var min_count = 100;
-        var curr_count = 1;
-        for (var i = 1; i < n; i++)
+        var min_count; min_count = 100;
+        var curr_count; curr_count = 1;
+        var i; for ( i = 1; i < n; i+=1)
         {
             if (targetsToIgnore[i] == targetsToIgnore[i - 1])
-                curr_count++;
+                curr_count+=1;
             else
             {
                 if (curr_count < min_count)
@@ -297,17 +297,17 @@ if (global.ammo[playerID, global.weapon[playerID]] <= 0)
     exit;
 }
 
-var bulletLimit = 6;
-var weaponCost = 1;
-var action = 1; // 0 - no frame; 1 - shoot; 2 - throw
-var willStop = 0; // If this is 1, the player will halt on shooting ala Metal Blade.
+var bulletLimit; bulletLimit = 6;
+var weaponCost; weaponCost = 1;
+var action; action = 1; // 0 - no frame; 1 - shoot; 2 - throw
+var willStop; willStop = 0; // If this is 1, the player will halt on shooting ala Metal Blade.
 
-var chargeTime = 60; // Set charge time for this weapon
-var initChargeTime = 20;
+var chargeTime; chargeTime = 60; // Set charge time for this weapon
+var initChargeTime; initChargeTime = 20;
 
 if (global.enableCharge && !playerIsLocked(PL_LOCK_CHARGE))
 {
-    var hasController = false;
+    var hasController; hasController = false;
     with (objHomingSniper)
     {
         if (isController && parent == other.id)
@@ -368,7 +368,7 @@ if (global.enableCharge)
                     playSFX(sfxCharging);
                 }
 
-                chargeTimer++;
+                chargeTimer+=1;
 
                 if (chargeTimer < chargeTime)
                 {
@@ -436,7 +436,7 @@ if (global.enableCharge)
             /////////////////////
             // ACTUAL SHOOTING //
             /////////////////////
-            var controller = noone;
+            var controller; controller = noone;
             with (objHomingSniper)
             {
                 if (isController && parent == other.id)
@@ -448,7 +448,7 @@ if (global.enableCharge)
 
             if (controller)
             {
-                for (var z = 0; z < array_length_1d(controller.controllerTargets); z++)
+                var z; for (z = 0; z < array_length_1d(controller.controllerTargets); z+=1)
                 {
                     if (instance_exists(controller.controllerTargets[z]))
                     {
@@ -496,15 +496,15 @@ if (!isController)
     event_inherited();
 }
 
-var img = sprite_get_number(sprHomingSniperCrosshair) - 1;
+var img; img = sprite_get_number(sprHomingSniperCrosshair) - 1;
 
-for (var i = 0; i < array_length_1d(controllerTargets); i++)
+var i; for ( i = 0; i < array_length_1d(controllerTargets); i+=1)
 {
     if (instance_exists(controllerTargets[i]))
     {
-        var stop = 0;
+        var stop; stop = 0;
 
-        for (var z = (i - 1); z >= 0; z--)
+        var z; for (z = (i - 1); z >= 0; z-=1)
         {
             if (instance_exists(controllerTargets[i]))
             {
@@ -524,7 +524,7 @@ for (var i = 0; i < array_length_1d(controllerTargets); i++)
             continue;
         }
 
-        var lastFrame = crosshairFrame[i];
+        var lastFrame; lastFrame = crosshairFrame[i];
         crosshairFrame[i] = min(img, crosshairFrame[i] + 0.4);
 
         draw_sprite(sprHomingSniperCrosshair, floor(crosshairFrame[i]),

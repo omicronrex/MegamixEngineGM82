@@ -81,7 +81,7 @@ if (entityCanStep())
         if (timer == 15)
         {
             image_index = 2;
-            var i = instance_create(x + image_xscale * 16, spriteGetYCenter(), objPicket);
+            var i; i = instance_create(x + image_xscale * 16, spriteGetYCenter(), objPicket);
             i.image_xscale = image_xscale; // shoot
             bullet += 1;
         }

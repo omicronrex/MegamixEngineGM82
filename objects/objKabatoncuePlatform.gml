@@ -36,11 +36,11 @@ if (entityCanStep())
         && !place_meeting(x, y + 8, objKabatoncuePlatformPiece))
     {
         shiftObject(0, 16, 1);
-        var _yprev = y;
+        var _yprev; _yprev = y;
         while (place_meeting(x, y, objSolid)
             || place_meeting(x, y, objKabatoncuePlatformPiece))
             y -= 1;
-        var ym = _yprev - y;
+        var ym; ym = _yprev - y;
         y = _yprev;
         shiftObject(0, ym, 0);
     }

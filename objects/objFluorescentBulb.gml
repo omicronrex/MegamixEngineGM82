@@ -28,7 +28,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    var pressed = false;
+    var pressed; pressed = false;
     visible = true;
     with (prtEntity)
         if (blockCollision)
@@ -71,7 +71,7 @@ if (entityCanStep())
         isSolid = 2;
     } */
 
-    var animTable = makeArray(1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 2, 3, 0);
+    var animTable; animTable = makeArray(1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 2, 3, 0);
     animTimer = (animTimer + 1) mod (array_length_1d(animTable) * 4);
     image_index = animTable[animTimer div 4];
 }

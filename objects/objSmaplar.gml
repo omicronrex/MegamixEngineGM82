@@ -35,7 +35,7 @@ event_inherited();
 if (entityCanStep())
 {
     // manual animation
-    animTimer++;
+    animTimer+=1;
 
     if (animTimer == 2)
     {

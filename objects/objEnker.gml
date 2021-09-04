@@ -116,7 +116,7 @@ if (entityCanStep())
         {
             image_index = 0;
             image_speed = 0;
-            phaseTimer++;
+            phaseTimer+=1;
             canFillHealthBar = false;
             if (phaseTimer > 30)
             {
@@ -139,7 +139,7 @@ if (entityCanStep())
     }
     if (isFight)
     {
-        var arenaCenter = view_xview[0] + view_wview[0] / 2;
+        var arenaCenter; arenaCenter = view_xview[0] + view_wview[0] / 2;
 
         // actual combat
         if (phase == 0)
@@ -164,7 +164,7 @@ if (entityCanStep())
                 phase = 2;
 
                 // pick jump destination:
-                var deltaX = image_xscale * max(distanceToSolid(x + image_xscale * 4, y - 16, image_xscale, -0.7, true),
+                var deltaX; deltaX = image_xscale * max(distanceToSolid(x + image_xscale * 4, y - 16, image_xscale, -0.7, true),
                     distanceToSolid(x + image_xscale * 4, y - 32, image_xscale, 0), true);
 
                 // consider jumping to center of screen instead:
@@ -187,7 +187,7 @@ if (entityCanStep())
                 }
 
                 // climb over short obstacles like quick man
-                for (var i = 0; i < 8; i++)
+                var i; for ( i = 0; i < 8; i+=1)
                     if (checkSolid(xspeed, 0) && !checkSolid(xspeed, -8) && !checkSolid(0, -1))
                         y -= 1;
                 image_index = 2 + (phaseTimer div 4) mod 4;
@@ -201,7 +201,7 @@ if (entityCanStep())
                     // intelligently jump over obstacles in the way
                     if (checkSolid(image_xscale * 32, -8))
                     {
-                        for (var i = 1; i < min(12, abs(y - global.sectionTop) / 16); i++)
+                        var i; for ( i = 1; i < min(12, abs(y - global.sectionTop) / 16); i+=1)
                         {
                             if (checkSolid(0, -16 * i) || checkSolid(image_xscale * 16, -16 * i))
                                 break;
@@ -227,12 +227,12 @@ if (entityCanStep())
                 if (phaseTimer == 0)
                 {
                     // plan jump
-                    var jumpTime = 35;
+                    var jumpTime; jumpTime = 35;
                     yspeed = -jumpTime * grav / 2;
                 }
                 if (phaseTimer == 1)
                 {
-                    var jumpTime = 35;
+                    var jumpTime; jumpTime = 35;
                     xspeed = (dstX - x) / jumpTime;
                     xspeed -= 8 * sign(xspeed) / jumpTime; // correction for landing location
 
@@ -267,8 +267,8 @@ if (entityCanStep())
                     image_index = 8 + (phaseTimer div 2) mod (3 + max(charge div 4, 2));
                 }
 
-                var succy = y - 32;
-                var succx = x; // - 16 * image_xscale;
+                var succy; succy = y - 32;
+                var succx; succx = x; // - 16 * image_xscale;
 
                 // projectiles get sucked in
                 with (prtPlayerProjectile)
@@ -300,7 +300,7 @@ if (entityCanStep())
 
                 if (absorbSFXTimer < 90)
                 {
-                    absorbSFXTimer++;
+                    absorbSFXTimer+=1;
                 }
                 break;
             case 4: // rest briefly after jumping
@@ -445,8 +445,8 @@ action_id=603
 applies_to=self
 */
 // hack to make hitbox render in the right spot
-var bx = x;
-var by = y;
+var bx; bx = x;
+var by; by = y;
 
 if (!((iFrames mod 4) < 2 || !iFrames))
 {

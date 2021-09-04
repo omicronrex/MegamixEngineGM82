@@ -98,7 +98,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var ysc = image_yscale;
+var ysc; ysc = image_yscale;
 image_yscale = abs(image_yscale);
 event_inherited();
 image_yscale = ysc;

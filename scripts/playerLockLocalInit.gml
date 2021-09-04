@@ -3,7 +3,7 @@
 
 assert(object_index == objMegaman, "player locks should only belong to objMegaman instances");
 
-for (var i = 0; i < PL_LOCK_MAX; i++)
+var i; for (i = 0; i < PL_LOCK_MAX; i+=1)
 {
     localPlayerLock[i] = lockPoolNew();
 

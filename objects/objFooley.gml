@@ -34,10 +34,10 @@ applies_to=self
 event_inherited();
 if (entityCanStep())
 {
-    moveTimer--;
+    moveTimer-=1;
     if ((moveTimer <= 30) && (moveTimer > 0))
     {
-        timeSlow--;
+        timeSlow-=1;
         if (timeSlow == 0)
         {
             if (sprite_index == sprFooley)
@@ -86,7 +86,7 @@ if (entityCanStep())
             }
         }
 
-        drawTimer--;
+        drawTimer-=1;
         if (drawTimer == 0)
         {
             if instance_exists(target)
@@ -104,7 +104,7 @@ if (entityCanStep())
         }
 
         // Create flash
-        timeSlow--;
+        timeSlow-=1;
         if (timeSlow == 0)
         {
             if (!instance_exists(objFooleyFlash))
@@ -122,7 +122,7 @@ if (entityCanStep())
         }
 
         // Shoot
-        shootTimer--;
+        shootTimer-=1;
         if (shootTimer == 0)
         {
             instance_create(x, y, objFooleyShot);

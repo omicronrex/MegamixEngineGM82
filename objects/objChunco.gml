@@ -40,7 +40,7 @@ if (entityCanStep())
         switch (phase)
         {
             case 0:
-                moveTimer--;
+                moveTimer-=1;
                 if (moveTimer > 120)
                 {
                     xspeed = 1 * image_xscale;
@@ -72,11 +72,11 @@ if (entityCanStep())
                 }
                 break;
             case 1:
-                moveTimer--;
-                shootTimer--;
+                moveTimer-=1;
+                shootTimer-=1;
                 if (shootTimer == 0)
                 {
-                    var getAngle = point_direction(x, y, target.x, target.y);
+                    var getAngle; getAngle = point_direction(x, y, target.x, target.y);
 
                     i = instance_create(x, y, objMM5AimedBullet);
                     i.dir = getAngle + 30;

@@ -4,22 +4,22 @@
 //if usePositionCollision us true, only the sign of xOffset will be used
 if (!ground || !blockCollision)
     return true;
-var _x = x;
-var _y = y;
-var _xspeed = xspeed;
-var _yspeed = yspeed;
-var _xcoll = xcoll;
-var _ycoll = ycoll;
-var usePositionCollision=false;
+var _x; _x = x;
+var _y; _y = y;
+var _xspeed; _xspeed = xspeed;
+var _yspeed; _yspeed = yspeed;
+var _xcoll; _xcoll = xcoll;
+var _ycoll; _ycoll = ycoll;
+var usePositionCollision; usePositionCollision =false;
 if(argument_count>1)
 {
     usePositionCollision=argument[1];
 }
-var result=0;
+var result; result =0;
 if(usePositionCollision)
 {
-    var base = bbox_bottom;
-    var front = bbox_right;
+    var base; base = bbox_bottom;
+    var front; front = bbox_right;
     if(sign(argument[0])==-1)
         front=bbox_left;
     if(sign(grav)==-1)

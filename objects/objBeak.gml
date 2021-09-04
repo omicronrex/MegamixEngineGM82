@@ -82,13 +82,13 @@ if (entityCanStep())
             case 1:
                 if (bullet < 4)
                 {
-                    var i = instance_create(x + image_xscale * 16, y + 8, objBeakBullet);
+                    var i; i = instance_create(x + image_xscale * 16, y + 8, objBeakBullet);
                     i.image_index = col;
                     i.dir = 45 - (bullet * 30);
                     i.xscale = image_xscale;
 
                     playSFX(sfxEnemyShootClassic);
-                    bullet++;
+                    bullet+=1;
                     timer -= 30;
                 }
                 break;

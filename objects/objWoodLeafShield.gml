@@ -60,7 +60,7 @@ if (entityCanStep())
     }
     else
     {
-        rotationTimer++
+        rotationTimer+=1
     }
 }
 #define Other_21

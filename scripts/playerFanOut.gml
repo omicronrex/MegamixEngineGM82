@@ -11,7 +11,7 @@ if (!playerIsLocked(PL_LOCK_MOVE) || global.playerCount == 1)
     exit;
 }
 
-var dist = argument0;
+var dist; dist = argument0;
 if (argument_count > 0) // Keep seperation within the limit
 {
     dist = min(abs(dist), argument1 / instance_number(objMegaman)) * sign(dist);

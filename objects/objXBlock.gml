@@ -74,7 +74,7 @@ if (entityCanStep())
     {
         if (place_meeting(x, y, pushList[i]) && xspeed == 0)
         {
-            var obj = instance_place(x, y, pushList[i]);
+            var obj; obj = instance_place(x, y, pushList[i]);
             xspeed = 1.5 * obj.image_xscale;
             playSFX(sfxEnemyHit);
         }

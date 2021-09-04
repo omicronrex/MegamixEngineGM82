@@ -83,7 +83,7 @@ if (entityCanStep())
         switch (phase)
         {
             case 0:
-                moveTimer--;
+                moveTimer-=1;
                 if (moveTimer > 0)
                 {
                     calibrateDirection();
@@ -159,7 +159,7 @@ if (entityCanStep())
                 }
             }
 
-            drawTimer--;
+            drawTimer-=1;
             if (drawTimer == 0)
             {
                 if (target.inked == false)
@@ -173,7 +173,7 @@ if (entityCanStep())
                 drawTimer = 4;
             }
 
-            toxinTimer++;
+            toxinTimer+=1;
             if (toxinTimer == 360)
             {
                 toxinTimer = 0;

@@ -35,7 +35,7 @@ applies_to=self
 if (timescale < 0)
     timescale = abs(timescale);
 grav = 0.25 * timescale;
-var prexscale = image_xscale;
+var prexscale; prexscale = image_xscale;
 image_xscale=1;
 mask_index = mskStegorus;
 event_inherited();
@@ -49,7 +49,7 @@ if (entityCanStep())
         case 0:
             if (timer == 0) // walk
             {
-                var prevFrame = floor(animFrame);
+                var prevFrame; prevFrame = floor(animFrame);
                 animFrame += 0.165 * timescale;
                 if (floor(animFrame) != prevFrame)
                 {
@@ -63,7 +63,7 @@ if (entityCanStep())
                         screenShake(5, 1, 1);
                         if (x < (xstart - leftLimit) || x > (xstart + rightLimit) || xcoll != 0 || checkFall(65 * image_xscale, true))
                         {
-                            var tx = 0;
+                            var tx; tx = 0;
                             if (instance_exists(target))
                             {
                                 tx = target.x;
@@ -98,7 +98,7 @@ if (entityCanStep())
             image_index = floor(animFrame);
             break;
         case 1: // Shoot spikes
-            var prev = floor(animFrame);
+            var prev; prev = floor(animFrame);
             if (timer != -10)
                 animFrame += 0.185 * timescale * timer;
             else
@@ -129,7 +129,7 @@ if (entityCanStep())
                 switch (shotCount)
                 {
                     case 0:
-                        var i = instance_create(x + 21 * image_xscale, y - 23, objStegorusSpike);
+                        var i; i = instance_create(x + 21 * image_xscale, y - 23, objStegorusSpike);
                         i.sprite_index = sprStegorusSpikeSmall;
                         i.xsp = 2.65;
                         i.image_xscale = image_xscale;
@@ -137,7 +137,7 @@ if (entityCanStep())
                         i.parent = id;
                         break;
                     case 1:
-                        var i = instance_create(x + 16 * image_xscale, y - 28, objStegorusSpike);
+                        var i; i = instance_create(x + 16 * image_xscale, y - 28, objStegorusSpike);
                         i.sprite_index = sprStegorusSpikeMedium;
                         i.xsp = 1.85;
                         i.ysp = -4;
@@ -146,7 +146,7 @@ if (entityCanStep())
                         i.parent = id;
                         break;
                     case 2:
-                        var i = instance_create(x + 10 * image_xscale, y - 34, objStegorusSpike);
+                        var i; i = instance_create(x + 10 * image_xscale, y - 34, objStegorusSpike);
                         i.sprite_index = sprStegorusSpikeBig;
                         i.xsp = 1.5;
                         i.ysp = -5;
@@ -186,7 +186,7 @@ if (entityCanStep())
                 }
                 else
                 {
-                    var i = instance_create(x + 16 * image_xscale, y - 25, objStegorusMissile);
+                    var i; i = instance_create(x + 16 * image_xscale, y - 25, objStegorusMissile);
                     if (image_xscale == 1)
                     {
                         i.angle = 45;
@@ -205,7 +205,7 @@ if (entityCanStep())
             break;
         case 3: // turning
             xspeed = 0;
-            var prevFrame = floor(animFrame);
+            var prevFrame; prevFrame = floor(animFrame);
             if (floor(animFrame) != 8)
                 animFrame += 0.15 * timescale;
             else
@@ -216,7 +216,7 @@ if (entityCanStep())
             if (floor(animFrame) > 10)
             {
                 animFrame = 0;
-                var tx = 0;
+                var tx; tx = 0;
                 if (instance_exists(target))
                 {
                     tx = target.x;
@@ -245,7 +245,7 @@ action_id=603
 applies_to=self
 */
 event_inherited();
-var ignore = true;
+var ignore; ignore = true;
 if (other.bbox_bottom > bbox_top + 24)
 {
     if (collision_rectangle(x + 20 * image_xscale, y - 16, x + 34 * image_xscale, y, other.id, false, true))

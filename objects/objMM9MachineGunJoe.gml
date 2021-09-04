@@ -59,7 +59,7 @@ if (entityCanStep())
             {
                 yspeed = yspeedJump;
                 ground = false;
-                jumpCount++;
+                jumpCount+=1;
                 waitCount = 0;
                 if (!instance_exists(target))
                 {
@@ -128,14 +128,14 @@ if (entityCanStep())
                         shootID.xspeed = image_xscale * 4;
                         shootID.image_xscale = image_xscale;
                         shootID.sprite_index = sprMM9MachineGunJoeBullet;
-                        shootAmount++;
+                        shootAmount+=1;
                     }
                     if (shootAmount >= 7)
                     {
                         shootTimer = 0;
                         shootAmount = 0;
                         shooting = false;
-                        shootCount++;
+                        shootCount+=1;
                         waitCount = 0;
                     }
                 }

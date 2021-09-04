@@ -1,14 +1,14 @@
 /// entityIceFreeze(time, [physics, solid, graphics])
 /// freezes this entity (as though by ice)
 // time: minimum time to freeze for
-// physics [default: true]: true/false -- should object fall while frozen, etc.?
+// physics [default: true]: true/false -=1 should object fall while frozen, etc.?
 // solid [default: false]: should object be solid while frozen
-// graphics [default: 0]: graphics style (currently only 0 -- light blue frozen)
+// graphics [default: 0]: graphics style (currently only 0 -=1 light blue frozen)
 
-var time = argument[0];
-var _physics = true;
-var _solid = false;
-var _graphics = 0;
+var time; time = argument[0];
+var _physics; _physics = true;
+var _solid; _solid = false;
+var _graphics; _graphics = 0;
 
 if (argument_count > 1)
 {

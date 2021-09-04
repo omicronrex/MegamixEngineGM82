@@ -30,7 +30,7 @@ event_inherited();
 /// Step
 if (entityCanStep())
 {
-    var iD = collision_rectangle(bbox_left + 7, bbox_top - 6, bbox_right - 7, bbox_top + 8, objMegaman, false, false);
+    var iD; iD = collision_rectangle(bbox_left + 7, bbox_top - 6, bbox_right - 7, bbox_top + 8, objMegaman, false, false);
     if (iD != noone && iD.iFrames == 0)
     {
         with (iD)

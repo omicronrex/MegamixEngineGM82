@@ -133,7 +133,7 @@ if (entityCanStep())
             {
                 myX = bboxGetXCenterObject(id);
                 theirX = bboxGetXCenterObject(target);
-                if (animCount >= 2 // <-- number of spins in place until readying for rocketing off here
+                if (animCount >= 2 // <-=1 number of spins in place until readying for rocketing off here
                 && ((theirX < myX && imgIndex div 1 == 6 && image_xscale == 1)
                     || (theirX < myX && imgIndex div 1 == 2 && image_xscale == -1)
                     || (theirX >= myX && imgIndex div 1 == 2 && image_xscale == 1)
@@ -153,7 +153,7 @@ if (entityCanStep())
         // small wait before turning on the side
         case 1:
             timer += 1;
-            if (timer >= 20) // <-- time in grace period before turning on his side here
+            if (timer >= 20) // <-=1 time in grace period before turning on his side here
             {
                 phase = 2;
                 timer = 0;

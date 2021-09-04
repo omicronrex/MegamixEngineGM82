@@ -5,9 +5,9 @@
 xcoll = 0;
 ycoll = 0;
 
-var myid = id;
-var xprev = x;
-var noSlopeEffect = false;
+var myid; myid = id;
+var xprev; xprev = x;
+var noSlopeEffect; noSlopeEffect = false;
 
 if (argument_count > 0 && argument[0])
 {
@@ -16,7 +16,7 @@ if (argument_count > 0 && argument[0])
 
 
 // Set the direction of gravity
-var cgrav = sign(grav);
+var cgrav; cgrav = sign(grav);
 
 if (object_index == objMegaman)
 {
@@ -69,7 +69,7 @@ if (dieToSpikes) // Handle dying to spikes
 {
     // the solidity of spikes depends on whether or not
     // we are hitstunned.
-    var spSolid = (canHit && iFrames != 0);
+    var spSolid; spSolid = (canHit && iFrames != 0);
     with (objSpike)
     {
         solid = spSolid;
@@ -79,7 +79,7 @@ if (dieToSpikes) // Handle dying to spikes
 // Horizontal collision
 if (xspeed != 0)
 {
-    var slp = (ceil(abs(xspeed)) * MAX_SLOPE * cgrav) * (yspeed * cgrav <= 0);
+    var slp; slp = (ceil(abs(xspeed)) * MAX_SLOPE * cgrav) * (yspeed * cgrav <= 0);
 
     // make semisolids solid if they can be used as a slope
     if (slp != 0)
@@ -164,10 +164,10 @@ if (xspeed != 0)
                 // slopes only affect entities on the ground
                 if (slp != 0)
                 {
-                    var xsl = xcoll - (x - xprev);
+                    var xsl; xsl = xcoll - (x - xprev);
                     if (sign(xcoll) == sign(xsl))
                     {
-                        for (var _i = 1; _i <= ceil(abs(xsl)) * MAX_SLOPE; _i += 1)
+                        var _i; for (_i = 1; _i <= ceil(abs(xsl)) * MAX_SLOPE; _i += 1)
                         {
                             if (place_free(x + xsl, y - _i))
                             {

@@ -27,7 +27,8 @@ applies_to=self
 event_inherited();
 
 // wait 5 seconds (300 frames)
-if ((destroyTimer--) <= 0)
+destroyTimer-=1
+if (destroyTimer <= -1)
 {
     instance_destroy();
 }

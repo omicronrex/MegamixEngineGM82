@@ -160,11 +160,11 @@ if (!global.frozen && !dead)
             {
                 with (other)
                 {
-                    var talkable = ground;
+                    var talkable; talkable = ground;
 
                     if (!standardPhysics)
                     {
-                        talkable++;
+                        talkable+=1;
                     }
 
                     if (talkable)
@@ -173,7 +173,7 @@ if (!global.frozen && !dead)
                         {
                             spawnTextBoxSingleString(name, name_color, text);
                             addMugshot(mugshot_sprite, mugshot_start, mugshot_end, mugshot_speed);
-                            var i = 0;
+                            var i; i = 0;
                             while (option[i] != "" && i <= 4)
                             {
                                 addChoice(i, option[i]);
@@ -305,8 +305,8 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var canExecute = false;
-var executeLocked = false;
+var canExecute; canExecute = false;
+var executeLocked; executeLocked = false;
 if (option_text[0] != "" && option_spoken == true && !global.frozen && !executeLocked && !active)
 {
     executeLocked = true;
@@ -315,7 +315,7 @@ if (option_text[0] != "" && option_spoken == true && !global.frozen && !executeL
 active = 0;
 global.frozen = 0;
 
-// return to previous orientation, whether it was the same or not -- unless face_player is true
+// return to previous orientation, whether it was the same or not -=1 unless face_player is true
 if (!face_player)
 {
     image_xscale = _prev_direction;

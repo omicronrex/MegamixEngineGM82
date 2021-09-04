@@ -35,7 +35,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    var prevCanShoot = canShoot;
+    var prevCanShoot; prevCanShoot = canShoot;
     if (instance_exists(target))
     {
         if (abs(x - target.bbox_left + (abs(target.bbox_left - target.bbox_right) / 2)) < 16 * 4)
@@ -98,10 +98,10 @@ action_id=603
 applies_to=self
 */
 /// Shoot
-var count = 0;
-for (var i = -1; i < 2; i += 2)
+var count; count = 0;
+var i; for ( i = -1; i < 2; i += 2)
 {
-    var bullet = instance_create(x, y, objEnemyBullet);
+    var bullet; bullet = instance_create(x, y, objEnemyBullet);
     bullet.sprite_index = sprBombomboyBullet;
     bullet.x = x;
     bullet.y = bbox_top + 2;

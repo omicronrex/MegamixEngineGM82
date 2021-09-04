@@ -74,7 +74,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var ball = instance_create(x + image_xscale * 10, y + 5, objMechaPitchanBall);
+var ball; ball = instance_create(x + image_xscale * 10, y + 5, objMechaPitchanBall);
 
 playSFX(sfxMechaPitchanDrop);
 
@@ -86,7 +86,7 @@ ball.visible = true;
 ball.h = x + 20 * image_xscale;
 ball.k = bbox_bottom + 20;
 ball.ix = x + 40 * image_xscale;
-var yDist = 0;
+var yDist; yDist = 0;
 
 if (instance_exists(target))
 {

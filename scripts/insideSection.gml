@@ -1,7 +1,7 @@
 /// insideSection(x, y)
 
-var _X = argument0;
-var _Y = argument1;
+var _X; _X = argument0;
+var _Y; _Y = argument1;
 
 return (
     _Y < global.sectionBottom && _Y >= global.sectionTop &&

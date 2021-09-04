@@ -68,7 +68,7 @@ if (entityCanStep())
         {
             eyeIndex = 0;
         }
-        blinkTimer++;
+        blinkTimer+=1;
     }
 }
 else if (dead)

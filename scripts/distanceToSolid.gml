@@ -4,21 +4,21 @@
 // if positionCollision (optional) is true then use positionCollision script for
 // collision detection; use placeCollision otherwise.
 
-var nsteps = 0;
+var nsteps; nsteps = 0;
 
-var _x = argument[0];
-var _y = argument[1];
-var xstep = argument[2];
-var ystep = argument[3];
-var colScript = false;
+var _x; _x = argument[0];
+var _y; _y = argument[1];
+var xstep; xstep = argument[2];
+var ystep; ystep = argument[3];
+var colScript; colScript = false;
 if (argument_count > 4)
     colScript = argument[4];
 
 
-var maxX = global.sectionRight;
-var maxY = global.sectionBottom;
-var minX = global.sectionLeft;
-var minY = global.sectionTop;
+var maxX; maxX = global.sectionRight;
+var maxY; maxY = global.sectionBottom;
+var minX; minX = global.sectionLeft;
+var minY; minY = global.sectionTop;
 
 
 while (true)
@@ -34,7 +34,7 @@ while (true)
             return nsteps;
     }
 
-    nsteps++;
+    nsteps+=1;
 
     _x += xstep;
     _y += ystep;

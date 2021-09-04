@@ -56,10 +56,10 @@ if (entityCanStep())
     }
 
     // Shoot
-    shootTimer--;
+    shootTimer-=1;
     if (shootTimer <= 0)
     {
-        var i = instance_create(x, y, objEnemyBullet);
+        var i; i = instance_create(x, y, objEnemyBullet);
         i.contactDamage = 2;
         with (i)
         {

@@ -31,7 +31,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    var prevAnim = anim;
+    var prevAnim; prevAnim = anim;
     if (hasCannon && !instance_exists(cannon))
     {
         cannon = instance_create(bbox_left - 3, bbox_top - 16, objTricastleCannon);

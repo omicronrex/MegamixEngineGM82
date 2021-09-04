@@ -143,7 +143,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-for (var i = 0; i < tileNumber; i += 1)
+var i; for ( i = 0; i < tileNumber; i += 1)
     draw_background_part(tileBG[i], tileLeft[i], tileTop[i], tileWidth[i], tileHeight[i], round(x + tileX[i]), round(y + tileY[i]));
 
 // drawSelf();

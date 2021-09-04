@@ -18,7 +18,7 @@ if (target)
     }
 }
 
-var select = 0;
+var select; select = 0;
 
 switch (behaviourType)
 {
@@ -60,8 +60,8 @@ switch (behaviourType)
 
 if (select) // Select a new target
 {
-    var dist = 1000;
-    var pick = 0;
+    var dist; dist = 1000;
+    var pick; pick = 0;
     with (prtEntity)
     {
         if (!dead)

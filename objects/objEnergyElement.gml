@@ -67,8 +67,8 @@ if (entityCanStep())
         if (checkSolid(0, 0,1,1))
         {
             aimAtPoint(4, view_xview + (view_wview/2), view_yview + (view_hview/2));
-            /*var cy = y - target.y;
-            var cx = x - target.x;
+            /*var cy; cy = y - target.y;
+            var cx; cx = x - target.x;
 
             if (abs(cy) > 4)
             {
@@ -113,11 +113,11 @@ if (entityCanStep())
             }
         }
 
-        sparkletimer++;
+        sparkletimer+=1;
     }
     else
     {
-        timer++;
+        timer+=1;
 
         if (timer >= 360) // players beam out
         {

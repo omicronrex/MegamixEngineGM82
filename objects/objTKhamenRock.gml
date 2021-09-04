@@ -23,7 +23,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    moveTimer--;
+    moveTimer-=1;
 
     if (moveTimer <= 0)
     {

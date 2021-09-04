@@ -76,7 +76,7 @@ if ((!global.frozen || active) && !dead && !global.timeStopped)
 
     if (place_meeting(x, y, objMegaman) && global.flag[myFlag] == 1)
     {
-        var player = instance_place(x, y, objMegaman);
+        var player; player = instance_place(x, y, objMegaman);
         if (((player.x >= x && image_xscale == 1 && player.x < x + sprite_width - 2)
             || (player.x <= x && image_xscale == -1 && player.x > x + sprite_width - 2))
             && (player.y > y - 28))
@@ -96,11 +96,11 @@ if ((!global.frozen || active) && !dead && !global.timeStopped)
         }
         else if (exitType == 2 && y > view_yview)
         {
-            y--;
+            y-=1;
         }
         else if (exitTimer > 0)
         {
-            exitTimer--;
+            exitTimer-=1;
         }
         else
         {
@@ -135,7 +135,7 @@ if (y < ystart)
 
     if ((ystart - y) >= 16)
     {
-        for (i = 0; i < floor((ystart - y) / 16); i++)
+        for (i = 0; i < floor((ystart - y) / 16); i+=1)
             draw_sprite(sprSkullElevatorShaft, 0, x - 4, y + i * 16);
     }
 }

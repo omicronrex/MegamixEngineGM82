@@ -36,18 +36,18 @@ if (entityCanStep())
 {
     if (!isFrozen)
     {
-        var cost = cos(degtorad(image_angle * sign(image_yscale) - 90));
-        var sint = sin(degtorad(image_angle * sign(image_yscale) - 90 * sign(image_yscale)));
+        var cost; cost = cos(degtorad(image_angle * sign(image_yscale) - 90));
+        var sint; sint = sin(degtorad(image_angle * sign(image_yscale) - 90 * sign(image_yscale)));
 
         if (instance_exists(objMegaman)) // Sparkle effect
         {
             if (instance_number(objMagmaBeamParticle) < 2)
             {
                 var side;
-                var _x = x;
-                var _y = y;
-                var fpcount = 0;
-                var spcount = 0;
+                var _x; _x = x;
+                var _y; _y = y;
+                var fpcount; fpcount = 0;
+                var spcount; spcount = 0;
 
                 with (objMagmaBeamParticle)
                 {
@@ -69,14 +69,14 @@ if (entityCanStep())
                     }
                     else
                     {
-                        var x1 = other.x;
-                        var y1 = other.y;
-                        var x2 = other.x + 8 * cost;
-                        var y2 = other.y - 8 * sint;
+                        var x1; x1 = other.x;
+                        var y1; y1 = other.y;
+                        var x2; x2 = other.x + 8 * cost;
+                        var y2; y2 = other.y - 8 * sint;
 
                         side = sign(((x2 - x1) * (y - y1)) - ((x - x1) * (y2 - y1)));
 
-                        var angle = other.image_angle + 90;
+                        var angle; angle = other.image_angle + 90;
                         if (angle > 360)
                         {
                             angle -= 360;
@@ -104,7 +104,7 @@ if (entityCanStep())
                         {
                             if (spcount == 0)
                             {
-                                var i = instance_create(_x, _y, objMagmaBeamParticle);
+                                var i; i = instance_create(_x, _y, objMagmaBeamParticle);
                                 i.dir = side;
                                 i.yspeed = -1.75;
                                 i.grav = 0.05;
@@ -113,7 +113,7 @@ if (entityCanStep())
 
                             if (fpcount == 0)
                             {
-                                var i = instance_create(_x, _y, objMagmaBeamParticle);
+                                var i; i = instance_create(_x, _y, objMagmaBeamParticle);
                                 i.dir = side;
                                 i.yspeed = -2.5;
                                 i.image_speed = 0.35;
@@ -154,13 +154,13 @@ if (entityCanStep())
     }
     else
     {
-        isFrozen--;
+        isFrozen-=1;
 
         if (instance_exists(parent))
         {
             with (parent)
             {
-                timer--;
+                timer-=1;
             }
         }
     }
@@ -175,7 +175,7 @@ applies_to=self
 */
 dead = 1;
 
-for (var i = min(1.5, abs(image_yscale / 3)); i < abs(image_yscale); i += 3)
+var i; for ( i = min(1.5, abs(image_yscale / 3)); i < abs(image_yscale); i += 3)
 {
     playSFX(sfxMM3Explode);
     with (instance_create(x, y, objBigExplosion))
@@ -219,7 +219,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var df = 0;
+var df; df = 0;
 if (isFrozen)
 {
     if (isFrozen > 64 || isFrozen mod 8 < 4)
@@ -228,15 +228,15 @@ if (isFrozen)
     }
 }
 
-var cost = cos(degtorad(image_angle * sign(image_yscale) - 90));
-var sint = sin(degtorad(image_angle * sign(image_yscale) - 90 * sign(image_yscale)));
+var cost; cost = cos(degtorad(image_angle * sign(image_yscale) - 90));
+var sint; sint = sin(degtorad(image_angle * sign(image_yscale) - 90 * sign(image_yscale)));
 
-for (var i = 0; i < abs(image_yscale); i++)
+var i; for ( i = 0; i < abs(image_yscale); i+=1)
 {
-    var disp = i * 16;
-    var drawY = y - disp * sint;
-    var drawX = x + disp * cost;
-    var smg = 1;
+    var disp; disp = i * 16;
+    var drawY; drawY = y - disp * sint;
+    var drawX; drawX = x + disp * cost;
+    var smg; smg = 1;
     if (i == 0 && timer <= 0)
     {
         smg = 0;
@@ -245,7 +245,7 @@ for (var i = 0; i < abs(image_yscale); i++)
     {
         smg = 2;
     }
-    var subimg = smg * 3 + image_index;
+    var subimg; subimg = smg * 3 + image_index;
 
     if (df)
     {

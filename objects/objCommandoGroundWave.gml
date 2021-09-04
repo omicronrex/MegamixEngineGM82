@@ -23,7 +23,7 @@ if (entityCanStep())
     {
         if (!positionCollision(x + 9 * image_xscale, y))
         {
-            var i = instance_create(x + 9 * image_xscale, y, objCommandoGroundWave);
+            var i; i = instance_create(x + 9 * image_xscale, y, objCommandoGroundWave);
             i.image_xscale = image_xscale;
         }
         else

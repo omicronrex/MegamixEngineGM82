@@ -32,14 +32,14 @@ event_inherited();
 
 if (entityCanStep())
 {
-    var jumping = false;
+    var jumping; jumping = false;
     if (ground)
     {
-        landTimer--;
+        landTimer-=1;
     }
-    throwTimer--;
-    attackTimer--;
-    breatheTimer++;
+    throwTimer-=1;
+    attackTimer-=1;
+    breatheTimer+=1;
     if (ground && throwTimer > 0)
     {
         jumping = false;

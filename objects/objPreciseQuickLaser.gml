@@ -58,7 +58,7 @@ nonPreciseMask = sprDot;
 image_angle = floor(image_angle);
 image_yscale = 1 / sprite_get_height(sprite_index);
 image_xscale = 1;
-var angle = image_angle - 90;
+var angle; angle = image_angle - 90;
 rx = x + cos(degtorad(angle)) * 8;
 ry = y - sin(degtorad(angle)) * 8;
 rdir = point_direction(rx, ry, x, y);
@@ -84,7 +84,7 @@ if (entityCanStep())
         solid=false;
         if (!dead && object_index != objPreciseQuickLaserSpawner)
         {
-            for (var i = array_length_1d(other.obstacleList) - 1; i >= 0; i--)
+            var i; for ( i = array_length_1d(other.obstacleList) - 1; i >= 0; i-=1)
             {
                 if (object_index == other.obstacleList[i])
                 {
@@ -114,7 +114,7 @@ if (entityCanStep())
     {
         solid=(isSolid==true);
     }
-    var ang = image_angle;
+    var ang; ang = image_angle;
     image_angle = round(image_angle);
     if (hacks && image_angle >= 177 && image_angle <= 187) // These messed up with place_free so we handle them as 180(there are still some more but thats ok)
         image_angle = 180;
@@ -131,8 +131,8 @@ if (entityCanStep())
         image_yscale = 1;
     }
 
-    var tx=x+cos(degtorad(image_angle))*image_xscale;
-    var ty=y-sin(degtorad(image_angle))*image_xscale;
+    var tx; tx =x+cos(degtorad(image_angle))*image_xscale;
+    var ty; ty =y-sin(degtorad(image_angle))*image_xscale;
     if(point_in_rectangle(floor(tx),floor(ty),global.sectionLeft,global.sectionTop,global.sectionRight,global.sectionBottom))
     {
         image_xscale += mySpeed;
@@ -140,7 +140,7 @@ if (entityCanStep())
     if (floor(image_xscale)>0&&!place_free(floor(x), floor(y)))
     {
         image_xscale = floor(image_xscale);
-        var moveAmmount = 8 + 8*(image_xscale>64) + 32*(image_xscale>128);
+        var moveAmmount; moveAmmount = 8 + 8*(image_xscale>64) + 32*(image_xscale>128);
         image_xscale = max(0, image_xscale - moveAmmount);
         if(image_xscale==0)
             image_xscale=1;
@@ -176,7 +176,7 @@ if (onlyDamagePlayer)
     if(image_xscale>0)
     {
         var col;
-        var rad=degtorad(image_angle);
+        var rad; rad =degtorad(image_angle);
         with (objMegaman)
         {
             //This is slower than per pixel collision checking for some reason col = collision_line(other.x,other.y,x+(other.image_xscale*cos(rad)),y-(other.image_xscale*sin(rad)),id,false,false);
@@ -241,9 +241,9 @@ if (sprite_get_width(sprite_index) == 1)
 }
 else
 {
-    var size = image_xscale;
-    var img = size;
-    var bit = 0;
+    var size; size = image_xscale;
+    var img; img = size;
+    var bit; bit = 0;
 
     while (img > 0)
     {

@@ -27,7 +27,7 @@ levelStartScript = scrNoEffect;
 //@cc script that runs when the level ends
 levelEndScript = scrNoEffect;
 
-for (var j = 0; j <= global.totalWeapons; j++)
+var j; for (j = 0; j <= global.totalWeapons; j+=1)
 {
     global.infiniteEnergy[j] = false;
 }

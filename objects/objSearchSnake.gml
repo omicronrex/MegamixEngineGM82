@@ -106,7 +106,7 @@ if (!global.frozen && canDamage)
     }
     else if (phase == 1) // Attached to solids
     {
-        //var gravDir = sign(grav);
+        //var gravDir; gravDir = sign(grav);
         //if (instance_exists(parent))
         //    gravDir = parent.gravDir;
 

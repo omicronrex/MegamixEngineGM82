@@ -35,7 +35,7 @@ if (entityCanStep())
     shoottimer -= 1;
     if (shoottimer <= 0)
     {
-        var tel = instance_number(objTellyXSpawner);
+        var tel; tel = instance_number(objTellyXSpawner);
         if (tel < 3)
         {
             tel = 3;

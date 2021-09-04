@@ -1,10 +1,10 @@
-var bulletLimit = 3;
-var weaponCost = 0;
-var action = 1; // 0 - no frame; 1 - shoot; 2 - throw
-var willStop = 0; // If this is 1, the player will halt on shooting ala Metal Blade.
+var bulletLimit; bulletLimit = 3;
+var weaponCost; weaponCost = 0;
+var action; action = 1; // 0 - no frame; 1 - shoot; 2 - throw
+var willStop; willStop = 0; // If this is 1, the player will halt on shooting ala Metal Blade.
 
-var chargeTime = 57; // Set charge time for this weapon
-var initChargeTime = 20;
+var chargeTime; chargeTime = 57; // Set charge time for this weapon
+var initChargeTime; initChargeTime = 20;
 
 if (!global.lockBuster)
 {
@@ -42,7 +42,7 @@ if (!global.lockBuster)
                         playSFX(sfxProtoCharging);
                     }
 
-                    chargeTimer++;
+                    chargeTimer+=1;
 
                     if (chargeTimer < chargeTime)
                     {

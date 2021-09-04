@@ -38,7 +38,7 @@ if (!global.frozen)
     }
     else
     {
-        timer++;
+        timer+=1;
 
         if (instance_exists(entity) && timer < 180)
         {

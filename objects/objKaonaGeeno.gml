@@ -37,7 +37,7 @@ if (entityCanStep())
             kaonaSize = 0;
         }
         phase = 0;
-        waitTimer--;
+        waitTimer-=1;
         kaonaSize = min(kaonaSize + 1 / 30, 1);
 
         // shake:
@@ -100,13 +100,13 @@ if (entityCanStep())
             kaonaSize = 0;
             if (!instance_exists(myKaona))
             {
-                // no kaona -- grow a new one
+                // no kaona -=1 grow a new one
                 phase = 0;
                 exit;
             }
             if (!instance_exists(target))
             {
-                // no target -- wait for target to arrive
+                // no target -=1 wait for target to arrive
                 exit;
             }
 
@@ -132,7 +132,7 @@ if (entityCanStep())
                     {
                         yspeed = -3;
                         target = other.target;
-                        var prevy = target.y;
+                        var prevy; prevy = target.y;
                         target.y = max(y, target.y);
                         grav = other.grav;
                         blockCollision = true;
@@ -151,7 +151,7 @@ if (entityCanStep())
             {
                 image_index = 5;
             }
-            throwTimer++;
+            throwTimer+=1;
     }
 }
 #define Other_20

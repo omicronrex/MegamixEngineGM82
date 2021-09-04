@@ -42,7 +42,7 @@ if (entityCanStep())
 
     if (instance_exists(objTenguWind))
     {
-        var inst = instance_nearest(x, y, objTenguWind);
+        var inst; inst = instance_nearest(x, y, objTenguWind);
         if (inst && inst.activated)
         {
             xspeed = inst.windSpeed;
@@ -73,7 +73,7 @@ if (entityCanStep())
     {
         oyher.xspeed = dir * 0.5;
     }
-    var sgn = sign(xspeed);
+    var sgn; sgn = sign(xspeed);
 	if(sgn==0)
 		sgn=1;
     image_speed = abs(0.05 * (xspeed+1*sign(sgn)));

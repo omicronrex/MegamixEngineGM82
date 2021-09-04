@@ -38,7 +38,7 @@ if (global.frozen == false)
         instance_destroy();
         exit;
     }
-    delayContact--;
+    delayContact-=1;
     if (xcoll != 0 || place_meeting(x - 4 * image_xscale, y, objMegaman) && delayContact <= 0)
     {
         xspeed = 0;

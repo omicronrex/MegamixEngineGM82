@@ -88,10 +88,10 @@ if (entityCanStep())
             }
             break;
         case 3: // Shoot
-            animTimer++;
+            animTimer+=1;
             if (!(animTimer mod 4)) // Animation
             {
-                image_index++;
+                image_index+=1;
                 if (image_index > 4)
                 {
                     image_index = 2;
@@ -101,9 +101,9 @@ if (entityCanStep())
             {
                 if (bullet < 2)
                 {
-                    for (i = -2; i <= 2; i++)
+                    for (i = -2; i <= 2; i+=1)
                     {
-                        var t = instance_create(x - (4 * i), y + (1.5 * (abs(i)) * image_yscale), objBeakBullet);
+                        var t; t = instance_create(x - (4 * i), y + (1.5 * (abs(i)) * image_yscale), objBeakBullet);
                         t.image_index = col; // set bullet color to that guys color
                         t.dir = 90 + (i * 45);
                         t.xscale = 1;

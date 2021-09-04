@@ -64,13 +64,13 @@ event_inherited();
 
 if ((other.object_index != objTornadoBlow) && (other.object_index != objBlackHoleBomb))
 {
-    var i = instance_create(x + 1, y, objBabyFliesMedium);
+    var i; i = instance_create(x + 1, y, objBabyFliesMedium);
     i.image_xscale = 1;
     i.moveTimer = 4;
     i.facePlayerOnSpawn = false;
     i.respawn = false;
 
-    var i = instance_create(x - 1, y, objBabyFliesMedium);
+    var i; i = instance_create(x - 1, y, objBabyFliesMedium);
     i.image_xscale = -1;
     i.moveTimer = 4;
     i.facePlayerOnSpawn = false;

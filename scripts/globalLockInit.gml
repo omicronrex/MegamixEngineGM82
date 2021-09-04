@@ -6,7 +6,7 @@
 global.timeStopped = lockPoolNew();
 global.playerFrozen = lockPoolNew();
 
-for (var i = 0; i < PL_LOCK_MAX; i++)
+var i; for (i = 0; i < PL_LOCK_MAX; i+=1)
 {
     global.playerLock[i] = lockPoolNew();
 }

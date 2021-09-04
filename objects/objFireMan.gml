@@ -125,7 +125,7 @@ if (entityCanStep())
             // since bosses do not have gravity during intros, we need to reuse this here.
             hasTriggeredFall = true;
             y = ystart;
-            attackTimer++;
+            attackTimer+=1;
             if (attackTimer < 8)
             {
                 image_index = 0;
@@ -177,10 +177,10 @@ if (entityCanStep())
                 }
                 break;
             case 1:
-                moveTimer--;
+                moveTimer-=1;
                 if (moveTimer == 29)
                 {
-                    var i = instance_create(x, y, objFireManStorm);
+                    var i; i = instance_create(x, y, objFireManStorm);
                     i.image_xscale = image_xscale;
                 }
                 if (moveTimer <= 0)

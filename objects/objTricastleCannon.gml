@@ -74,7 +74,7 @@ if (entityCanStep())
         animSpeed = 0;
     }
 
-    var of = 0;
+    var of; of = 0;
     if (angle == 180)
         of = 12;
     else if (angle == 135)
@@ -101,8 +101,8 @@ if (entityCanStep())
             grav = 0.2;
             explodeOnContact = true;
             contactDamage = 4;
-            var tx = 0;
-            var ty = 0;
+            var tx; tx = 0;
+            var ty; ty = 0;
             if (instance_exists(target))
             {
                 tx = target.x;
@@ -146,6 +146,6 @@ if (instance_exists(target))
 
     timer = 0;
     shoot = true;
-    var ysp = -1.5 - abs(sin(degtorad(newAngle))) * 2;
+    var ysp; ysp = -1.5 - abs(sin(degtorad(newAngle))) * 2;
     bxspeed = xSpeedAim(bbox_left + abs(bbox_left - bbox_right) / 2 + cos(degtorad(newAngle)) * 16, y - sin(degtorad(newAngle)) * 16, target.x, target.y, ysp, 0.2);
 }

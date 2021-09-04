@@ -40,7 +40,7 @@ applies_to=self
 */
 if (!global.frozen)
 {
-    for (var p = 0; p < instance_number(objMegaman); p++)
+    var p; for (p = 0; p < instance_number(objMegaman); p+=1)
     {
         player = instance_find(objMegaman, p);
         if (instance_exists(player))
@@ -78,7 +78,7 @@ action_id=603
 applies_to=self
 */
 /// update last player x positions
-for (var p = 0; p < instance_number(objMegaman); p++)
+var p; for (p = 0; p < instance_number(objMegaman); p+=1)
 {
     player = instance_find(objMegaman, p);
     if (instance_exists(player))

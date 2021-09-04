@@ -53,7 +53,7 @@ if (entityCanStep())
     {
         if (instance_exists(target))
         {
-            var ey = distanceToSolid(x, y, 0, 16 * dir, false, true);
+            var ey; ey = distanceToSolid(x, y, 0, 16 * dir, false, true);
             if (ey != -1)
             {
                 ey = y + dir * 16 * ey;
@@ -62,8 +62,8 @@ if (entityCanStep())
             {
                 ey = view_yview[0] + view_hview[0] * (dir == 1);
             }
-            var distToPlayer = 0;
-            var tgt = self;
+            var distToPlayer; distToPlayer = 0;
+            var tgt; tgt = self;
             if (instance_exists(target))
             {
                 tgt = target.id;
@@ -77,10 +77,10 @@ if (entityCanStep())
                 }
             }
 
-            var mini = y;
+            var mini; mini = y;
             if (dir == -1)
                 mini = ey;
-            var maxi = ey;
+            var maxi; maxi = ey;
             if (dir == -1)
                 maxi = y;
             endY = clamp(ey - dir * irandom(abs(ey-(y+distToPlayer))), mini, maxi);
@@ -111,10 +111,10 @@ if (entityCanStep())
             yspeed = 0;
             timer = 0;
             shotCount += 1;
-            var ycenter = bbox_top + (bbox_bottom - bbox_top) / 2;
-            var i = instance_create(bbox_right, ycenter, objEnemyBullet);
+            var ycenter; ycenter = bbox_top + (bbox_bottom - bbox_top) / 2;
+            var i; i = instance_create(bbox_right, ycenter, objEnemyBullet);
             i.xspeed = 2;
-            var i = instance_create(bbox_left, ycenter, objEnemyBullet);
+            var i; i = instance_create(bbox_left, ycenter, objEnemyBullet);
             i.xspeed = -2;
             playSFX(sfxEnemyShoot);
         }

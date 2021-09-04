@@ -38,7 +38,7 @@ if (entityCanStep())
 {
     if(waitTimer>0)
     {
-        waitTimer--;
+        waitTimer-=1;
         exit;
     }
     // timer

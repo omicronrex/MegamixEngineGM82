@@ -2,7 +2,7 @@
 // destroys the given lock pool ID
 // if suppress is set to true, no error will occur even if lock pool already destroyed
 
-var lockPoolID = argument[0];
+var lockPoolID; lockPoolID = argument[0];
 
 assert(lockPoolExists(lockPoolID) || argument[1], "Attempted to destroy non-existent lock pool id " + string(lockPoolID));
 

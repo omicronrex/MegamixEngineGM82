@@ -128,11 +128,11 @@ event_inherited();
 // Handle intro.
 if (!global.frozen && !killed && !allDead)
 {
-    jetTimer++;
+    jetTimer+=1;
     if (jetTimer >= 6)
     {
         jetTimer = 0;
-        jetIndex++;
+        jetIndex+=1;
     }
 
     // Starting the intro animation
@@ -146,11 +146,11 @@ if (!global.frozen && !killed && !allDead)
     {
         if (introTimer > 0)
         {
-            introTimer--;
+            introTimer-=1;
             if (introTimer <= 0)
             {
                 isIntro = false;
-                var defaultMotion = 0;
+                var defaultMotion; defaultMotion = 0;
                 with (prtSharkSubmarine)
                 {
                     if (id != other && startRef == other.startRef)
@@ -289,22 +289,22 @@ if (!isStart)
 // returns the id of the left-most prtSharkSubmarine in the chain of them
 
 /*
-var nextShark = instance_place(x - 3, y, prtSharkSubmarine);
+var nextShark; nextShark = instance_place(x - 3, y, prtSharkSubmarine);
 if (instance_exists(nextShark))
 {
-    var leftReturn = noone;
+    var leftReturn; leftReturn = noone;
     with (nextShark)
     {
         if (x < other.x && ystart == other.ystart)
         {
             event_user(0);
-            leftShark.sharkAmount++;
+            leftShark.sharkAmount+=1;
             other.leftReturn = leftShark;
         }
     }
     if (!instance_exists(leftReturn))
     {
-        sharkAmount++;
+        sharkAmount+=1;
         endOfStageBoss = useEndStageBehavior;
         leftReturn = id;
     }
@@ -312,7 +312,7 @@ if (instance_exists(nextShark))
 }
 else
 {
-    sharkAmount++;
+    sharkAmount+=1;
     endOfStageBoss = useEndStageBehavior;
     leftShark = id;
 }
@@ -341,7 +341,7 @@ if (!isEnd)
 // invoked in the spawn event of prtSharkSubmarine
 
 /*
-var nextShark = instance_place(x + 3, y, prtSharkSubmarine);
+var nextShark; nextShark = instance_place(x + 3, y, prtSharkSubmarine);
 if (instance_exists(nextShark))
 {
     with (nextShark)
@@ -351,7 +351,7 @@ if (instance_exists(nextShark))
             if (!instance_exists(leftShark))
             {
                 leftShark = other.leftShark;
-                leftShark.sharkAmount++;
+                leftShark.sharkAmount+=1;
                 event_user(1);
             }
         }
@@ -379,7 +379,7 @@ with (prtSharkSubmarine)
 instance_activate_object(prtSharkSubmarine);
 if (instance_exists(startRef))
 {
-    var ref = startRef;
+    var ref; ref = startRef;
 
     while (ref != noone)
     {

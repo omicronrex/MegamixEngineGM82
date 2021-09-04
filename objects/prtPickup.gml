@@ -46,7 +46,7 @@ if (entityCanStep())
             {
                 if (checkSolid(0, 0))
                 {
-                    var prey = sign(bboxGetYCenterObject(objMegaman) - bboxGetYCenter());
+                    var prey; prey = sign(bboxGetYCenterObject(objMegaman) - bboxGetYCenter());
                     prey -= (prey == 0);
 
                     repeat (100)
@@ -66,7 +66,7 @@ if (entityCanStep())
 
     if (disappear == 0) // Flash and disappear
     {
-        flashTimer++;
+        flashTimer+=1;
         if (flashTimer == 60)
         {
             dead = 1;
@@ -133,7 +133,7 @@ if (!dead)
     {
         if (usePlayerColor)
         {
-            var imgs = floor(image_number / 4);
+            var imgs; imgs = floor(image_number / 4);
 
             image_index = image_index mod imgs;
 

@@ -72,7 +72,7 @@ if (entityCanStep())
     }
 
     // animation
-    propellerTimer++;
+    propellerTimer+=1;
 
     if (propellerTimer == 3)
     {
@@ -80,7 +80,7 @@ if (entityCanStep())
         propellerTimer = 0;
     }
 
-    animTimer++;
+    animTimer+=1;
 
     if (animTimer == 10)
     {

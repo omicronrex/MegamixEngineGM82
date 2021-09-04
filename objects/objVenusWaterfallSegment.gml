@@ -136,7 +136,7 @@ if (instance_exists(objSectionSwitcher))
     exit;
 }
 
-for (var i = 0; i < image_yscale; i++)
+var i; for (i = 0; i < image_yscale; i+=1)
 {
     draw_sprite(sprite_index, image_index, round(x), round(y + i * 8));
 }

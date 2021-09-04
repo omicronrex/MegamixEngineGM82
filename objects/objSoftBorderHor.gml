@@ -47,7 +47,7 @@ else if (active
     && instance_exists(viewPlayer))
 {
     if (abs(viewPlayer.x - viewPlayer.xprevious) >= maxSpeed)
-        maxSpeed++;
+        maxSpeed+=1;
     if (image_xscale > 0)
     {
         if (global.borderLockLeft > viewPlayer.x - view_wview / 2)

@@ -37,7 +37,7 @@ if (!global.frozen && !global.timeStopped)
             loops = -1;
         }
     }
-    var gravityDir = sign(grv);
+    var gravityDir; gravityDir = sign(grv);
     timer += 1;
     yspd += grv;
     y += yspd;
@@ -53,11 +53,11 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var dist = abs(ystart - y);
-var gravityDir = sign(yspd);
-var skipCount = 0;
-var dy = (floor(y / 16) * 16) - 6 * gravityDir + 8 * (gravityDir == -1);
-for (i = 0; i < min(3, floor(dist / 16)); i++)
+var dist; dist = abs(ystart - y);
+var gravityDir; gravityDir = sign(yspd);
+var skipCount; skipCount = 0;
+var dy; dy = (floor(y / 16) * 16) - 6 * gravityDir + 8 * (gravityDir == -1);
+for (i = 0; i < min(3, floor(dist / 16)); i+=1)
 {
     if (yend != -1 && sign(yend - (dy - ((gravityDir * i * 16) + gravityDir * 10))) == -sign(yspd))
     {
@@ -65,7 +65,7 @@ for (i = 0; i < min(3, floor(dist / 16)); i++)
         continue;
     }
 
-    var si = loops * 2;
+    var si; si = loops * 2;
 
     if (timer + gravityDir * 16 * i > 5)
     {
@@ -82,7 +82,7 @@ else if (skipCount == 1)
 {
     if (loops == 0)
     {
-        var i = instance_create(xstart, ystart + 28 * gravityDir, objDarspiderWeb);
+        var i; i = instance_create(xstart, ystart + 28 * gravityDir, objDarspiderWeb);
         i.grv = grv;
         i.yend = yend;
         i.loops = 1;

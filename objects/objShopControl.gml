@@ -51,9 +51,9 @@ targetBolts = displayBolts;
 lockControls = false;
 
 // initialize arrays
-for (i = 0; i < menuWidth; i++)
+for (i = 0; i < menuWidth; i+=1)
 {
-    for (j = 0; j < menuHeight; j++)
+    for (j = 0; j < menuHeight; j+=1)
     {
         itemUnavailable[i, j] = 0; // 0 = available, 1 = sold out, 2 = hidden
         itemIcon[i, j] = noone;
@@ -70,7 +70,7 @@ itemIcon[0, 0] = sprLife;
 itemPrice[0, 0] = 20;
 itemName[0, 0] = "Life";
 itemDescription[0, 0] = "Gives you an extra try at beating a stage."
-//itemPurchaseAction[0, 0] = "global.livesRemaining++; if (global.livesRemaining >= global.maxLives) { itemUnavailable[0, 0] = 1; }";
+//itemPurchaseAction[0, 0] = "global.livesRemaining+=1; if (global.livesRemaining >= global.maxLives) { itemUnavailable[0, 0] = 1; }";
 
 itemUnavailable[1, 0] = global.energySaver > 0;
 itemIcon[1, 0] = sprEnergySaver;
@@ -79,7 +79,7 @@ itemName[1, 0] = "Energy Saver";
 itemDescription[1, 0] = "Lowers the amount of weapon energy that's consumed when using weapons."
 //itemPurchaseAction[1, 0] = "global.energySaver = true; itemUnavailable[1, 0] = 1;";
 
-itemUnavailable[2, 0] = global.weaponLocked[global.weaponID[? objRushCycle]] == 0;
+itemUnavailable[2, 0] = global.weaponLocked[ds_map_get(global.weaponID,objRushCycle)] == 0;
 itemIcon[2, 0] = sprRushBikeShopIcon;
 itemPrice[2, 0] = 100;
 itemName[2, 0] = "Rush Bike";
@@ -91,25 +91,25 @@ itemIcon[0, 1] = sprETank;
 itemPrice[0, 1] = 30;
 itemName[0, 1] = "E-Tank";
 itemDescription[0, 1] = "Completely refills your health upon use.";
-//itemPurchaseAction[0, 1] = "global.eTanks++; if (global.eTanks >= global.maxETanks) { itemUnavailable[0, 1] = 1; }";
+//itemPurchaseAction[0, 1] = "global.eTanks+=1; if (global.eTanks >= global.maxETanks) { itemUnavailable[0, 1] = 1; }";
 
 itemUnavailable[1, 1] = global.wTanks >= global.maxWTanks;
 itemIcon[1, 1] = sprWTank;
 itemPrice[1, 1] = 30;
 itemName[1, 1] = "W-Tank";
 itemDescription[1, 1] = "Completely refills the energy of all of your weapons upon use.";
-//itemPurchaseAction[1, 1] = "global.wTanks++; if (global.wTanks >= global.maxWTanks) { itemUnavailable[1, 1] = 1; }";
+//itemPurchaseAction[1, 1] = "global.wTanks+=1; if (global.wTanks >= global.maxWTanks) { itemUnavailable[1, 1] = 1; }";
 
 itemUnavailable[2, 1] = global.mTanks >= global.maxMTanks;
 itemIcon[2, 1] = sprMTank;
 itemPrice[2, 1] = 50;
 itemName[2, 1] = "M-Tank";
 itemDescription[2, 1] = "Completely refills both your health and the energy for all of your weapons upon use."
-//itemPurchaseAction[2, 1] = "global.mTanks++; if (global.mTanks >= global.maxMTanks) { itemUnavailable[2, 1] = 1; }";;
+//itemPurchaseAction[2, 1] = "global.mTanks+=1; if (global.mTanks >= global.maxMTanks) { itemUnavailable[2, 1] = 1; }";;
 
 
 // hacky way to make sure the player palettes are set
-for (i = 0; i < global.playerCount; i++)
+for (i = 0; i < global.playerCount; i+=1)
 {
     instance_create(0, 0, objMegaman);
 }
@@ -165,7 +165,7 @@ if (!global.frozen)
         { // buy the item
             if (cursorX == 0 && cursorY == 0)
             { // life
-                global.livesRemaining++;
+                global.livesRemaining+=1;
                 if (global.livesRemaining >= global.maxLives)
                 {
                     itemUnavailable[0, 0] = 1;
@@ -178,12 +178,12 @@ if (!global.frozen)
             }
             else if (cursorX == 2 && cursorY == 0)
             { // rush cycle
-                global.weaponLocked[global.weaponID[? objRushCycle]] = false;
+                global.weaponLocked[ds_map_get(global.weaponID,objRushCycle)] = false;
                 itemUnavailable[2, 0] = true;
             }
             else if (cursorX == 0 && cursorY == 1)
             { // etank
-                global.eTanks++;
+                global.eTanks+=1;
                 if (global.eTanks >= global.maxETanks)
                 {
                     itemUnavailable[0, 1] = 1;
@@ -191,7 +191,7 @@ if (!global.frozen)
             }
             else if (cursorX == 1 && cursorY == 1)
             { // wtank
-                global.wTanks++;
+                global.wTanks+=1;
                 if (global.wTanks >= global.maxWTanks)
                 {
                     itemUnavailable[1, 1] = 1;
@@ -199,7 +199,7 @@ if (!global.frozen)
             }
             else if (cursorX == 2 && cursorY == 1)
             { // mtank
-                global.mTanks++;
+                global.mTanks+=1;
                 if (global.mTanks >= global.maxMTanks)
                 {
                     itemUnavailable[2, 1] = 1;
@@ -221,11 +221,11 @@ if (!global.frozen)
     // roll bolt counter
     if (displayBolts > targetBolts)
     {
-        displayBolts--;
+        displayBolts-=1;
     }
     else if (displayBolts < targetBolts)
     { // lol I'm sure someone will do an item that costs negative bolts    :P
-        displayBolts++;
+        displayBolts+=1;
     }
 
     // exit
@@ -244,12 +244,12 @@ applies_to=self
 // bolt counter
 draw_sprite(sprBoltBig, 0, view_xview[0] + boltIconXOffset, view_yview[0] + boltIconYOffset);
 draw_set_valign(fa_top);
-draw_text(view_xview[0] + boltCounterXOffset, view_yview[0] + boltCounterYOffset, zeroPad(displayBolts, 4));
+draw_text(view_xview[0] + boltCounterXOffset, view_yview[0] + boltCounterYOffset, string_pad(displayBolts, 4));
 
 // shop info
-for (i = 0; i < menuWidth; i++)
+for (i = 0; i < menuWidth; i+=1)
 {
-    for (j = 0; j < menuHeight; j++)
+    for (j = 0; j < menuHeight; j+=1)
     {
         if (itemUnavailable[i, j] < 2)
         {
@@ -306,7 +306,7 @@ if (cursorImgIndex >= sprite_get_number(sprShopCursor))
 draw_set_halign(fa_left);
 
 // players
-for (var i = 0; i < global.playerCount; i++)
+var i; for ( i = 0; i < global.playerCount; i+=1)
 {
     drawPlayer(i, i, 0, 0, view_xview[0] + playersXOffset - playersXSpacing * i, view_yview[0] + playersYOffset, -1, 1);
 }

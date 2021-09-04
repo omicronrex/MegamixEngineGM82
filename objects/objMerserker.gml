@@ -39,7 +39,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var prevXspeed = xspeed;
+var prevXspeed; prevXspeed = xspeed;
 
 event_inherited();
 
@@ -51,7 +51,7 @@ if (entityCanStep())
     // Deccelerate
     if (xspeed != 0)
     {
-        var psign = sign(xspeed);
+        var psign; psign = sign(xspeed);
         xspeed += moveDecceleration * -psign;
         if (sign(xspeed) != psign)
             xspeed = 0;
@@ -71,7 +71,7 @@ if (entityCanStep())
         {
             yspeed = -jumpSpeed;
             isFalling = false;
-            var canAdvance = true;
+            var canAdvance; canAdvance = true;
             if ((image_xscale < 0 && x < xstart - (leftLimit * moveDistance)) || (image_xscale > 0 && x > xstart + rightLimit * moveDistance))
             {
                 image_xscale *= -1;

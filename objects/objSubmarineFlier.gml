@@ -101,7 +101,7 @@ if (entityCanStep())
         // pause for a bit after falling into the water
         case 2:
             timer += 1;
-            if (timer >= 60) // <-- pause time here
+            if (timer >= 60) // <-=1 pause time here
             {
                 phase = 3;
                 timer = 0;
@@ -131,7 +131,7 @@ if (entityCanStep())
 
                 // shoot
                 timer += 1;
-                if (timer >= 65) // <-- shot wait time here
+                if (timer >= 65) // <-=1 shot wait time here
                 {
                     bullet = instance_create(x, y - 12, objEnemyBullet);
                     with (bullet)

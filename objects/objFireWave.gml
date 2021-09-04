@@ -25,7 +25,7 @@ event_inherited();
 
 if (!global.frozen && !global.timeStopped)
 {
-    var d = instance_place(x, y, objFireWaveGoDirector);
+    var d; d = instance_place(x, y, objFireWaveGoDirector);
     if (instance_exists(d))
     {
         if (image_angle != d.image_angle)

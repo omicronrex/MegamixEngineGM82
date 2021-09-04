@@ -1,16 +1,16 @@
 /// combineObjects(object_index, [horizontal], [vertical])
 // combines objects of the given type into a mesh
 
-var combineObject = argument[0];
-var horizontal = true;
-var vertical = true;
+var combineObject; combineObject = argument[0];
+var horizontal; horizontal = true;
+var vertical; vertical = true;
 if (argument_count > 1)
 {
     horizontal = argument[1];
 }
 if (argument_count > 2)
 {
-    var vertical = argument[2];
+    var vertical; vertical = argument[2];
 }
 
 // DON'T combine in certain situations
@@ -38,7 +38,7 @@ if (horizontal)
         // greedily absorb next object
         while (true)
         {
-            var next = instance_position(bbox_left + 16 * image_xscale + 2, bbox_top + 2, combineObject);
+            var next; next = instance_position(bbox_left + 16 * image_xscale + 2, bbox_top + 2, combineObject);
             if (!instance_exists(next))
                 break;
             if (next.object_index != combineObject)
@@ -80,7 +80,7 @@ if (vertical)
         // greedily absorb next object
         while (true)
         {
-            var next = instance_position(bbox_left + 2, bbox_top + 16 * image_yscale + 2, combineObject);
+            var next; next = instance_position(bbox_left + 2, bbox_top + 16 * image_yscale + 2, combineObject);
             if (!instance_exists(next))
                 break;
             if (next.object_index != combineObject)

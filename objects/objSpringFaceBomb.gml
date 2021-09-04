@@ -59,7 +59,7 @@ if (entityCanStep())
             if (ground && instance_exists(target))
             {
                 waitTimer += 1;
-                if (waitTimer >= 24) // <--wait time between jumps here
+                if (waitTimer >= 24) // <-=1wait time between jumps here
                 {
                     waitTimer = 0;
                     phase = 1;
@@ -92,7 +92,7 @@ if (entityCanStep())
                 if (waitTimer == 1 && imgIndex < 3)
                 {
                     phase = 2;
-                    yspeed = -3.4; // <-- jump speed here
+                    yspeed = -3.4; // <-=1 jump speed here
                     animBack = false;
                     imgIndex = 0;
                     xspeed = 2 * image_xscale;

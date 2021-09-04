@@ -37,7 +37,7 @@ if (entityCanStep())
             if (instance_exists(target) && ((target.x > x + 85) || (target.x < x - 85))
                 || (!instance_exists(target)))
                 {
-                    moveTimer--;
+                    moveTimer-=1;
                     if (moveTimer <= 0)
                     {
                         if ((imgIndex < 2) && (canShoot == true))
@@ -49,7 +49,7 @@ if (entityCanStep())
                         {
                             if (canShoot == true)
                             {
-                                shootTimer--;
+                                shootTimer-=1;
                                 if ((shootTimer <= 0) && (shootTimer > -10))
                                 {
                                     imgIndex = 3;
@@ -61,7 +61,7 @@ if (entityCanStep())
 
                                 if (shootTimer == 0)
                                 {
-                                    var i = instance_create(x + 12 * image_xscale, y + 9, objEnemyBullet);
+                                    var i; i = instance_create(x + 12 * image_xscale, y + 9, objEnemyBullet);
                                     i.xspeed = 2 * image_xscale;
                                     i.contactDamage = 3;
                                     playSFX(sfxEnemyShootClassic);
@@ -130,7 +130,7 @@ if (entityCanStep())
                 }
                 if (imgIndex > 2)
                 {
-                    imgIndex--;
+                    imgIndex-=1;
                     if (imgIndex == 3)
                     {
                         imgIndex = 2;
@@ -138,7 +138,7 @@ if (entityCanStep())
                 }
                 else
                 {
-                    moveTimer--;
+                    moveTimer-=1;
                     if (moveTimer <= 50)
                     {
                         imgIndex = 0;

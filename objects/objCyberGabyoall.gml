@@ -77,7 +77,7 @@ if (entityCanStep())
             {
                 // end boost stuff
                 boost = false;
-                cooldown = 60; // <-- cooldown wait time here
+                cooldown = 60; // <-=1 cooldown wait time here
                 imgIndex = 0;
             }
             else
@@ -108,7 +108,7 @@ if (entityCanStep())
                         {
                             // end boost stuff
                             boost = false;
-                            cooldown = 60; // <-- cooldown wait time here
+                            cooldown = 60; // <-=1 cooldown wait time here
                             imgIndex = 0;
                         }
                     }

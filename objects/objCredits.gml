@@ -192,7 +192,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-timer ++;
+timer +=1;
 
 switch phase
 {

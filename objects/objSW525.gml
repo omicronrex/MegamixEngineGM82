@@ -23,7 +23,7 @@ image_yscale = startDir;
 gravityDir = startDir;
 
 explodeWait = 350;
-explodeWaitExtra = 30; // <-- for the extra time to play the animation
+explodeWaitExtra = 30; // <-=1 for the extra time to play the animation
 explodeTimer = 0;
 trackRange = 20;
 

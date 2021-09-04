@@ -77,7 +77,7 @@ event_inherited();
 
 if (!global.frozen && !dead && !global.timeStopped)
 {
-    var exspd = spd * dir;
+    var exspd; exspd = spd * dir;
 
     if (exspd != 0)
     {

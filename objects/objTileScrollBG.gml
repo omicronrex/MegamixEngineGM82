@@ -113,7 +113,7 @@ if (!global.frozen && !global.timeStopped && tileID > 0)
     {
         if (blockCollision && grav != 0)
         {
-            var gravDir = sign(grav);
+            var gravDir; gravDir = sign(grav);
 
             with (other)
             {
@@ -121,8 +121,8 @@ if (!global.frozen && !global.timeStopped && tileID > 0)
                 {
                     if (place_meeting(x + 16, y, objTileScrollSolid))
                     {
-                        var myID = id;
-                        var otherID = instance_place(x + 16, y, objTileScrollSolid)
+                        var myID; myID = id;
+                        var otherID; otherID = instance_place(x + 16, y, objTileScrollSolid)
 
                         .id;
                         if (place_meeting(x, y - 1 + (17 * (gravDir == -1)), other) && place_meeting(otherID.x, otherID.y - 1 + (17 * (gravDir == -1)), other))

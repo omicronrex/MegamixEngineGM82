@@ -265,7 +265,7 @@ if (entityCanStep())
                     if (attackTimer mod 30 == 15 && instance_exists(target))
                     {
                         calibrateDirection();
-                        var i = instance_create(x + 20 * image_xscale, y - 4, objEnemyBullet);
+                        var i; i = instance_create(x + 20 * image_xscale, y - 4, objEnemyBullet);
                         i.sprite_index = sprEnemyBulletMM6;
                         i.contactDamage = 3;
                         i.xspeed = 3 * other.image_xscale;

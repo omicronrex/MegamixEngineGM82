@@ -214,7 +214,7 @@ applies_to=self
 */
 if(healthParent!=-1)
     exit;
-var parent = instance_find(objRounderV2, 0);
+var parent; parent = instance_find(objRounderV2, 0);
 with (objRounderV2)
 {
     healthParent = parent.id;
@@ -267,7 +267,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var hl = healthpoints;
+var hl; hl = healthpoints;
 healthpoints = totalHealth;
 event_inherited();
 healthpoints = hl;

@@ -65,7 +65,7 @@ if (entityCanStep())
     if (charge == true)
     {
         xspeed = 0;
-        moveTimer--;
+        moveTimer-=1;
         image_index += imgSpd;
         if (image_index >= 5)
         {

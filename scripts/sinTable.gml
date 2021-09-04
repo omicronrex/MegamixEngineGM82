@@ -8,7 +8,7 @@
     - Table values assume a conversion to radians. So sinTable(15) is the same as
         sin(degtorad(15 ))*/
 
-var _angleInDegrees = argument[0];
+var _angleInDegrees; _angleInDegrees = argument[0];
 
 // restrict angle
 // restrict angle

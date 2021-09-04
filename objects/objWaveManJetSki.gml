@@ -50,7 +50,7 @@ if (!global.frozen && (insideView() || active))
         // spawn additional jetskis if more players
         if (!place_meeting(x, y, object_index))
         {
-            for (var i = 1; i < global.playerCount; i += 1)
+            var i; for ( i = 1; i < global.playerCount; i += 1)
             {
                 with (instance_create(x + i * 4 * image_xscale, y, object_index))
                 {

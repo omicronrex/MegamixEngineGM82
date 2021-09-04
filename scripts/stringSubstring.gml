@@ -5,9 +5,9 @@
   stringSubstring("Pakatto", 2, 4) -> "ak"
   stringSubstring("Pakatto", 50) -> ""
 */
-var str = argument[0];
-var start = argument[1];
-var _end = string_length(str) + 1;
+var str; str = argument[0];
+var start; start = argument[1];
+var _end; _end = string_length(str) + 1;
 if (argument_count > 2)
     _end = argument[2];
 

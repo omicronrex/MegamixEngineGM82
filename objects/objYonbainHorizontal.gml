@@ -24,7 +24,7 @@ move_time = 90; // how long to take to move each cycle
 wait_time = 45; // how long to pause between each cycle
 max_alive = 4; // maximum number allowed to exist
 
-// rate at which blink animation plays -- higher = slower
+// rate at which blink animation plays -=1 higher = slower
 animDiv = 4;
 
 // exponential tolerance (used for route planning, must be between 0 and 1.)
@@ -74,7 +74,7 @@ if (entityCanStep())
                 // determine move direction:
                 if (instance_exists(target))
                 {
-                    var move_speed = 0;
+                    var move_speed; move_speed = 0;
                     if (exp_tol >= 1)
                         move_speed = move_distance / move_time;
                     else if (exp_tol <= 0)
@@ -83,16 +83,16 @@ if (entityCanStep())
                         move_speed = -move_distance * ln(exp_tol) / (move_time * (1 - exp_tol));
 
                     // spread away from other things of this sort:
-                    var nearest = 1000;
-                    var nearest_id = -1;
+                    var nearest; nearest = 1000;
+                    var nearest_id; nearest_id = -1;
                     with (objYonbainHorizontal)
                         if (point_distance(x, y, other.x, other.y) > 0)
                         {
                             nearest = min(nearest, point_distance(x, y, other.x, other.y));
                             nearest_id = id;
                         }
-                    var target_x = target.x;
-                    var target_y = target.y;
+                    var target_x; target_x = target.x;
+                    var target_y; target_y = target.y;
                     if (nearest < 30)
                     {
                         target_x += 24 * sign(x - nearest_id.x);
@@ -100,7 +100,7 @@ if (entityCanStep())
                     }
 
                     // move to target
-                    var dir = degtorad(point_direction(x, y, target_x, target_y));
+                    var dir; dir = degtorad(point_direction(x, y, target_x, target_y));
                     xspeed = cos(dir) * move_speed;
                     yspeed = -sin(dir) * move_speed;
                 }
@@ -108,7 +108,7 @@ if (entityCanStep())
             break;
         case 1: // move and slow down
             anim = 0;
-            var decay = 1;
+            var decay; decay = 1;
             if (exp_tol <= 0)
                 decay = 0;
             else if (exp_tol < 1)
@@ -125,7 +125,7 @@ if (entityCanStep())
                 phase = 4;
 
                 // skip split phase if too many already
-                var aliveCount = 0;
+                var aliveCount; aliveCount = 0;
                 with (objYonbainHorizontal)
                     if (!dead)
                         aliveCount += 1 + (phase == 2 || phase == 4);
@@ -143,8 +143,8 @@ if (entityCanStep())
                 phase = 3;
                 xspeed = -1 * !vertical / 4;
                 yspeed = -1 * vertical / 4;
-                var split_jump_x = split_dist * !vertical;
-                var split_jump_y = split_dist * vertical;
+                var split_jump_x; split_jump_x = split_dist * !vertical;
+                var split_jump_y; split_jump_y = split_dist * vertical;
                 split_dist = 0;
                 anim = 2;
                 image_index = anim + 7 * vertical;
@@ -167,7 +167,7 @@ if (entityCanStep())
             break;
         case 3: // split (daughter)
             anim = 5;
-            var spd = max(abs(xspeed), abs(yspeed));
+            var spd; spd = max(abs(xspeed), abs(yspeed));
             if (xspeed + yspeed > 0)
                 anim = 6;
             if (phaseTimer * spd > 3)
@@ -196,7 +196,7 @@ if (entityCanStep())
             }
             break;
     }
-    phaseTimer++;
+    phaseTimer+=1;
     image_index = anim + 7 * vertical;
 }
 else if (dead)

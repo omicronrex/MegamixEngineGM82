@@ -28,9 +28,9 @@ flashTimer = 0;
 textTick = 6;
 textTimer = 0;
 finalFadeOut = false;
-for (var i = 1; i < array_length_1d(global.levelReward); i++)
+var i; for (i = 1; i < array_length_1d(global.levelReward); i+=1)
 {
-    reward[rewardN++] = global.levelReward[i];
+    reward[rewardN] = global.levelReward[i]; rewardN+=1
     setWeaponLocked(global.levelReward[i], false);
 }
 
@@ -43,7 +43,7 @@ applies_to=self
 */
 /// advance animation
 weaponObject = reward[currentReward];
-weapon = global.weaponID[? weaponObject];
+weapon = ds_map_get(global.weaponID,weaponObject);
 rewardText = "YOU GOT " + global.weaponName[weapon] + ".";
 
 if (finalFadeOut)
@@ -52,14 +52,14 @@ if (finalFadeOut)
 }
 else if (fadeInTimer > 0)
 {
-    fadeInTimer--;
+    fadeInTimer-=1;
 }
 else
 {
-    rewardTimer++;
+    rewardTimer+=1;
     if (rewardTimer > 120)
     {
-        flashTimer++;
+        flashTimer+=1;
         spinSpeed = decreaseMagnitude(spinSpeed - 8 / 60, 0.01) + 8 / 60;
     }
     else
@@ -69,7 +69,7 @@ else
     if (flashTimer > 68)
     {
         flashTimer = 68;
-        textTimer++;
+        textTimer+=1;
         if (textTimer div textTick > string_length(rewardText) + 2)
         {
             controlsLocked = false;
@@ -82,8 +82,8 @@ else
 
 if (!controlsLocked)
 {
-    var selected = false;
-    for (var i = 0; i < global.playerCount; i++)
+    var selected; selected = false;
+    var i; for (i = 0; i < global.playerCount; i+=1)
     {
         selected = selected || global.keyPausePressed[i];
     }
@@ -101,7 +101,7 @@ if (!controlsLocked)
         }
         else
         {
-            currentReward++;
+            currentReward+=1;
             rewardTimer = 0;
             flashTimer = 0;
             textTimer = 0;
@@ -116,25 +116,25 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-for (var i = 0; i < global.playerCount; i++)
+var i; for ( i = 0; i < global.playerCount; i+=1)
 {
-    var drawX = x + i * 24 - (global.playerCount - 1) * 12;
-    var drawY = y - 16;
-    var p = clamp(roundTo((fadeInTimer) / 45, 1 / 3), 0, 1);
+    var drawX; drawX = x + i * 24 - (global.playerCount - 1) * 12;
+    var drawY; drawY = y - 16;
+    var p; p = clamp(roundTo((fadeInTimer) / 45, 1 / 3), 0, 1);
 
     // determine weapon colours
-    var cp, cs, ap = 1, as = 1;
-    var wpn = 0;
+    var cp, cs, ap, as; ap = 1; as = 1;
+    var wpn; wpn = 0;
     if (flashTimer mod 10 < 5)
     {
         if (currentReward != 0)
         {
-            wpn = global.weaponID[? reward[currentReward - 1]];
+            wpn = ds_map_get(global.weaponID,reward[currentReward - 1]);
         }
     }
     else
     {
-        wpn = global.weaponID[? reward[currentReward]];
+        wpn = ds_map_get(global.weaponID,reward[currentReward]);
     }
 
     if (global.weaponPrimaryColor[wpn] < 0)

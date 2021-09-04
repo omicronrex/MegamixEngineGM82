@@ -53,9 +53,9 @@ bossIntroBorderRadius = 0;
 flashOpacity = 0;
 
 // menu selection variables
-for (var i = 0; i < 3; i++)
+var i; for ( i = 0; i < 3; i+=1)
 {
-    for (var j = 0; j < 4; j++)
+    var j; for ( j = 0; j < 4; j+=1)
     {
         stageRoom[i, j] = noone;
         stageIcon[i, j] = 10;
@@ -180,11 +180,11 @@ switch (phase)
     case 0:
         if (!lockControls)
         {
-            var xdir = 0;
-            var ydir = 0;
-            var pause = 0;
+            var xdir; xdir = 0;
+            var ydir; ydir = 0;
+            var pause; pause = 0;
 
-            for (var i = 0; i < global.playerCount; i += 1)
+            var i; for ( i = 0; i < global.playerCount; i += 1)
             {
                 xdir += (global.keyRightPressed[i] - global.keyLeftPressed[i]);
                 ydir += (global.keyDownPressed[i] - global.keyUpPressed[i]);
@@ -277,7 +277,7 @@ switch (phase)
                 else
                 {
                     // already beaten level
-                    var level = getRoom(stageRoom[cursorX, cursorY], "Levels/" + stageRoom[cursorX, cursorY])
+                    var level; level = getRoom(stageRoom[cursorX, cursorY], "Levels/" + stageRoom[cursorX, cursorY])
                     goToLevel(level, true);
                 }
             }
@@ -290,7 +290,7 @@ switch (phase)
         else
         {
             // flashing
-            timer++;
+            timer+=1;
             flashOpacity = !(timer mod 6);
         }
 
@@ -315,7 +315,7 @@ switch (phase)
                     background_visible[3] = true;
                 }
 
-                var maxRadius = 42;
+                var maxRadius; maxRadius = 42;
                 bossIntroBorderRadius = min(bossIntroBorderRadius + 3, maxRadius);
 
                 if (bossY >= view_yview[0] + view_hview[0] / 2 && bossYSpeed > 0)
@@ -333,14 +333,14 @@ switch (phase)
 
                 if (bossIntroBorderRadius == maxRadius && bossX == view_xview[0] + view_wview[0] / 2 && bossY == view_yview[0] + view_hview[0] / 2)
                 {
-                    subPhase++;
+                    subPhase+=1;
                 }
 
                 break;
 
             // boss intro animation + fade into star field + boss name
             case 1:
-                timer++;
+                timer+=1;
 
                 // fade into starfield
                 flashOpacity -= min(flashOpacity, (1 / 25));
@@ -358,7 +358,7 @@ switch (phase)
                     {
                         if (!(timer mod 12))
                         {
-                            counter++; // counter is the amount of characters shown, which is used in the draw event
+                            counter+=1; // counter is the amount of characters shown, which is used in the draw event
 
                             // only play typing sfx if typing a letter and not a space
                             if (string_copy(bossIntroName, counter, 1) != " ")
@@ -372,7 +372,7 @@ switch (phase)
                 // go to the stage
                 if (timer >= 400)
                 {
-                    var level = getRoom(stageRoom[cursorX, cursorY], "Levels/" + stageRoom[cursorX, cursorY])
+                    var level; level = getRoom(stageRoom[cursorX, cursorY], "Levels/" + stageRoom[cursorX, cursorY])
                     goToLevel(level, true);
 
                     // nothing is reset here since the object is going to get deleted upon room switch
@@ -402,7 +402,7 @@ switch (phase)
                     background_visible[3] = true;
                 }
 
-                var maxRadius = 42;
+                var maxRadius; maxRadius = 42;
                 bossIntroBorderRadius = min(bossIntroBorderRadius + 3, maxRadius);
 
                 // spawn boss object
@@ -445,14 +445,14 @@ switch (phase)
 
                 if (flashOpacity >= 1 && bossObject != noone)
                 {
-                    subPhase++;
+                    subPhase+=1;
                 }
 
                 break;
 
             // boss intro animation + fade into star field + boss name
             case 1:
-                timer++;
+                timer+=1;
 
                 // fade into starfield
                 flashOpacity -= min(flashOpacity, (1 / 25));
@@ -464,7 +464,7 @@ switch (phase)
                     {
                         if (!(timer mod 12))
                         {
-                            counter++; // counter is the amount of characters shown, which is used in the draw event
+                            counter+=1; // counter is the amount of characters shown, which is used in the draw event
 
                             // only play typing sfx if typing a letter and not a space
                             if (string_copy(bossIntroName, counter, 1) != " ")
@@ -478,7 +478,7 @@ switch (phase)
                 // go to the stage
                 if (bossObjectIntroFinished && timer >= 400)
                 {
-                    var level = getRoom(stageRoom[cursorX, cursorY], "Levels/" + stageRoom[cursorX, cursorY])
+                    var level; level = getRoom(stageRoom[cursorX, cursorY], "Levels/" + stageRoom[cursorX, cursorY])
                     goToLevel(level, true);
 
                     // nothing is reset here since the object is going to get deleted upon room switch
@@ -520,18 +520,18 @@ draw_set_valign(fa_top);
 if (!background_visible[1])
 {
     // draw selections
-    for (var i = 0; i < array_height_2d(stageRoom); i++)
+    var i; for ( i = 0; i < array_height_2d(stageRoom); i+=1)
     {
-        for (var j = 0; j < array_length_2d(stageRoom, i); j++)
+        var j; for ( j = 0; j < array_length_2d(stageRoom, i); j+=1)
         {
-            var xs = view_xview[0] + optionXOrigin + (optionXDist * (i + (j >= 3) * 0.5));
-            var ys = view_yview[0] + optionYOrigin + (optionYDist * j);
+            var xs; xs = view_xview[0] + optionXOrigin + (optionXDist * (i + (j >= 3) * 0.5));
+            var ys; ys = view_yview[0] + optionYOrigin + (optionYDist * j);
 
             if (j < 3) // draw mugshot
             {
                 if (stageIcon[i, j] != noone)
                 {
-                    var img = stageIcon[i, j];
+                    var img; img = stageIcon[i, j];
                     if (stageBeaten[i, j])
                     {
                         img = floor(12 + staticImgIndex);

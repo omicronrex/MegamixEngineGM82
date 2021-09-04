@@ -37,7 +37,7 @@ if (entityCanStep())
     switch (phase)
     {
         case 0:
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer <= 10)
             {
                 yspeed = 2;
@@ -55,7 +55,7 @@ if (entityCanStep())
             }
             break;
         case 1:
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer == 30)
             {
                 instance_create(x, y - 8, objElecitSpark);
@@ -74,7 +74,7 @@ if (entityCanStep())
             }
             break;
         case 2:
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer <= 0)
             {
                 if (animBack == false)
@@ -97,26 +97,26 @@ if (entityCanStep())
                             switch (shots)
                             {
                                 case 0:
-                                    var i = instance_create(x, y, objElecitShot);
+                                    var i; i = instance_create(x, y, objElecitShot);
                                     i.xspeed = -2;
                                     playSFX(sfxElectricShot);
                                     break;
                                 case 1:
-                                    var i = instance_create(x, y, objElecitShot);
+                                    var i; i = instance_create(x, y, objElecitShot);
                                     i.xspeed = 2;
                                     playSFX(sfxElectricShot);
                                     break;
                                 case 2:
-                                    var i = instance_create(x, y, objElecitShot);
+                                    var i; i = instance_create(x, y, objElecitShot);
                                     i.xspeed = 1;
                                     playSFX(sfxElectricShot);
                                     break;
                                 case 3:
-                                    var i = instance_create(x, y, objElecitShot);
+                                    var i; i = instance_create(x, y, objElecitShot);
                                     playSFX(sfxElectricShot);
                                     break;
                                 case 4:
-                                    var i = instance_create(x, y, objElecitShot);
+                                    var i; i = instance_create(x, y, objElecitShot);
                                     i.xspeed = -1;
                                     playSFX(sfxElectricShot);
                                     break;
@@ -124,11 +124,11 @@ if (entityCanStep())
                             hasShot = true;
                         }
 
-                        animTimer--;
+                        animTimer-=1;
                         if (animTimer <= 0)
                         {
                             animBack = true;
-                            shots++;
+                            shots+=1;
                             hasShot = false;
                             animTimer = 10;
                         }

@@ -24,13 +24,13 @@ if (instance_exists(child))
 
 if (spawnDelay > 0 && !global.frozen)
 {
-    spawnDelay--;
+    spawnDelay-=1;
 }
 if (spawnDelay == (spawnDelayMax + spawnDelayMax / 2) - 2)
 {
     with (instance_nearest(x, y, objOctoGenerator))
     {
-        enemiesDefeated++;
+        enemiesDefeated+=1;
     }
 }
 if (spawnDelay == 0)

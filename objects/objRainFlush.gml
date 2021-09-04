@@ -52,7 +52,7 @@ if (!global.frozen)
         x = view_xview[0] + view_wview / 2;
         y = view_yview[0] + view_hview / 2;
 
-        timer++;
+        timer+=1;
 
         if (timer == 30)
         {

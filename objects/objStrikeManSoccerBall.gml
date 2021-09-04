@@ -53,7 +53,7 @@ event_inherited();
 if (entityCanStep())
 {
     // x=xstart;
-    var prevAnim = anim;
+    var prevAnim; prevAnim = anim;
     healthpoints = 99;
     switch (phase)
     {
@@ -181,7 +181,7 @@ applies_to=self
 /// Prevent Crushing entities when falling
 if (!ground && yspeed > 0)
 {
-    var changePhase = false;
+    var changePhase; changePhase = false;
 
     with (prtEntity)
     {
@@ -192,13 +192,13 @@ if (!ground && yspeed > 0)
             ysp = yspeed;
         else
             ysp = 1;
-        var prevGround = ground;
+        var prevGround; prevGround = ground;
         if (!ground && (checkSolid(0, 2)))
             ground = true;
 
         if ((!ground && blockCollision) || (!blockCollision && isSolid == 0))
             continue;
-        var doDamage = false;
+        var doDamage; doDamage = false;
         if (((faction == 3 && isSolid == 0) || faction != 3) && object_index != objStrikeManSoccerBall && object_index != objStrikeManSpikeySoccerBall && object_index != prtEnemyProjectile && (object_index == objMagnetBeam || object_index == objIceWall || object_index == objRushJet || object_index == objRushCycle || object_index == objRushCoil || faction == 1 || faction == 3) && place_meeting(x, y - 1 - ysp - other.yspeed, other))
         {
             changePhase = true;

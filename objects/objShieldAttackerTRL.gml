@@ -187,7 +187,7 @@ if (phase == 1)
         {
             phase = 3;
             hasShield = false;
-            var i = instance_create(x, y, objShieldAttackerTRLShield);
+            var i; i = instance_create(x, y, objShieldAttackerTRLShield);
             i.image_xscale = image_xscale;
             i.xspeed = -1 * image_xscale;
             i.yspeed = -4;

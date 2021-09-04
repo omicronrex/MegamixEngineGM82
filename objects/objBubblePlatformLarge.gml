@@ -83,7 +83,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-var ys = y;
+var ys; ys = y;
 y = round(min(ystart, y));
 
 event_inherited();

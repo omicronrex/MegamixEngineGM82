@@ -123,7 +123,7 @@ if (!dead && !global.frozen && !global.timeStopped)
             // player wiggle
             if (image_xscale != other.caughtXScalePrev)
             {
-                other.caughtTimer++;
+                other.caughtTimer+=1;
             }
             other.caughtXScalePrev = image_xscale;
             if(isLocked(other.honeyLock))

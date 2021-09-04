@@ -159,7 +159,7 @@ if (entityCanStep())
     if (isFight == true)
     {
         image_speed = 0;
-        attackTimer++;
+        attackTimer+=1;
         switch (phase)
         {
             case 0: // prepare phase!
@@ -243,7 +243,7 @@ if (entityCanStep())
                         break;
                     case 46: // fire dust crusher
                         image_index = 3;
-                        var inst = instance_create(x, y - 8, objDustManCrusher);
+                        var inst; inst = instance_create(x, y - 8, objDustManCrusher);
                         inst.xspeed = image_xscale * 4;
                         inst.image_xscale = image_xscale;
                         playSFX(sfxEnemyShoot);

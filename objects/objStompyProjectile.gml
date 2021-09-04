@@ -31,7 +31,7 @@ event_inherited();
 
 if (!global.frozen && !global.timeStopped)
 {
-    alarmHitSolid--;
+    alarmHitSolid-=1;
 
     if (alarmDie >= 0)
     {

@@ -24,7 +24,7 @@ if (entityCanStep())
 {
     if (image_index != 0)
     {
-        animTimer--;
+        animTimer-=1;
         if (animTimer == 0)
         {
             image_index = 0;

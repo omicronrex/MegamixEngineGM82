@@ -37,7 +37,7 @@ instance_destroy();
 
 if (is1Up && global.livesEnabled)
 {
-    global.livesRemaining++;
+    global.livesRemaining+=1;
     playSFX(sfxImportantItem);
 }
 else if (global.playerHealth[collectPlayer.playerID] < 28)

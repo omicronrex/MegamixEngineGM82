@@ -22,7 +22,7 @@ if (!global.frozen && !global.timeStopped && tileID > 0)
     {
         if (blockCollision && grav != 0)
         {
-            // var gravDir = sign(grav);
+            // var gravDir; gravDir = sign(grav);
 
             with (other)
             {

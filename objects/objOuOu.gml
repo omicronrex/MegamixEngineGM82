@@ -44,7 +44,7 @@ if (entityCanStep())
     {
         // Throw Ball
         case 0:
-            moveTimer--;
+            moveTimer-=1;
             if (moveTimer <= 0)
             {
                 if (imgIndex < 7)
@@ -60,14 +60,14 @@ if (entityCanStep())
                 {
                     if (hasAttacked == false)
                     {
-                        attackTimer--;
+                        attackTimer-=1;
 
                         if (attackTimer <= 0)
                         {
                             if (!instance_exists(ball))
                             {
                                 imgIndex = 8;
-                                var i = instance_create(x + 4 * image_xscale, y - 11, objOuOuBall);
+                                var i; i = instance_create(x + 4 * image_xscale, y - 11, objOuOuBall);
                                 i.yspeed = -2;
                                 i.yStart = i.y;
                                 ball = i.id;
@@ -86,7 +86,7 @@ if (entityCanStep())
                                         imgIndex = 8;
                                         ball.y -= 2;
                                         ball.yspeed = -2;
-                                        bounces++;
+                                        bounces+=1;
                                         playSFX(sfxBallBounce);
                                     }
                                     else
@@ -115,7 +115,7 @@ if (entityCanStep())
                     {
                         if (!instance_exists(ball))
                         {
-                            attackTimer--;
+                            attackTimer-=1;
                             if (attackTimer <= 0)
                             {
                                 calibrateDirection();

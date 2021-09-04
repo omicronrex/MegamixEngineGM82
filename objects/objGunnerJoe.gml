@@ -44,7 +44,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    moveTimer--;
+    moveTimer-=1;
     if (instance_exists(target))
     {
         goHere = target.y;
@@ -59,7 +59,7 @@ if (entityCanStep())
                 {
                     if (!instance_exists(missile))
                     {
-                        var i = instance_create(x-4, y+10, objGunnerJoeMissile);
+                        var i; i = instance_create(x-4, y+10, objGunnerJoeMissile);
                         if (image_index == -1)
                         {
                             i.image_index = 5;

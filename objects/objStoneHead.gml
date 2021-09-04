@@ -66,14 +66,14 @@ if (entityCanStep())
 {
     if (init)
     {
-        var i = instance_place(x, y, objSHBoulder);
+        var i; i = instance_place(x, y, objSHBoulder);
         if (i != noone)
         {
             boulderStart = i.startRef;
             boulderEnd = i.endRef;
-            var ref = boulderStart;
-            var rn = irandom(ref.boulderCount - 1);
-            for (var j = 0; j < rn; j++)
+            var ref; ref = boulderStart;
+            var rn; rn = irandom(ref.boulderCount - 1);
+            var j; for ( j = 0; j < rn; j+=1)
                 ref = ref.nextBoulder;
             if (ref > 0)
             {
@@ -124,8 +124,8 @@ if (entityCanStep())
                     }
                     else
                     {
-                        var rng = irandom(boulderStart.boulderCount - 1);
-                        var preventRepeating = false;
+                        var rng; rng = irandom(boulderStart.boulderCount - 1);
+                        var preventRepeating; preventRepeating = false;
                         if (!(((dropCount - 3) mod 4) == 0) && (rng == prevDrop))
                             repeatedCounter += 1;
                         if (repeatedCounter > 1)
@@ -139,17 +139,17 @@ if (entityCanStep())
                         }
                         prevDrop = rng;
 
-                        var ref = boulderStart;
+                        var ref; ref = boulderStart;
                         if (!(((dropCount - 1) mod 3) == 0) || preventRepeating)
                         {
-                            for (var i = 0; i < rng; i++)
+                            var i; for ( i = 0; i < rng; i+=1)
                             {
                                 ref = ref.nextBoulder;
                             }
                         }
                         else
                         {
-                            var j = 0;
+                            var j; j = 0;
                             while (ref != noone && ref.nextBoulder != noone)
                             {
                                 if (instance_exists(target))
@@ -213,7 +213,7 @@ if (entityCanStep())
                 }
                 break;
             case 3: // Rollin
-                var b = instance_place(x, y, objSHBoulder);
+                var b; b = instance_place(x, y, objSHBoulder);
                 image_index += 0.2;
                 if (floor(image_index) < 2)
                     image_index = 2;
@@ -272,7 +272,7 @@ if (entityCanStep())
 
                         if (moveCount < nextPosOffset)
                         {
-                            var i = currentBoulder.nextBoulder;
+                            var i; i = currentBoulder.nextBoulder;
                             if (i != noone && instance_exists(i))
                             {
                                 x = i.x;
@@ -299,7 +299,7 @@ if (entityCanStep())
 
                         if (moveCount < abs(nextPosOffset))
                         {
-                            var i = currentBoulder.prevBoulder;
+                            var i; i = currentBoulder.prevBoulder;
                             if (i != noone && instance_exists(i))
                             {
                                 x = i.x;

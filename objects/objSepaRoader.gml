@@ -62,7 +62,7 @@ applies_to=self
 event_inherited();
 if (hasCannon)
 {
-    var i = instance_create(x, y - 12 * image_yscale, objSepaRoaderCannon);
+    var i; i = instance_create(x, y - 12 * image_yscale, objSepaRoaderCannon);
     i.image_xscale = image_xscale;
     i.respawn = false;
     i.col = col;
@@ -81,7 +81,7 @@ if (other.bbox_bottom <= bbox_top + 12)
         hasCannon = false;
         global.damage = 0;
         event_user(EV_HURT);
-        var i = instance_create(x, bbox_top + 12, prtEntity);
+        var i; i = instance_create(x, bbox_top + 12, prtEntity);
         i.respawn = false;
         with (i)
         {

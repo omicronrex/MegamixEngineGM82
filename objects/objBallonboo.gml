@@ -74,9 +74,9 @@ if (entityCanStep())
                 timer += 1;
                 animFrame = 1.99;
                 playSFX(sfxEnemyShootClassic);
-                var i = instance_create(x, y + 16 * image_yscale, objEnemyBullet);
+                var i; i = instance_create(x, y + 16 * image_yscale, objEnemyBullet);
                 i.spd = 3;
-                var xDir = -1;
+                var xDir; xDir = -1;
                 if (instance_exists(target) && target.x > x)
                     xDir = 1;
                 i.dir = point_direction(i.x, i.y, i.x + 4 * xDir, i.y + 6 * image_yscale);
@@ -102,8 +102,8 @@ if (entityCanStep())
                 animFrame = 2;
         }
         timer += 1;
-        var tx = x + xspeed;
-        var ty = y + yspeed;
+        var tx; tx = x + xspeed;
+        var ty; ty = y + yspeed;
         if (timer < 200)
         {
             if (instance_exists(target))
@@ -113,16 +113,16 @@ if (entityCanStep())
             }
         }
 
-        var dir = -1 + 2 * (tx > x);
+        var dir; dir = -1 + 2 * (tx > x);
         xspeed += dir * 0.123;
         dir = -1 + 2 * (ty > y);
         yspeed += dir * 0.123;
 
         // Limit its overall speed
-        var lenSQ = (xspeed * xspeed) + (yspeed * yspeed);
+        var lenSQ; lenSQ = (xspeed * xspeed) + (yspeed * yspeed);
         if (lenSQ > 5 * 5)
         {
-            var len = sqrt(lenSQ);
+            var len; len = sqrt(lenSQ);
             xspeed /= len;
             yspeed /= len;
             xspeed *= 5;
@@ -141,7 +141,7 @@ applies_to=self
 event_inherited();
 if (!bursted)
 {
-    var i = instance_create(x, y, objBallonbooDead);
+    var i; i = instance_create(x, y, objBallonbooDead);
     i.grav = -image_yscale * 0.1;
 }
 #define Other_21
@@ -156,7 +156,7 @@ if (!bursted && other.bbox_bottom < y + 8)
     playSFX(sfxBalloonboo);
     global.damage = 0;
     bursted = true;
-    var dir = -1 + 2 * (other.x > x);
+    var dir; dir = -1 + 2 * (other.x > x);
     xspeed = -3.4 * dir;
     yspeed = -0.5;
     other.guardCancel = 2;

@@ -74,8 +74,8 @@ if (entityCanStep())
     {
         if (newX == -9999)
         {
-            var last = noone;
-            var dir = image_xscale;
+            var last; last = noone;
+            var dir; dir = image_xscale;
             with (objBombPottonStopper)
             {
                 if (!(other.bbox_top <= bbox_bottom && other.bbox_bottom >= bbox_top) || place_meeting(x, y, other))
@@ -140,7 +140,7 @@ if (entityCanStep())
     {
         if (timer == 0)
         {
-            var i = instance_create(x - 2 * image_xscale, y + 6, objBombPottonBomb);
+            var i; i = instance_create(x - 2 * image_xscale, y + 6, objBombPottonBomb);
             animOffset = 1.99999;
             i.onlyDamageMines=onlyDamageMines;
             i.remaining = explosionLenght - 1;

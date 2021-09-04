@@ -42,7 +42,7 @@ if (!global.frozen && !dead && !global.timeStopped)
         dir *= -1;
     }
 
-    var exsp = turnSpeed * dir;
+    var exsp; exsp = turnSpeed * dir;
 
     if (exsp != 0)
     {

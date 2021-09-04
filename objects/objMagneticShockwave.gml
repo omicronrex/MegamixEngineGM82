@@ -45,7 +45,7 @@ if (!global.frozen)
     {
         if (spawnTimer) // spreading across
         {
-            spawnTimer--;
+            spawnTimer-=1;
             if (!spawnTimer && insideView())
             {
                 i = instance_create(x + (28 * image_xscale), y, objMagneticShockwave);
@@ -68,7 +68,7 @@ if (!global.frozen)
         }
     }
 
-    timer++;
+    timer+=1;
     if (!(timer mod 3))
     {
         i = instance_create(irandom_range(x - 7, x + 7), y, objSingleLoopEffect);

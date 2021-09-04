@@ -37,7 +37,7 @@ event_inherited();
 
 if (!dead)
 {
-    for (var i = 0; i < inst_restore_n; i++)
+    var i; for ( i = 0; i < inst_restore_n; i+=1)
     {
         with (inst_restore[i])
         {
@@ -79,7 +79,7 @@ applies_to=self
 */
 if (!dead)
 {
-    for (var i = 0; i < inst_restore_n; i++)
+    var i; for ( i = 0; i < inst_restore_n; i+=1)
     {
         with (inst_restore[i])
         {
@@ -97,17 +97,17 @@ applies_to=self
 */
 /// find objects to restore
 depth = 0;
-for (var i = -1; i < 2; i += 0.1)
+var i; for ( i = -1; i < 2; i += 0.1)
 {
-    for (var j = 0; j < 2; j += 0.1)
+    var j; for ( j = 0; j < 2; j += 0.1)
     {
-        for (var k = 0; k < obj_embed_n; k++)
+        var k; for (k = 0; k < obj_embed_n; k+=1)
         {
             with (instance_position(x + i * 16, y + j * 16, obj_embed[k]))
             {
                 if (indexOf(other.inst_restore, id) == -1)
                 {
-                    other.inst_restore[other.inst_restore_n++] = id;
+                    other.inst_restore[other.inst_restore_n] = id; other.inst_restore_n+=1
                     visible = false;
                     dead = true;
                 }
@@ -147,7 +147,7 @@ event_inherited();
 
 if (spawned)
 {
-    for (var i = 0; i < inst_restore_n; i++)
+    var i; for ( i = 0; i < inst_restore_n; i+=1)
     {
         with (inst_restore[i])
         {

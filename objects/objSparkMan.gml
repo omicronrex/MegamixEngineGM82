@@ -194,7 +194,7 @@ if (entityCanStep())
                 }
                 if (attackTimer == 4)
                 {
-                    for (var i = 8; i <= 48; i += 1)
+                    var i; for ( i = 8; i <= 48; i += 1)
                     {
                         if (!(place_meeting(x + setX * image_xscale, y, objSolid)))
                             setX += 1;
@@ -220,7 +220,7 @@ if (entityCanStep())
                     sd.image_alpha = 0;
                     if (sd.x > view_xview + 26 && sd.x < (view_xview + view_wview) - 26)
                     {
-                        for (var i = 32; i < 256; i += 1)
+                        var i; for ( i = 32; i < 256; i += 1)
                         {
                             with (sd)
                             {
@@ -275,8 +275,8 @@ if (entityCanStep())
                 }
                 if (attackTimer >= 6 && xspeed == 0)
                 {
-                    var sx=view_xview;
-                    var sy=view_yview;
+                    var sx; sx =view_xview;
+                    var sy; sy =view_yview;
                     if(instance_exists(sd))
                     {
                         sx=sd.x;

@@ -66,7 +66,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    introTimer--;
+    introTimer-=1;
     if (introTimer == 0)
     {
         introDone = true;
@@ -76,7 +76,7 @@ if (entityCanStep())
     {
         if (!instance_exists(objChangkeyDragonMask))
         {
-            var mask = instance_create(x, y, objChangkeyDragonMask);
+            var mask; mask = instance_create(x, y, objChangkeyDragonMask);
             mask.contactDamage = contactDamage;
             mask.parent = id;
         }
@@ -94,12 +94,12 @@ if (entityCanStep())
         if ((changkeyNumber != 6) && (canRegen == true))
         {
             var i;
-            var oy1 = 5;
-            var oy2 = 10;
-            var oy3 = 0;
-            for (i = 0; i < 6; i++)
+            var oy1; oy1 = 5;
+            var oy2; oy2 = 10;
+            var oy3; oy3 = 0;
+            for (i = 0; i < 6; i+=1)
             {
-                var fire = instance_create(x - 30 * image_xscale, y - 14, objChangkeyDragonTackleFire);
+                var fire; fire = instance_create(x - 30 * image_xscale, y - 14, objChangkeyDragonTackleFire);
                 switch (i)
                 {
                     case 0:
@@ -129,7 +129,7 @@ if (entityCanStep())
                 }
                 fire.parent = id;
                 fire.index = i;
-                var tail = instance_create(x, y, objChangkeyDragonTailFire);
+                var tail; tail = instance_create(x, y, objChangkeyDragonTailFire);
                 tail.offsetX = 144;
                 tail.offsetY = 8;
                 tail.parent = id;
@@ -141,7 +141,7 @@ if (entityCanStep())
 
         if (image_index == 1)
         {
-            animTimer--;
+            animTimer-=1;
             if (animTimer == 0)
             {
                 image_index = 0;
@@ -177,10 +177,10 @@ if (entityCanStep())
             canFlip = true;
 
             // Fire
-            shootTimer--;
+            shootTimer-=1;
             if ((shootTimer <= 0) && (shootLimit < 3) && (instance_exists(objChangkeyDragonTackleFire)))
             {
-                var shot = instance_create(x, y, objChangkeyDragonFire);
+                var shot; shot = instance_create(x, y, objChangkeyDragonFire);
                 shot.xspeed = 3.5 * image_xscale;
                 if (shootLimit mod 2)
                     shot.yspeed = 3;
@@ -234,8 +234,8 @@ if (iFrames == 1 || iFrames == 3)
 
 if (introDone == true)
 {
-    var ox = cos(sineCounter2 + 0.5);
-    var oy = sin(sineCounter2 + 0.5);
+    var ox; ox = cos(sineCounter2 + 0.5);
+    var oy; oy = sin(sineCounter2 + 0.5);
     if (image_index == 1)
     {
         ox = -1;
@@ -299,7 +299,7 @@ if (introDone == true)
     // Draw eyes
     if (!dead)
     {
-        var frame = 1;
+        var frame; frame = 1;
         if (_hitTimer > 0)
             frame = 2;
         if (changkeyNumber <= 3)

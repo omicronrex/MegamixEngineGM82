@@ -73,7 +73,7 @@ if (entityCanStep())
 
         x = round(parent.x - 4 * parent.image_xscale);
         y = round(parent.y);
-        for (var i = 0; i < view_hview; i++)
+        var i; for ( i = 0; i < view_hview; i+=1)
         {
             yStart = i;
             image_yscale = ceil(yStart / 16);

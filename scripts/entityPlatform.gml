@@ -4,14 +4,14 @@ if (isSolid)
 {
     if (x != xprevious || y != yprevious)
     {
-        var resolid = isSolid;
+        var resolid; resolid = isSolid;
         isSolid = 0;
         var xypre;
 
-        var epCanCrush = object_index!=objMegaman || (object_index==objMegaman && !global.freeMovement);
+        var epCanCrush; epCanCrush = object_index!=objMegaman || (object_index==objMegaman && !global.freeMovement);
 
-        var myyspeed = y - yprevious;
-        var myxspeed = x - xprevious;
+        var myyspeed; myyspeed = y - yprevious;
+        var myxspeed; myxspeed = x - xprevious;
         y = yprevious;
         x = xprevious;
 
@@ -34,7 +34,7 @@ if (isSolid)
                             continue;
                         }
                     }
-                    var epDir = sign(bboxGetYCenterObject(other.id) - bboxGetYCenter());
+                    var epDir; epDir = sign(bboxGetYCenterObject(other.id) - bboxGetYCenter());
 
                     if(place_meeting(x, y, other.id))
                     {
@@ -68,7 +68,7 @@ if (isSolid)
                                 y=round(y);
                                 y+=epDir*-0.5;
                             }
-                            var rpts = max(32,abs(other.bbox_top-other.bbox_bottom)*2);
+                            var rpts; rpts = max(32,abs(other.bbox_top-other.bbox_bottom)*2);
                             repeat (rpts)
                             {
                                 if (place_meeting(x, y, other.id))
@@ -137,8 +137,8 @@ if (isSolid)
                         grav = gravDir;
                     }
                     */
-                    var epIsOnPlat = false;
-                    var epDir = sign(bboxGetXCenterObject(other.id) - bboxGetXCenter());
+                    var epIsOnPlat; epIsOnPlat = false;
+                    var epDir; epDir = sign(bboxGetXCenterObject(other.id) - bboxGetXCenter());
 
                     if (place_meeting(x, y + sign(grav)+grav+(ground*0.5*sign(grav)), other.id))
                     {
@@ -154,7 +154,7 @@ if (isSolid)
                         {
                             xypre = x;
                             x += myxspeed + (2 * sign(epDir));
-                            var rpts = max(32,abs(other.bbox_right-other.bbox_left)*2);
+                            var rpts; rpts = max(32,abs(other.bbox_right-other.bbox_left)*2);
                             repeat (rpts)
                             {
                                 if (place_meeting(x, y, other.id))

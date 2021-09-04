@@ -96,18 +96,20 @@ action_id=603
 applies_to=self
 */
 var desX, desY; // desired coordinates
-var preX = x, preY = y; // previous coordinates
+var preX; preX = x;
+var preY; preY = y; // previous coordinates
 
 if (!global.frozen && !global.timeStopped && insideSection(secX, secY))
 {
     // current time step:
-    _regT = ++timer;
+    timer+=1
+    _regT = timer;
     event_user(0); // calculate x,y
-    var desX = _regPosX;
-    var desY = _regPosY;
+    var desX; desX = _regPosX;
+    var desY; desY = _regPosY;
 
     // we now have desired X,Y location. Update tiles.
-    for (var i = 0; i < tileCount; i++)
+    var i; for ( i = 0; i < tileCount; i+=1)
     {
         if (tile_exists(tileChild[i]))
         {
@@ -115,7 +117,7 @@ if (!global.frozen && !global.timeStopped && insideSection(secX, secY))
         }
     }
 
-    timer++;
+    timer+=1;
     if (timer > 2 * period)
     {
         timer -= period;
@@ -125,9 +127,9 @@ if (!global.frozen && !global.timeStopped && insideSection(secX, secY))
     y = desY;
 
     // we now have desired X,Y location. Update objects.
-    for (var i = 0; i < childCount; i++)
+    var i; for ( i = 0; i < childCount; i+=1)
     {
-        var moveType = childMovementType[i];
+        var moveType; moveType = childMovementType[i];
 
         // make sure activated
         // won't help this frame but should help next at least.
@@ -180,23 +182,23 @@ posCount = max(
     array_length_1d(posT) - isCyclic
     );
 
-var xProvLength = array_length_1d(posX);
-var yProvLength = array_length_1d(posY);
+var xProvLength; xProvLength = array_length_1d(posX);
+var yProvLength; yProvLength = array_length_1d(posY);
 
 // loop values: x
-for (var i = array_length_1d(posX); i < posCount; i++)
+for (i = array_length_1d(posX); i < posCount; i+=1)
 {
     posX[i] = posX[i - xProvLength];
 }
 
 // loop values: y
-for (var i = array_length_1d(posY); i < posCount; i++)
+for (i = array_length_1d(posY); i < posCount; i+=1)
 {
     posY[i] = posY[i - yProvLength];
 }
 
 // buffer values: t
-for (var i = array_length_1d(posT) - 1; i < posCount - 1 + isCyclic; i++)
+for (i = array_length_1d(posT) - 1; i < posCount - 1 + isCyclic; i+=1)
 {
     posT[i + 1] = posT[i];
 }
@@ -213,7 +215,7 @@ if (isCyclic)
 period = posT[posCount - 1];
 
 assert(posT[0] == 0, "posT[0] was non-zero on objShift at " + string(x) + "," + string(y));
-for (var i = 1; i < array_length_1d(posT); i++)
+for (i = 1; i < array_length_1d(posT); i+=1)
 {
     assert(posT[i] > posT[i - 1], "posT non-increasing on objShift at " + string(x) + "," + string(y));
 }
@@ -253,9 +255,9 @@ directObject[0] = objWater;
 carveSolid(bbox_left, bbox_top, bbox_right, bbox_bottom);
 
 // leave these as they are; move directly
-for (var k = 0; k < array_length_1d(directObject); k++)
+var k; for (k = 0; k < array_length_1d(directObject); k+=1)
 {
-    var obj = directObject[k];
+    var obj; obj = directObject[k];
     with (obj)
     {
         if (object_index == obj)
@@ -264,7 +266,7 @@ for (var k = 0; k < array_length_1d(directObject); k++)
             {
                 other.child[other.childCount] = id;
                 other.childMovementType[other.childCount] = other.MVT_DIRECT; // direct move
-                other.childCount++;
+                other.childCount+=1;
             }
         }
     }
@@ -273,7 +275,7 @@ for (var k = 0; k < array_length_1d(directObject); k++)
 // these spawn, which we have to think about
 with (prtEntity)
 {
-    var moveType = other.MVT_SPAWNONLY;
+    var moveType; moveType = other.MVT_SPAWNONLY;
     if (blockCollision == 0)
     {
         moveType = other.MVT_SPAWNSHIFT;
@@ -282,21 +284,21 @@ with (prtEntity)
     {
         other.child[other.childCount] = id;
         other.childMovementType[other.childCount] = moveType; // direct move
-        other.childCount++;
+        other.childCount+=1;
     }
 }
 
 // convert these to objSolidEntity
-for (var k = 0; k < array_length_1d(convertObject); k++)
+var k; for (k = 0; k < array_length_1d(convertObject); k+=1)
 {
-    var obj = convertObject[k];
+    var obj; obj = convertObject[k];
     with (obj)
     {
         if (object_index == obj)
         {
             if (place_meeting(x, y, other))
             {
-                var converted = instance_create(x, y, objSolidEntity);
+                var converted; converted = instance_create(x, y, objSolidEntity);
                 converted.image_xscale = image_xscale;
                 converted.image_yscale = image_yscale;
                 converted.image_angle = image_angle;
@@ -309,7 +311,7 @@ for (var k = 0; k < array_length_1d(convertObject); k++)
                 converted.isSolid = convertIsSolid[k];
                 other.child[other.childCount] = converted;
                 other.childMovementType[other.childCount] = other.MVT_SPEED; // xspeed/yspeed
-                other.childCount++;
+                other.childCount+=1;
                 instance_destroy();
             }
         }
@@ -321,32 +323,32 @@ if (!is_array(tileLayer))
 {
     tileLayer = makeArray(tileLayer);
 }
-for (var i = 0; i < array_length_1d(tileLayer); i++)
+var i; for ( i = 0; i < array_length_1d(tileLayer); i+=1)
 {
-    var l = tileLayer[i];
-    var tileIn = tile_get_ids_at_depth(l);
-    for (var k = 0; k < array_length_1d(tileIn); k++)
+    var l; l = tileLayer[i];
+    var tileIn; tileIn = tile_get_ids_at_depth(l);
+    var k; for (k = 0; k < array_length_1d(tileIn); k+=1)
     {
-        var tile = tileIn[k];
-        var tileX = tile_get_x(tile);
-        var tileY = tile_get_y(tile);
+        var tile; tile = tileIn[k];
+        var tileX; tileX = tile_get_x(tile);
+        var tileY; tileY = tile_get_y(tile);
         if (point_in_rectangle(tileX + tile_get_width(tile) / 2, tileY + tile_get_height(tile) / 2, bbox_left, bbox_top, bbox_right, bbox_bottom))
         {
             tileChild[tileCount] = tile;
             tileOffsetX[tileCount] = tileX - x;
             tileOffsetY[tileCount] = tileY - y;
-            tileCount++;
+            tileCount+=1;
         }
     }
 }
 
-var deltaX = posX[0] - x;
-var deltaY = posY[0] - y;
+var deltaX; deltaX = posX[0] - x;
+var deltaY; deltaY = posY[0] - y;
 
 // move objects to starting coordinates
-for (var i = 0; i < childCount; i++)
+var i; for ( i = 0; i < childCount; i+=1)
 {
-    var moveType = childMovementType[i];
+    var moveType; moveType = childMovementType[i];
     with (child[i])
     {
         other.childOffsetX[i] = xstart - other.x;
@@ -368,6 +370,8 @@ applies_to=self
 */
 /// calculate _regPosX, _regPosY from _regT
 var indL;
+var _regT;
+
 _regT = max(0, _regT);
 if (!isCyclic && timer >= period)
 {
@@ -377,8 +381,8 @@ else
 {
     _regT = _regT mod period;
 }
-var p = 1;
-for (indL = 0; indL < posCount - 1; indL++)
+var p; p = 1;
+for (indL = 0; indL < posCount - 1; indL+=1)
 {
     if (_regT <= posT[indL + 1])
     {

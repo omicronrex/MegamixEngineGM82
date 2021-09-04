@@ -62,7 +62,7 @@ if (entityCanStep()
     if (init)
     {
         init = false;
-        for (var i = 32; i < view_hview; i += 1)
+        var i; for ( i = 32; i < view_hview; i += 1)
         {
             if (place_meeting(x, y + i, objSolid) || y + i >= (view_yview + view_hview) - 32)
             {
@@ -73,8 +73,8 @@ if (entityCanStep()
                 yMax = i;
             }
         }
-        var hasCol = false;
-        for (var i = round(view_wview / 2); i < view_wview; i += 1)
+        var hasCol; hasCol = false;
+        var i; for ( i = round(view_wview / 2); i < view_wview; i += 1)
         {
             if (!place_meeting(x + ((16 + i) * image_xscale), y, objSolid))
             {
@@ -93,14 +93,14 @@ if (entityCanStep()
     }
     if (storeXScale == 0)
         storeXScale = image_xscale;
-    attackTimer++;
+    attackTimer+=1;
     switch (phase)
     {
         case 0:
             image_index = 3;
             if (attackTimer == attackTimerMax)
             {
-                phase++;
+                phase+=1;
                 attackTimer = 0;
             }
             break;
@@ -118,7 +118,7 @@ if (entityCanStep()
                 yspeed = 1 * pattern[shotsFired, 0];
                 if (attackTimer >= pattern[shotsFired, 2])
                 {
-                    phase++;
+                    phase+=1;
                 }
             }
             else
@@ -129,10 +129,10 @@ if (entityCanStep()
             break;
         case 2:
             yspeed = 0;
-            var inst = instance_create(x + 8 * image_xscale, y + pattern[shotsFired, 1] * 16, objTwinShooterGLaser);
+            var inst; inst = instance_create(x + 8 * image_xscale, y + pattern[shotsFired, 1] * 16, objTwinShooterGLaser);
             inst.expand = image_xscale;
             inst.image_xscale = image_xscale;
-            shotsFired++;
+            shotsFired+=1;
             if (shotsFired >= array_height_2d(pattern))
             {
                 phase = 9;

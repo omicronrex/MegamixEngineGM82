@@ -2,7 +2,7 @@
 // returns the given string with escape characters removed
 // e.g. &gt; is replaced with >
 
-var str = argument0;
+var str; str = argument0;
 
 str = string_replace_all(str, "&gt;", ">");
 str = string_replace_all(str, "&lt;", "<");

@@ -79,7 +79,7 @@ if (entityCanStep())
             yspeed = 1.5;
             xspeed = -1.5 * image_xscale;
         }
-        shotsFired++;
+        shotsFired+=1;
     }
     if (canBounce && ycoll != 0 && shotsFired < 4)
     {
@@ -92,6 +92,6 @@ if (entityCanStep())
             yspeed = -1.5;
             xspeed = -1.5 * image_xscale;
         }
-        shotsFired++;
+        shotsFired+=1;
     }
 }

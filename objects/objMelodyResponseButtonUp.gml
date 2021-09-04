@@ -104,14 +104,14 @@ event_inherited();
 if (entityCanStep())
 {
     // give each button in existance its own number.
-    var storeNum = 0;
+    var storeNum; storeNum = 0;
 
     with (objMelodyResponseButtonUp)
     {
         if (num == -1)
         {
             num = storeNum;
-            storeNum++;
+            storeNum+=1;
             buttonAmount = instance_number(objMelodyResponseButtonUp);
         }
     }
@@ -125,12 +125,12 @@ if (entityCanStep())
             {
                 if (allButtons)
                 {
-                    var useAllButtons = true;
+                    var useAllButtons; useAllButtons = true;
                     buttonsToPress = other.buttonAmount;
                 }
                 else
                 {
-                    var useAllButtons = false;
+                    var useAllButtons; useAllButtons = false;
                 }
                 other.buttonPuzzle = buttonsToPress;
             }
@@ -140,20 +140,20 @@ if (entityCanStep())
             {
                 if (allButtons)
                 {
-                    var useAllButtons = true;
+                    var useAllButtons; useAllButtons = true;
                     buttonsToPress = other.buttonAmount;
                 }
                 else
                 {
-                    var useAllButtons = false;
+                    var useAllButtons; useAllButtons = false;
                 }
                 other.buttonPuzzle = buttonsToPress;
             }
 
-        var store0ID = id;
+        var store0ID; store0ID = id;
         if (!hasInit) // initialize the puzzle
         {
-            for (var e = 0; e < buttonPuzzle; e++) // setup list of variables
+            var e; for (e = 0; e < buttonPuzzle; e+=1) // setup list of variables
             {
                 if (!useAllButtons)
                 {
@@ -166,7 +166,7 @@ if (entityCanStep())
             }
 
             var i, j, k; // then randomise list
-            for (i = 0; i < buttonPuzzle; i++)
+            for (i = 0; i < buttonPuzzle; i+=1)
             {
                 j = irandom_range(i, buttonPuzzle - 1);
                 if (i != j)
@@ -181,12 +181,12 @@ if (entityCanStep())
 
         if (instance_exists(objMelodyResponseCannon) || instance_exists(objMelodyResponseDoor)) // the buttons are only active whilst either a door or response cannon is in existance
         {
-            attackTimer++;
+            attackTimer+=1;
         }
 
         if (attackTimer == 35 && currentRotation < buttonPuzzle) // flash buttons in sequence
         {
-            var getListNumber = randomList[currentRotation];
+            var getListNumber; getListNumber = randomList[currentRotation];
             attackTimer = 0;
             playSFX(sfxGrabBuster);
             with (objMelodyResponseButtonUp)
@@ -198,7 +198,7 @@ if (entityCanStep())
                     alarm[1] = 1;
                 }
             }
-            currentRotation++;
+            currentRotation+=1;
         }
 
         if (currentRotation == buttonPuzzle) // sequence complete, puzzle can now be attempted
@@ -215,7 +215,7 @@ if (entityCanStep())
     if (animationTimer > 0)
     {
         image_index = (animationTimer / 4) mod 3;
-        animationTimer--;
+        animationTimer-=1;
     }
     else
     {
@@ -302,7 +302,7 @@ if (entityCanStep())
             if (doIt)
             {
                 image_index = 3;
-                var getNum = num;
+                var getNum; getNum = num;
                 with (storageObjID)
                 {
                     if (getNum != randomList[buttonNoPressed]) // if button pressed is wrong, play error sound and activate all melody response cannons
@@ -317,7 +317,7 @@ if (entityCanStep())
                     }
                     else // otherwise add to variable stored
                     {
-                        buttonNoPressed++;
+                        buttonNoPressed+=1;
                         if (buttonNoPressed == buttonPuzzle) // if entire sequence is entered, then defeat one melody response cannon
                         {
                             if (!instance_exists(objMelodyResponseCannon))
@@ -328,7 +328,7 @@ if (entityCanStep())
                                     playSFX(sfxMenuSelect);
                                 }
                             }
-                            var mrc = instance_nearest(x, y, objMelodyResponseCannon);
+                            var mrc; mrc = instance_nearest(x, y, objMelodyResponseCannon);
                             with (mrc)
                             {
                                 event_user(EV_DEATH);

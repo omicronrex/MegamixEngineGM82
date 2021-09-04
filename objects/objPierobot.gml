@@ -59,7 +59,7 @@ if (entityCanStep())
         }
 
         stop = 0;
-        var gearActive = false;
+        var gearActive; gearActive = false;
         if (instance_exists(mygear))
         {
             with (mygear)

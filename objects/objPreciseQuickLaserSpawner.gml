@@ -113,7 +113,7 @@ if (!dead && !global.frozen && !global.timeStopped)
 {
     if (!phase)
     {
-        timer++;
+        timer+=1;
         if (timer >= delay)
         {
             phase = 1;
@@ -127,8 +127,8 @@ if (!dead && !global.frozen && !global.timeStopped)
         phase = 2;
 
         // spawn the actual laser
-        var sx = x;
-        var sy = y;
+        var sx; sx = x;
+        var sy; sy = y;
 
         // find the top left position of the laser spawner so we can spawn at it (basically remove the sprite x and y origin of the spawner)
         sx -= spriteXOffset * cos(degtorad(image_angle));
@@ -150,9 +150,9 @@ if (!dead && !global.frozen && !global.timeStopped)
             height = sprite_get_height(sprite);
         }
 
-        for (var i = 0; i < height; i++)
+        var i; for ( i = 0; i < height; i+=1)
         {
-            var laser = instance_create(sx, sy, objPreciseQuickLaser);
+            var laser; laser = instance_create(sx, sy, objPreciseQuickLaser);
             laser.image_xscale = 1;
             laser.image_angle = image_angle;
             laser.mySpeed = extendSpeed;
@@ -352,7 +352,7 @@ if (!dead && !global.frozen && !global.timeStopped && phase == 2 && (rotateSpeed
 {
     if (timer > 0)
     {
-        timer--;
+        timer-=1;
     }
     else
     {
@@ -398,8 +398,8 @@ if (!dead && !global.frozen && !global.timeStopped && phase == 2 && (rotateSpeed
         }
 
         // rotate + reposition the laser(s) to fit with the spawner
-        var lx = x;
-        var ly = y;
+        var lx; lx = x;
+        var ly; ly = y;
 
         // find the top left position of the laser spawner (basically remove the sprite x and y origin of the spawner)
         lx -= spriteXOffset * cos(degtorad(image_angle));
@@ -415,7 +415,7 @@ if (!dead && !global.frozen && !global.timeStopped && phase == 2 && (rotateSpeed
         }
 
         // rotate
-        for (var i = 0; i < laserCount; i++)
+        var i; for ( i = 0; i < laserCount; i+=1)
         {
             myLasers[i].image_angle = image_angle;
             myLasers[i].x = lx;

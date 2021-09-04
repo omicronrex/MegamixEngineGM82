@@ -2,13 +2,13 @@
 // argument0: 1 = focus on Mega Man instantaneously
 // Handles the camera
 
-var vx = 0;
-var vy = 0;
-var vn = 0;
-var fc = 0;
-var inx = argument0;
-var iny = argument0;
-var xsp = 0;
+var vx; vx = 0;
+var vy; vy = 0;
+var vn; vn = 0;
+var fc; fc = 0;
+var inx; inx = argument0;
+var iny; iny = argument0;
+var xsp; xsp = 0;
 
 global.prevXView = view_xview[0];
 global.prevYView = view_yview[0];
@@ -36,7 +36,7 @@ with (objMegaman)
             }
             else
             {
-                var ydiv = y - (view_yview + view_hview * 0.5);
+                var ydiv; ydiv = y - (view_yview + view_hview * 0.5);
                 if (abs(ydiv) >= (view_hview * 0.2))
                 {
                     vy += y - ((view_hview * 0.2) * sign(ydiv));
@@ -80,10 +80,10 @@ if (vn != 0)
 }
 
 // Stop at section borders
-var bound_left = max(global.sectionLeft, global.borderLockLeft),
-    bound_right = min(global.sectionRight, global.borderLockRight) - view_wview,
-    bound_top = max(global.sectionTop + global.quadMarginTop, global.borderLockTop),
-    bound_bottom = min(global.sectionBottom - global.quadMarginBottom, global.borderLockBottom) - view_hview;
+var bound_left; bound_left = max(global.sectionLeft, global.borderLockLeft);
+var bound_right;bound_right = min(global.sectionRight, global.borderLockRight) - view_wview;
+var bound_top;bound_top = max(global.sectionTop + global.quadMarginTop, global.borderLockTop);
+var bound_bottom;bound_bottom = min(global.sectionBottom - global.quadMarginBottom, global.borderLockBottom) - view_hview;
 
 view_xview = clamp(view_xview, bound_left, bound_right);
 view_yview = clamp(view_yview, bound_top, bound_bottom);

@@ -75,16 +75,16 @@ if (phase == 2)
         }
         else
         {
-            // var xs = viewX;
-            // var ys = viewY;
+            // var xs; xs = viewX;
+            // var ys; ys = viewY;
 
             // viewX = clamp(viewX + clamp((X - view_wview / 2) - viewX, -8, 8), global.sectionLeft, global.sectionRight - view_wview);
             // viewY = clamp(viewY + clamp((Y - view_hview / 2) - viewY, -8, 8), global.sectionTop, global.sectionBottom - view_hview);
 
             // if (xs != viewX or ys != viewY)
 
-            var xs = view_xview;
-            var ys = view_yview;
+            var xs; xs = view_xview;
+            var ys; ys = view_yview;
 
             playerCamera(0);
 

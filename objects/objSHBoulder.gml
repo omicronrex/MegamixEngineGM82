@@ -84,8 +84,8 @@ if (init)
 
     if (isStart)
     {
-        var i = 0;
-        var ref = self;
+        var i; i = 0;
+        var ref; ref = self;
         while (ref != noone)
         {
             i += 1;
@@ -178,7 +178,7 @@ applies_to=self
 /// SpawnBoulderProjectile
 if (customDrop <= 0)
     customDrop = objSHFallingBoulder;
-var i = instance_create(x, y, customDrop);
+var i; i = instance_create(x, y, customDrop);
 i.xspeed = dropXspeed;
 i.yspeed = dropYspeed;
 i.grav = dropGrav;
@@ -198,5 +198,5 @@ action_id=603
 applies_to=self
 */
 /// spawnParticle
-var i = instance_create(x, y, objStoneHeadParticle);
+var i; i = instance_create(x, y, objStoneHeadParticle);
 i.sprite_index = particleSprite;

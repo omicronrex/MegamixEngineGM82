@@ -62,7 +62,6 @@ saveLoadOptions(false);
 /// set up display ///
 
 setScreenSize(global.screensize);
-display_reset(0, global.vsync);
 
 //// Create other control objects ////
 instance_create(0, 0, objMusicControl);
@@ -80,7 +79,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// death -- restart
+/// death -=1 restart
 global.nextRoom = global.checkpoint;
 
 // game over
@@ -204,17 +203,7 @@ applies_to=self
 if(init && room == rmDisclaimer)
 {
     init=0;
-    if(parameter_count()>1)
-    {
-        var filename = "+" + parameter_string(1);
-        if(filename!="+" && stringEndsWith(filename,".room.gmx"))
-        {
 
-            var nrm = roomExternalLoad(filename);
-            goToLevel(nrm);
-            exit;
-        }
-    }
 }
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -244,19 +233,19 @@ applies_to=self
 */
 /// player input
 // Inputs
-
+var i;
 // Gamepad info
 xinputDeviceCount = 0;
-for (var i = 0; i < 4; i++)
+for (i = 0; i < 4; i+=1)
 {
-    if (gamepad_is_connected(i))
-        xinputDeviceCount++;
+    if (joystick_exists(i))
+        xinputDeviceCount+=1;
 }
-
-var n_connected = 0;
-for (var i = 0; i < gamepad_get_device_count(); i += 1)
+var i;
+var n_connected; n_connected = 0;
+for (i = 0; i < joystick_count(); i += 1)
 {
-    if (gamepad_is_connected(i))
+    if (joystick_exists(i))
         n_connected += 1;
 }
 n_connected = min(n_connected, global.playerCount);
@@ -294,20 +283,20 @@ for (i = 0; i < global.playerCount; i += 1)
 
     if (n_connected > 0)
     {
-        if (!gamepad_is_connected(jp))
+        if (!joystick_exists(jp))
         {
             jp += 4 - xinputDeviceCount;
         }
-        if (gamepad_is_connected(jp))
+        if (joystick_exists(jp))
         {
-            if (gamepad_axis_count(jp) >= 2)
+            if (joystick_axes(jp) >= 2)
             {
                 // Check D-Pad first
 
-                var dPad = false;
+                var dPad; dPad = false;
                 if (joystick_has_pov(jp))
                 {
-                    var angle = joystick_pov(jp);
+                    var angle; angle = joystick_pov(jp);
                     if (angle != -1)
                         dPad = true;
                     switch (angle)
@@ -346,8 +335,8 @@ for (i = 0; i < global.playerCount; i += 1)
                 // Analog Stick position
                 if (!dPad)
                 {
-                    var axX = gamepad_axis_value(jp, gp_axislh);
-                    var axY = gamepad_axis_value(jp, gp_axislv);
+                    var axX; axX = joystick_axis(jp, gp_axislh);
+                    var axY; axY = joystick_axis(jp, gp_axislv);
                     if ((abs(axY) > 0.4) || (abs(axX) > 0.36))
                     {
                         gamepadStick = point_direction(0, 0, axX, axY);
@@ -362,17 +351,17 @@ for (i = 0; i < global.playerCount; i += 1)
                     }
                 }
             }
-            global.keyJump[i] += gamepad_button_check(jp,
+            global.keyJump[i] += joystick_check_button(jp,
                 global.joystick_jumpKey[i]);
-            global.keyShoot[i] += gamepad_button_check(jp,
+            global.keyShoot[i] += joystick_check_button(jp,
                 global.joystick_shootKey[i]);
-            global.keySlide[i] += gamepad_button_check(jp,
+            global.keySlide[i] += joystick_check_button(jp,
                 global.joystick_slideKey[i]);
-            global.keyPause[i] += gamepad_button_check(jp,
+            global.keyPause[i] += joystick_check_button(jp,
                 global.joystick_pauseKey[i]);
-            global.keyWeaponSwitchLeft[i] += gamepad_button_check(jp,
+            global.keyWeaponSwitchLeft[i] += joystick_check_button(jp,
                 global.joystick_weaponSwitchLeftKey[i]);
-            global.keyWeaponSwitchRight[i] += gamepad_button_check(jp,
+            global.keyWeaponSwitchRight[i] += joystick_check_button(jp,
                 global.joystick_weaponSwitchRightKey[i]);
         }
     }
@@ -402,7 +391,7 @@ applies_to=self
 /// freeze / unfreeze game objects
 if (global.frozen)
 {
-    var len = array_length_1d(obj);
+    var len; len = array_length_1d(obj);
     for (i = 0; i < len; i += 1)
     {
         with (obj[i])
@@ -433,7 +422,7 @@ if (global.frozen)
 }
 else if (setfrozen) // Stop Freeze
 {
-    var len = array_length_1d(obj);
+    var len; len = array_length_1d(obj);
     for (i = 0; i < len; i += 1)
     {
         with (obj[i])
@@ -511,7 +500,7 @@ for (i = 0; i < global.playerCount; i += 1)
             && !global.respawnTimer[i])
         {
             // Check no existing player already has this id
-            var nogo = false;
+            var nogo; nogo = false;
             with (objMegaman)
             {
                 if (playerID == i)
@@ -532,8 +521,8 @@ for (i = 0; i < global.playerCount; i += 1)
             playSFX(sfxMenuSelect);
 
             // determine respawn health:
-            var donators = 1;
-            var respawn_health = 0;
+            var donators; donators = 1;
+            var respawn_health; respawn_health = 0;
 
             with (objMegaman)
             {
@@ -744,7 +733,7 @@ if (global.inGame)
     var str, slash, totalPickups;
 
     totalPickups = ds_list_size(pickups);
-    for (var i = 0; i <= totalPickups; i += 1)
+    for (i = 0; i <= totalPickups; i += 1)
     {
         str = ds_list_find_value(pickups, i);
         if (!is_string(str))
@@ -763,8 +752,8 @@ if (global.inGame)
     }
 
     // Place section borders
-    for (var v = 0; v < room_height; v += global.quadHeight)
-        for (var i = 0; i < room_width; i += global.quadWidth)
+    for (v = 0; v < room_height; v += global.quadHeight)
+        for (i = 0; i < room_width; i += global.quadWidth)
         {
             with (instance_create(i, v, objStopScrollingVertical))
             {
@@ -838,7 +827,7 @@ if (global.inGame)
             spawn_y = global.checkpointY;
 
             // reset health
-            for (var i = 0; i < global.playerCount; i++)
+            for (i = 0; i < global.playerCount; i+=1)
             {
                 global.playerHealth[i] = 28;
             }
@@ -863,7 +852,7 @@ if (global.inGame)
     }
 
     // Create players
-    for (var i = 0; i < global.playerCount; i += 1)
+    for (i = 0; i < global.playerCount; i += 1)
     {
         if (global.playerHealth[i] <= 0)
         {
@@ -960,7 +949,7 @@ else if (global.decrementLivesOnRoomEnd)
     // lose a life
     if (global.inGame)
     {
-        global.livesRemaining--;
+        global.livesRemaining-=1;
     }
     global.decrementLivesOnRoomEnd = false;
     if (global.livesRemaining < 0)
@@ -983,7 +972,7 @@ global.lockBuster = false;
 
 global.timeStopped = false;
 
-application_surface_draw_enable(true);
+//application_surface_draw_enable(true);
 
 // forcibly reset control locks
 globalLockReset();
@@ -995,8 +984,8 @@ applies_to=self
 */
 if (showhealth)
 {
-    var dx = view_xview + 16;
-    var dy = view_yview + 17;
+    var dx; dx = view_xview + 16;
+    var dy; dy = view_yview + 17;
 
     draw_enable_alphablend(false);
 
@@ -1027,10 +1016,10 @@ if (showhealth)
         else
         {
             // normal healthbar
-            var pcol = make_color_rgb(252, 228, 160);
-            var scol = c_white;
+            var pcol; pcol = make_color_rgb(252, 228, 160);
+            var scol; scol = c_white;
 
-            // low health -- red color
+            // low health -=1 red color
             if (global.playerHealth[z] <= global.respawnDonateThreshold && global.playerCount > 1)
             {
                 scol = pcol;
@@ -1047,7 +1036,7 @@ if (showhealth)
                     1, 1, 0, scol, 1);
             }
 
-            var display = true;
+            var display; display = true;
 
             // Weapons
             if (global.weapon[z] != 0) // Weapon energy
@@ -1095,21 +1084,21 @@ if (showhealth)
         dx += 24;
     }
 
-    var bossFade = 0;
-    var healthIndex = 0;
+    var bossFade; bossFade = 0;
+    var healthIndex; healthIndex = 0;
     with (prtBoss) // Boss healthbars
     {
         if (!quickSpawn&&drawHealthBar && healthParent == -1)
         {
-            var dxx = dx + ((healthIndex - 1) * 8); // Multibosses
+            var dxx; dxx = dx + ((healthIndex - 1) * 8); // Multibosses
 
             // Initial black bg for healthbar
             draw_sprite_ext(sprHealthbarBackground, 0, dxx, dy, 1, 1, 0, c_black, 1);
 
             // Choose color to draw
-            var currentExtraHealthBar = 0;
+            var currentExtraHealthBar; currentExtraHealthBar = 0;
             var myPrimaryColor, mySecondaryColor;
-            var _currentHealth = 0;
+            var _currentHealth; _currentHealth = 0;
 
             if (fillingHealthBar) //Intro health bar
             {
@@ -1181,8 +1170,8 @@ if (showhealth)
     }
 
     // reset position
-    var dx = view_xview + 16;
-    var dy = view_yview + 17;
+    var dx; dx = view_xview + 16;
+    var dy; dy = view_yview + 17;
 
     // Keys
     for (i = 0; i < global.keyNumber; i += 1)

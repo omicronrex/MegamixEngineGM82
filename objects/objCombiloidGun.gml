@@ -36,11 +36,11 @@ event_inherited();
 
 if (entityCanStep())
 {
-    attackTimer++;
+    attackTimer+=1;
 
     if (image_index >= 5 && image_index < 7 && attackTimer >= 8 && shotsFired < 7)
     {
-        image_index++;
+        image_index+=1;
         attackTimer = 0;
     }
     else if (image_index == 7 && attackTimer >= 8 && shotsFired < 7)
@@ -54,14 +54,14 @@ if (entityCanStep())
     {
         if (shotsFired < 0 || shotsFired > 5 && shotsFired < 7)
         {
-            image_index--;
+            image_index-=1;
             attackTimer = 0;
         }
         else if (shotsFired >= 7)
         {
             if (image_index > 5)
             {
-                image_index--;
+                image_index-=1;
             }
             else if (image_index < 5)
             {
@@ -80,7 +80,7 @@ if (entityCanStep())
         else if (shotsFired != 5)
         {
             playSFX(sfxEnemyShootClassic);
-            var inst = instance_create(x, y, objCombiloidProjectile);
+            var inst; inst = instance_create(x, y, objCombiloidProjectile);
             switch (image_index)
             {
                 case 0:
@@ -116,13 +116,13 @@ if (entityCanStep())
             }
             inst.depth = 0;
         }
-        shotsFired++;
+        shotsFired+=1;
     }
     if (shotsFired >= 0 && attackTimer == 24)
     {
         if (shotsFired < 5)
         {
-            image_index++;
+            image_index+=1;
         }
         attackTimer = 0;
     }

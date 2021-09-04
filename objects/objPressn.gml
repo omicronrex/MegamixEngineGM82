@@ -35,7 +35,7 @@ if (entityCanStep())
             image_index = 0;
             if (waitTimer > 45)
                 image_index = 1;
-            waitTimer--;
+            waitTimer-=1;
             grav = 0.25;
             if (instance_exists(target) && waitTimer < 0)
             {
@@ -49,7 +49,7 @@ if (entityCanStep())
             if (y < view_yview[0] + 4)
                 phase = 2;
         case 2: // hovering
-            waitTimer--;
+            waitTimer-=1;
             image_index = 2 + (waitTimer div 4) mod 2;
             if (phase == 2)
                 yspeed = 0;
@@ -71,7 +71,7 @@ if (entityCanStep())
 
                 // fling self at target
                 grav = 0.25;
-                var airTime = sqrt(2 * max(1 + abs(x - targetX) / 1.8, targetY - y) / grav)
+                var airTime; airTime = sqrt(2 * max(1 + abs(x - targetX) / 1.8, targetY - y) / grav)
                 // trust calculus
                 ;
                 xspeed = (targetX - x) * ln(airDrag) / (power(airDrag, airTime) - 1);

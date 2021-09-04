@@ -3,8 +3,8 @@
 // outside of EV_GUARD/EV_WEAPON_SETDAMAGE
 // note: any weakness set in the events mentioned above will override these changes
 
-var i = indexOf(specialDamageValues, argument[0]);
-var addNew = false;
+var i; i = indexOf(specialDamageValues, argument[0]);
+var addNew; addNew = false;
 if (i == -1)
 {
     i = specialDamageValuesTotal * 2;

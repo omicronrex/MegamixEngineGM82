@@ -4,9 +4,9 @@
 
 assert(object_index == objMegaman, "playerIsLocked can only be called from an instance of objMegaman");
 
-for (var i = 0; i < argument_count; i++)
+var i; for (i = 0; i < argument_count; i+=1)
 {
-    var lock = argument[i];
+    var lock; lock = argument[i];
     switch (lock)
     {
         case PL_LOCK_GROUND:

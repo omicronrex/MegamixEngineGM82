@@ -99,7 +99,7 @@ applies_to=self
 */
 if (!dead)
 {
-    for (var i = 0; i < image_xscale; i++)
+    var i; for ( i = 0; i < image_xscale; i+=1)
     {
         draw_sprite(sprite_index, 0, round(x + i * 16), round(y));
     }

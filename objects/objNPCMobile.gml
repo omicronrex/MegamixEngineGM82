@@ -183,7 +183,7 @@ if (!global.frozen && !global.timeStopped && !dead)
             }
             if (ground && checkSolid(0, 2))
             {
-                // note -- moving platforms and jumpthrough platforms not resolved.
+                // note -=1 moving platforms and jumpthrough platforms not resolved.
                 if (instance_exists(target))
                 {
                     sec_left = global.sectionLeft;

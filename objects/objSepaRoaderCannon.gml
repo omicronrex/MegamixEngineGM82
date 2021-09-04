@@ -25,7 +25,7 @@ event_inherited();
 
 if (entityCanStep())
 {
-    var ang = point_direction(x, y, x - 5 * image_xscale, y - 8 * image_yscale);
+    var ang; ang = point_direction(x, y, x - 5 * image_xscale, y - 8 * image_yscale);
     yspeed = -1.5;
     xspeed = -1.5 * image_xscale;
     animFrame += 0.2;
@@ -38,9 +38,9 @@ if (entityCanStep())
     if (timer > 30)
     {
         timer = 0;
-        var i = instance_create(x + 5 * image_xscale, y + 8 * image_yscale, objEnemyBullet);
+        var i; i = instance_create(x + 5 * image_xscale, y + 8 * image_yscale, objEnemyBullet);
         playSFX(sfxEnemyShootClassic);
-        var angle = point_direction(x, y, x + 5 * image_xscale, y + 8 * image_yscale);
+        var angle; angle = point_direction(x, y, x + 5 * image_xscale, y + 8 * image_yscale);
         if (instance_exists(target) && sign(target.x - (x + 5 * image_xscale)) == image_xscale && sign(target.y - (y + 8 * image_yscale)) == image_yscale)
         {
             angle = point_direction(i.x, i.y, target.x, target.y);

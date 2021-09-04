@@ -102,7 +102,7 @@ if (entityCanStep())
             {
                 // jump
                 phase = 3;
-                yspeed = -3.8; // <-- jump speed here
+                yspeed = -3.8; // <-=1 jump speed here
                 imgIndex = 6;
                 animBack = false;
             }
