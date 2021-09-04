@@ -13,6 +13,8 @@ globalLockInit();
 // extension initialization
 cleanMem('init');
 
+sound_add_directory("data\sound\",".wav",0,1)
+
 // Keys
 global.keyLeft[4] = 0;
 global.keyRight[4] = 0;
