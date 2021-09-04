@@ -12,7 +12,7 @@ rmOptions
 rmGameOver
 rmCredits
 rmWeaponGet
-rmUnitTest
+
 rmShop
 rmCastleIntro
 lvlTestHallTemp

@@ -13,7 +13,6 @@
 	|rmGameOver
 	|rmCredits
 	|rmWeaponGet
-	|rmUnitTest
 	|rmShop
 	|rmCastleIntro
 +Test Rooms

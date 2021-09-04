@@ -280,36 +280,6 @@
 		|scriptExecuteNargs
 		|executeGMLFunction
 		|setInstanceVariable
-	+Unit Tests
-		+Framework
-			|unitCase
-			+Suite
-				|unitSuiteBegin
-				|unitSuiteTick
-			+Actions
-				|unitExecute
-				|unitBegin
-				|unitTick
-				|unitEnd
-				|unitCleanUp
-			+Results
-				|unitCheck
-				|unitRequire
-				|unitRequireEquals
-				|unitValid
-				|unitCritical
-		+Helpers
-			|testSuiteBossDoorsHelperMockInput
-		|testSuiteBasic
-		|testSuiteHelpfulFunctions
-		|testSuiteStringFunctions
-		|testSuiteRecording
-		|testSuiteReflection
-		|testSuiteBasicExternalLoad
-		|testSuiteObjectSetter
-		|testSuiteBasicMovement
-		|testSuiteEntities
-		|testSuiteBossDoors
 	|scrNoEffect
 	|eventExecute
 	|combineObjects
