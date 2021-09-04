@@ -274,3 +274,18 @@
 	|scrNoEffect
 	|eventExecute
 	|combineObjects
++Studio Compatibility
+	|audio_stop_sound
+	|audio_is_playing
+	|make_colour_rgb
+	|make_colour_hsv
+	|draw_set_colour
+	|draw_text_colour
+	|audio_resume_all
+	|audio_sound_gain
+	|audio_stop_all
+	|audio_play_sound
+	|array_length_1d
+	|array_length_2d
+	|array_height_2d
+	|draw_rectangle_colour

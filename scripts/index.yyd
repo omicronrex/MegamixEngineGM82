@@ -224,6 +224,12 @@ stringExecutePartial
 scrNoEffect
 eventExecute
 combineObjects
+audio_stop_sound
+audio_is_playing
+audio_stop_all
+audio_sound_gain
+draw_text_colour
+audio_resume_all
 gmeCreate
 gmeLoad
 gmeClose
@@ -239,3 +245,13 @@ gmeSetStereoDepth
 gmeSetTempo
 gmeIsStopped
 gmeIsPlaying
+draw_set_colour
+make_colour_rgb
+audio_play_sound
+array_length_1d
+array_length_2d
+
+
+make_colour_hsv
+array_height_2d
+draw_rectangle_colour
