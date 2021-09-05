@@ -380,9 +380,6 @@ for (i = 0; i < global.playerCount; i += 1)
     global.keyWeaponSwitchRightPressed[i] = global.keyWeaponSwitchRight[i]
         && !keyWeaponSwitchRightHold;
 }
-
-// recorded controls dubbing:
-recordInputHandle();
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603

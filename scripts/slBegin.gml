@@ -33,7 +33,8 @@ else
     while (!file_text_eof(file))
         file_contents += file_text_readln(file) + chr(10);
     file_text_close(file);
-    global.sl_map = json_decode(file_contents);
+    global.sl_map = ds_map_create()
+    ds_map_read(global.sl_map,file_contents);
     if (global.sl_map == -1)
         global.sl_error = 2;
 }

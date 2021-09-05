@@ -265,39 +265,7 @@ if (mode == 0)
 }
 else if (mode == 1)
 {
-    // recording menu
-    if (global.keyPausePressed[playerID])
-    {
-        switch (option)
-        {
-            case 0:
-            case 1:
-                var filename; filename = get_save_filename("Mega Man Recording|*.mrc", "");
-                if (filename != "")
-                {
-                    if (option == 0)
-                    {
-                        recordInputToFile(filename);
-                    }
-                    else if (option == 1)
-                    {
-                        objGlobalControl.fadetimer = -5;
-                        objGlobalControl.fadetimer -= 1; // I'm not sure why but recording requires an extra frame to sync up.
-                        objGlobalControl.fadeAlpha = 1;
-                        recordInputToFile(filename, global.checkpoint);
-                    }
-                    instance_destroy();
-                    exit;
-                }
-                playSFX(sfxError);
-                break;
-            case 2:
-                option = 6;
-                mode = 0;
-                playSFX(sfxMenuSelect);
-                exit;
-        }
-    }
+
 }
 
 // close the debug menu

@@ -19,7 +19,8 @@ if (global.sl_save)
 }
 else
 {
-    global.sl_map = json_decode(argument[0]);
+    global.sl_map = ds_map_create()
+    ds_map_read(global.sl_map,argument[0]);
     if (global.sl_map == -1)
         global.sl_error = 2;
 }

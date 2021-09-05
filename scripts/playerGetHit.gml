@@ -81,6 +81,4 @@ if (!isHit)
         }
     }
 
-    // error-checking for recording
-    recordInputFidelityMessage("Hit (" + string(playerID) + ")");
 }

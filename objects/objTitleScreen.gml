@@ -35,15 +35,6 @@ if (canProceed)
         exit;
     }
 
-    demoTimer+=1
-    if ((demoTimer) mod 500 == 495)
-    {
-        if (!recordInputPlayback(
-            choose("Recordings/demoPharaohMan.mrc",
-            "Recordings/demoHoneyWoman.mrc")))
-            canProceed = false;
-        exit;
-    }
     dir = global.keyDownPressed[0] - global.keyUpPressed[0];
     if (dir != 0)
     {

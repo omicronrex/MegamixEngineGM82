@@ -213,12 +213,7 @@ if (!selected)
         }
         else if (myRoom == -2)
         {
-            // play recording
-            var filename; filename = get_open_filename("Mega Man Recording|*.mrc", "");
-            if (filename != "")
-            {
-                recordInputPlayback(filename);
-            }
+            show_message("recording was removed")
         }
         else if (myRoom == -3)
         {

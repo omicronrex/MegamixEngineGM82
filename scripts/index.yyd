@@ -213,13 +213,13 @@ playerLockLocalInit
 
 
 getRoom
-recordInputToFile
-recordInputPlayback
-saveLoadRecordInput
-recordInputHandle
-recordInputAppendFrame
-recordInputReadFrame
-recordInputFidelityMessage
+
+
+
+
+
+
+
 stringExecutePartial
 scrNoEffect
 eventExecute
@@ -260,3 +260,4 @@ tile_get_ids
 is_array
 roomExternalGetName
 asset_get_type
+asset_get_index

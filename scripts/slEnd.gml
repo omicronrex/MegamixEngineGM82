@@ -20,7 +20,7 @@ if (global.sl_save)
             ds_map_destroy(global.sl_map);
         return -1;
     }
-    file_text_write_string(file, json_encode(global.sl_map));
+    file_text_write_string(file, ds_map_write(global.sl_map));
     file_text_close(file);
     show_debug_message("Saving completed without errors.");
 }

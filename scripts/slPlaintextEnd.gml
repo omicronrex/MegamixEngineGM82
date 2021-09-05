@@ -14,7 +14,7 @@ if (global.sl_error)
 if (global.sl_save)
 {
     print("Saved to plaintext.", WL_VERBOSE);
-    return json_encode(global.sl_map);
+    return ds_map_write(global.sl_map);
 }
 else
 {

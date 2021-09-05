@@ -57,9 +57,6 @@ if (global.weapon[playerID] != oldWeapon)
     // For the dashing effect of Tengu Blade to not activate mid-slide.
     notDashing = false;
 
-    // error-checking for recording/playback
-    recordInputFidelityMessage(string(playerID) + ":" + object_get_name(global.weaponObject[global.weapon[playerID]]));
-
     drawWeaponIcon = 32;
     playerPalette();
 

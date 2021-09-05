@@ -21,7 +21,6 @@ if (global.playerHealth[playerID] <= 0)
     if (!deathTimer)
     {
         tpk = instance_number(objMegaman) <= 1;
-        recordInputFidelityMessage("Death " + string(playerID));
 
         // stop audio and play death sound
         if ((tpk && !audio_is_playing(deathSFX) && deathTimer == 0)
