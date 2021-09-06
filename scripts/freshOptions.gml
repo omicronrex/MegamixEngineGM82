@@ -48,12 +48,12 @@ for (i = 0; i < 4; i += 1)
     global.weaponSwitchLeftKey[i] = ord('A');
     global.weaponSwitchRightKey[i] = ord('S');
 
-    global.joystick_jumpKey[i] = gp_face1;
-    global.joystick_shootKey[i] = gp_face3;
-    global.joystick_slideKey[i] = gp_face4;
-    global.joystick_pauseKey[i] = gp_start;
-    global.joystick_weaponSwitchLeftKey[i] = gp_shoulderlb;
-    global.joystick_weaponSwitchRightKey[i] = gp_shoulderrb;
+    global.joystick_jumpKey[i] = 0;
+    global.joystick_shootKey[i] = 3;
+    global.joystick_slideKey[i] = 4;
+    global.joystick_pauseKey[i] = 9;
+    global.joystick_weaponSwitchLeftKey[i] = 11;
+    global.joystick_weaponSwitchRightKey[i] = 12;
 }
 
 global.leftKey[1] = vk_numpad4;

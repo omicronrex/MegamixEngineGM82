@@ -261,3 +261,4 @@ is_array
 roomExternalGetName
 asset_get_type
 asset_get_index
+scriptExecuteNargs

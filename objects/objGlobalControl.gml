@@ -920,11 +920,11 @@ if (global.inGame)
 }
 
 // if the new room's view size is different, adjust the screen size accordingly
-if (surface_get_width(application_surface) != view_wview[0] * global.screensize
+/*if (surface_get_width(application_surface) != view_wview[0] * global.screensize
     || surface_get_height(application_surface) != view_hview[0] * global.screensize)
 {
     setScreenSize(global.screensize, false);
-}
+}    */
 
 // next room should not launch a new level
 global.beginStageOnRoomBegin = false;

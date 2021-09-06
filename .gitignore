@@ -1,5 +1,6 @@
-# files listed here will not be committed.
-
+game_errors.log
 gm_ttt_*
 *.swp
+*.sav
+*.cfg
 cache

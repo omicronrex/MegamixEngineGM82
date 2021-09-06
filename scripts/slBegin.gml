@@ -23,16 +23,7 @@ if (global.sl_save)
 else
 {
     print("Loading from " + global.sl_filename, WL_VERBOSE);
-    var file; file = file_text_open_read(global.sl_filename);
-    if (file == -1)
-    {
-        global.sl_error = 1;
-        exit;
-    }
-    var file_contents; file_contents = "";
-    while (!file_text_eof(file))
-        file_contents += file_text_readln(file) + chr(10);
-    file_text_close(file);
+    file_contents=file_text_read_all(global.sl_filename)
     global.sl_map = ds_map_create()
     ds_map_read(global.sl_map,file_contents);
     if (global.sl_map == -1)

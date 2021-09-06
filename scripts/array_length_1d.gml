@@ -1,1 +1,1 @@
-show_error("array_length_1d",0)
+return ds_list_size(argument0)

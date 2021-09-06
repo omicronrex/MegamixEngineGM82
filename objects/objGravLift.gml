@@ -20,7 +20,7 @@ applies_to=self
 if (insideSection(x, y) && !global.frozen)
 {
     // create map if it doesn't exit
-    if (global.gravityLiftXSpeedMap == -1 || !ds_exists(global.gravityLiftXSpeedMap, ds_type_map))
+    if (global.gravityLiftXSpeedMap == -1)
     {
         global.gravityLiftXSpeedMap = ds_map_create();
         global.gravityLiftBulletMap = ds_map_create();
@@ -36,11 +36,11 @@ if (insideSection(x, y) && !global.frozen)
     with (objMegaman)
     {
         // first entering a grav lift room: add to the map and cut yspeed:
-        if (is_undefined(global.gravityLiftXSpeedMap[? id]))
+        if (is_undefined(ds_map_get(global.gravityLiftXSpeedMap,id)))
         {
-            global.gravityLiftXSpeedMap[? id] = 0;
-            global.gravityLiftLockMap[? id] = 0;
-            global.gravityLiftLockJumpMap[? id] = 0;
+            ds_map_set(global.gravityLiftXSpeedMap,id,0);
+            ds_map_set(global.gravityLiftLockMap,id,0);
+            ds_map_set(global.gravityLiftLockJumpMap,id,0);
             yspeed /= 4;
         }
 
@@ -50,30 +50,31 @@ if (insideSection(x, y) && !global.frozen)
         // no jumping in rising lifts either (except while climbing)
         if (gravDir * other.liftSpeed < 0 && !climbing)
         {
-            if (!global.gravityLiftLockJumpMap[? id])
-                global.gravityLiftLockJumpMap[? id] = lockPoolLock(localPlayerLock[PL_LOCK_JUMP]);
+            if (!ds_map_get(global.gravityLiftLockJumpMap,id))
+                ds_map_set(global.gravityLiftLockJumpMap,id,lockPoolLock(localPlayerLock[PL_LOCK_JUMP]));
         }
         else
-            global.gravityLiftLockJumpMap[? id] = lockPoolRelease(localPlayerLock[PL_LOCK_JUMP], global.gravityLiftLockJumpMap[? id]);
+            ds_map_set(global.gravityLiftLockJumpMap,id,lockPoolRelease(localPlayerLock[PL_LOCK_JUMP], ds_map_get(global.gravityLiftLockJumpMap,id)));
 
         // lock movement except when on the ground:
         if (ground)
         {
             playLandSound = 0;
-            if (global.gravityLiftLockMap[? id])
-                lockPoolRelease(localPlayerLock[PL_LOCK_MOVE], localPlayerLock[PL_LOCK_GRAVITY], global.gravityLiftLockMap[? id]);
-            global.gravityLiftLockMap[? id] = false;
+            if (ds_map_get(global.gravityLiftLockMap,id))
+                lockPoolRelease(localPlayerLock[PL_LOCK_MOVE], localPlayerLock[PL_LOCK_GRAVITY], ds_map_get(global.gravityLiftLockMap,id));
+            ds_map_set(global.gravityLiftLockMap,id,false);
         }
-        else if (!global.gravityLiftLockMap[? id])
+        else if (!ds_map_get(global.gravityLiftLockMap,id))
         {
-            global.gravityLiftLockMap[? id] =
+            ds_map_set(global.gravityLiftLockMap,id,
                 lockPoolLock(localPlayerLock[PL_LOCK_MOVE],
-                localPlayerLock[PL_LOCK_GRAVITY]);
+                localPlayerLock[PL_LOCK_GRAVITY])
+            );
         }
         if (climbing)
         {
             // mega man can climb unaffected by lift
-            global.gravityLiftXSpeedMap[? id] = 0;
+            ds_map_set(global.gravityLiftXSpeedMap,id,0);
             xspeed = 0;
         }
         else
@@ -115,19 +116,19 @@ if (insideSection(x, y) && !global.frozen)
             {
                 if (playerID == other.playerID)
                 {
-                    if (is_undefined(global.gravityLiftBulletMap[? id]))
+                    if (is_undefined(ds_map_get(global.gravityLiftBulletMap,id)))
                     {
-                        global.gravityLiftXSpeedMap[? other.id] -= sign(xspeed) * 0.5;
+                        ds_map_set(global.gravityLiftXSpeedMap,other.id,ds_map_get(global.gravityLiftXSpeedMap,other.id) - sign(xspeed) * 0.5)
                     }
-                    global.gravityLiftBulletMap[? id] = 0;
+                    ds_map_set(global.gravityLiftBulletMap,id,0);
                 }
             }
 
             if (ground && other.liftSpeed * gravDir > 0) // walking (downward lifts)
-                global.gravityLiftXSpeedMap[? id] = xspeed / 2;
+                ds_map_set(global.gravityLiftXSpeedMap,id,xspeed / 2);
             else // horizontal momentum
             {
-                shiftObject(global.gravityLiftXSpeedMap[? id], 0, true);
+                shiftObject(ds_map_get(global.gravityLiftXSpeedMap,id), 0, true);
                 xspeed = 0;
             }
 
@@ -137,7 +138,7 @@ if (insideSection(x, y) && !global.frozen)
                 && !position_meeting(x, y, objSectionArrowLeft) && !position_meeting(x, y, objSectionArrowRight)) || xcoll != 0)
             {
                 x = clamp(x, view_xview[0] + screenMargin, view_xview[0] + view_wview[0] - screenMargin);
-                global.gravityLiftXSpeedMap[? id] = 0;
+                ds_map_set(global.gravityLiftXSpeedMap,id,0);
             }
         }
     }
@@ -154,10 +155,9 @@ if (global.gravityLiftXSpeedMap != -1)
     {
         with (objMegaman)
         {
-            lockPoolRelease(global.gravityLiftLockMap[? id]);
-            lockPoolRelease(global.gravityLiftLockJumpMap[? id]);
+            lockPoolRelease(ds_map_get(global.gravityLiftLockMap,id));
+            lockPoolRelease(ds_map_get(global.gravityLiftLockJumpMap,id));
         }
-        if (ds_exists(global.gravityLiftXSpeedMap, ds_type_map))
         {
             ds_map_destroy(global.gravityLiftXSpeedMap);
             ds_map_destroy(global.gravityLiftBulletMap);

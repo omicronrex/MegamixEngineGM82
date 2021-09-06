@@ -279,3 +279,4 @@
 	|tile_get_ids
 	|is_array
 	|asset_get_index
+	|scriptExecuteNargs
