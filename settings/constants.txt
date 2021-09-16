@@ -288,3 +288,5 @@ WL_SHOW=2
 gravAccel=0.25
 waterAccelMod=0.57
 MAX_SLOPE=2
+gp_axislh=0
+gp_axislv=1

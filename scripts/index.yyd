@@ -262,3 +262,4 @@ roomExternalGetName
 asset_get_type
 asset_get_index
 scriptExecuteNargs
+ds_map_read_safe

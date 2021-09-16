@@ -20,6 +20,8 @@ global.songMemory = -1;
 
 // Music volume
 sound_kind_volume(1, global.levelVolume * (global.musicvolume * 0.01));
+
+sound_index=noone
 #define Other_5
 /*"/*'/**//* YYD ACTION
 lib_id=1

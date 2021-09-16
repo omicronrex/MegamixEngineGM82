@@ -4,6 +4,7 @@ global.newLine = "
 ";
 global.nextRoom = -1;
 global.previousRoom=-1;
+global.tempSongData=-1
 
 // subsystem initialization
 mathTableSetup();

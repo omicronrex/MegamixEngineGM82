@@ -25,7 +25,7 @@ else
     print("Loading from " + global.sl_filename, WL_VERBOSE);
     file_contents=file_text_read_all(global.sl_filename)
     global.sl_map = ds_map_create()
-    ds_map_read(global.sl_map,file_contents);
+    ds_map_read_safe(global.sl_map,file_contents);
     if (global.sl_map == -1)
         global.sl_error = 2;
 }

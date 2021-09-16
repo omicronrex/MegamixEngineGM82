@@ -34,15 +34,6 @@ ds_list_add(roomnames, "@Character Select...");
 ds_list_add(roomlist, rmCharacterSelect);
 arrayAppend(nonLevels, rmCharacterSelect);
 
-ds_list_add(roomlist, rmUnitTest);
-arrayAppend(nonLevels, rmUnitTest);
-ds_list_add(roomnames, "@Unit Tests");
-
-ds_list_add(roomlist, -1);
-ds_list_add(roomnames, "@Load External...");
-
-ds_list_add(roomlist, -2);
-ds_list_add(roomnames, "@Play Recording...");
 
 // Get lvl-rooms
 for (i = 0; i <= lr; i += 1)

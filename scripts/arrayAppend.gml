@@ -1,4 +1,4 @@
 /// arrayAppend(array, value)
 // appends given value to the end of the array
 
-show_error("arrayAppend",0)
+ds_list_add(argument0,argument1)
